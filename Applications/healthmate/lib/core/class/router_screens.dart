@@ -1,10 +1,12 @@
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/features/splash/presentation/splash_init_screen.dart';
 import 'package:healthmate/features/splash/presentation/splash_screen.dart';
+import 'package:healthmate/features/splash/presentation/splash_screen_doctor.dart';
 
 abstract class Routing {
   static const KsplashinitScreen = '/';
   static const KsplashScreen = '/splashscreen';
+  static const Ksplashscreendoctor = '/splashscreendoctor';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -14,6 +16,10 @@ abstract class Routing {
       GoRoute(
         path: KsplashScreen,
         builder: (context, state) => const SplashScreen(),
+      ),
+      GoRoute(
+        path: Ksplashscreendoctor,
+        builder: (context, state) => const SplashScreenDoctor(),
       ),
     ],
   );
