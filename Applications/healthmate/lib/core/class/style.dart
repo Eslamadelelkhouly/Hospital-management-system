@@ -7,4 +7,9 @@ abstract class StylingSystem {
     fontWeight: FontWeight.w600,
     color: Colors.white,
   );
+  static TextStyle textStylehintext = GoogleFonts.ibmPlexSansArabic(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    color: Colors.black,
+  );
 }

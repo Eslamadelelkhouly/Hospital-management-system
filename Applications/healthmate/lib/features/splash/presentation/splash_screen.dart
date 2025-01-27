@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/class/color_style.dart';
@@ -17,12 +18,14 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Future.delayed(const Duration(seconds: 1), () {
-        GoRouter.of(context).pushReplacement(Routing.Ksplashscreendoctor);
+        GoRouter.of(context).push(Routing.Ksplashscreendoctor);
       });
     });
-    return Scaffold(
-      backgroundColor: ColorSystem.kPrimaryColor,
-      body: const SplashScreenBody(),
+    return Animate(
+      child: Scaffold(
+        backgroundColor: ColorSystem.kPrimaryColor,
+        body: const SplashScreenBody(),
+      ),
     );
   }
 }
