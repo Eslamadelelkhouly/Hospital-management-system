@@ -14,7 +14,7 @@ class _SplashInitScreenState extends State<SplashInitScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 30), () {
+    Future.delayed(const Duration(milliseconds: 40), () {
       GoRouter.of(context).pushReplacement(Routing.KsplashScreen);
     });
   }

@@ -1,6 +1,8 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/core/class/style.dart';
+import 'package:healthmate/features/splash/presentation/widgets/splash_slider_widget.dart';
 
 class SplashScreenBodyDoctor extends StatelessWidget {
   const SplashScreenBodyDoctor({super.key});
@@ -28,6 +30,10 @@ class SplashScreenBodyDoctor extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(
+            height: height * 0.1,
+          ),
+          SplashSliderWidget(),
         ],
       ),
     );
