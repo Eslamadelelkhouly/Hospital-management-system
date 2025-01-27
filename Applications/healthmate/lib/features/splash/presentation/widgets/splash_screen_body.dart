@@ -19,7 +19,7 @@ class SplashScreenBody extends StatelessWidget {
               const SlideEffect(
                 begin: Offset(0, -3),
                 end: Offset(0, 0),
-                duration: Duration(seconds: 2),
+                duration: Duration(seconds: 1),
                 curve: Curves.easeInOut,
               ),
             ],
@@ -36,9 +36,9 @@ class SplashScreenBody extends StatelessWidget {
               const FadeEffect(),
               const ScaleEffect(),
               const SlideEffect(
-                begin: Offset(0, 3),
+                begin: Offset(0, 10),
                 end: Offset(0, 0),
-                duration: Duration(seconds: 2),
+                duration: Duration(seconds: 1),
                 curve: Curves.easeInOut,
               ),
             ],
