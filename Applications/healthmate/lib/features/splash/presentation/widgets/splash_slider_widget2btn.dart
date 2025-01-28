@@ -3,14 +3,13 @@ import 'package:healthmate/core/class/color_style.dart';
 import 'package:healthmate/core/class/style.dart';
 import 'package:healthmate/features/splash/presentation/widgets/custom_button.dart';
 
-class SplashSliderWidget extends StatelessWidget {
-  const SplashSliderWidget({
-    super.key,
-    required this.imageURL,
-    required this.title,
-    required this.description,
-    this.onPressed,
-  });
+class SplashSliderWidget2btn extends StatelessWidget {
+  const SplashSliderWidget2btn(
+      {super.key,
+      required this.imageURL,
+      required this.title,
+      required this.description,
+      this.onPressed});
   final String imageURL;
   final String title;
   final String description;
