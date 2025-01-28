@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:healthmate/core/class/color_style.dart';
 import 'package:healthmate/core/class/style.dart';
+import 'package:healthmate/features/splash/presentation/widgets/custom_button.dart';
 
-class SplashSliderWidget extends StatefulWidget {
-  const SplashSliderWidget({super.key});
-  final String imageURL = 'lib/core/assets/images/gif1.gif';
-  @override
-  State<SplashSliderWidget> createState() => _SplashSliderWidgetState();
-}
-
-class _SplashSliderWidgetState extends State<SplashSliderWidget> {
+class SplashSliderWidget extends StatelessWidget {
+  const SplashSliderWidget({
+    super.key,
+    required this.imageURL,
+    required this.title,
+    required this.description,
+  });
+  final String imageURL;
+  final String title;
+  final String description;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,13 +22,13 @@ class _SplashSliderWidgetState extends State<SplashSliderWidget> {
           height: 236,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(widget.imageURL),
+              image: AssetImage(imageURL),
               fit: BoxFit.cover,
             ),
           ),
         ),
         Text(
-          'Choose your Doctor',
+          title,
           style: StylingSystem.textStyleheading5,
         ),
         SizedBox(
@@ -36,7 +39,7 @@ class _SplashSliderWidgetState extends State<SplashSliderWidget> {
           height: 79,
           child: Center(
             child: Text(
-              'Lorem ipsum dolor sit amet consectetur. Morbi risus non non aliquam amet aliquet.',
+              description,
               style: StylingSystem.textStyleSubtitles2,
             ),
           ),
@@ -68,20 +71,10 @@ class _SplashSliderWidgetState extends State<SplashSliderWidget> {
         ),
         Align(
           alignment: Alignment.centerRight,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: ColorSystem.kPrimaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            child: Text(
-              'Get Started',
-              style: StylingSystem.textStyleSubtitles2.copyWith(
-                color: Colors.white,
-              ),
-            ),
+          child: const CustomButton(
+            width: 173,
+            height: 42,
+            text: 'Next',
           ),
         ),
       ],

@@ -33,7 +33,12 @@ class SplashScreenBodyDoctor extends StatelessWidget {
           SizedBox(
             height: height * 0.1,
           ),
-          SplashSliderWidget(),
+          SplashSliderWidget(
+            imageURL: 'lib/core/assets/images/gif1.gif',
+            title: 'Choose your Doctor',
+            description:
+                'Lorem ipsum dolor sit amet consectetur. Morbi risus non non aliquam amet aliquet.',
+          ),
         ],
       ),
     );

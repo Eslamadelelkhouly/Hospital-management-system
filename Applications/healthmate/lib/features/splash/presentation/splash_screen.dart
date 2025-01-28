@@ -17,8 +17,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Future.delayed(const Duration(seconds: 2), () {
-        GoRouter.of(context).pushReplacement(Routing.Ksplashscreendoctor);
+      Future.delayed(const Duration(seconds: 2), () async {
+        await GoRouter.of(context).pushReplacement(Routing.Ksplashscreendoctor);
       });
     });
     return Animate(
