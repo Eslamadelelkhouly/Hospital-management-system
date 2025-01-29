@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/core/class/style.dart';
-import 'package:healthmate/features/splash/presentation/widgets/splash_slider_widget.dart';
+import 'package:healthmate/features/splash/presentation/widgets/splash_slider_widget2btn.dart';
 
 class SplashScreenSechduleBody extends StatelessWidget {
   const SplashScreenSechduleBody({super.key});
@@ -32,9 +32,9 @@ class SplashScreenSechduleBody extends StatelessWidget {
           SizedBox(
             height: height * 0.1,
           ),
-          SplashSliderWidget(
-            imageURL: 'lib/core/assets/images/gif1.gif',
-            title: 'Schedule your Appoinmrnt',
+          SplashSliderWidget2btn(
+            imageURL: 'lib/core/assets/images/gif2.gif',
+            title: 'Schedule your Appointment',
             description:
                 'Lorem ipsum dolor sit amet consectetur. Morbi risus non non aliquam amet aliquet.',
           ),

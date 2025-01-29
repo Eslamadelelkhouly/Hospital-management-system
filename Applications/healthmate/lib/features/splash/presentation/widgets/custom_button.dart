@@ -9,11 +9,15 @@ class CustomButton extends StatelessWidget {
     required this.width,
     required this.height,
     this.onPressed,
+    required this.textColor,
+    required this.backgrounColor,
   });
   final String text;
   final double width;
   final double height;
   final void Function()? onPressed;
+  final Color textColor;
+  final Color backgrounColor;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +26,7 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: ColorSystem.kPrimaryColor,
+          backgroundColor: backgrounColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -30,7 +34,7 @@ class CustomButton extends StatelessWidget {
         child: Text(
           text,
           style: StylingSystem.textStyleSubtitles2.copyWith(
-            color: Colors.white,
+            color: textColor,
           ),
         ),
       ),

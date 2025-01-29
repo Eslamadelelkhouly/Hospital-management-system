@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
@@ -14,18 +16,33 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  Timer? _timer;
+
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Future.delayed(const Duration(seconds: 2), () async {
-        await GoRouter.of(context).pushReplacement(Routing.Ksplashscreendoctor);
+      _timer = Timer(const Duration(seconds: 2), () async {
+        if (mounted) {
+          await GoRouter.of(context)
+              .pushReplacement(Routing.Ksplashscreendoctor);
+        }
       });
     });
-    return Animate(
-      child: Scaffold(
-        backgroundColor: ColorSystem.kPrimaryColor,
-        body: const SplashScreenBody(),
-      ),
+  }
+
+  @override
+  void dispose() {
+    // Cancel the timer to prevent memory leaks.
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: ColorSystem.kPrimaryColor,
+      body: const SplashScreenBody(),
     );
   }
 }

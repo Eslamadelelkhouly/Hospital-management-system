@@ -74,8 +74,10 @@ class SplashSliderWidget extends StatelessWidget {
         Align(
           alignment: Alignment.centerRight,
           child: CustomButton(
+            textColor: Colors.white,
+            backgrounColor: ColorSystem.kPrimaryColor,
             onPressed: onPressed,
-            width: 173,
+            width: 100,
             height: 42,
             text: 'Next',
           ),
