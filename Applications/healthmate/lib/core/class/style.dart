@@ -22,4 +22,9 @@ abstract class StylingSystem {
     fontWeight: FontWeight.w600,
     color: Colors.black,
   );
+  static TextStyle textStyleSign = GoogleFonts.poppins(
+    fontSize: 15,
+    fontWeight: FontWeight.w700,
+    color: Colors.black,
+  );
 }
