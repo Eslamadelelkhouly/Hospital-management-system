@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 const logo = 'lib/core/assets/images/logo.png';
+const logo2 = 'lib/core/assets/images/logo2.png';
 
 class onBoarding {
   final String title;

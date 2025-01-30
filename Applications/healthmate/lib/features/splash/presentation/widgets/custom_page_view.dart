@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/class/color_style.dart';
+import 'package:healthmate/core/class/router_screens.dart';
 import 'package:healthmate/core/class/style.dart';
 import 'package:healthmate/features/splash/presentation/widgets/custom_button.dart';
 import 'package:healthmate/features/splash/presentation/widgets/custom_indictor.dart';
@@ -73,7 +74,7 @@ class CustomPageView extends StatelessWidget {
                       curve: Curves.easeInOut,
                     );
                   } else {
-                    GoRouter.of(context).pushReplacement('');
+                    GoRouter.of(context).pushReplacement(Routing.Ksignin);
                   }
                 },
                 text: 'Next',
