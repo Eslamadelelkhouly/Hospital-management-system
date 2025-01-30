@@ -4,6 +4,7 @@ import 'package:healthmate/core/class/color_style.dart';
 import 'package:healthmate/core/class/mangement_string.dart';
 import 'package:healthmate/core/class/style.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_logo_sign_in.dart';
+import 'package:healthmate/features/Auth/presentation/widgets/custom_password_text_field.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_text_field.dart';
 
 class SignInBody extends StatelessWidget {
@@ -37,6 +38,10 @@ class SignInBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CustomTextField(),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomPasswordTextField(),
               ],
             ),
           ),
