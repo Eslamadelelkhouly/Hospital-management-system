@@ -1,0 +1,15 @@
+import 'package:flutter/material.dart';
+import 'package:healthmate/core/class/color_style.dart';
+import 'package:healthmate/features/Auth/widgets/sign_in_body.dart';
+
+class SignIn extends StatelessWidget {
+  const SignIn({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: ColorSystem.kbtnColorWhite,
+      body: SignInBody(),
+    );
+  }
+}

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
-import 'package:healthmate/core/class/color_style.dart';
 import 'package:healthmate/core/class/style.dart';
-import 'package:healthmate/features/splash/presentation/widgets/custom_button.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:healthmate/features/splash/presentation/widgets/custom_page_view.dart';
 
 class SplashScreenBodyDoctor extends StatefulWidget {
   const SplashScreenBodyDoctor({super.key});
@@ -51,79 +49,10 @@ class _SplashScreenBodyDoctorState extends State<SplashScreenBodyDoctor> {
             height: height * 0.1,
           ),
           Expanded(
-            child: PageView.builder(
-              controller: _pageController,
-              itemCount: controller.onBoardingData.length,
-              itemBuilder: (context, index) {
-                return Center(
-                  child: Column(
-                    children: [
-                      Container(
-                        width: 236,
-                        height: 236,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              controller.onBoardingData[index].images,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Text(
-                        controller.onBoardingData[index].title,
-                        style: StylingSystem.textStyleheading5,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        width: 250,
-                        height: 79,
-                        child: Center(
-                          child: Text(
-                            controller.onBoardingData[index].description,
-                            style: StylingSystem.textStyleSubtitles2,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      SmoothPageIndicator(
-                        controller: _pageController,
-                        count: controller.onBoardingData.length,
-                        axisDirection: Axis.horizontal,
-                        effect: ScrollingDotsEffect(
-                          activeDotColor: ColorSystem.kPrimaryColor,
-                          dotColor: ColorSystem.kGrayColor,
-                          dotHeight: 8,
-                          dotWidth: 8,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      CustomButton(
-                        onPressed: () {
-                          if (_pageController.page?.toInt() !=
-                              controller.onBoardingData.length - 1) {
-                            _pageController.nextPage(
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.easeInOut,
-                            );
-                          } else {
-                          }
-                        },
-                        text: 'Continue',
-                        width: width * 0.5,
-                        height: height * 0.05,
-                        textColor: Colors.white,
-                        backgrounColor: ColorSystem.kPrimaryColor,
-                      ),
-                    ],
-                  ),
-                );
-              },
+            child: CustomPageView(
+              pageController: _pageController,
+              controller: controller,
+              height: height,
             ),
           ),
         ],
