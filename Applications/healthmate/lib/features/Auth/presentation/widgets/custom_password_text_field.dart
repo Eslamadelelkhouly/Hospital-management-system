@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/class/color_style.dart';
 import 'package:healthmate/core/class/style.dart';
 
-class CustomPasswordTextField extends StatelessWidget {
-  const CustomPasswordTextField({super.key});
+class CustomPasswordTextField extends StatefulWidget {
+  CustomPasswordTextField({super.key});
 
+  bool eyepassword = true;
+
+  @override
+  State<CustomPasswordTextField> createState() =>
+      _CustomPasswordTextFieldState();
+}
+
+class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,9 +31,24 @@ class CustomPasswordTextField extends StatelessWidget {
           width: 362,
           height: 48,
           child: TextField(
+            obscureText: widget.eyepassword,
             decoration: InputDecoration(
-              suffixIcon: Icon(FontAwesomeIcons.eye),
-              prefixIcon: Icon(FontAwesomeIcons.lock),
+              suffixIcon: IconButton(
+                  onPressed: () {
+                    if (widget.eyepassword) {
+                      setState(() {
+                        widget.eyepassword = false;
+                      });
+                    } else {
+                      setState(() {
+                        widget.eyepassword = true;
+                      });
+                    }
+                  },
+                  icon: Icon(FontAwesomeIcons.eye)),
+              prefixIcon: ImageIcon(
+                AssetImage(lockicon),
+              ),
               filled: true,
               fillColor: ColorSystem.kbtnColorblue,
               focusedBorder: OutlineInputBorder(

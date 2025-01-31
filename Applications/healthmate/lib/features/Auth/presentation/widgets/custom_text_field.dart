@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/class/color_style.dart';
 import 'package:healthmate/core/class/style.dart';
 
@@ -23,7 +24,7 @@ class CustomTextField extends StatelessWidget {
           height: 48,
           child: TextField(
             decoration: InputDecoration(
-              prefixIcon: Icon(FontAwesomeIcons.envelope),
+              prefixIcon: ImageIcon(AssetImage(smsicon)),
               filled: true,
               fillColor: ColorSystem.kbtnColorblue,
               focusedBorder: OutlineInputBorder(
