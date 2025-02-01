@@ -6,4 +6,5 @@ abstract class ColorSystem {
   static Color kbtnColorblue = const Color(0xffDEE8FB);
   static Color kbtnColorWhite = Colors.white;
   static Color kColorBlack = Colors.black;
+  static Color kbtnColorSign = Color(0xffBCCFF6);
 }

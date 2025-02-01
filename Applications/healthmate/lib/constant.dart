@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-
 const logo = 'lib/core/assets/images/logo.png';
 const logo2 = 'lib/core/assets/images/logo2.png';
 const lockicon = 'lib/core/assets/images/lock.png';
 const smsicon = 'lib/core/assets/images/sms.png';
+const googleicon = 'lib/core/assets/images/google.png';
+const facebookicon = 'lib/core/assets/images/facebook.png';
 
 class onBoarding {
   final String title;
