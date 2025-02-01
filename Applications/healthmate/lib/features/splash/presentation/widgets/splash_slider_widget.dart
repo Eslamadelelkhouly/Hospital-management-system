@@ -17,6 +17,8 @@ class SplashSliderWidget extends StatelessWidget {
   final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Column(
       children: [
         Container(
@@ -34,7 +36,7 @@ class SplashSliderWidget extends StatelessWidget {
           style: StylingSystem.textStyleheading5,
         ),
         SizedBox(
-          height: 10,
+          height: height * 0.01,
         ),
         Container(
           width: 250,
@@ -47,7 +49,7 @@ class SplashSliderWidget extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 20,
+          height: height * 0.02,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -69,7 +71,7 @@ class SplashSliderWidget extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: 100,
+          height: height * 0.1,
         ),
         Align(
           alignment: Alignment.centerRight,

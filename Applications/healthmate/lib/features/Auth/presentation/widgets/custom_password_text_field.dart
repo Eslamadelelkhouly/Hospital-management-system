@@ -45,8 +45,8 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
                       });
                     }
                   },
-                  icon: Icon(FontAwesomeIcons.eye)),
-              prefixIcon: ImageIcon(
+                  icon: const Icon(FontAwesomeIcons.eye)),
+              prefixIcon: const ImageIcon(
                 AssetImage(lockicon),
               ),
               filled: true,

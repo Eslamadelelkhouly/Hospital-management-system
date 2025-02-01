@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/class/color_style.dart';
 import 'package:healthmate/core/class/style.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key});
-
+  const CustomTextField(
+      {super.key, required this.text, required this.iconField});
+  final String text;
+  final String iconField;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Email',
+          text,
           style: StylingSystem.textStyleSign,
         ),
         const SizedBox(
@@ -24,7 +25,7 @@ class CustomTextField extends StatelessWidget {
           height: 48,
           child: TextField(
             decoration: InputDecoration(
-              prefixIcon: ImageIcon(AssetImage(smsicon)),
+              prefixIcon: ImageIcon(AssetImage(iconField)),
               filled: true,
               fillColor: ColorSystem.kbtnColorblue,
               focusedBorder: OutlineInputBorder(

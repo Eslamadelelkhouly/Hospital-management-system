@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:healthmate/core/class/color_style.dart';
 import 'package:healthmate/core/class/mangement_string.dart';
 import 'package:healthmate/core/class/style.dart';
+import 'package:healthmate/features/Auth/presentation/widgets/custom_form_sign_up.dart';
 
 class SignUpBody extends StatelessWidget {
   const SignUpBody({super.key});
@@ -23,6 +24,10 @@ class SignUpBody extends StatelessWidget {
               color: ColorSystem.kColorBlack,
             ),
           ),
+          SizedBox(
+            height: height * 0.01,
+          ),
+          CustomFormSignUp(),
         ],
       ),
     );

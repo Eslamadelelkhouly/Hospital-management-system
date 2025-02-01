@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/class/color_style.dart';
 import 'package:healthmate/core/class/mangement_string.dart';
 import 'package:healthmate/core/class/style.dart';
@@ -23,9 +22,9 @@ class SignInBody extends StatelessWidget {
           SizedBox(
             height: height * 0.1,
           ),
-          CustomLogoSignIn(),
+          const CustomLogoSignIn(),
           SizedBox(
-            height: 10,
+            height: height * 0.01,
           ),
           Text(
             MangementString.title,
@@ -36,7 +35,7 @@ class SignInBody extends StatelessWidget {
           SizedBox(
             height: height * 0.06,
           ),
-          CustomFormSignIn(),
+          const CustomFormSignIn(),
           SizedBox(
             height: height * 0.03,
           ),
@@ -45,7 +44,7 @@ class SignInBody extends StatelessWidget {
             style: StylingSystem.textStyleSign12,
           ),
           SizedBox(height: height * 0.01),
-          CustomSocialMediaIcons(),
+          const CustomSocialMediaIcons(),
           SizedBox(
             height: height * 0.02,
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/class/color_style.dart';
 import 'package:healthmate/core/class/router_screens.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_password_text_field.dart';
@@ -11,19 +12,24 @@ class CustomFormSignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Form(
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomTextField(),
+            const CustomTextField(
+              text: 'Email',
+              iconField: smsicon,
+            ),
             SizedBox(
-              height: 20,
+              height: height * 0.02,
             ),
             CustomPasswordTextField(),
             SizedBox(
-              height: 20,
+              height: height * 0.02,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

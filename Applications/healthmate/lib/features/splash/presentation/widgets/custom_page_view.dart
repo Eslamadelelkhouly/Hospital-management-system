@@ -45,7 +45,7 @@ class CustomPageView extends StatelessWidget {
                 style: StylingSystem.textStyleheading5,
               ),
               SizedBox(
-                height: 10,
+                height: height * 0.01,
               ),
               Container(
                 width: 250,
@@ -58,7 +58,7 @@ class CustomPageView extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: height * 0.02,
               ),
               CustomIndictor(
                   pageController: _pageController, controller: controller),

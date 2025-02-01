@@ -9,7 +9,7 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorSystem.kbtnColorWhite,
-      body: SignUpBody(),
+      body: const SignUpBody(),
     );
   }
 }
