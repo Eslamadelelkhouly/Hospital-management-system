@@ -11,48 +11,49 @@ class SignInBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Container(
       width: double.infinity,
       height: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: height * 0.1,
-          ),
-          const CustomLogoSignIn(),
-          SizedBox(
-            height: height * 0.01,
-          ),
-          Text(
-            MangementString.title,
-            style: StylingSystem.textStyleTitle.copyWith(
-              color: ColorSystem.kColorBlack,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: height * 0.1,
             ),
-          ),
-          SizedBox(
-            height: height * 0.06,
-          ),
-          const CustomFormSignIn(),
-          SizedBox(
-            height: height * 0.03,
-          ),
-          Text(
-            'or sign in with',
-            style: StylingSystem.textStyleSign12,
-          ),
-          SizedBox(height: height * 0.01),
-          const CustomSocialMediaIcons(),
-          SizedBox(
-            height: height * 0.02,
-          ),
-          Text(
-            'Forget Password',
-            style: StylingSystem.textStyleSign12,
-          ),
-        ],
+            const CustomLogoSignIn(),
+            SizedBox(
+              height: height * 0.01,
+            ),
+            Text(
+              MangementString.title,
+              style: StylingSystem.textStyleTitle.copyWith(
+                color: ColorSystem.kColorBlack,
+              ),
+            ),
+            SizedBox(
+              height: height * 0.06,
+            ),
+            const CustomFormSignIn(),
+            SizedBox(
+              height: height * 0.03,
+            ),
+            Text(
+              'or sign in with',
+              style: StylingSystem.textStyleSign12,
+            ),
+            SizedBox(height: height * 0.01),
+            const CustomSocialMediaIcons(),
+            SizedBox(
+              height: height * 0.02,
+            ),
+            Text(
+              'Forget Password',
+              style: StylingSystem.textStyleSign12,
+            ),
+          ],
+        ),
       ),
     );
   }

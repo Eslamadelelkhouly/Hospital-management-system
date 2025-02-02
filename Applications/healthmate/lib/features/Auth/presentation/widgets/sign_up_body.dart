@@ -10,25 +10,29 @@ class SignUpBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return Container(
       width: double.infinity,
       height: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(height: height * 0.04),
-          Text(
-            MangementString.title,
-            style: StylingSystem.textStyleTitle.copyWith(
-              color: ColorSystem.kColorBlack,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: height * 0.04),
+            Text(
+              MangementString.title,
+              style: StylingSystem.textStyleTitle.copyWith(
+                color: ColorSystem.kColorBlack,
+              ),
             ),
-          ),
-          SizedBox(
-            height: height * 0.01,
-          ),
-          CustomFormSignUp(),
-        ],
+            SizedBox(
+              height: height * 0.01,
+            ),
+            CustomFormSignUp(),
+            SizedBox(
+              height: height * 0.02,
+            ),
+          ],
+        ),
       ),
     );
   }

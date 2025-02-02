@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
+import 'package:healthmate/core/class/router_screens.dart';
 import 'package:healthmate/core/class/style.dart';
 import 'package:healthmate/features/splash/presentation/widgets/custom_page_view.dart';
 
@@ -24,7 +25,6 @@ class _SplashScreenBodyDoctorState extends State<SplashScreenBodyDoctor> {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -37,7 +37,7 @@ class _SplashScreenBodyDoctorState extends State<SplashScreenBodyDoctor> {
             alignment: Alignment.centerRight,
             child: GestureDetector(
               onTap: () {
-                GoRouter.of(context).pop();
+                GoRouter.of(context).push(Routing.Ksignin);
               },
               child: Text(
                 'Skip',
