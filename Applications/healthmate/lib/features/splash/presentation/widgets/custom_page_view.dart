@@ -65,23 +65,49 @@ class CustomPageView extends StatelessWidget {
               SizedBox(
                 height: height * 0.08,
               ),
-              CustomButton(
-                onPressed: () {
-                  if (_pageController.page?.toInt() !=
-                      controller.onBoardingData.length - 1) {
-                    _pageController.nextPage(
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
-                    );
-                  } else {
-                    GoRouter.of(context).pushReplacement(Routing.Ksignin);
-                  }
-                },
-                text: 'Next',
-                width: 362,
-                height: 48,
-                textColor: ColorSystem.kbtnColorWhite,
-                backgrounColor: ColorSystem.kPrimaryColor,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomButton(
+                    onPressed: () {
+                      if (_pageController.page?.toInt() !=
+                          controller.onBoardingData.length - 1) {
+                        _pageController.previousPage(
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      } else {
+                        _pageController.previousPage(
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      }
+                    },
+                    text: 'Previous',
+                    width: 150,
+                    height: 48,
+                    textColor: ColorSystem.kbtnColorWhite,
+                    backgrounColor: ColorSystem.kPrimaryColor,
+                  ),
+                  CustomButton(
+                    onPressed: () {
+                      if (_pageController.page?.toInt() !=
+                          controller.onBoardingData.length - 1) {
+                        _pageController.nextPage(
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      } else {
+                        GoRouter.of(context).pushReplacement(Routing.Ksignin);
+                      }
+                    },
+                    text: 'Next',
+                    width: 150,
+                    height: 48,
+                    textColor: ColorSystem.kbtnColorWhite,
+                    backgrounColor: ColorSystem.kPrimaryColor,
+                  ),
+                ],
               ),
             ],
           ),

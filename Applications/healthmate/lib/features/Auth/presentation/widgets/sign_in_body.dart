@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:healthmate/core/class/color_style.dart';
 import 'package:healthmate/core/class/mangement_string.dart';
+import 'package:healthmate/core/class/router_screens.dart';
 import 'package:healthmate/core/class/style.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_form_sign_in.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_logo_sign_in.dart';
@@ -48,9 +50,14 @@ class SignInBody extends StatelessWidget {
             SizedBox(
               height: height * 0.02,
             ),
-            Text(
-              'Forget Password',
-              style: StylingSystem.textStyleSign12,
+            GestureDetector(
+              onTap: () {
+                GoRouter.of(context).push(Routing.kforgetpassword);
+              },
+              child: Text(
+                'Forget Password',
+                style: StylingSystem.textStyleSign12,
+              ),
             ),
           ],
         ),

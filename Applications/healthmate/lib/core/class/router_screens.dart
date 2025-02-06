@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:healthmate/features/Auth/presentation/forget_password_screen.dart';
 import 'package:healthmate/features/Auth/presentation/sign_in_screen.dart';
 import 'package:healthmate/features/Auth/presentation/sign_up_screen.dart';
 import 'package:healthmate/features/splash/presentation/splash_init_screen.dart';
@@ -12,6 +13,7 @@ abstract class Routing {
   static const Ksplashscreenschedule = '/splashscreenschedule';
   static const Ksignin = '/ksignin';
   static const Ksignup = '/ksignup';
+  static const kforgetpassword = '/kforgetpassword';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -33,6 +35,10 @@ abstract class Routing {
       GoRoute(
         path: Ksignup,
         builder: (context, state) => const SignUpScreen(),
+      ),
+      GoRoute(
+        path: kforgetpassword,
+        builder: (context, state) => const ForgetPasswordScreen(),
       ),
     ],
   );

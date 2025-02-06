@@ -16,6 +16,7 @@ class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
   bool isDateSelected = false;
   late String birthDateInString = '';
   late DateTime birthDate = DateTime.now();
+  TextEditingController text = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +34,7 @@ class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
           width: 362,
           height: 48,
           child: TextField(
+            controller: text,
             decoration: InputDecoration(
               prefixIcon: GestureDetector(
                 onTap: () async {
@@ -58,6 +60,7 @@ class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
                       isDateSelected = true;
                       birthDateInString =
                           "${birthDate.month}/${birthDate.day}/${birthDate.year}";
+                      text.text = birthDateInString;
                     });
                   }
                 },

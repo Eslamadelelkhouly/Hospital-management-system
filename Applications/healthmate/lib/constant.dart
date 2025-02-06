@@ -26,19 +26,19 @@ class OnBoardingData {
       title: 'Choose your Doctor',
       description:
           'Lorem ipsum dolor sit amet consectetur. Morbi risus non non aliquam amet aliquet.',
-      images: 'lib/core/assets/images/gif1.gif',
+      images: 'lib/core/assets/images/p1.png',
     ),
     onBoarding(
       title: 'Schedule your Appoinmrnt',
       description:
           'Lorem ipsum dolor sit amet consectetur. Morbi risus non non aliquam amet aliquet.',
-      images: 'lib/core/assets/images/gif2.gif',
+      images: 'lib/core/assets/images/p2.png',
     ),
     onBoarding(
       title: '',
       description:
           'Lorem ipsum dolor sit amet consectetur. Morbi risus non non aliquam amet aliquet.',
-      images: 'lib/core/assets/images/gif3.gif',
+      images: 'lib/core/assets/images/p3.png',
     ),
   ];
 }
