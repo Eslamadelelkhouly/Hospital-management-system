@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/class/color_style.dart';
 import 'package:healthmate/core/class/mangement_string.dart';
 import 'package:healthmate/core/class/style.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_form_sign_up.dart';
+import 'package:healthmate/features/Auth/presentation/widgets/custom_logo_sign_in.dart';
+import 'package:healthmate/features/Auth/presentation/widgets/custom_text_fotter_signup.dart';
 
 class SignUpBody extends StatelessWidget {
   const SignUpBody({super.key});
@@ -10,30 +13,59 @@ class SignUpBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: height * 0.04),
-            Text(
-              MangementString.title,
-              style: StylingSystem.textStyleTitle.copyWith(
-                color: ColorSystem.kColorBlack,
+    return Stack(
+      children: [
+        Positioned(
+          left: 0,
+          top: 0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Image.asset(
+                header,
               ),
-            ),
-            SizedBox(
-              height: height * 0.01,
-            ),
-            CustomFormSignUp(),
-            SizedBox(
-              height: height * 0.02,
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
+        Positioned(
+          right: 0,
+          bottom: 0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Image.asset(
+                fotter,
+              ),
+            ],
+          ),
+        ),
+        Container(
+          width: double.infinity,
+          height: double.infinity,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    const CustomLogoSignIn(),
+                    Text(
+                      MangementString.title,
+                      style: StylingSystem.textStyleTitle.copyWith(
+                        color: ColorSystem.kColorBlack,
+                      ),
+                    ),
+                    CustomFormSignUp(),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

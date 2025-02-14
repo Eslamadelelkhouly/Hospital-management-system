@@ -4,7 +4,6 @@ import 'package:healthmate/core/class/color_style.dart';
 import 'package:healthmate/core/class/style.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_password_text_field.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_social_media_icons.dart';
-import 'package:healthmate/features/Auth/presentation/widgets/custom_text_botttom_signup.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_text_field.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_text_field_celender.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_text_fotter_signup.dart';
@@ -52,7 +51,6 @@ class CustomFormSignUp extends StatelessWidget {
             SizedBox(
               height: height * 0.02,
             ),
-            CustomTextBottomSignUp(),
             SizedBox(
               height: height * 0.02,
             ),
@@ -67,20 +65,14 @@ class CustomFormSignUp extends StatelessWidget {
             SizedBox(
               height: height * 0.02,
             ),
-            Text(
-              'Or sign Up with',
-              style: StylingSystem.textStyleSign12.copyWith(
-                color: ColorSystem.kGrayColor2,
-              ),
-            ),
+            CustomTextFotterSignUP(),
             SizedBox(
-              height: height * 0.02,
+              height: height * 0.03,
             ),
             CustomSocialMediaIcons(),
             SizedBox(
               height: height * 0.07,
             ),
-            CustomTextFotterSignUP(),
           ],
         ),
       ),
