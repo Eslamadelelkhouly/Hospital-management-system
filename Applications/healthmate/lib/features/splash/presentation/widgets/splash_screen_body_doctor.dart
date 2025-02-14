@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
-import 'package:healthmate/core/class/router_screens.dart';
-import 'package:healthmate/core/class/style.dart';
+import 'package:healthmate/features/splash/presentation/widgets/custom_indictor.dart';
 import 'package:healthmate/features/splash/presentation/widgets/custom_page_view.dart';
+import 'package:healthmate/features/splash/presentation/widgets/row_of_button.dart';
+import 'package:healthmate/features/splash/presentation/widgets/title_on_boarding.dart';
 
 class SplashScreenBodyDoctor extends StatefulWidget {
   const SplashScreenBodyDoctor({super.key});
@@ -15,6 +15,17 @@ class SplashScreenBodyDoctor extends StatefulWidget {
 class _SplashScreenBodyDoctorState extends State<SplashScreenBodyDoctor> {
   final controller = OnBoardingData();
   final PageController _pageController = PageController();
+  int _currentPage = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController.addListener(() {
+      setState(() {
+        _currentPage = _pageController.page?.round() ?? 0;
+      });
+    });
+  }
 
   @override
   void dispose() {
@@ -33,27 +44,26 @@ class _SplashScreenBodyDoctorState extends State<SplashScreenBodyDoctor> {
           SizedBox(
             height: height * 0.07,
           ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: GestureDetector(
-              onTap: () {
-                GoRouter.of(context).push(Routing.Ksignin);
-              },
-              child: Text(
-                'Skip',
-                style: StylingSystem.textStylehintext,
-              ),
-            ),
-          ),
+          TitleOnBoarding(),
           SizedBox(
             height: height * 0.1,
           ),
-          Expanded(
-            child: CustomPageView(
-              pageController: _pageController,
-              controller: controller,
-              height: height,
-            ),
+          CustomPageView(
+            pageController: _pageController,
+            controller: controller,
+            height: height,
+          ),
+          CustomIndictor(
+            pageController: _pageController,
+            controller: controller,
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          RowOfButton(
+            currentPage: _currentPage,
+            pageController: _pageController,
+            controller: controller,
           ),
         ],
       ),
