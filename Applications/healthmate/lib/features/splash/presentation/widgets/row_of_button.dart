@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
-import 'package:healthmate/core/class/color_style.dart';
-import 'package:healthmate/core/class/router_screens.dart';
-import 'package:healthmate/features/splash/presentation/widgets/custom_button.dart';
+import 'package:healthmate/core/utils/color_style.dart';
+import 'package:healthmate/core/utils/router_screens.dart';
+import 'package:healthmate/core/utils/shared_perfernce_singletone.dart';
+import 'package:healthmate/core/widgets/custom_button.dart';
 
 class RowOfButton extends StatelessWidget {
   const RowOfButton({
@@ -49,6 +50,7 @@ class RowOfButton extends StatelessWidget {
                 curve: Curves.easeInOut,
               );
             } else {
+              SharedPreferenceSingleton.setBool(Ksplashscreendoctor, true);
               GoRouter.of(context).pushReplacement(Routing.Ksignin);
             }
           },

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:healthmate/core/class/router_screens.dart';
-import 'package:healthmate/core/class/style.dart';
+import 'package:healthmate/core/utils/router_screens.dart';
+import 'package:healthmate/core/utils/style.dart';
 
 class TitleOnBoarding extends StatelessWidget {
   const TitleOnBoarding({

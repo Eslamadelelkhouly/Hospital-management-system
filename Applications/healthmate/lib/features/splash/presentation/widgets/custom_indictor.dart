@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthmate/constant.dart';
-import 'package:healthmate/core/class/color_style.dart';
+import 'package:healthmate/core/utils/color_style.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class CustomIndictor extends StatelessWidget {

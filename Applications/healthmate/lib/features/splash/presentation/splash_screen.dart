@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:healthmate/core/class/color_style.dart';
-import 'package:healthmate/core/class/router_screens.dart';
+import 'package:healthmate/constant.dart';
+import 'package:healthmate/core/utils/color_style.dart';
+import 'package:healthmate/core/utils/router_screens.dart';
+import 'package:healthmate/core/utils/shared_perfernce_singletone.dart';
 import 'package:healthmate/features/splash/presentation/widgets/splash_screen_body.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -22,8 +24,14 @@ class _SplashScreenState extends State<SplashScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _timer = Timer(const Duration(seconds: 2), () async {
         if (mounted) {
-          await GoRouter.of(context)
-              .pushReplacement(Routing.Ksplashscreendoctor);
+          bool statescreen =
+              SharedPreferenceSingleton.getBool(Ksplashscreendoctor);
+          if (statescreen == false) {
+            await GoRouter.of(context)
+                .pushReplacement(Routing.Ksplashscreendoctor);
+          } else {
+            await GoRouter.of(context).pushReplacement(Routing.Ksignin);
+          }
         }
       });
     });

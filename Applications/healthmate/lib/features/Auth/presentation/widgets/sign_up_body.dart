@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:healthmate/constant.dart';
-import 'package:healthmate/core/class/color_style.dart';
-import 'package:healthmate/core/class/mangement_string.dart';
-import 'package:healthmate/core/class/style.dart';
+import 'package:healthmate/core/utils/color_style.dart';
+import 'package:healthmate/core/utils/mangement_string.dart';
+import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_form_sign_up.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_logo_sign_in.dart';
-import 'package:healthmate/features/Auth/presentation/widgets/custom_text_fotter_signup.dart';
 
 class SignUpBody extends StatelessWidget {
   const SignUpBody({super.key});

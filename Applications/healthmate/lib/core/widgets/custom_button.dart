@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healthmate/core/class/style.dart';
+import 'package:healthmate/core/utils/style.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({

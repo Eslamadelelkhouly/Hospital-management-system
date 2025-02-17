@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healthmate/core/class/color_style.dart';
+import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/sign_up_body.dart';
 
 class SignUpScreen extends StatelessWidget {

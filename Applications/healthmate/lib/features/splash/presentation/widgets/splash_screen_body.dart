@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:healthmate/constant.dart';
-import 'package:healthmate/core/class/style.dart';
+import 'package:healthmate/core/utils/style.dart';
 
 class SplashScreenBody extends StatelessWidget {
   const SplashScreenBody({super.key});

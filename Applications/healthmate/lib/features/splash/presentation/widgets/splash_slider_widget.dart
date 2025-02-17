@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:healthmate/core/class/color_style.dart';
-import 'package:healthmate/core/class/style.dart';
-import 'package:healthmate/features/splash/presentation/widgets/custom_button.dart';
+import 'package:healthmate/core/utils/color_style.dart';
+import 'package:healthmate/core/utils/style.dart';
+import 'package:healthmate/core/widgets/custom_button.dart';
 
 class SplashSliderWidget extends StatelessWidget {
   const SplashSliderWidget({

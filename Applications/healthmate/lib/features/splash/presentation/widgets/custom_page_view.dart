@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthmate/constant.dart';
-import 'package:healthmate/core/class/style.dart';
+import 'package:healthmate/core/utils/style.dart';
 
 class CustomPageView extends StatelessWidget {
   const CustomPageView({

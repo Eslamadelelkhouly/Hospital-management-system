@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:healthmate/constant.dart';
-import 'package:healthmate/core/class/color_style.dart';
-import 'package:healthmate/core/class/style.dart';
+import 'package:healthmate/core/utils/color_style.dart';
+import 'package:healthmate/core/utils/style.dart';
 
 class CustomPasswordTextField extends StatefulWidget {
   CustomPasswordTextField({super.key});

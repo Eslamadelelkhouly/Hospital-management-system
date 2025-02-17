@@ -9,6 +9,7 @@ const celendericon = 'assets/images/calendar.png';
 const callicon = 'assets/images/call.png';
 const fotter = 'assets/images/fotter.png';
 const header = 'assets/images/header.png';
+const Ksplashscreendoctor = 'onboardingscreen';
 
 class onBoarding {
   final String title;

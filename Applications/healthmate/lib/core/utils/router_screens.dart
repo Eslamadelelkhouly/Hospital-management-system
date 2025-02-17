@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
-import 'package:healthmate/features/Auth/presentation/forget_password_screen.dart';
-import 'package:healthmate/features/Auth/presentation/sign_in_screen.dart';
-import 'package:healthmate/features/Auth/presentation/sign_up_screen.dart';
+import 'package:healthmate/features/Auth/presentation/views/forget_password_screen.dart';
+import 'package:healthmate/features/Auth/presentation/views/sign_in_screen.dart';
+import 'package:healthmate/features/Auth/presentation/views/sign_up_screen.dart';
 import 'package:healthmate/features/splash/presentation/splash_init_screen.dart';
 import 'package:healthmate/features/splash/presentation/splash_screen.dart';
 import 'package:healthmate/features/splash/presentation/splash_screen_doctor.dart';

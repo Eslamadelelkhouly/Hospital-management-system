@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healthmate/core/class/color_style.dart';
+import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/forget_password_body.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {

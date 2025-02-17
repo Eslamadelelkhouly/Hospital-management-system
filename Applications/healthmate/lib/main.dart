@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:healthmate/core/class/router_screens.dart';
+import 'package:healthmate/core/utils/router_screens.dart';
+import 'package:healthmate/core/utils/shared_perfernce_singletone.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferenceSingleton.init();
   runApp(const MyApp());
 }
 
