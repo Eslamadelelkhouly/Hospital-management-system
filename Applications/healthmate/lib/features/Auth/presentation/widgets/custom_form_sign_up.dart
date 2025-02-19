@@ -69,9 +69,6 @@ class CustomFormSignUp extends StatelessWidget {
               height: height * 0.03,
             ),
             CustomSocialMediaIcons(),
-            SizedBox(
-              height: height * 0.07,
-            ),
           ],
         ),
       ),

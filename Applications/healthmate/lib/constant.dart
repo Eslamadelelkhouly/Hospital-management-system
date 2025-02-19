@@ -10,6 +10,8 @@ const callicon = 'assets/images/call.png';
 const fotter = 'assets/images/fotter.png';
 const header = 'assets/images/header.png';
 const Ksplashscreendoctor = 'onboardingscreen';
+const googleicon2 = 'assets/images/googleicon2.png';
+const appleicon2 = 'assets/images/appleicon2.png';
 
 class onBoarding {
   final String title;

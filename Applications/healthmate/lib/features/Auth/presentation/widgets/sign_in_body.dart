@@ -62,30 +62,9 @@ class SignInBody extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: height * 0.06,
-                ),
-                const CustomFormSignIn(),
-                SizedBox(
-                  height: height * 0.03,
-                ),
-                Text(
-                  'or sign in with',
-                  style: StylingSystem.textStyleSign12,
-                ),
-                SizedBox(height: height * 0.01),
-                const CustomSocialMediaIcons(),
-                SizedBox(
                   height: height * 0.02,
                 ),
-                GestureDetector(
-                  onTap: () {
-                    GoRouter.of(context).push(Routing.kforgetpassword);
-                  },
-                  child: Text(
-                    'Forget Password',
-                    style: StylingSystem.textStyleSign12,
-                  ),
-                ),
+                const CustomFormSignIn(),
               ],
             ),
           ),

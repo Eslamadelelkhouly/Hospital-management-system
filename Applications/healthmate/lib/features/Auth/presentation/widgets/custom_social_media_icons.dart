@@ -11,8 +11,11 @@ class CustomSocialMediaIcons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        GestureDetector(child: Image.asset(googleicon)),
-        GestureDetector(child: Image.asset(facebookicon)),
+        GestureDetector(child: Image.asset(googleicon2)),
+        SizedBox(
+          width: 16,
+        ),
+        GestureDetector(child: Image.asset(appleicon2)),
       ],
     );
   }

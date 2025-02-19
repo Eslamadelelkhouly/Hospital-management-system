@@ -1,9 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/router_screens.dart';
+import 'package:healthmate/core/utils/style.dart';
+import 'package:healthmate/features/Auth/presentation/widgets/custom_logo_sign_in.dart';
+import 'package:healthmate/features/Auth/presentation/widgets/custom_or_divider.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_password_text_field.dart';
+import 'package:healthmate/features/Auth/presentation/widgets/custom_social_media_icons.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_text_field.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
 
@@ -27,32 +32,62 @@ class CustomFormSignIn extends StatelessWidget {
               height: height * 0.02,
             ),
             CustomPasswordTextField(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Text(
+                    'Forget password?',
+                    style: StylingSystem.textStyle16Medium.copyWith(
+                      color: Color(0xff83818E),
+                    ),
+                  ),
+                ),
+              ],
+            ),
             SizedBox(
               height: height * 0.02,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomButton(
-                  onPressed: () {
-                    GoRouter.of(context).push(Routing.Ksignup);
-                  },
-                  text: 'Sign Up',
-                  width: 173,
-                  height: 45,
-                  textColor: ColorSystem.kPrimaryColor,
-                  backgrounColor: ColorSystem.kbtnColorSign,
-                ),
                 CustomButton(
                   onPressed: () {},
                   text: 'Sign In',
-                  width: 173,
-                  height: 45,
+                  width: 362,
+                  height: 44,
                   textColor: ColorSystem.kbtnColorWhite,
                   backgrounColor: ColorSystem.kPrimaryColor,
                 ),
               ],
             ),
+            SizedBox(
+              height: 8,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'don’t have an account?  ',
+                  style: StylingSystem.textStyle14Medium,
+                ),
+                Text(
+                  'Create Account',
+                  style: StylingSystem.textStyle14Medium.copyWith(
+                    color: ColorSystem.kPrimaryColor,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 32,
+            ),
+            CustomOrDivider(),
+            SizedBox(
+              height: 24,
+            ),
+            CustomSocialMediaIcons()
           ],
         ),
       ),
