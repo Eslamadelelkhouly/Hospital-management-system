@@ -14,7 +14,7 @@ class CustomTextField extends StatelessWidget {
       children: [
         Text(
           text,
-          style: StylingSystem.textStyleSign,
+          style: StylingSystem.textStyle15bold,
         ),
         const SizedBox(
           height: 2,

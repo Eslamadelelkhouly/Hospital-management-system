@@ -12,7 +12,7 @@ abstract class StylingSystem {
     fontWeight: FontWeight.w600,
     color: Colors.black,
   );
-  static TextStyle textStyleheading5 = GoogleFonts.ibmPlexSansArabic(
+  static TextStyle textStyle24bold = GoogleFonts.ibmPlexSansArabic(
     fontSize: 24,
     fontWeight: FontWeight.w700,
     color: Colors.black,
@@ -22,7 +22,7 @@ abstract class StylingSystem {
     fontWeight: FontWeight.w600,
     color: Colors.black,
   );
-  static TextStyle textStyleSign = GoogleFonts.ibmPlexSansArabic(
+  static TextStyle textStyle15bold = GoogleFonts.ibmPlexSansArabic(
     fontSize: 15,
     fontWeight: FontWeight.w700,
     color: Colors.black,
@@ -38,8 +38,13 @@ abstract class StylingSystem {
     color: Colors.black,
   );
   static TextStyle textStyle14Medium = GoogleFonts.ibmPlexSansArabic(
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: FontWeight.w400,
+    color: Colors.black,
+  );
+  static TextStyle textStyle18semibold = GoogleFonts.ibmPlexSansArabic(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
     color: Colors.black,
   );
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
+import 'package:healthmate/features/Auth/presentation/widgets/custom_or_divider.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_password_text_field.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_social_media_icons.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_text_field.dart';
@@ -28,7 +29,6 @@ class CustomFormSignUp extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            CustomPasswordTextField(),
             SizedBox(
               height: 10,
             ),
@@ -39,10 +39,7 @@ class CustomFormSignUp extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            CustomTextField(
-              text: 'Mobile Number',
-              iconField: callicon,
-            ),
+            CustomPasswordTextField(),
             SizedBox(
               height: 10,
             ),
@@ -55,7 +52,7 @@ class CustomFormSignUp extends StatelessWidget {
             ),
             CustomButton(
               onPressed: () {},
-              text: 'SignUp',
+              text: 'Sign Up',
               width: width * 0.90,
               height: height * 0.06,
               textColor: ColorSystem.kbtnColorWhite,
@@ -65,6 +62,10 @@ class CustomFormSignUp extends StatelessWidget {
               height: height * 0.02,
             ),
             CustomTextFotterSignUP(),
+            SizedBox(
+              height: height * 0.02,
+            ),
+            CustomOrDivider(),
             SizedBox(
               height: height * 0.03,
             ),

@@ -5,7 +5,6 @@ import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/style.dart';
-import 'package:healthmate/features/Auth/presentation/widgets/custom_logo_sign_in.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_or_divider.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_password_text_field.dart';
 import 'package:healthmate/features/Auth/presentation/widgets/custom_social_media_icons.dart';
@@ -37,10 +36,15 @@ class CustomFormSignIn extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(10),
-                  child: Text(
-                    'Forget password?',
-                    style: StylingSystem.textStyle16Medium.copyWith(
-                      color: Color(0xff83818E),
+                  child: GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context).push(Routing.kforgetpassword);
+                    },
+                    child: Text(
+                      'Forget password?',
+                      style: StylingSystem.textStyle16Medium.copyWith(
+                        color: Color(0xff83818E),
+                      ),
                     ),
                   ),
                 ),
@@ -72,10 +76,15 @@ class CustomFormSignIn extends StatelessWidget {
                   'don’t have an account?  ',
                   style: StylingSystem.textStyle14Medium,
                 ),
-                Text(
-                  'Create Account',
-                  style: StylingSystem.textStyle14Medium.copyWith(
-                    color: ColorSystem.kPrimaryColor,
+                GestureDetector(
+                  onTap: () {
+                    GoRouter.of(context).push(Routing.Ksignup);
+                  },
+                  child: Text(
+                    'Create Account',
+                    style: StylingSystem.textStyle14Medium.copyWith(
+                      color: ColorSystem.kPrimaryColor,
+                    ),
                   ),
                 ),
               ],

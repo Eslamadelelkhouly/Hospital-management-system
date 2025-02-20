@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
+import 'package:intl/intl.dart';
 
 class CustomTextFieldCelender extends StatefulWidget {
   const CustomTextFieldCelender({super.key});
@@ -25,7 +26,7 @@ class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
       children: [
         Text(
           'Date of Birth',
-          style: StylingSystem.textStyleSign,
+          style: StylingSystem.textStyle15bold,
         ),
         const SizedBox(
           height: 2,
@@ -36,7 +37,8 @@ class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
           child: TextField(
             controller: text,
             decoration: InputDecoration(
-              prefixIcon: GestureDetector(
+              prefixIcon: ImageIcon(AssetImage(celendericon)),
+              suffixIcon: GestureDetector(
                 onTap: () async {
                   final datePick = await showDatePicker(
                     builder: (context, child) {
@@ -59,12 +61,15 @@ class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
                       birthDate = datePick;
                       isDateSelected = true;
                       birthDateInString =
-                          "${birthDate.month}/${birthDate.day}/${birthDate.year}";
+                          DateFormat("dd MMMM , yyyy").format(birthDate);
                       text.text = birthDateInString;
                     });
                   }
                 },
-                child: ImageIcon(AssetImage(celendericon)),
+                child: Icon(
+                  Icons.keyboard_arrow_down,
+                  size: 24,
+                ),
               ),
               filled: true,
               fillColor: ColorSystem.kbtnColorblue,

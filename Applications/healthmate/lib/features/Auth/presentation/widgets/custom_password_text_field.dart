@@ -22,7 +22,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
       children: [
         Text(
           'Password',
-          style: StylingSystem.textStyleSign,
+          style: StylingSystem.textStyle15bold,
         ),
         const SizedBox(
           height: 2,
@@ -45,7 +45,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
                       });
                     }
                   },
-                  icon: const Icon(FontAwesomeIcons.eye)),
+                  icon: const Icon(Icons.visibility_off)),
               prefixIcon: const ImageIcon(
                 AssetImage(lockicon),
               ),

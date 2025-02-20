@@ -12,39 +12,36 @@ class CustomFormForgetPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return Form(
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            CustomTextField(text: 'Email', iconField: smsicon),
-            SizedBox(
-              height: height * 0.1,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CustomButton(
-                  onPressed: () {
-                    GoRouter.of(context).pop();
-                  },
-                  text: 'Previous',
-                  width: 173,
-                  height: 48,
-                  textColor: ColorSystem.kPrimaryColor,
-                  backgrounColor: ColorSystem.kbtnColorblue,
-                ),
-                CustomButton(
-                  onPressed: () {},
-                  text: 'Send',
-                  width: 173,
-                  height: 48,
-                  textColor: ColorSystem.kbtnColorblue,
-                  backgrounColor: ColorSystem.kPrimaryColor,
-                ),
-              ],
-            ),
-          ],
-        ),
+      child: Column(
+        children: [
+          CustomTextField(text: 'Email', iconField: smsicon),
+          SizedBox(
+            height: 24,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CustomButton(
+                onPressed: () {
+                  GoRouter.of(context).pop();
+                },
+                text: 'Previous',
+                width: 173,
+                height: 48,
+                textColor: ColorSystem.kPrimaryColor,
+                backgrounColor: ColorSystem.kbtnColorblue,
+              ),
+              CustomButton(
+                onPressed: () {},
+                text: 'Next',
+                width: 173,
+                height: 48,
+                textColor: ColorSystem.kbtnColorblue,
+                backgrounColor: ColorSystem.kPrimaryColor,
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

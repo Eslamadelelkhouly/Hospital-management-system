@@ -32,7 +32,7 @@ class SplashSliderWidget extends StatelessWidget {
         ),
         Text(
           title,
-          style: StylingSystem.textStyleheading5,
+          style: StylingSystem.textStyle24bold,
         ),
         SizedBox(
           height: height * 0.01,

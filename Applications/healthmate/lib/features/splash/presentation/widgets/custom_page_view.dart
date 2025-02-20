@@ -40,7 +40,7 @@ class CustomPageView extends StatelessWidget {
                 ),
                 Text(
                   controller.onBoardingData[index].title,
-                  style: StylingSystem.textStyleheading5,
+                  style: StylingSystem.textStyle24bold,
                 ),
                 SizedBox(
                   height: height * 0.01,
