@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:healthmate/constant.dart';
-import 'package:healthmate/features/splash/presentation/widgets/custom_indictor.dart';
-import 'package:healthmate/features/splash/presentation/widgets/custom_page_view.dart';
-import 'package:healthmate/features/splash/presentation/widgets/row_of_button.dart';
-import 'package:healthmate/features/splash/presentation/widgets/title_on_boarding.dart';
+import 'package:healthmate/features/splash/presentation/views/widgets/custom_indictor.dart';
+import 'package:healthmate/features/splash/presentation/views/widgets/custom_page_view.dart';
+import 'package:healthmate/features/splash/presentation/views/widgets/row_of_button.dart';
+import 'package:healthmate/features/splash/presentation/views/widgets/title_on_boarding.dart';
 
 class SplashScreenBodyDoctor extends StatefulWidget {
   const SplashScreenBodyDoctor({super.key});

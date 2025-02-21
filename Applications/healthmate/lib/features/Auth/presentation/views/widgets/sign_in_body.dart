@@ -3,11 +3,11 @@ import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/mangement_string.dart';
 import 'package:healthmate/core/utils/style.dart';
-import 'package:healthmate/features/Auth/presentation/widgets/custom_form_sign_up.dart';
-import 'package:healthmate/features/Auth/presentation/widgets/custom_logo_sign_in.dart';
+import 'package:healthmate/features/Auth/presentation/views/widgets/custom_form_sign_in.dart';
+import 'package:healthmate/features/Auth/presentation/views/widgets/custom_logo_sign_in.dart';
 
-class SignUpBody extends StatelessWidget {
-  const SignUpBody({super.key});
+class SignInBody extends StatelessWidget {
+  const SignInBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,23 +43,25 @@ class SignUpBody extends StatelessWidget {
           height: double.infinity,
           child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    const CustomLogoSignIn(),
-                    Text(
-                      MangementString.title,
-                      style: StylingSystem.textStyleTitle.copyWith(
-                        color: ColorSystem.kColorBlack,
-                      ),
-                    ),
-                    CustomFormSignUp(),
-                  ],
+                SizedBox(
+                  height: height * 0.1,
                 ),
+                const CustomLogoSignIn(),
+                SizedBox(
+                  height: height * 0.01,
+                ),
+                Text(
+                  MangementString.title,
+                  style: StylingSystem.textStyleTitle.copyWith(
+                    color: ColorSystem.kColorBlack,
+                  ),
+                ),
+                SizedBox(
+                  height: height * 0.02,
+                ),
+                const CustomFormSignIn(),
               ],
             ),
           ),

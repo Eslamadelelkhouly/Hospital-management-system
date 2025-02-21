@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:healthmate/constant.dart';
-import 'package:healthmate/core/helper_function/custom_app_bar.dart';
+import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/core/utils/style.dart';
-import 'package:healthmate/features/Auth/presentation/widgets/custom_form_forget_password.dart';
+import 'package:healthmate/features/Auth/presentation/views/widgets/custom_form_forget_password.dart';
 
 class ForgetPasswordBody extends StatelessWidget {
   const ForgetPasswordBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Stack(
       children: [

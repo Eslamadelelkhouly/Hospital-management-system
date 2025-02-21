@@ -2,9 +2,10 @@ import 'package:go_router/go_router.dart';
 import 'package:healthmate/features/Auth/presentation/views/forget_password_screen.dart';
 import 'package:healthmate/features/Auth/presentation/views/sign_in_screen.dart';
 import 'package:healthmate/features/Auth/presentation/views/sign_up_screen.dart';
-import 'package:healthmate/features/splash/presentation/splash_init_screen.dart';
-import 'package:healthmate/features/splash/presentation/splash_screen.dart';
-import 'package:healthmate/features/splash/presentation/splash_screen_doctor.dart';
+import 'package:healthmate/features/Auth/presentation/views/verification_screen.dart';
+import 'package:healthmate/features/splash/presentation/views/splash_init_screen.dart';
+import 'package:healthmate/features/splash/presentation/views/splash_screen.dart';
+import 'package:healthmate/features/splash/presentation/views/splash_screen_doctor.dart';
 
 abstract class Routing {
   static const KsplashinitScreen = '/';
@@ -14,6 +15,7 @@ abstract class Routing {
   static const Ksignin = '/ksignin';
   static const Ksignup = '/ksignup';
   static const kforgetpassword = '/kforgetpassword';
+  static const kverificationemail = '/kverificationemail';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -39,6 +41,10 @@ abstract class Routing {
       GoRoute(
         path: kforgetpassword,
         builder: (context, state) => const ForgetPasswordScreen(),
+      ),
+      GoRoute(
+        path: kverificationemail,
+        builder: (context, state) => const VerificationScreen(),
       ),
     ],
   );

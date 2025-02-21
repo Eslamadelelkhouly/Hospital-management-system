@@ -6,7 +6,7 @@ import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/shared_perfernce_singletone.dart';
-import 'package:healthmate/features/splash/presentation/widgets/splash_screen_body.dart';
+import 'package:healthmate/features/splash/presentation/views/widgets/splash_screen_body.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

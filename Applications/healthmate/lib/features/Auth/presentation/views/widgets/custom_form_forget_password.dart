@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
-import 'package:healthmate/features/Auth/presentation/widgets/custom_text_field.dart';
+import 'package:healthmate/core/utils/router_screens.dart';
+import 'package:healthmate/features/Auth/presentation/views/widgets/custom_text_field.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
 
 class CustomFormForgetPassword extends StatelessWidget {
@@ -32,7 +33,9 @@ class CustomFormForgetPassword extends StatelessWidget {
                 backgrounColor: ColorSystem.kbtnColorblue,
               ),
               CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  GoRouter.of(context).push(Routing.kverificationemail);
+                },
                 text: 'Next',
                 width: 173,
                 height: 48,

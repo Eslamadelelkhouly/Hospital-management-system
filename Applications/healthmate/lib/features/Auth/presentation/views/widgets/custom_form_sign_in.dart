@@ -5,10 +5,10 @@ import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/style.dart';
-import 'package:healthmate/features/Auth/presentation/widgets/custom_or_divider.dart';
-import 'package:healthmate/features/Auth/presentation/widgets/custom_password_text_field.dart';
-import 'package:healthmate/features/Auth/presentation/widgets/custom_social_media_icons.dart';
-import 'package:healthmate/features/Auth/presentation/widgets/custom_text_field.dart';
+import 'package:healthmate/features/Auth/presentation/views/widgets/custom_or_divider.dart';
+import 'package:healthmate/features/Auth/presentation/views/widgets/custom_password_text_field.dart';
+import 'package:healthmate/features/Auth/presentation/views/widgets/custom_social_media_icons.dart';
+import 'package:healthmate/features/Auth/presentation/views/widgets/custom_text_field.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
 
 class CustomFormSignIn extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healthmate/features/splash/presentation/widgets/splash_screen_body_doctor.dart';
+import 'package:healthmate/features/splash/presentation/views/widgets/splash_screen_body_doctor.dart';
 
 class SplashScreenDoctor extends StatelessWidget {
   const SplashScreenDoctor({super.key});
