@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthmate/features/Auth/presentation/views/widgets/custom_otp.dart';
 
 class CustomFormVerfication extends StatelessWidget {
   const CustomFormVerfication({super.key});
@@ -8,7 +9,7 @@ class CustomFormVerfication extends StatelessWidget {
     return Form(
       child: Column(
         children: [
-          
+          CustomOtp(),
         ],
       ),
     );
