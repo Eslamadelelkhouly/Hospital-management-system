@@ -3,6 +3,7 @@ import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_form_verfication.dart';
+import 'package:healthmate/features/Auth/presentation/views/widgets/row_otp.dart';
 
 class VerificationScreenBody extends StatelessWidget {
   const VerificationScreenBody({super.key});
@@ -87,6 +88,9 @@ class VerificationScreenBody extends StatelessWidget {
                       style: StylingSystem.textStyle14Medium,
                     ),
                   ],
+                ),
+                SizedBox(
+                  height: 36,
                 ),
                 CustomFormVerfication(),
               ],
