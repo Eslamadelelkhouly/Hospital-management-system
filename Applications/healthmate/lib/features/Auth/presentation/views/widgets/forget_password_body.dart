@@ -85,7 +85,9 @@ class ForgetPasswordBody extends StatelessWidget {
                       TextSpan(
                         text:
                             'Enter the email associated with your account and we’ll send an email with instructions to reset your password',
-                        style: StylingSystem.textStyle16Medium,
+                        style: StylingSystem.textStyle16Medium.copyWith(
+                          color: Color(0xff4F4E59),
+                        ),
                       ),
                     ]),
                   ),

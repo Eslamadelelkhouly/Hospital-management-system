@@ -72,7 +72,7 @@ class VerificationScreenBody extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        'Enter verification',
+                        'New Password',
                         style: StylingSystem.textStyle18semibold,
                       ),
                     ],
@@ -84,8 +84,10 @@ class VerificationScreenBody extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        '''We've sent a code to hello@aiignui.com''',
-                        style: StylingSystem.textStyle14Medium,
+                        '''Please write your new password''',
+                        style: StylingSystem.textStyle14Medium.copyWith(
+                          color: Color(0xff4F4E59),
+                        ),
                       ),
                     ],
                   ),
