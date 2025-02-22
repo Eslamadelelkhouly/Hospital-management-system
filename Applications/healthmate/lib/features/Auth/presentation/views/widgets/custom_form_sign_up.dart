@@ -23,6 +23,7 @@ class CustomFormSignUp extends StatelessWidget {
         child: Column(
           children: [
             CustomTextField(
+              hinttext: 'Mohamed Mahmoud',
               text: 'Full Name',
               iconField: usericon,
             ),
@@ -33,6 +34,7 @@ class CustomFormSignUp extends StatelessWidget {
               height: 10,
             ),
             CustomTextField(
+              hinttext: 'Mohamed @example.com',
               text: 'Email',
               iconField: smsicon,
             ),

@@ -4,9 +4,13 @@ import 'package:healthmate/core/utils/style.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
-      {super.key, required this.text, required this.iconField});
+      {super.key,
+      required this.text,
+      required this.iconField,
+      required this.hinttext});
   final String text;
   final String iconField;
+  final String hinttext;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,6 +28,9 @@ class CustomTextField extends StatelessWidget {
           height: 48,
           child: TextField(
             decoration: InputDecoration(
+              hintText: hinttext,
+              hintStyle:
+                  StylingSystem.textStyle14Medium.copyWith(color: Colors.grey),
               prefixIcon: ImageIcon(AssetImage(iconField)),
               filled: true,
               fillColor: ColorSystem.kbtnColorblue,

@@ -15,7 +15,11 @@ class CustomFormForgetPassword extends StatelessWidget {
     return Form(
       child: Column(
         children: [
-          CustomTextField(text: 'Email', iconField: smsicon),
+          CustomTextField(
+            hinttext: 'Mohamed @example.com',
+            text: 'Email',
+            iconField: smsicon,
+          ),
           SizedBox(
             height: 24,
           ),

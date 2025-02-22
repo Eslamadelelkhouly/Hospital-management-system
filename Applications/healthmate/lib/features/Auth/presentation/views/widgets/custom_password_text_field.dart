@@ -30,8 +30,13 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
           width: 362,
           height: 48,
           child: TextField(
+            obscuringCharacter: '*',
             obscureText: widget.eyepassword,
             decoration: InputDecoration(
+              hintText: '**************',
+              hintStyle: StylingSystem.textStyle14Medium.copyWith(
+                color: Colors.grey,
+              ),
               suffixIcon: IconButton(
                   onPressed: () {
                     if (widget.eyepassword) {

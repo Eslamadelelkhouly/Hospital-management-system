@@ -10,7 +10,7 @@ class SignUpScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: ColorSystem.kbtnColorWhite,
-      body: SafeArea(child: const SignUpBody()),
+      body: const SignUpBody(),
     );
   }
 }

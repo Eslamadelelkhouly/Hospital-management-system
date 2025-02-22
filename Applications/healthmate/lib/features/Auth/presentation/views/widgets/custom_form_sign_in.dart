@@ -24,6 +24,7 @@ class CustomFormSignIn extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const CustomTextField(
+              hinttext: 'Mohamed @example.com',
               text: 'Email',
               iconField: smsicon,
             ),
