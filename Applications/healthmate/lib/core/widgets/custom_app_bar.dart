@@ -23,7 +23,7 @@ class CustomAppBar extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: 57,
+          width: 45,
         ),
         Text(
           title,

@@ -4,9 +4,10 @@ import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 
 class CustomPasswordTextField extends StatefulWidget {
-  CustomPasswordTextField({super.key});
+  CustomPasswordTextField({super.key, required this.text});
 
   bool eyepassword = true;
+  final String text;
 
   @override
   State<CustomPasswordTextField> createState() =>

@@ -41,7 +41,9 @@ class CustomFormSignUp extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            CustomPasswordTextField(),
+            CustomPasswordTextField(
+              text: 'Password',
+            ),
             SizedBox(
               height: 10,
             ),

@@ -31,7 +31,9 @@ class CustomFormSignIn extends StatelessWidget {
             SizedBox(
               height: height * 0.02,
             ),
-            CustomPasswordTextField(),
+            CustomPasswordTextField(
+              text: 'Password',
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [

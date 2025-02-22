@@ -52,7 +52,7 @@ class ForgetPasswordBody extends StatelessWidget {
                     title: 'Forget Password',
                   ),
                   SizedBox(
-                    height: height * 0.04,
+                    height: 55,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 15),

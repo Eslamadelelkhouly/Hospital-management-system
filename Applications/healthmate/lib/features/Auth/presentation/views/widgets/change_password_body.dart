@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
+import 'package:healthmate/features/Auth/presentation/views/widgets/custom_form_change_password.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_logo_sign_in.dart';
 
 class ChangePasswordBody extends StatelessWidget {
@@ -44,12 +45,9 @@ class ChangePasswordBody extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 30,
-                  ),
                   CustomAppBar(title: ''),
                   SizedBox(
-                    height: 55,
+                    height: 48,
                   ),
                   CustomLogoSignIn(),
                   Text(
@@ -78,6 +76,10 @@ class ChangePasswordBody extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(
+                    height: 36,
+                  ),
+                  CustomFormChangePassword(),
                 ],
               ),
             ),
