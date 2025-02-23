@@ -16,6 +16,9 @@ const homeicon = 'assets/images/home-2.png';
 const hearticon = 'assets/images/heart.png';
 const messageicon = 'assets/images/message.png';
 const profileicon = 'assets/images/profile.png';
+const personal = 'assets/images/personal.png';
+const sun = 'assets/images/sun.png';
+const notificationicon = 'assets/images/notification.png';
 
 class onBoarding {
   final String title;

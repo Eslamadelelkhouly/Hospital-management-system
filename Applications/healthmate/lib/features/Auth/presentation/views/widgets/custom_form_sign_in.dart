@@ -60,7 +60,9 @@ class CustomFormSignIn extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CustomButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    GoRouter.of(context).push(Routing.khomescreen);
+                  },
                   text: 'Sign In',
                   width: 362,
                   height: 44,
