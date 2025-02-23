@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthmate/features/home/presentation/views/widgets/custom_list_tiel.dart';
+import 'package:healthmate/features/home/presentation/views/widgets/custom_search_text_field.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({super.key});
@@ -17,6 +18,10 @@ class HomeScreenBody extends StatelessWidget {
               height: 50,
             ),
             CustomListTiel(),
+            SizedBox(
+              height: 16,
+            ),
+            CustomSearchTextField(),
           ],
         ),
       ),

@@ -11,20 +11,28 @@ class CustomListTiel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Image.asset(personal),
-      title: Text(
-        'Mohamed ahmed',
-        style: StylingSystem.textStyle18semibold,
-      ),
-      subtitle: CustomSubtitleListTiel(),
-      trailing: IconButton(
-        onPressed: () {},
-        icon: ImageIcon(
-          AssetImage(notificationicon),
-          color: ColorSystem.kPrimaryColor,
+    return Stack(
+      children: [
+        ListTile(
+          leading: Image.asset(personal),
+          title: Text(
+            'Mohamed ahmed',
+            style: StylingSystem.textStyle18semibold,
+          ),
+          subtitle: CustomSubtitleListTiel(),
         ),
-      ),
+        Positioned(
+          right: 0,
+          bottom: 8,
+          child: IconButton(
+            onPressed: () {},
+            icon: ImageIcon(
+              AssetImage(notificationicon),
+              color: ColorSystem.kPrimaryColor,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
