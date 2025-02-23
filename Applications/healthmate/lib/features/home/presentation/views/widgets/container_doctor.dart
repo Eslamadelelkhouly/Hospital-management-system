@@ -22,7 +22,7 @@ class _ContainerDoctorState extends State<ContainerDoctor> {
       height: 114,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: ColorSystem.kPrimaryColorLight,
+        color: Color(0xffDEE8FB),
       ),
       child: Stack(
         children: [

@@ -7,6 +7,7 @@ class CustomListViewContainerDoctor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      padding: const EdgeInsets.all(0),
       scrollDirection: Axis.vertical,
       itemCount: 10,
       itemBuilder: (context, index) {

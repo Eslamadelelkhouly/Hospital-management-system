@@ -26,6 +26,7 @@ class CustomAppBar extends StatelessWidget {
           width: 45,
         ),
         Text(
+          textAlign: TextAlign.center,
           title,
           style: StylingSystem.textStyle24bold,
         ),
