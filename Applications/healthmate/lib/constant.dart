@@ -12,6 +12,10 @@ const header = 'assets/images/header.png';
 const Ksplashscreendoctor = 'onboardingscreen';
 const googleicon2 = 'assets/images/googleicon2.png';
 const appleicon2 = 'assets/images/appleicon2.png';
+const homeicon = 'assets/images/home-2.png';
+const hearticon = 'assets/images/heart.png';
+const messageicon = 'assets/images/message.png';
+const profileicon = 'assets/images/profile.png';
 
 class onBoarding {
   final String title;

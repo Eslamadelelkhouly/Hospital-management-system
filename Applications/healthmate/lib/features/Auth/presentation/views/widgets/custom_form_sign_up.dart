@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
+import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_or_divider.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_password_text_field.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_social_media_icons.dart';
@@ -55,7 +57,9 @@ class CustomFormSignUp extends StatelessWidget {
               height: height * 0.02,
             ),
             CustomButton(
-              onPressed: () {},
+              onPressed: () {
+                GoRouter.of(context).push(Routing.khomescreen);
+              },
               text: 'Sign Up',
               width: width * 0.90,
               height: height * 0.06,

@@ -17,6 +17,11 @@ abstract class StylingSystem {
     fontWeight: FontWeight.w700,
     color: Colors.black,
   );
+  static TextStyle textStyle24Medium = GoogleFonts.ibmPlexSansArabic(
+    fontSize: 24,
+    fontWeight: FontWeight.w500,
+    color: Colors.black,
+  );
   static TextStyle textStyleSubtitles2 = GoogleFonts.ibmPlexSansArabic(
     fontSize: 18,
     fontWeight: FontWeight.w600,
