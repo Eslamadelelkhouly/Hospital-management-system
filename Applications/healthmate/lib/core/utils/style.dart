@@ -27,6 +27,11 @@ abstract class StylingSystem {
     fontWeight: FontWeight.w600,
     color: Colors.black,
   );
+  static TextStyle textStyle20semibold = GoogleFonts.ibmPlexSansArabic(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    color: Colors.black,
+  );
   static TextStyle textStyle15bold = GoogleFonts.ibmPlexSansArabic(
     fontSize: 15,
     fontWeight: FontWeight.w700,

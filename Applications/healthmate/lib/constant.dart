@@ -14,12 +14,20 @@ const googleicon2 = 'assets/images/googleicon2.png';
 const appleicon2 = 'assets/images/appleicon2.png';
 const homeicon = 'assets/images/home-2.png';
 const hearticon = 'assets/images/heart.png';
+const hearticonred = 'assets/images/heartred.png';
 const messageicon = 'assets/images/message.png';
 const profileicon = 'assets/images/profile.png';
 const personal = 'assets/images/personal.png';
 const sun = 'assets/images/sun.png';
 const notificationicon = 'assets/images/notification.png';
 const searchicon = 'assets/images/search.png';
+const labtesticon = 'assets/images/labtest.png';
+const emergencyicon = 'assets/images/emergency.png';
+const pharmacyicon = 'assets/images/pharmacy.png';
+const doctorphoto1 = 'assets/images/doctor1.jpeg';
+const infoicon = 'assets/images/info.png';
+const staricon = 'assets/images/star.png';
+const stargoldicon = 'assets/images/stargold.png';
 
 class onBoarding {
   final String title;

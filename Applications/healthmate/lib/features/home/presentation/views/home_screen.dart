@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     PersonalScreen(),
   ];
 
-  final List<String> _labels = ["Home", "Favorites", "Messages", "Profile"];
+  final List<String> _labels = ["Home", "Favorite", "Messages", "Profile"];
   final List<String> _icons = [
     homeicon,
     hearticon,
