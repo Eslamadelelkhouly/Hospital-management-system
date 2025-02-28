@@ -10,4 +10,5 @@ abstract class ColorSystem {
   static const Color kColorBlack = Colors.black;
   static const Color kbtnColorSign = Color(0xffBCCFF6);
   static const Color kGrayColor2 = const Color(0xff8E8E93);
+  static const Color kPrimaryColorHighLight = Color(0xffDEE8FB);
 }

@@ -22,14 +22,18 @@ class CustomAppBar extends StatelessWidget {
             size: 24,
           ),
         ),
-        SizedBox(
-          width: 45,
+        Spacer(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              textAlign: TextAlign.center,
+              title,
+              style: StylingSystem.textStyle24bold,
+            ),
+          ],
         ),
-        Text(
-          textAlign: TextAlign.center,
-          title,
-          style: StylingSystem.textStyle24bold,
-        ),
+        Spacer(),
       ],
     );
   }

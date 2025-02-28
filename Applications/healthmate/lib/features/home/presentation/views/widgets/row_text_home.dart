@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:healthmate/core/utils/color_style.dart';
+import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/style.dart';
 
 class RowTextHome extends StatelessWidget {
@@ -19,7 +21,9 @@ class RowTextHome extends StatelessWidget {
             style: StylingSystem.textStyle20semibold,
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(Routing.ksearchscreen);
+            },
             child: Text(
               'See more',
               style: StylingSystem.textStyle14Medium.copyWith(
