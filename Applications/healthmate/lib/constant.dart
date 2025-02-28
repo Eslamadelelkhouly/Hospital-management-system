@@ -28,6 +28,8 @@ const doctorphoto1 = 'assets/images/doctor1.jpeg';
 const infoicon = 'assets/images/info.png';
 const staricon = 'assets/images/star.png';
 const stargoldicon = 'assets/images/stargold.png';
+const locationicon = 'assets/images/location.png';
+const mobileicon = 'assets/images/mobile.png';
 
 class onBoarding {
   final String title;

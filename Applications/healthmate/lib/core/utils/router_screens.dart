@@ -4,6 +4,7 @@ import 'package:healthmate/features/Auth/presentation/views/forget_password_scre
 import 'package:healthmate/features/Auth/presentation/views/sign_in_screen.dart';
 import 'package:healthmate/features/Auth/presentation/views/sign_up_screen.dart';
 import 'package:healthmate/features/Auth/presentation/views/verification_screen.dart';
+import 'package:healthmate/features/doctor/presentation/views/doctor_screen.dart';
 import 'package:healthmate/features/home/presentation/views/home_screen.dart';
 import 'package:healthmate/features/search/presentation/views/search_screen.dart';
 import 'package:healthmate/features/splash/presentation/views/splash_init_screen.dart';
@@ -22,6 +23,7 @@ abstract class Routing {
   static const kchangepassword = '/kchangepassowrd';
   static const khomescreen = '/khomescreen';
   static const ksearchscreen = '/ksearchscreen';
+  static const kdoctorscreen = '/kdoctorscreen';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -63,6 +65,10 @@ abstract class Routing {
       GoRoute(
         path: ksearchscreen,
         builder: (context, state) => const SearchScreen(),
+      ),
+      GoRoute(
+        path: kdoctorscreen,
+        builder: (context, state) => const DoctorScreen(),
       ),
     ],
   );
