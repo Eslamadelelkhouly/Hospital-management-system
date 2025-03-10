@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 
@@ -22,9 +23,7 @@ class RowSocialCardDoctorPersonal extends StatelessWidget {
           ),
           color: ColorSystem.kPrimaryColor,
         ),
-        SizedBox(
-          width: 3,
-        ),
+        3.horizontalSpace,
         Text(
           text,
           style: StylingSystem.textStyle16Medium,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
@@ -13,40 +14,32 @@ class CardInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 110,
-      height: 100,
+      width: 110.r,
+      height: 100.r,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16).r,
         color: ColorSystem.kPrimaryColorHighLight,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(
-            height: 8,
-          ),
+          8.verticalSpace,
           Text(
             text,
             style: StylingSystem.textStyle16Medium.copyWith(
               fontWeight: FontWeight.w600,
             ),
           ),
-          SizedBox(
-            height: 6,
-          ),
+          6.verticalSpace,
           Image.asset(imageUrl),
-          SizedBox(
-            height: 6,
-          ),
+          6.verticalSpace,
           Text(
             subtext,
             style: StylingSystem.textStyle16Medium.copyWith(
               fontWeight: FontWeight.w600,
             ),
           ),
-          SizedBox(
-            height: 8,
-          ),
+          8.verticalSpace,
         ],
       ),
     );

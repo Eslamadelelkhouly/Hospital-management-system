@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
@@ -17,12 +18,11 @@ class SplashSliderWidget extends StatelessWidget {
   final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     return Column(
       children: [
         Container(
-          width: 236,
-          height: 236,
+          width: 236.r,
+          height: 236.r,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(imageURL),
@@ -32,54 +32,49 @@ class SplashSliderWidget extends StatelessWidget {
         ),
         Text(
           title,
+          textAlign: TextAlign.center,
           style: StylingSystem.textStyle24bold,
         ),
-        SizedBox(
-          height: height * 0.01,
-        ),
+        (ScreenUtil().screenHeight * 0.01).verticalSpace,
         Container(
-          width: 250,
-          height: 79,
-          child: Center(
-            child: Text(
-              description,
-              style: StylingSystem.textStyleSubtitles2,
-            ),
+          width: 300.r,
+          height: 79.r,
+          child: Text(
+            textAlign: TextAlign.start,
+            description,
+            style: StylingSystem.textStyleSubtitles2,
+            maxLines: 3,
           ),
         ),
-        SizedBox(
-          height: height * 0.02,
-        ),
+        (ScreenUtil().screenHeight * 0.02).verticalSpace,
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
-              radius: 7,
+              radius: 7.r,
               backgroundColor: ColorSystem.kPrimaryColor,
             ),
-            SizedBox(width: 3),
+            3.verticalSpace,
             CircleAvatar(
-              radius: 5,
+              radius: 5.r,
               backgroundColor: ColorSystem.kGrayColor,
             ),
-            SizedBox(width: 3),
+            3.verticalSpace,
             CircleAvatar(
-              radius: 5,
+              radius: 5.r,
               backgroundColor: ColorSystem.kGrayColor,
             ),
           ],
         ),
-        SizedBox(
-          height: height * 0.1,
-        ),
+        (ScreenUtil().screenHeight * 0.1).verticalSpace,
         Align(
           alignment: Alignment.centerRight,
           child: CustomButton(
             textColor: Colors.white,
             backgrounColor: ColorSystem.kPrimaryColor,
             onPressed: onPressed,
-            width: 100,
-            height: 42,
+            width: 100.r,
+            height: 42.r,
             text: 'Next',
           ),
         ),

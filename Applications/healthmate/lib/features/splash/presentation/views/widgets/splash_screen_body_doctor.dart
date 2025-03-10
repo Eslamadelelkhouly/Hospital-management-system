@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/features/splash/presentation/views/widgets/custom_indictor.dart';
 import 'package:healthmate/features/splash/presentation/views/widgets/custom_page_view.dart';
@@ -38,28 +39,21 @@ class _SplashScreenBodyDoctorState extends State<SplashScreenBodyDoctor> {
     final double height = MediaQuery.of(context).size.height;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20).r,
       child: Column(
         children: [
-          SizedBox(
-            height: height * 0.07,
-          ),
+          50.verticalSpace,
           TitleOnBoarding(),
-          SizedBox(
-            height: height * 0.1,
-          ),
           CustomPageView(
+            height: height,
             pageController: _pageController,
             controller: controller,
-            height: height,
           ),
           CustomIndictor(
             pageController: _pageController,
             controller: controller,
           ),
-          SizedBox(
-            height: 50,
-          ),
+          50.verticalSpace,
           RowOfButton(
             currentPage: _currentPage,
             pageController: _pageController,

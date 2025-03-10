@@ -8,17 +8,23 @@ class RowCardInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         CardInformation(
           text: 'Patients',
           imageUrl: people,
           subtext: '500',
         ),
+        SizedBox(
+          width: 5,
+        ),
         CardInformation(
           text: 'Experience',
           imageUrl: people,
           subtext: '4 years',
+        ),
+        SizedBox(
+          width: 5,
         ),
         CardInformation(
           text: 'Rating',

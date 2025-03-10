@@ -59,7 +59,7 @@ class OnBoardingData {
       images: 'assets/images/p2.png',
     ),
     onBoarding(
-      title: '',
+      title: 'Check Medical History',
       description:
           'Lorem ipsum dolor sit amet consectetur. Morbi risus non non aliquam amet aliquet.',
       images: 'assets/images/p3.png',

@@ -32,6 +32,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
           height: 48,
           child: TextField(
             obscuringCharacter: '*',
+            cursorColor: ColorSystem.kPrimaryColor,
             obscureText: widget.eyepassword,
             decoration: InputDecoration(
               hintText: '**************',

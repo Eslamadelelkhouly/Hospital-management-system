@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/style.dart';
-
 class SplashScreenBody extends StatelessWidget {
   const SplashScreenBody({super.key});
 
@@ -24,13 +24,11 @@ class SplashScreenBody extends StatelessWidget {
               ),
             ],
             child: Padding(
-              padding: const EdgeInsets.only(left: 9),
+              padding: const EdgeInsets.only(left: 9).r,
               child: Image.asset(logo),
             ),
           ),
-          SizedBox(
-            height: 10,
-          ),
+          10.verticalSpace,
           Animate(
             effects: [
               const FadeEffect(),

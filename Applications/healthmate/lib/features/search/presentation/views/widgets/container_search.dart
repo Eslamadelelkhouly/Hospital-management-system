@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/style.dart';
+import 'package:healthmate/main.dart';
 
 class ContainerSearch extends StatelessWidget {
   const ContainerSearch({super.key});
@@ -15,10 +17,9 @@ class ContainerSearch extends StatelessWidget {
         GoRouter.of(context).push(Routing.kdoctorscreen);
       },
       child: Container(
-        width: 173,
-        height: 178,
+        width: 175.r,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(16).r,
           color: ColorSystem.kPrimaryColorHighLight,
         ),
         child: Stack(
@@ -27,23 +28,19 @@ class ContainerSearch extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  12.verticalSpace,
                   SizedBox(
-                    height: 16,
-                  ),
-                  SizedBox(
-                    width: 58,
-                    height: 58,
+                    width: 58.r,
+                    height: 58.r,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(50).r,
                       child: Image.asset(
                         doctorphoto1,
                         fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 8,
-                  ),
+                  8.verticalSpace,
                   Text(
                     textAlign: TextAlign.center,
                     'Dr.Ali hassan',
@@ -51,17 +48,16 @@ class ContainerSearch extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
+                  6.verticalSpace,
                   SizedBox(
-                    height: 6,
-                  ),
-                  SizedBox(
-                    width: 141,
-                    height: 54,
+                    width: 141.r,
+                    height: 60.r,
                     child: Text(
                       maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                      style: StylingSystem.textStyleSign12.copyWith(
+                      style: StylingSystem.textStyle11.copyWith(
                         color: ColorSystem.kGrayColor2,
                       ),
                     ),
@@ -70,17 +66,15 @@ class ContainerSearch extends StatelessWidget {
               ),
             ),
             Positioned(
-              right: 10,
-              top: 12,
+              right: 13.5.r,
+              top: 16.r,
               child: Row(
                 children: [
                   Image.asset(stargoldicon),
-                  SizedBox(
-                    width: 2,
-                  ),
+                  2.horizontalSpace,
                   Text(
                     '4.7',
-                    style: StylingSystem.textStyle14Medium.copyWith(
+                    style: StylingSystem.textStyleSign12.copyWith(
                       fontWeight: FontWeight.w700,
                       color: ColorSystem.kPrimaryColor,
                     ),

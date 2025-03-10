@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/features/doctor/presentation/views/widgets/custom_container_doctor_photo_personal.dart';
@@ -10,14 +11,12 @@ class CustomCardDoctor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 310,
+      width: 310.r,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           CustomContainerDoctorPhotoPersonal(),
-          SizedBox(
-            width: 16,
-          ),
+          15.horizontalSpace,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -29,16 +28,12 @@ class CustomCardDoctor extends StatelessWidget {
                 'Internal physician',
                 style: StylingSystem.textStyle16Medium,
               ),
-              SizedBox(
-                height: 8,
-              ),
+              8.verticalSpace,
               RowSocialCardDoctorPersonal(
                 text: 'Mansoura',
                 imageurl: locationicon,
               ),
-              SizedBox(
-                height: 8,
-              ),
+              8.verticalSpace,
               RowSocialCardDoctorPersonal(
                 text: '+20 1046985236',
                 imageurl: mobileicon,

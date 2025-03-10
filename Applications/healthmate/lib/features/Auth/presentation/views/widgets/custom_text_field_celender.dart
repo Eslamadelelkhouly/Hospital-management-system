@@ -36,6 +36,7 @@ class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
           height: 48,
           child: TextField(
             controller: text,
+            cursorColor: ColorSystem.kPrimaryColor,
             decoration: InputDecoration(
               hintText: '07 November, 1986',
               hintStyle: StylingSystem.textStyle14Medium.copyWith(

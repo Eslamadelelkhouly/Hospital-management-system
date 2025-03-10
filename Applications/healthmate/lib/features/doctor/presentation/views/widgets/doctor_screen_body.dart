@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:healthmate/core/utils/color_style.dart';
+import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
@@ -13,57 +16,49 @@ class DoctorScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20).r,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            height: 30,
-          ),
+          30.verticalSpace,
           CustomAppBar(title: ''),
-          SizedBox(
-            height: 24,
-          ),
+          5.verticalSpace,
           CustomCardDoctor(),
-          SizedBox(
-            height: 25,
-          ),
+          20.verticalSpace,
           RowCardInformation(),
-          SizedBox(
-            height: 21,
-          ),
+          21.verticalSpace,
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10).r,
             child: Text(
               'About',
               style: StylingSystem.textStyle20semibold,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10).r,
             child: SizedBox(
-              width: 362,
-              height: 96,
+              width: 362.r,
+              height: 96.r,
               child: Text(
-                'Lorem ipsum dolor sit amet consectetur. Sed integer am congue enim libero urna odio. In accumsan odio mauris nibh. Et elementum enim at enim montes aliquam elit pellentesque nulla.',
+                maxLines: 4,
+                overflow: TextOverflow.ellipsis,
+                'Lorem ipsum dolor sit amet consectetur.sed integer am congue enim libero urna odio. In accumsan odio mauris nibh. Et elementum enim at enim montes aliquam elit pellentesque nulla.',
                 style: StylingSystem.textStyle16Medium.copyWith(
                   color: ColorSystem.kGrayColor2,
                 ),
               ),
             ),
           ),
-          SizedBox(
-            height: 16,
-          ),
+          16.verticalSpace,
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10).r,
             child: Text(
               'Working hours',
               style: StylingSystem.textStyle20semibold,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10).r,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -83,7 +78,7 @@ class DoctorScreenBody extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10).r,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -102,18 +97,16 @@ class DoctorScreenBody extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            height: 16,
-          ),
+          16.verticalSpace,
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10).r,
             child: Text(
               'consulatiion fee',
               style: StylingSystem.textStyle20semibold,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10).r,
             child: Text(
               '1500 EGP',
               style: StylingSystem.textStyle16Medium.copyWith(
@@ -123,16 +116,16 @@ class DoctorScreenBody extends StatelessWidget {
           ),
           Spacer(),
           CustomButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(Routing.kschedulescreen);
+            },
             text: 'Make Appointment',
-            width: 362,
-            height: 48,
+            width: 362.r,
+            height: 48.r,
             textColor: Colors.white,
             backgrounColor: ColorSystem.kPrimaryColor,
           ),
-          SizedBox(
-            height: 24,
-          ),
+          Spacer(),
         ],
       ),
     );

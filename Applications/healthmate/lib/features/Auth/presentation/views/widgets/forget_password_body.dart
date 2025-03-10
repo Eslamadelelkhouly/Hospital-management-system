@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/core/utils/style.dart';
@@ -9,7 +10,6 @@ class ForgetPasswordBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     return Stack(
       children: [
         Positioned(
@@ -41,33 +41,25 @@ class ForgetPasswordBody extends StatelessWidget {
           height: double.infinity,
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20).r,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 30,
-                  ),
+                  30.verticalSpace,
                   CustomAppBar(
                     title: 'Forget Password',
                   ),
-                  SizedBox(
-                    height: 55,
-                  ),
+                  15.verticalSpace,
                   Padding(
-                    padding: const EdgeInsets.only(left: 15),
+                    padding: const EdgeInsets.only(left: 15).r,
                     child: Image.asset(logo2),
                   ),
-                  SizedBox(
-                    height: 4,
-                  ),
+                  4.verticalSpace,
                   Text(
                     'Health Mate',
                     style: StylingSystem.textStyle24bold,
                   ),
-                  SizedBox(
-                    height: 32,
-                  ),
+                  32.verticalSpace,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -77,9 +69,7 @@ class ForgetPasswordBody extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 8,
-                  ),
+                  8.verticalSpace,
                   Text.rich(
                     TextSpan(children: [
                       TextSpan(
@@ -91,10 +81,9 @@ class ForgetPasswordBody extends StatelessWidget {
                       ),
                     ]),
                   ),
-                  SizedBox(
-                    height: 40,
-                  ),
+                  40.verticalSpace,
                   CustomFormForgetPassword(),
+                  120.verticalSpace,
                 ],
               ),
             ),

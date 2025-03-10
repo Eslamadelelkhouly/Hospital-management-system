@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
@@ -9,7 +10,6 @@ class VerificationScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
     return Stack(
       children: [
         Positioned(
@@ -36,23 +36,21 @@ class VerificationScreenBody extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
+        Container(
           width: double.infinity,
           height: double.infinity,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: SingleChildScrollView(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 30,
-                  ),
+                  30.verticalSpace,
                   CustomAppBar(
                     title: ' ',
                   ),
                   SizedBox(
-                    height: height * 0.04,
+                    height: 8,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 15),

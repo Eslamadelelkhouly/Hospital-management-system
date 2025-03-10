@@ -56,20 +56,15 @@ class CustomFormSignIn extends StatelessWidget {
             SizedBox(
               height: height * 0.02,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomButton(
-                  onPressed: () {
-                    GoRouter.of(context).push(Routing.khomescreen);
-                  },
-                  text: 'Sign In',
-                  width: 362,
-                  height: 44,
-                  textColor: ColorSystem.kbtnColorWhite,
-                  backgrounColor: ColorSystem.kPrimaryColor,
-                ),
-              ],
+            CustomButton(
+              onPressed: () {
+                GoRouter.of(context).push(Routing.khomescreen);
+              },
+              text: 'Sign In',
+              width: 362,
+              height: 44,
+              textColor: ColorSystem.kbtnColorWhite,
+              backgrounColor: ColorSystem.kPrimaryColor,
             ),
             SizedBox(
               height: 8,
