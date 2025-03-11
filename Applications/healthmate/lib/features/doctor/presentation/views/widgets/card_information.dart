@@ -15,7 +15,7 @@ class CardInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 110.r,
-      height: 100.r,
+      height: 110.r,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16).r,
         color: ColorSystem.kPrimaryColorHighLight,

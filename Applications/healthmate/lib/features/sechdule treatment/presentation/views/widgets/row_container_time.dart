@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/container_time.dart';
 
 class RowContainerTime extends StatelessWidget {

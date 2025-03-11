@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:healthmate/core/utils/color_style.dart';
-import 'package:healthmate/core/utils/style.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class CustomCelender extends StatefulWidget {

@@ -6,6 +6,7 @@ import 'package:healthmate/features/Auth/presentation/views/sign_up_screen.dart'
 import 'package:healthmate/features/Auth/presentation/views/verification_screen.dart';
 import 'package:healthmate/features/doctor/presentation/views/doctor_screen.dart';
 import 'package:healthmate/features/home/presentation/views/home_screen.dart';
+import 'package:healthmate/features/lap%20test/presentation/views/lab_test_screen.dart';
 import 'package:healthmate/features/search/presentation/views/search_screen.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/sechdule_screen.dart';
 import 'package:healthmate/features/splash/presentation/views/splash_init_screen.dart';
@@ -26,6 +27,7 @@ abstract class Routing {
   static const ksearchscreen = '/ksearchscreen';
   static const kdoctorscreen = '/kdoctorscreen';
   static const kschedulescreen = '/kschedulescreen';
+  static const klabtestscreen = '/klabtestscreen';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -75,6 +77,10 @@ abstract class Routing {
       GoRoute(
         path: kschedulescreen,
         builder: (context, state) => const SechduleScreen(),
+      ),
+      GoRoute(
+        path: klabtestscreen,
+        builder: (context, state) => const LabTestScreen(),
       ),
     ],
   );

@@ -21,7 +21,7 @@ class AppBarSetting extends StatelessWidget {
           icon: Icon(Icons.arrow_back_ios),
         ),
         Text(
-          'Myprofile',
+          'My profile',
           style: StylingSystem.textStyle24bold,
         ),
         IconButton(

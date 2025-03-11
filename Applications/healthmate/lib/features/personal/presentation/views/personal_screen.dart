@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/features/personal/presentation/views/widgets/circule_perosnal_photo.dart';
@@ -46,11 +47,27 @@ class PersonalScreen extends StatelessWidget {
                 ),
               ],
             ),
-            PersonalField(),
+            8.verticalSpace,
+            PersonalField(
+              imgUrl: smsicon,
+              label: 'Email',
+              input: 'Mohamed@gmail.com',
+            ),
+            16.verticalSpace,
+            PersonalField(
+              imgUrl: mobileicon,
+              label: 'Phone Number',
+              input: '+20 1046985236',
+            ),
+            16.verticalSpace,
+            PersonalField(
+              imgUrl: celendericon,
+              label: 'Date Of Birth',
+              input: '07 November, 1986',
+            ),
           ],
         ),
       ),
     );
   }
 }
-

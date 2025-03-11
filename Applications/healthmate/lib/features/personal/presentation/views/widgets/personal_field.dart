@@ -7,8 +7,11 @@ import 'package:healthmate/core/utils/style.dart';
 class PersonalField extends StatelessWidget {
   const PersonalField({
     super.key,
+    required this.label,
+    required this.input,
+    required this.imgUrl,
   });
-
+  final String label, input, imgUrl;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,11 +23,11 @@ class PersonalField extends StatelessWidget {
         title: Row(
           children: [
             ImageIcon(
-              AssetImage(smsicon),
+              AssetImage(imgUrl),
             ),
             8.horizontalSpace,
             Text(
-              'Email',
+              label,
               style: StylingSystem.textStyle14Medium.copyWith(
                 color: ColorSystem.kGrayColor2,
               ),
@@ -32,7 +35,7 @@ class PersonalField extends StatelessWidget {
           ],
         ),
         trailing: Text(
-          'Mohamed@gmail.com',
+          input,
           style: StylingSystem.textStyle14Medium.copyWith(
             color: ColorSystem.kGrayColor2,
           ),

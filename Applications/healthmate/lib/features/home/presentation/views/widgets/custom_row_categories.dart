@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
-import 'package:healthmate/core/utils/color_style.dart';
-import 'package:healthmate/core/utils/style.dart';
+import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/features/home/presentation/views/widgets/card_categories.dart';
 
 class CustomRowCategories extends StatelessWidget {
@@ -16,14 +16,19 @@ class CustomRowCategories extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CardCategories(
+            onTap: () {
+              GoRouter.of(context).push(Routing.klabtestscreen);
+            },
             text: 'Lab test',
             image: labtesticon,
           ),
           CardCategories(
+            onTap: (){},
             text: 'Emergency',
             image: emergencyicon,
           ),
           CardCategories(
+            onTap: (){},
             text: 'Pharmacy',
             image: pharmacyicon,
           ),
