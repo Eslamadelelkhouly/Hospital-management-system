@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/features/personal/presentation/views/widgets/circule_perosnal_photo.dart';
-import 'package:healthmate/features/personal/presentation/views/widgets/container_personal_info.dart';
 import 'package:healthmate/features/personal/presentation/views/widgets/custom_app_bar_settings.dart';
+import 'package:healthmate/features/personal/presentation/views/widgets/personal_field.dart';
 import 'package:healthmate/features/personal/presentation/views/widgets/row_container_info_personal.dart';
 
 class PersonalScreen extends StatelessWidget {
@@ -42,12 +42,15 @@ class PersonalScreen extends StatelessWidget {
               children: [
                 Text(
                   'Personal Information',
+                  style: StylingSystem.textStyle20semibold,
                 ),
               ],
             ),
+            PersonalField(),
           ],
         ),
       ),
     );
   }
 }
+
