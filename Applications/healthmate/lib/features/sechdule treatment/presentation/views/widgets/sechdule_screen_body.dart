@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
-import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/container_time.dart';
+import 'package:healthmate/core/widgets/custom_button.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/custom_celender.dart';
+import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/row_container_time.dart';
 
 class SechduleScreenBody extends StatelessWidget {
   const SechduleScreenBody({super.key});
@@ -11,7 +13,7 @@ class SechduleScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15).r,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -31,7 +33,19 @@ class SechduleScreenBody extends StatelessWidget {
             ],
           ),
           8.verticalSpace,
-          ContainerTime(),
+          RowContainerTime(),
+          8.verticalSpace,
+          RowContainerTime(),
+          35.verticalSpace,
+          CustomButton(
+            onPressed: () {},
+            text: 'Make Appointment',
+            width: ScreenUtil.defaultSize.width * 0.9,
+            height: 48.r,
+            textColor: ColorSystem.kbtnColorWhite,
+            backgrounColor: ColorSystem.kPrimaryColor,
+          ),
+          Spacer(),
         ],
       ),
     );

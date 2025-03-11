@@ -31,6 +31,7 @@ const stargoldicon = 'assets/images/stargold.png';
 const locationicon = 'assets/images/location.png';
 const mobileicon = 'assets/images/mobile.png';
 const people = 'assets/images/people.png';
+const settingicon = 'assets/images/setting.png';
 
 class onBoarding {
   final String title;
