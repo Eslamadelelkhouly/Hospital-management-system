@@ -6,7 +6,6 @@ import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
-import 'package:healthmate/features/doctor/presentation/views/widgets/card_information.dart';
 import 'package:healthmate/features/doctor/presentation/views/widgets/custom_list_tiel_doctor.dart';
 import 'package:healthmate/features/doctor/presentation/views/widgets/row_card_information.dart';
 

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
-import 'package:healthmate/main.dart';
 
 class CardCategories extends StatelessWidget {
   const CardCategories({

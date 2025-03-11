@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/constant.dart';
-import 'package:healthmate/core/utils/style.dart';
 
 class CustomContainerDoctorPhotoPersonal extends StatelessWidget {
   const CustomContainerDoctorPhotoPersonal({

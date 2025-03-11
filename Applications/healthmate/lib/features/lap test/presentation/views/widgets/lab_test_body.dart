@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
+import 'package:healthmate/core/widgets/custom_button.dart';
 import 'package:healthmate/features/home/presentation/views/widgets/custom_search_text_field.dart';
-import 'package:healthmate/features/lap%20test/presentation/views/widgets/custom_list_tiel_lab_test.dart';
+import 'package:healthmate/features/lap%20test/presentation/views/widgets/list_view_card_lab_test.dart';
 
 class LabTestBody extends StatelessWidget {
   const LabTestBody({super.key});
@@ -33,7 +35,17 @@ class LabTestBody extends StatelessWidget {
               ],
             ),
             8.verticalSpace,
-            CustomListTielLabTest(),
+            ListViewCardLabTest(),
+            40.verticalSpace,
+            CustomButton(
+              onPressed: () {},
+              text: 'Make Appointment',
+              width: 362.r,
+              height: 48,
+              textColor: ColorSystem.kbtnColorWhite,
+              backgrounColor: ColorSystem.kPrimaryColor,
+            ),
+            Spacer(),
           ],
         ),
       ),
