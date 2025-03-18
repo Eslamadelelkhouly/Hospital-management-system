@@ -23,13 +23,15 @@ class CustomRowCategories extends StatelessWidget {
             image: labtesticon,
           ),
           CardCategories(
-            onTap: (){},
+            onTap: () {},
             text: 'Emergency',
             image: emergencyicon,
           ),
           CardCategories(
-            onTap: (){},
-            text: 'Pharmacy',
+            onTap: () {
+              GoRouter.of(context).push(Routing.kheartdiseasescreen);
+            },
+            text: 'AI models',
             image: pharmacyicon,
           ),
         ],

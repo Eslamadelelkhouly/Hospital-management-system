@@ -6,7 +6,6 @@ import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_text_field.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
-import 'package:healthmate/main.dart';
 
 class CustomFormForgetPassword extends StatelessWidget {
   const CustomFormForgetPassword({super.key});

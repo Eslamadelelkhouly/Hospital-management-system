@@ -5,7 +5,6 @@ import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/style.dart';
-import 'package:healthmate/main.dart';
 
 class ContainerSearch extends StatelessWidget {
   const ContainerSearch({super.key});

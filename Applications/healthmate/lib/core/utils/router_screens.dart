@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:healthmate/features/AI%20models/presentation/views/heart_disease.dart';
 import 'package:healthmate/features/Auth/presentation/views/change_password_screen.dart';
 import 'package:healthmate/features/Auth/presentation/views/forget_password_screen.dart';
 import 'package:healthmate/features/Auth/presentation/views/sign_in_screen.dart';
@@ -28,6 +29,7 @@ abstract class Routing {
   static const kdoctorscreen = '/kdoctorscreen';
   static const kschedulescreen = '/kschedulescreen';
   static const klabtestscreen = '/klabtestscreen';
+  static const kheartdiseasescreen = '/kheartdiseasescreen';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -81,6 +83,10 @@ abstract class Routing {
       GoRoute(
         path: klabtestscreen,
         builder: (context, state) => const LabTestScreen(),
+      ),
+      GoRoute(
+        path: kheartdiseasescreen,
+        builder: (context, state) => const HeartDisease(),
       ),
     ],
   );

@@ -3,15 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 
-class CustomTextField extends StatelessWidget {
-  const CustomTextField(
-      {super.key,
-      required this.text,
-      required this.iconField,
-      required this.hinttext});
+class CustomTextFieldPredict extends StatelessWidget {
+  const CustomTextFieldPredict(
+      {super.key, required this.text, required this.hinttext});
+
   final String text;
-  final String iconField;
   final String hinttext;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -31,7 +29,6 @@ class CustomTextField extends StatelessWidget {
               hintText: hinttext,
               hintStyle:
                   StylingSystem.textStyle14Medium.copyWith(color: Colors.grey),
-              prefixIcon: ImageIcon(AssetImage(iconField)),
               filled: true,
               fillColor: ColorSystem.kbtnColorblue,
               focusedBorder: OutlineInputBorder(
@@ -56,5 +53,6 @@ class CustomTextField extends StatelessWidget {
         ),
       ],
     );
+    ;
   }
 }
