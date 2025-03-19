@@ -53,6 +53,5 @@ class CustomTextFieldPredict extends StatelessWidget {
         ),
       ],
     );
-    ;
   }
 }
