@@ -13,10 +13,15 @@ class CustomFormForgetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    late String email;
     return Form(
       child: Column(
         children: [
           CustomTextField(
+            controller: TextEditingController(),
+            onSaved: (value) {
+              email = value!;
+            },
             hinttext: 'Mohamed @example.com',
             text: 'Email',
             iconField: smsicon,

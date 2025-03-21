@@ -1,5 +1,11 @@
-import 'package:healthmate/features/Auth/data/model/patient_model.dart';
+import 'package:dartz/dartz.dart';
+import 'package:healthmate/core/errors/failuers.dart';
 
 abstract class AuthRepo {
-  Future<void> register(PatientModel patient) async {}
+  Future<Either<Failuers, Map<String, dynamic>>> signUp({
+    required String fullname,
+    required String email,
+    required String password,
+    required String dateofbirth,
+  });
 }

@@ -42,23 +42,19 @@ class SignUpBody extends StatelessWidget {
           height: double.infinity,
           child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    const CustomLogoSignIn(),
-                    Text(
-                      MangementString.title,
-                      style: StylingSystem.textStyleTitle.copyWith(
-                        color: ColorSystem.kColorBlack,
-                      ),
-                    ),
-                    CustomFormSignUp(),
-                  ],
+                SizedBox(
+                  height: 10,
                 ),
+                const CustomLogoSignIn(),
+                Text(
+                  MangementString.title,
+                  style: StylingSystem.textStyleTitle.copyWith(
+                    color: ColorSystem.kColorBlack,
+                  ),
+                ),
+                CustomFormSignUp(),
               ],
             ),
           ),

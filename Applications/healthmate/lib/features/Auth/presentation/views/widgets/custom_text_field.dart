@@ -8,10 +8,15 @@ class CustomTextField extends StatelessWidget {
       {super.key,
       required this.text,
       required this.iconField,
-      required this.hinttext});
+      required this.hinttext,
+      required this.onSaved,
+      required this.controller});
   final String text;
   final String iconField;
   final String hinttext;
+  final String? Function(String?)? onSaved;
+  final TextEditingController controller;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,9 +29,16 @@ class CustomTextField extends StatelessWidget {
         2.verticalSpace,
         Container(
           width: 362.r,
-          height: 48.r,
-          child: TextField(
+          height: 70.r,
+          child: TextFormField(
+            controller: controller,
+            validator: (value) {
+              if (value!.isEmpty || value == null) {
+                return 'Please enter your $text';
+              }
+            },
             cursorColor: ColorSystem.kPrimaryColor,
+            onSaved: onSaved,
             decoration: InputDecoration(
               hintText: hinttext,
               hintStyle:

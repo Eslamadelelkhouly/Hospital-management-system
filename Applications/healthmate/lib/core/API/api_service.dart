@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:healthmate/core/API/backend_endpoint.dart';
 
 class ApiService {
   final Dio dio;
@@ -7,7 +8,7 @@ class ApiService {
   Future<Map<String, dynamic>> Post(
       {required String endpoint, required dynamic data}) async {
     var response = await dio.post(
-      endpoint,
+      '${BackendEndpoint.baseUrl}$endpoint',
       data: data,
       options: Options(
         headers: {

@@ -5,8 +5,10 @@ import 'package:healthmate/core/utils/style.dart';
 import 'package:intl/intl.dart';
 
 class CustomTextFieldCelender extends StatefulWidget {
-  const CustomTextFieldCelender({super.key});
-
+  const CustomTextFieldCelender(
+      {super.key, this.onSaved, required this.controller});
+  final String? Function(String?)? onSaved;
+  final TextEditingController controller;
   @override
   State<CustomTextFieldCelender> createState() =>
       _CustomTextFieldCelenderState();
@@ -33,8 +35,14 @@ class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
         ),
         Container(
           width: 362,
-          height: 48,
-          child: TextField(
+          height: 70,
+          child: TextFormField(
+            onSaved: widget.onSaved,
+            validator: (value) {
+              if (value!.isEmpty || value == null) {
+                return 'Please enter your Date of Birth';
+              }
+            },
             controller: text,
             cursorColor: ColorSystem.kPrimaryColor,
             decoration: InputDecoration(

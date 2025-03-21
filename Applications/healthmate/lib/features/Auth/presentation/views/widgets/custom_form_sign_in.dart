@@ -17,13 +17,18 @@ class CustomFormSignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
+    late String email;
     return Form(
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CustomTextField(
+            CustomTextField(
+              controller: TextEditingController(),
+              onSaved: (value){
+                email = value!;
+              },
               hinttext: 'Mohamed @example.com',
               text: 'Email',
               iconField: smsicon,
@@ -32,6 +37,7 @@ class CustomFormSignIn extends StatelessWidget {
               height: height * 0.02,
             ),
             CustomPasswordTextField(
+              controller: TextEditingController(),
               text: 'Password',
             ),
             Row(

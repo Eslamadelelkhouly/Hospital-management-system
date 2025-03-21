@@ -12,12 +12,14 @@ class CustomFormChangePassword extends StatelessWidget {
       child: Column(
         children: [
           CustomPasswordTextField(
+            controller: TextEditingController(),
             text: 'Password',
           ),
           SizedBox(
             height: 16,
           ),
           CustomPasswordTextField(
+            controller: TextEditingController(),
             text: 'Confirm Password',
           ),
           SizedBox(

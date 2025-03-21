@@ -4,10 +4,13 @@ import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 
 class CustomPasswordTextField extends StatefulWidget {
-  CustomPasswordTextField({super.key, required this.text});
+  CustomPasswordTextField(
+      {super.key, required this.text, this.onSaved, required this.controller});
 
   bool eyepassword = true;
   final String text;
+  final String? Function(String?)? onSaved;
+  final TextEditingController controller;
 
   @override
   State<CustomPasswordTextField> createState() =>
@@ -29,8 +32,15 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
         ),
         Container(
           width: 362,
-          height: 48,
-          child: TextField(
+          height: 70,
+          child: TextFormField(
+            controller: widget.controller,
+            validator: (value) {
+              if (value!.isEmpty || value == null) {
+                return 'Please enter your Pass';
+              }
+            },
+            onSaved: widget.onSaved,
             obscuringCharacter: '*',
             cursorColor: ColorSystem.kPrimaryColor,
             obscureText: widget.eyepassword,

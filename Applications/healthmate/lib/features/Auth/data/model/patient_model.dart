@@ -22,10 +22,10 @@ class PatientModel {
 
   factory PatientModel.fromMap(Map<String, dynamic> map) {
     return PatientModel(
-      fullName: map['fullName'],
-      email: map['email'],
-      password: map['password'],
-      DateofBirth: map['DateofBirth'],
+      fullName: map['fullName'] ?? '',
+      email: map['email'] ?? '',
+      password: map['password'] ?? '',
+      DateofBirth: map['DateofBirth'] ?? '',
     );
   }
 }
