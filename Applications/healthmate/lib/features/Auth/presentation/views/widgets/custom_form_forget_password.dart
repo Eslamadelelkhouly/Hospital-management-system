@@ -22,6 +22,7 @@ class CustomFormForgetPassword extends StatelessWidget {
             onSaved: (value) {
               email = value!;
             },
+            texterror: '',
             hinttext: 'Mohamed @example.com',
             text: 'Email',
             iconField: smsicon,

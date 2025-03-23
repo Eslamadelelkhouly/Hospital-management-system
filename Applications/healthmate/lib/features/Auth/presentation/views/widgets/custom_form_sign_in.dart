@@ -25,6 +25,7 @@ class CustomFormSignIn extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomTextField(
+            texterror: '',
               controller: TextEditingController(),
               onSaved: (value){
                 email = value!;
@@ -37,6 +38,7 @@ class CustomFormSignIn extends StatelessWidget {
               height: height * 0.02,
             ),
             CustomPasswordTextField(
+              texterror: '',
               controller: TextEditingController(),
               text: 'Password',
             ),

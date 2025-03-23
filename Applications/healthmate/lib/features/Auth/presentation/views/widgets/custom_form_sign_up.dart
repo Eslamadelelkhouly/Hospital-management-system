@@ -1,7 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
+import 'package:healthmate/core/utils/parser_erromessag.dart';
+import 'package:healthmate/core/widgets/custom_button.dart';
 import 'package:healthmate/features/Auth/manager/cubit/register_cubit.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_or_divider.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_password_text_field.dart';
@@ -9,7 +13,7 @@ import 'package:healthmate/features/Auth/presentation/views/widgets/custom_socia
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_text_field.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_text_field_celender.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_text_fotter_signup.dart';
-import 'package:healthmate/core/widgets/custom_button.dart';
+import 'package:intl/intl.dart';
 
 class CustomFormSignUp extends StatefulWidget {
   const CustomFormSignUp({super.key});
@@ -24,7 +28,8 @@ class _CustomFormSignUpState extends State<CustomFormSignUp> {
   late TextEditingController passwordController;
   late TextEditingController dateofbirthController;
   final GlobalKey<FormState> key = GlobalKey<FormState>();
-  late String fullname, email, password, data;
+  late String fullname, email, password;
+  late DateTime? selectedDate; // Store the selected date as DateTime
 
   @override
   void initState() {
@@ -33,6 +38,7 @@ class _CustomFormSignUpState extends State<CustomFormSignUp> {
     emailController = TextEditingController();
     passwordController = TextEditingController();
     dateofbirthController = TextEditingController();
+    selectedDate = null; // Initialize as null
   }
 
   @override
@@ -48,73 +54,113 @@ class _CustomFormSignUpState extends State<CustomFormSignUp> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    Map<String, dynamic> errorsMap = {'': ''};
 
     return Form(
       key: key,
       child: Padding(
         padding: const EdgeInsets.all(10),
-        child: Column(
-          children: [
-            CustomTextField(
-              controller: fullNameController,
-              onSaved: (value) {
-                fullname = value!;
-              },
-              hinttext: 'Mohamed Mahmoud',
-              text: 'Full Name',
-              iconField: usericon,
-            ),
-            SizedBox(height: 10),
-            CustomTextField(
-              controller: emailController,
-              onSaved: (value) {
-                email = value!;
-              },
-              hinttext: 'Mohamed@example.com',
-              text: 'Email',
-              iconField: smsicon,
-            ),
-            SizedBox(height: 10),
-            CustomPasswordTextField(
-              controller: passwordController,
-              text: 'Password',
-              onSaved: (value) {
-                password = value!;
-              },
-            ),
-            SizedBox(height: 10),
-            CustomTextFieldCelender(
-              onSaved: (value) {
-                data = value!;
-              },
-              controller: dateofbirthController,
-            ),
-            SizedBox(height: height * 0.02),
-            CustomButton(
-              onPressed: () {
-                if (key.currentState!.validate()) {
-                  key.currentState!.save();
-                  context.read<RegisterCubit>().signUp(
-                        fullname: fullname,
-                        email: email,
-                        dateofbirth: dateofbirthController.text.trim(),
-                        password: password,
-                      );
-                }
-              },
-              text: 'Sign Up',
-              width: width * 0.90,
-              height: height * 0.06,
-              textColor: ColorSystem.kbtnColorWhite,
-              backgrounColor: ColorSystem.kPrimaryColor,
-            ),
-            SizedBox(height: height * 0.02),
-            CustomTextFotterSignUP(),
-            SizedBox(height: height * 0.02),
-            CustomOrDivider(),
-            SizedBox(height: height * 0.03),
-            CustomSocialMediaIcons(),
-          ],
+        child: BlocConsumer<RegisterCubit, RegisterState>(
+          listener: (context, state) {
+            if (state is RegisterFailure) {
+              errorsMap = parseErrorMessages(state.errorMessage);
+              log(errorsMap.toString());
+            }
+          },
+          builder: (context, state) {
+            return Column(
+              children: [
+                CustomTextField(
+                  texterror: (errorsMap['fullName'] is List &&
+                          errorsMap['fullName'].isNotEmpty)
+                      ? errorsMap['fullName'][0]
+                      : '',
+                  controller: fullNameController,
+                  onSaved: (value) {
+                    fullname = value!;
+                  },
+                  hinttext: 'Mohamed Mahmoud',
+                  text: 'Full Name',
+                  iconField: usericon,
+                ),
+                CustomTextField(
+                  texterror: (errorsMap['email'] is List &&
+                          errorsMap['email'].isNotEmpty)
+                      ? errorsMap['email'][0]
+                      : '',
+                  controller: emailController,
+                  onSaved: (value) {
+                    email = value!;
+                  },
+                  hinttext: 'Mohamed@example.com',
+                  text: 'Email',
+                  iconField: smsicon,
+                ),
+                CustomPasswordTextField(
+                  controller: passwordController,
+                  text: 'Password',
+                  texterror: (errorsMap['password'] is List &&
+                          errorsMap['password'].isNotEmpty)
+                      ? errorsMap['password'][0]
+                      : '',
+                  onSaved: (value) {
+                    password = value!;
+                  },
+                ),
+                CustomTextFieldCelender(
+                  texterror: (errorsMap['DateofBirth'] is List &&
+                          errorsMap['DateofBirth'].isNotEmpty)
+                      ? errorsMap['DateofBirth'][0]
+                      : '',
+                  onDateSelected: (date) {
+                    setState(() {
+                      selectedDate = date; // Update the selected date
+                      dateofbirthController.text = DateFormat("dd MMMM, yyyy")
+                          .format(date); // Update UI format
+                    });
+                  },
+                  controller: dateofbirthController,
+                ),
+                SizedBox(height: height * 0.02),
+                CustomButton(
+                  onPressed: () {
+                    if (key.currentState!.validate()) {
+                      key.currentState!.save();
+                      if (selectedDate != null) {
+                        // Format the date for the backend
+                        String backendDate =
+                            DateFormat("yyyy-MM-dd").format(selectedDate!);
+                        context.read<RegisterCubit>().signUp(
+                              fullname: fullname,
+                              email: email,
+                              dateofbirth:
+                                  backendDate, // Send formatted date to backend
+                              password: password,
+                            );
+                      } else {
+                        // Handle case where date is not selected
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                              content: Text('Please select a date of birth')),
+                        );
+                      }
+                    }
+                  },
+                  text: 'Sign Up',
+                  width: width * 0.90,
+                  height: height * 0.06,
+                  textColor: ColorSystem.kbtnColorWhite,
+                  backgrounColor: ColorSystem.kPrimaryColor,
+                ),
+                SizedBox(height: height * 0.02),
+                CustomTextFotterSignUP(),
+                SizedBox(height: height * 0.02),
+                CustomOrDivider(),
+                SizedBox(height: height * 0.03),
+                CustomSocialMediaIcons(),
+              ],
+            );
+          },
         ),
       ),
     );

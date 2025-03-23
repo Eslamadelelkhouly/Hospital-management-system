@@ -10,12 +10,14 @@ class CustomTextField extends StatelessWidget {
       required this.iconField,
       required this.hinttext,
       required this.onSaved,
-      required this.controller});
+      required this.controller,
+      required this.texterror});
   final String text;
   final String iconField;
   final String hinttext;
   final String? Function(String?)? onSaved;
   final TextEditingController controller;
+  final String texterror;
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +66,12 @@ class CustomTextField extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10).r,
               ),
             ),
+          ),
+        ),
+        Text(
+          texterror,
+          style: StylingSystem.textStyleSign12.copyWith(
+            color: Colors.red,
           ),
         ),
       ],

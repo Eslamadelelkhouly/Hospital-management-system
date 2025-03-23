@@ -5,12 +5,17 @@ import 'package:healthmate/core/utils/style.dart';
 
 class CustomPasswordTextField extends StatefulWidget {
   CustomPasswordTextField(
-      {super.key, required this.text, this.onSaved, required this.controller});
+      {super.key,
+      required this.text,
+      this.onSaved,
+      required this.controller,
+      required this.texterror});
 
   bool eyepassword = true;
   final String text;
   final String? Function(String?)? onSaved;
   final TextEditingController controller;
+  final String texterror;
 
   @override
   State<CustomPasswordTextField> createState() =>
@@ -37,7 +42,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
             controller: widget.controller,
             validator: (value) {
               if (value!.isEmpty || value == null) {
-                return 'Please enter your Pass';
+                return 'Please enter your Password';
               }
             },
             onSaved: widget.onSaved,
@@ -85,6 +90,12 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
+          ),
+        ),
+        Text(
+          widget.texterror,
+          style: StylingSystem.textStyleSign12.copyWith(
+            color: Colors.red,
           ),
         ),
       ],

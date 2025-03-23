@@ -2,25 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
-import 'package:intl/intl.dart';
 
 class CustomTextFieldCelender extends StatefulWidget {
-  const CustomTextFieldCelender(
-      {super.key, this.onSaved, required this.controller});
-  final String? Function(String?)? onSaved;
+  const CustomTextFieldCelender({
+    super.key,
+    required this.onDateSelected,
+    required this.controller,
+    required this.texterror,
+  });
+  final Function(DateTime) onDateSelected; // Callback for date selection
   final TextEditingController controller;
+  final String texterror;
+
   @override
   State<CustomTextFieldCelender> createState() =>
       _CustomTextFieldCelenderState();
 }
 
 class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
-  String initialValue = "Select your Birth Date";
-  bool isDateSelected = false;
-  late String birthDateInString = '';
-  late DateTime birthDate = DateTime.now();
-  TextEditingController text = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,14 +36,14 @@ class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
           width: 362,
           height: 70,
           child: TextFormField(
-            onSaved: widget.onSaved,
             validator: (value) {
               if (value!.isEmpty || value == null) {
                 return 'Please enter your Date of Birth';
               }
             },
-            controller: text,
+            controller: widget.controller,
             cursorColor: ColorSystem.kPrimaryColor,
+            readOnly: true, // Make the field read-only
             decoration: InputDecoration(
               hintText: '07 November, 1986',
               hintStyle: StylingSystem.textStyle14Medium.copyWith(
@@ -64,19 +63,14 @@ class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
                         child: child!,
                       );
                     },
-                    initialDate: new DateTime.now(),
+                    initialDate: DateTime.now(),
                     context: context,
-                    firstDate: new DateTime(1900),
-                    lastDate: new DateTime(2100),
+                    firstDate: DateTime(1900),
+                    lastDate: DateTime(2100),
                   );
-                  if (datePick != null && datePick != birthDate) {
-                    setState(() {
-                      birthDate = datePick;
-                      isDateSelected = true;
-                      birthDateInString =
-                          DateFormat("dd MMMM , yyyy").format(birthDate);
-                      text.text = birthDateInString;
-                    });
+                  if (datePick != null) {
+                    widget.onDateSelected(
+                        datePick); // Notify parent of date selection
                   }
                 },
                 child: Icon(
@@ -104,6 +98,12 @@ class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
+          ),
+        ),
+        Text(
+          widget.texterror,
+          style: StylingSystem.textStyleSign12.copyWith(
+            color: Colors.red,
           ),
         ),
       ],
