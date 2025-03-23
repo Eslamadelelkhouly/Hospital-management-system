@@ -8,7 +8,7 @@ final class RegisterInitial extends RegisterState {}
 final class RegisterLoading extends RegisterState {}
 
 final class RegisterFailure extends RegisterState {
-  final String errorMessage;
+  final Map<String, dynamic> errorMessage;
   RegisterFailure({required this.errorMessage});
 }
 

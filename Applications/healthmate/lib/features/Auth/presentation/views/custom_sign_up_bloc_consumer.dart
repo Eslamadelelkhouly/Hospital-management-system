@@ -1,13 +1,8 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/core/utils/color_style.dart';
-import 'package:healthmate/core/utils/parser_erromessag.dart';
 import 'package:healthmate/core/utils/router_screens.dart';
-import 'package:healthmate/core/widgets/custom_snackbar.dart';
 import 'package:healthmate/features/Auth/manager/cubit/register_cubit.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/sign_up_body.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';

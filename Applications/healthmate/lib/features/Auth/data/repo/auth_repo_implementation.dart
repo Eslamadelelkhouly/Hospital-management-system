@@ -12,7 +12,7 @@ class AuthRepoImplementation implements AuthRepo {
   AuthRepoImplementation({required this.apiService});
   @override
   @override
-  Future<Either<Failuers, Map<String, dynamic>>> signUp({
+  Future<Either<Failures, Map<String, dynamic>>> signUp({
     required String fullname,
     required String email,
     required String password,
@@ -34,7 +34,8 @@ class AuthRepoImplementation implements AuthRepo {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
       } else {
-        return left(ServerFailure('Unexpected Error, please try Again'));
+        return left(ServerFailure(
+            {"message": "Connection timeout with ApiServer", "errors": {}}));
       }
     }
   }

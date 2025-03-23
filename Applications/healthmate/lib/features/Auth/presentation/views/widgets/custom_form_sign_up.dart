@@ -1,11 +1,10 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
-import 'package:healthmate/core/utils/parser_erromessag.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
+import 'package:healthmate/features/Auth/data/model/error_response_register_model.dart';
 import 'package:healthmate/features/Auth/manager/cubit/register_cubit.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_or_divider.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_password_text_field.dart';
@@ -54,7 +53,14 @@ class _CustomFormSignUpState extends State<CustomFormSignUp> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    Map<String, dynamic> errorsMap = {'': ''};
+    ErrorResponse errorResponse = ErrorResponse(
+      message: '',
+      errors: errors(
+        fullName: [],
+        password: [],
+        dateOfBirth: [],
+      ),
+    );
 
     return Form(
       key: key,
@@ -63,18 +69,18 @@ class _CustomFormSignUpState extends State<CustomFormSignUp> {
         child: BlocConsumer<RegisterCubit, RegisterState>(
           listener: (context, state) {
             if (state is RegisterFailure) {
-              errorsMap = parseErrorMessages(state.errorMessage);
-              log(errorsMap.toString());
+              errorResponse = ErrorResponse.fromJson(state.errorMessage);
+              log(errorResponse.toString());
             }
           },
           builder: (context, state) {
             return Column(
               children: [
                 CustomTextField(
-                  texterror: (errorsMap['fullName'] is List &&
-                          errorsMap['fullName'].isNotEmpty)
-                      ? errorsMap['fullName'][0]
-                      : '',
+                  texterror: (errorResponse.errors.fullName.isNotEmpty
+                          ? errorResponse.errors.fullName[0]
+                          : '') ??
+                      '',
                   controller: fullNameController,
                   onSaved: (value) {
                     fullname = value!;
@@ -84,10 +90,10 @@ class _CustomFormSignUpState extends State<CustomFormSignUp> {
                   iconField: usericon,
                 ),
                 CustomTextField(
-                  texterror: (errorsMap['email'] is List &&
-                          errorsMap['email'].isNotEmpty)
-                      ? errorsMap['email'][0]
-                      : '',
+                  texterror: (errorResponse.errors.email.isNotEmpty
+                          ? errorResponse.errors.email[0]
+                          : '') ??
+                      '',
                   controller: emailController,
                   onSaved: (value) {
                     email = value!;
@@ -99,19 +105,19 @@ class _CustomFormSignUpState extends State<CustomFormSignUp> {
                 CustomPasswordTextField(
                   controller: passwordController,
                   text: 'Password',
-                  texterror: (errorsMap['password'] is List &&
-                          errorsMap['password'].isNotEmpty)
-                      ? errorsMap['password'][0]
-                      : '',
+                  texterror: (errorResponse.errors.password.isNotEmpty
+                          ? errorResponse.errors.password[0]
+                          : '') ??
+                      '',
                   onSaved: (value) {
                     password = value!;
                   },
                 ),
                 CustomTextFieldCelender(
-                  texterror: (errorsMap['DateofBirth'] is List &&
-                          errorsMap['DateofBirth'].isNotEmpty)
-                      ? errorsMap['DateofBirth'][0]
-                      : '',
+                  texterror: (errorResponse.errors.dateOfBirth.isNotEmpty
+                          ? errorResponse.errors.dateOfBirth[0]
+                          : '') ??
+                      '',
                   onDateSelected: (date) {
                     setState(() {
                       selectedDate = date; // Update the selected date
@@ -138,7 +144,6 @@ class _CustomFormSignUpState extends State<CustomFormSignUp> {
                               password: password,
                             );
                       } else {
-                        // Handle case where date is not selected
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                               content: Text('Please select a date of birth')),

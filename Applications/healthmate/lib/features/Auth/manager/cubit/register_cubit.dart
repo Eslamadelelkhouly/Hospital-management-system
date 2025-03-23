@@ -24,7 +24,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       dateofbirth: dateofbirth,
     );
     result.fold(
-      (failure) => emit(RegisterFailure(errorMessage: failure.errorMessage)),
+      (failure) => emit(RegisterFailure(errorMessage: failure.errorData)),
       (response) => emit(RegisterSuccess(response: response)),
     );
   }

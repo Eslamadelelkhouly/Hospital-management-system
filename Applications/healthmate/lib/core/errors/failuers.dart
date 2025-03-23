@@ -1,50 +1,79 @@
 import 'package:dio/dio.dart';
 
-class Failuers {
-  final String errorMessage;
-  Failuers({required this.errorMessage});
+class Failures {
+  final Map<String, dynamic> errorData;
+  Failures({required this.errorData});
 }
 
-class ServerFailure extends Failuers {
-  ServerFailure(String errorMessage) : super(errorMessage: errorMessage);
+class ServerFailure extends Failures {
+  ServerFailure(Map<String, dynamic> errorData) : super(errorData: errorData);
 
   factory ServerFailure.fromDioException(DioException dioexception) {
     switch (dioexception.type) {
       case DioExceptionType.connectionTimeout:
-        return ServerFailure('Connection timeout with ApiServer');
+        return ServerFailure({
+          "message": "Connection timeout with ApiServer",
+          "errors": {}
+        });
       case DioExceptionType.sendTimeout:
-        return ServerFailure('Send timeout with ApiServer');
+        return ServerFailure({
+          "message": "Send timeout with ApiServer",
+          "errors": {}
+        });
       case DioExceptionType.receiveTimeout:
-        return ServerFailure('Receive timeout with ApiServer');
+        return ServerFailure({
+          "message": "Receive timeout with ApiServer",
+          "errors": {}
+        });
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
             dioexception.response!.statusCode!, dioexception.response!.data);
       case DioExceptionType.cancel:
-        return ServerFailure('Request to ApiServer was canceled');
+        return ServerFailure({
+          "message": "Request to ApiServer was canceled",
+          "errors": {}
+        });
       default:
         if (dioexception.message?.contains('SocketException') ?? false) {
-          return ServerFailure('No Internet Connection');
+          return ServerFailure({
+            "message": "No Internet Connection",
+            "errors": {}
+          });
         }
-        return ServerFailure('Unexpected Error, please try Again');
+        return ServerFailure({
+          "message": "Unexpected Error, please try Again",
+          "errors": {}
+        });
     }
   }
 
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(response['message'] ?? 'Bad Request');
+      return ServerFailure({
+        "message": response['message'] ?? "Bad Request",
+        "errors": response['errors'] ?? {}
+      });
     } else if (statusCode == 404) {
-      return ServerFailure(
-          'Your request was not found, please try again later');
+      return ServerFailure({
+        "message": "Your request was not found, please try again later",
+        "errors": {}
+      });
     } else if (statusCode == 422) {
-      final errors = response['errors'] as Map<String, dynamic>;
-      final errorMessages = errors.entries
-          .map((entry) => '${entry.key}: ${entry.value.join(', ')}')
-          .join('\n');
-      return ServerFailure(errorMessages);
+      final errors = response['errors'] as Map<String, dynamic>? ?? {};
+      return ServerFailure({
+        "message": response['message'] ?? "Validation failed",
+        "errors": errors
+      });
     } else if (statusCode == 500) {
-      return ServerFailure('Internal server error, please try again later');
+      return ServerFailure({
+        "message": "Internal server error, please try again later",
+        "errors": {}
+      });
     } else {
-      return ServerFailure('Oops, there was an error, please try again');
+      return ServerFailure({
+        "message": "Oops, there was an error, please try again",
+        "errors": {}
+      });
     }
   }
 }
