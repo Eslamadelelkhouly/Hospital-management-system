@@ -1,10 +1,15 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/style.dart';
+import 'package:healthmate/features/Auth/data/model/error_response_register_model.dart';
+import 'package:healthmate/features/Auth/manager/login_cubit/login_cubit_cubit.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_or_divider.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_password_text_field.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_social_media_icons.dart';
@@ -23,6 +28,14 @@ class _CustomFormSignInState extends State<CustomFormSignIn> {
   late TextEditingController passwordController;
   final GlobalKey<FormState> key = GlobalKey<FormState>();
   late String email, password;
+  ErrorResponse errorResponse = ErrorResponse(
+    message: '',
+    errors: errors(
+      fullName: [],
+      password: [],
+      dateOfBirth: [],
+    ),
+  );
 
   @override
   void initState() {
@@ -48,19 +61,35 @@ class _CustomFormSignInState extends State<CustomFormSignIn> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomTextField(
-              texterror: '',
-              controller: TextEditingController(),
-              onSaved: (value) {
-                email = value!;
+            BlocConsumer<LoginCubit, LoginCubitState>(
+              listener: (context, state) {
+                if (state is LoginCubitFailure) {
+                  errorResponse = ErrorResponse.fromJson(state.erorMessage);
+                }
               },
-              hinttext: 'Mohamed @example.com',
-              text: 'Email',
-              iconField: smsicon,
+              builder: (context, state) {
+                return CustomTextField(
+                  texterror: errorResponse.errors.email!.isNotEmpty
+                      ? errorResponse.errors.email![0]
+                      : '',
+                  controller: emailController,
+                  onSaved: (value) {
+                    email = value!;
+                  },
+                  hinttext: 'Mohamed @example.com',
+                  text: 'Email',
+                  iconField: smsicon,
+                );
+              },
             ),
             CustomPasswordTextField(
-              texterror: '',
-              controller: TextEditingController(),
+              onSaved: (value) {
+                password = value!;
+              },
+              texterror:errorResponse.errors.password!.isNotEmpty
+                      ? errorResponse.errors.password![0]
+                      : '',
+              controller: passwordController,
               text: 'Password',
             ),
             Row(
@@ -89,6 +118,10 @@ class _CustomFormSignInState extends State<CustomFormSignIn> {
               onPressed: () {
                 if (key.currentState!.validate()) {
                   key.currentState!.save();
+                  context.read<LoginCubit>().logIn(
+                        email: email,
+                        password: password,
+                      );
                 } else {
                   print('error');
                 }

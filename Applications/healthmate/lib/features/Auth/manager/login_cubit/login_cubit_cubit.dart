@@ -6,11 +6,10 @@ import 'package:meta/meta.dart';
 
 part 'login_cubit_state.dart';
 
-class LoginCubitCubit extends Cubit<LoginCubitState> {
-  LoginCubitCubit() : super(LoginCubitInitial());
+class LoginCubit extends Cubit<LoginCubitState> {
+  LoginCubit() : super(LoginCubitInitial());
   final ApiService apiService = ApiService(dio: Dio());
-  Future<void> logIn(
-      {required String email, required String password}) async {
+  Future<void> logIn({required String email, required String password}) async {
     emit(LoginCubitLoading());
     final result = await AuthRepoImplementation(apiService: apiService)
         .logIn(email: email, password: password);
