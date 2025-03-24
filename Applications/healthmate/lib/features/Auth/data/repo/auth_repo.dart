@@ -8,4 +8,8 @@ abstract class AuthRepo {
     required String password,
     required String dateofbirth,
   });
+  Future<Either<Failures, Map<String, dynamic>>> logIn({
+    required String email,
+    required String password,
+  });
 }

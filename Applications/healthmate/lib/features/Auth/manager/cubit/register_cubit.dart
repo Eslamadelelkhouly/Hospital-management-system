@@ -8,7 +8,6 @@ part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitial());
-
   final ApiService apiService = ApiService(dio: Dio());
   Future<void> signUp({
     required String fullname,
@@ -25,7 +24,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     );
     result.fold(
       (failure) => emit(RegisterFailure(errorMessage: failure.errorData)),
-      (response) => emit(RegisterSuccess(response: response)),
+      (response) => emit(RegisterSuccess(response: response['Patient'])),
     );
   }
 }
