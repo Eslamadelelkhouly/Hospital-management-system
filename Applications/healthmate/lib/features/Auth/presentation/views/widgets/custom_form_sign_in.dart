@@ -11,31 +11,52 @@ import 'package:healthmate/features/Auth/presentation/views/widgets/custom_socia
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_text_field.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
 
-class CustomFormSignIn extends StatelessWidget {
+class CustomFormSignIn extends StatefulWidget {
   const CustomFormSignIn({super.key});
+
+  @override
+  State<CustomFormSignIn> createState() => _CustomFormSignInState();
+}
+
+class _CustomFormSignInState extends State<CustomFormSignIn> {
+  late TextEditingController emailController;
+  late TextEditingController passwordController;
+  final GlobalKey<FormState> key = GlobalKey<FormState>();
+  late String email, password;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    emailController.dispose();
+    passwordController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    late String email;
     return Form(
+      key: key,
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomTextField(
-            texterror: '',
+              texterror: '',
               controller: TextEditingController(),
-              onSaved: (value){
+              onSaved: (value) {
                 email = value!;
               },
               hinttext: 'Mohamed @example.com',
               text: 'Email',
               iconField: smsicon,
-            ),
-            SizedBox(
-              height: height * 0.02,
             ),
             CustomPasswordTextField(
               texterror: '',
@@ -66,7 +87,11 @@ class CustomFormSignIn extends StatelessWidget {
             ),
             CustomButton(
               onPressed: () {
-                GoRouter.of(context).push(Routing.khomescreen);
+                if (key.currentState!.validate()) {
+                  key.currentState!.save();
+                } else {
+                  print('error');
+                }
               },
               text: 'Sign In',
               width: 362,
