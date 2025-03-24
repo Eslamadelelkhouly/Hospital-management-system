@@ -1,5 +1,4 @@
- import 'package:flutter/material.dart';
-import 'package:healthmate/features/Auth/manager/cubit/register_cubit.dart';
+import 'package:flutter/material.dart';
 
 void CustomSnackBar(BuildContext context, String errorMessage) {
     ScaffoldMessenger.of(context).showSnackBar(

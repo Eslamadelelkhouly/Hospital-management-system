@@ -5,7 +5,7 @@ import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
 import 'package:healthmate/features/Auth/data/model/error_response_register_model.dart';
-import 'package:healthmate/features/Auth/manager/cubit/register_cubit.dart';
+import 'package:healthmate/features/Auth/manager/register_cubit/register_cubit.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_or_divider.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_password_text_field.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_social_media_icons.dart';
