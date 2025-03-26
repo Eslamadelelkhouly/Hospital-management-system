@@ -1,4 +1,3 @@
-
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
@@ -38,7 +37,7 @@ class ApiService {
       }
 
       final response = await dio.get(
-        '${BackendEndpoint.baseUrl}$endpoint',
+        endpoint,
         options: Options(
           headers: {
             'Content-Type': 'application/json',

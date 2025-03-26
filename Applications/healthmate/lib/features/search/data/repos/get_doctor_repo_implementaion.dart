@@ -14,8 +14,10 @@ class GetDoctorRepoImplementaion extends GetDoctorRepo {
   @override
   Future<Either<Failures, DoctorsResponse>> getDoctors() async {
     try {
+      String url =
+          '${BackendEndpoint.baseUrl}${BackendEndpoint.endpointShowDoctor}';
       var response = await apiService.Get(
-        endpoint: BackendEndpoint.endpointShowDoctor,
+        endpoint: url,
       );
 
       try {

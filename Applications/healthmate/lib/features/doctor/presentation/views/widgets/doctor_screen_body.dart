@@ -8,10 +8,11 @@ import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
 import 'package:healthmate/features/doctor/presentation/views/widgets/custom_list_tiel_doctor.dart';
 import 'package:healthmate/features/doctor/presentation/views/widgets/row_card_information.dart';
+import 'package:healthmate/features/search/data/models/doctor_model.dart';
 
 class DoctorScreenBody extends StatelessWidget {
-  const DoctorScreenBody({super.key});
-
+  const DoctorScreenBody({super.key, required this.doctor});
+  final Doctor doctor;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,9 +23,18 @@ class DoctorScreenBody extends StatelessWidget {
           30.verticalSpace,
           CustomAppBar(title: ''),
           5.verticalSpace,
-          CustomCardDoctor(),
+          CustomCardDoctor(
+            name: doctor.firstName + ' ' + doctor.lastName,
+            city: doctor.city.name,
+            specification: doctor.specialization.name,
+            phone: doctor.phoneNumber,
+          ),
           20.verticalSpace,
-          RowCardInformation(),
+          RowCardInformation(
+            patient: doctor.information.numberOfPatients.toString(),
+            experience: doctor.information.experience.toString(),
+            rating: doctor.rating.toString(),
+          ),
           21.verticalSpace,
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10).r,
@@ -41,7 +51,7 @@ class DoctorScreenBody extends StatelessWidget {
               child: Text(
                 maxLines: 4,
                 overflow: TextOverflow.ellipsis,
-                'Lorem ipsum dolor sit amet consectetur.sed integer am congue enim libero urna odio. In accumsan odio mauris nibh. Et elementum enim at enim montes aliquam elit pellentesque nulla.',
+                doctor.information.about,
                 style: StylingSystem.textStyle16Medium.copyWith(
                   color: ColorSystem.kGrayColor2,
                 ),

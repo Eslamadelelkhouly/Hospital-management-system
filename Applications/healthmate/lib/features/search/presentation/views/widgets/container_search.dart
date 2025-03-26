@@ -19,7 +19,10 @@ class ContainerSearch extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(Routing.kdoctorscreen);
+        GoRouter.of(context).push(
+          Routing.kdoctorscreen,
+          extra: doctor,
+        );
       },
       child: Container(
         width: 175.r,
@@ -39,13 +42,9 @@ class ContainerSearch extends StatelessWidget {
                     height: 58.r,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(50).r,
-                      child: CachedNetworkImage(
-                        imageUrl: '${doctor.image.imageName}',
-                        fit: BoxFit.cover,
-                        placeholder: (context, url) =>
-                            const CircularProgressIndicator(),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
+                      child: Image.network(
+                        'https://drive.google.com/uc?export=view&id=18qZBlJNS2vUjaO-x-XfTqSFoxHk6HslR',
+                        fit: BoxFit.contain,
                       ),
                     ),
                   ),

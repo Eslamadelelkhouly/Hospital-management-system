@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "D:/Hospital-management-system/Applications/healthmate/linux"
+    "cmake.sourceDirectory": "D:/Hospital-management-system/Applications/healthmate/linux",
+    "liveServer.settings.port": 5501
 }
