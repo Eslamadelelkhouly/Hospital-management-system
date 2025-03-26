@@ -1,5 +1,10 @@
+
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
+import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/API/backend_endpoint.dart';
+import 'package:healthmate/core/utils/shared_perfernce_singletone.dart';
 
 class ApiService {
   final Dio dio;
@@ -21,8 +26,54 @@ class ApiService {
   }
 
   Future<Map<String, dynamic>> Get({required String endpoint}) async {
-    var response = await dio.get(endpoint);
-    return response.data;
+    try {
+      final String? barrertoken =
+          await SharedPreferenceSingleton.getString(token);
+
+      if (barrertoken == null || barrertoken.isEmpty) {
+        throw DioException(
+          requestOptions: RequestOptions(path: endpoint),
+          error: 'Authentication token missing',
+        );
+      }
+
+      final response = await dio.get(
+        '${BackendEndpoint.baseUrl}$endpoint',
+        options: Options(
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Bearer $barrertoken',
+          },
+        ),
+      );
+
+      if (response.data == null) {
+        throw DioException(
+          requestOptions: response.requestOptions,
+          error: 'Server returned null response',
+        );
+      }
+
+      return response.data as Map<String, dynamic>;
+    } on DioException catch (e) {
+      final errorMsg = e.response?.data?['message'] ??
+          e.error?.toString() ??
+          'Request failed with no error message';
+      log('Dio Error Details:');
+      log('- URL: ${e.requestOptions.uri}');
+      log('- Status: ${e.response?.statusCode}');
+      log('- Error: $errorMsg');
+      log('- Response: ${e.response?.data}');
+
+      rethrow;
+    } catch (e) {
+      log('Non-Dio Error: $e');
+      throw DioException(
+        requestOptions: RequestOptions(path: endpoint),
+        error: 'Unexpected error: $e',
+      );
+    }
   }
 
   Future<void> Delete({required String endpoint}) async {

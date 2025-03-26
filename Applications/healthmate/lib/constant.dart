@@ -33,6 +33,7 @@ const mobileicon = 'assets/images/mobile.png';
 const people = 'assets/images/people.png';
 const settingicon = 'assets/images/setting.png';
 const heartanimate = 'assets/images/heart_animation.gif';
+const token = 'token';
 
 class onBoarding {
   final String title;

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -30,7 +31,13 @@ class _SplashScreenState extends State<SplashScreen> {
             await GoRouter.of(context)
                 .pushReplacement(Routing.Ksplashscreendoctor);
           } else {
-            await GoRouter.of(context).pushReplacement(Routing.Ksignin);
+            String tokenresponse = SharedPreferenceSingleton.getString(token);
+            if (tokenresponse.isNotEmpty) {
+              log(tokenresponse);
+              await GoRouter.of(context).pushReplacement(Routing.khomescreen);
+            } else {
+              await GoRouter.of(context).pushReplacement(Routing.Ksignin);
+            }
           }
         }
       });

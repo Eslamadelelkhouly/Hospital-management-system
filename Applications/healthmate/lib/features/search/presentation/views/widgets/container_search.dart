@@ -1,14 +1,20 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
+import 'package:healthmate/core/API/backend_endpoint.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/style.dart';
+import 'package:healthmate/features/search/data/models/doctor_model.dart';
 
 class ContainerSearch extends StatelessWidget {
-  const ContainerSearch({super.key});
-
+  const ContainerSearch({
+    super.key,
+    required this.doctor,
+  });
+  final Doctor doctor;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -33,16 +39,20 @@ class ContainerSearch extends StatelessWidget {
                     height: 58.r,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(50).r,
-                      child: Image.asset(
-                        doctorphoto1,
+                      child: CachedNetworkImage(
+                        imageUrl: '${doctor.image.imageName}',
                         fit: BoxFit.cover,
+                        placeholder: (context, url) =>
+                            const CircularProgressIndicator(),
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
                       ),
                     ),
                   ),
                   8.verticalSpace,
                   Text(
                     textAlign: TextAlign.center,
-                    'Dr.Ali hassan',
+                    'Dr. ${doctor.firstName}',
                     style: StylingSystem.textStyle16Medium.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
@@ -55,7 +65,7 @@ class ContainerSearch extends StatelessWidget {
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                      doctor.information.about,
                       style: StylingSystem.textStyle11.copyWith(
                         color: ColorSystem.kGrayColor2,
                       ),
