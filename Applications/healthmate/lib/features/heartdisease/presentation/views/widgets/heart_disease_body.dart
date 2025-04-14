@@ -4,8 +4,8 @@ import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
-import 'package:healthmate/features/AI%20models/presentation/views/widgets/custom_drop_down.dart';
-import 'package:healthmate/features/AI%20models/presentation/views/widgets/custom_text_field_predict.dart';
+import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_drop_down.dart';
+import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_text_field_predict.dart';
 
 class HeartDiseaseBody extends StatelessWidget {
   const HeartDiseaseBody({super.key});

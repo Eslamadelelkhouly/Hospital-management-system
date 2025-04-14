@@ -29,10 +29,10 @@ class CustomRowCategories extends StatelessWidget {
           ),
           CardCategories(
             onTap: () {
-              GoRouter.of(context).push(Routing.kheartdiseasescreen);
+              GoRouter.of(context).push(Routing.kaimodels);
             },
             text: 'AI models',
-            image: pharmacyicon,
+            image: aimodelicon,
           ),
         ],
       ),

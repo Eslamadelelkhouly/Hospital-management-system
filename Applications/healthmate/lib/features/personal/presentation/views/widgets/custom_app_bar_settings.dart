@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
+import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/style.dart';
 
 class AppBarSetting extends StatelessWidget {
@@ -16,7 +17,7 @@ class AppBarSetting extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {
-            GoRouter.of(context).pop(context);
+            GoRouter.of(context).go(Routing.khomescreen);
           },
           icon: Icon(Icons.arrow_back_ios),
         ),
@@ -26,7 +27,7 @@ class AppBarSetting extends StatelessWidget {
         ),
         IconButton(
           onPressed: () {
-            GoRouter.of(context).pop(context);
+            GoRouter.of(context).push(Routing.ksetting);
           },
           icon: ImageIcon(
             AssetImage(settingicon),
