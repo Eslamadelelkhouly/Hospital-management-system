@@ -6,11 +6,11 @@ import 'package:healthmate/core/utils/shared_perfernce_singletone.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferenceSingleton.init();
-  runApp(const MyApp());
+  runApp(const HealthMate());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class HealthMate extends StatelessWidget {
+  const HealthMate({super.key});
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(

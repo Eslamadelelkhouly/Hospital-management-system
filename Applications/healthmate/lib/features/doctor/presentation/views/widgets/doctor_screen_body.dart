@@ -24,10 +24,7 @@ class DoctorScreenBody extends StatelessWidget {
           CustomAppBar(title: ''),
           5.verticalSpace,
           CustomCardDoctor(
-            name: doctor.firstName + ' ' + doctor.lastName,
-            city: doctor.city.name,
-            specification: doctor.specialization.name,
-            phone: doctor.phoneNumber,
+            doctor: doctor,
           ),
           20.verticalSpace,
           RowCardInformation(

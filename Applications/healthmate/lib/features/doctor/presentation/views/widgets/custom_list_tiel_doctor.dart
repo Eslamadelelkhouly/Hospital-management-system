@@ -4,16 +4,14 @@ import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/features/doctor/presentation/views/widgets/custom_container_doctor_photo_personal.dart';
 import 'package:healthmate/features/doctor/presentation/views/widgets/row_socialcard_doctor_personal.dart';
+import 'package:healthmate/features/search/data/models/doctor_model.dart';
 
 class CustomCardDoctor extends StatelessWidget {
-  const CustomCardDoctor(
-      {super.key,
-      required this.name,
-      required this.city,
-      required this.specification,
-      required this.phone});
-  final String name, city, specification, phone;
-
+  const CustomCardDoctor({
+    super.key,
+    required this.doctor,
+  });
+  final Doctor doctor;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -21,28 +19,30 @@ class CustomCardDoctor extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          CustomContainerDoctorPhotoPersonal(),
+          CustomContainerDoctorPhotoPersonal(
+            image: doctor.image.imageName,
+          ),
           15.horizontalSpace,
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Dr. ' + name,
+                  'Dr. ' + doctor.firstName + ' ' + doctor.lastName,
                   style: StylingSystem.textStyle17semibold,
                 ),
                 Text(
-                  specification,
+                  doctor.specialization.name,
                   style: StylingSystem.textStyle16Medium,
                 ),
                 8.verticalSpace,
                 RowSocialCardDoctorPersonal(
-                  text: city,
+                  text: doctor.city.name,
                   imageurl: locationicon,
                 ),
                 8.verticalSpace,
                 RowSocialCardDoctorPersonal(
-                  text: phone,
+                  text: doctor.phoneNumber,
                   imageurl: mobileicon,
                 ),
               ],

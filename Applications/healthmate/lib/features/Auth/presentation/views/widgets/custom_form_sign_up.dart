@@ -29,7 +29,7 @@ class _CustomFormSignUpState extends State<CustomFormSignUp> {
   final GlobalKey<FormState> key = GlobalKey<FormState>();
   late String fullname, email, password;
   late DateTime? selectedDate; // Store the selected date as DateTime
-
+  late ErrorResponse errorResponse;
   @override
   void initState() {
     super.initState();
@@ -38,6 +38,14 @@ class _CustomFormSignUpState extends State<CustomFormSignUp> {
     passwordController = TextEditingController();
     dateofbirthController = TextEditingController();
     selectedDate = null; // Initialize as null
+    errorResponse = ErrorResponse(
+      message: '',
+      errors: errors(
+        fullName: [],
+        password: [],
+        dateOfBirth: [],
+      ),
+    );
   }
 
   @override
@@ -53,14 +61,6 @@ class _CustomFormSignUpState extends State<CustomFormSignUp> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    ErrorResponse errorResponse = ErrorResponse(
-      message: '',
-      errors: errors(
-        fullName: [],
-        password: [],
-        dateOfBirth: [],
-      ),
-    );
 
     return Form(
       key: key,
@@ -69,7 +69,9 @@ class _CustomFormSignUpState extends State<CustomFormSignUp> {
         child: BlocConsumer<RegisterCubit, RegisterState>(
           listener: (context, state) {
             if (state is RegisterFailure) {
-              errorResponse = ErrorResponse.fromJson(state.errorMessage);
+              setState(() {
+                errorResponse = ErrorResponse.fromJson(state.errorMessage);
+              });
               log(errorResponse.toString());
             }
           },

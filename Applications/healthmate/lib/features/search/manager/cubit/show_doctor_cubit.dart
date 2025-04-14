@@ -13,7 +13,14 @@ part 'show_doctor_state.dart';
 
 class ShowDoctorCubit extends Cubit<ShowDoctorState> {
   ShowDoctorCubit() : super(ShowDoctorInitial());
-  ApiService apiService = ApiService(dio: Dio());
+  ApiService apiService = ApiService(
+      dio: Dio(
+    BaseOptions(
+      connectTimeout: Duration(seconds: 60),
+      receiveTimeout: Duration(seconds: 60),
+      sendTimeout: Duration(seconds: 60),
+    ),
+  ));
 
   Future<void> getDoctors() async {
     emit(ShowDoctorLoading());
