@@ -29,7 +29,9 @@ class CardCategories extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Image.asset(image),
+            Image.asset(
+              image,
+            ),
             SizedBox(
               height: 10,
             ),

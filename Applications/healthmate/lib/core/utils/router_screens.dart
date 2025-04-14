@@ -5,7 +5,9 @@ import 'package:healthmate/features/Auth/presentation/views/forget_password_scre
 import 'package:healthmate/features/Auth/presentation/views/sign_in_screen.dart';
 import 'package:healthmate/features/Auth/presentation/views/sign_up_screen.dart';
 import 'package:healthmate/features/Auth/presentation/views/verification_screen.dart';
+import 'package:healthmate/features/diabates/presentation/views/diabates_screen.dart';
 import 'package:healthmate/features/doctor/presentation/views/doctor_screen.dart';
+import 'package:healthmate/features/heartdisease/presentation/views/heart_disease_screen.dart';
 import 'package:healthmate/features/home/presentation/views/home_screen.dart';
 import 'package:healthmate/features/lap%20test/presentation/views/lab_test_screen.dart';
 import 'package:healthmate/features/search/presentation/views/search_screen.dart';
@@ -33,6 +35,7 @@ abstract class Routing {
   static const kheartdiseasescreen = '/kheartdiseasescreen';
   static const kaimodels = '/kaimodels';
   static const ksetting = '/ksetting';
+  static const kdiabates = '/kdiabates';
   static final router = GoRouter(
     initialLocation: khomescreen,
     routes: [
@@ -69,7 +72,6 @@ abstract class Routing {
         builder: (context, state) => const ChangePasswordScreen(),
       ),
       GoRoute(
-        
         path: khomescreen,
         builder: (context, state) => const HomeScreen(),
       ),
@@ -97,7 +99,14 @@ abstract class Routing {
         path: ksetting,
         builder: (context, state) => const SettingScreen(),
       ),
+      GoRoute(
+        path: kdiabates,
+        builder: (context, state) => const DiabatesScreen(),
+      ),
+      GoRoute(
+        path: kheartdiseasescreen,
+        builder: (context, state) => const HeartDiseaseScreen(),
+      ),
     ],
   );
-
 }
