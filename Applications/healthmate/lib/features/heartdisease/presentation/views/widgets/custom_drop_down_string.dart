@@ -4,18 +4,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 
-class CustomDropDown extends StatelessWidget {
-  const CustomDropDown(
-      {super.key,
-      required this.hinttext,
-      required this.dropdowntext1,
-      required this.dropdowntext2,
-      required this.text,
-      required this.texterror,
-      this.onChanged});
+class CustomDropDownString extends StatelessWidget {
+  const CustomDropDownString({
+    super.key,
+    required this.hinttext,
+    required this.dropdowntext1,
+    required this.dropdowntext2,
+    required this.text,
+    required this.texterror,
+    this.onChanged,
+  });
   final String hinttext, dropdowntext1, dropdowntext2, text, texterror;
   final void Function(dynamic)? onChanged;
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -29,12 +29,12 @@ class CustomDropDown extends StatelessWidget {
           ),
           2.verticalSpace,
           DropDownTextField(
+            onChanged: onChanged,
             validator: (value) {
               if (value!.isEmpty || value == null) {
                 return 'Please enter your $text';
               }
             },
-            onChanged: onChanged,
             textFieldDecoration: InputDecoration(
               filled: true,
               fillColor: ColorSystem.kPrimaryColorHighLight,
@@ -54,8 +54,8 @@ class CustomDropDown extends StatelessWidget {
               ),
             ),
             dropDownList: [
-              DropDownValueModel(name: dropdowntext1, value: 1.0),
-              DropDownValueModel(name: dropdowntext2, value: 0.0),
+              DropDownValueModel(name: dropdowntext1, value: 'random_forest'),
+              DropDownValueModel(name: dropdowntext2, value: 'decision_tree'),
             ],
           ),
           Text(

@@ -13,13 +13,16 @@ class CustomDropDownThreeValue extends StatelessWidget {
     required this.dropdowntext3,
     required this.value1,
     required this.value2,
-    required this.value3, required this.texterror,
+    required this.value3,
+    required this.texterror,
+    this.onChanged,
   });
-  final String hinttext, dropdowntext1, dropdowntext2, dropdowntext3 ,  texterror;
+  final String hinttext, dropdowntext1, dropdowntext2, dropdowntext3, texterror;
   final int value1;
   final int value2;
   final int value3;
-  
+  final void Function(dynamic)? onChanged;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,6 +36,7 @@ class CustomDropDownThreeValue extends StatelessWidget {
           ),
           2.verticalSpace,
           DropDownTextField(
+            onChanged: onChanged,
             textFieldDecoration: InputDecoration(
               filled: true,
               fillColor: ColorSystem.kPrimaryColorHighLight,

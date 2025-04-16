@@ -11,6 +11,7 @@ import 'package:healthmate/features/heartdisease/data/manager/cubit/heart_diseas
 import 'package:healthmate/features/heartdisease/data/models/heart_disease_respose_error.dart';
 import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_drop_down.dart';
 import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_drop_down_four_value.dart';
+import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_drop_down_string.dart';
 import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_drop_down_three_value.dart';
 import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_text_field_predict.dart';
 
@@ -146,7 +147,9 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       scale: 0.6.h,
                     ),
                     CustomTextFieldPredict(
-                      onSaved: (value) {},
+                      onSaved: (value) {
+                        age = int.parse(value!);
+                      },
                       texterror: responseError.errors.age.isNotEmpty
                           ? responseError.errors.age
                           : '',
@@ -155,6 +158,13 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       hinttext: 'age',
                     ),
                     CustomDropDown(
+                      onChanged: (value) {
+                        if (value == 'Male') {
+                          sex = 1;
+                        } else {
+                          sex = 0;
+                        }
+                      },
                       texterror: responseError.errors.sex.isNotEmpty
                           ? responseError.errors.sex
                           : '',
@@ -163,7 +173,26 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       dropdowntext1: 'Male',
                       dropdowntext2: 'Female',
                     ),
+                    CustomDropDownString(
+                      onChanged: (value) {
+                        if (value == 'Random Forest') {
+                          modelType = 'random_forest';
+                        } else {
+                          modelType = 'decision_tree';
+                        }
+                      },
+                      hinttext: 'Model Type',
+                      dropdowntext1: 'Random Forest',
+                      dropdowntext2: 'Decision Tree',
+                      text: 'Model Type',
+                      texterror: responseError.errors.modelType.isNotEmpty
+                          ? responseError.errors.modelType
+                          : '',
+                    ),
                     CustomTextFieldPredict(
+                      onSaved: (value) {
+                        trestbps = int.parse(value!);
+                      },
                       texterror: responseError.errors.trestbps.isNotEmpty
                           ? responseError.errors.trestbps
                           : '',
@@ -172,6 +201,9 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       hinttext: 'Resting Blood Pressure',
                     ),
                     CustomTextFieldPredict(
+                      onSaved: (value) {
+                        chol = int.parse(value!);
+                      },
                       texterror: responseError.errors.chol.isNotEmpty
                           ? responseError.errors.chol
                           : '',
@@ -180,6 +212,9 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       hinttext: 'Cholesterol level',
                     ),
                     CustomTextFieldPredict(
+                      onSaved: (value) {
+                        thalachh = int.parse(value!);
+                      },
                       texterror: responseError.errors.thalachh.isNotEmpty
                           ? responseError.errors.thalachh
                           : '',
@@ -188,6 +223,9 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       hinttext: 'Maximum heart rate',
                     ),
                     CustomTextFieldPredict(
+                      onSaved: (value) {
+                        oldpeak = double.parse(value!);
+                      },
                       texterror: responseError.errors.oldpeak.isNotEmpty
                           ? responseError.errors.oldpeak
                           : '',
@@ -196,6 +234,15 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       hinttext: 'ST depression',
                     ),
                     CustomDropDownThreeValue(
+                      onChanged: (value) {
+                        if (value == 'Normal') {
+                          restecg = 0;
+                        } else if (value == 'Abnormal') {
+                          restecg = 1;
+                        } else if (value == 'hypertrophy') {
+                          restecg = 3;
+                        }
+                      },
                       texterror: responseError.errors.restecg.isNotEmpty
                           ? responseError.errors.restecg
                           : '',
@@ -208,6 +255,13 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       value3: 2,
                     ),
                     CustomDropDown(
+                      onChanged: (value) {
+                        if (value == 'Yes') {
+                          fbs = 1;
+                        } else {
+                          fbs = 0;
+                        }
+                      },
                       texterror: responseError.errors.fbs.isNotEmpty
                           ? responseError.errors.fbs
                           : '',
@@ -217,6 +271,13 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       text: 'Fasting blood sugar',
                     ),
                     CustomDropDown(
+                      onChanged: (value) {
+                        if (value == 'Yes') {
+                          exang = 1;
+                        } else {
+                          exang = 0;
+                        }
+                      },
                       hinttext: 'Exercise induced angina',
                       dropdowntext1: 'Yes',
                       dropdowntext2: 'No',
@@ -226,6 +287,15 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                           : '',
                     ),
                     CustomDropDownThreeValue(
+                      onChanged: (value) {
+                        if (value == 'Upsloping') {
+                          slope = 0;
+                        } else if (value == 'Flat') {
+                          slope = 1;
+                        } else if (value == 'Downsloping') {
+                          slope = 3;
+                        }
+                      },
                       hinttext: 'Slope of the peak exercise ST segment',
                       dropdowntext1: 'Upsloping',
                       dropdowntext2: 'Flat',
@@ -238,6 +308,17 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                           : '',
                     ),
                     CustomDropDownFourValue(
+                      onChanged: (value) {
+                        if (value == 'Typical angina') {
+                          cp = 0;
+                        } else if (value == 'Atypical angina') {
+                          cp = 1;
+                        } else if (value == 'Non-anginal pain') {
+                          cp = 2;
+                        } else if (value == 'Asymptomatic') {
+                          cp = 3;
+                        }
+                      },
                       texterror: responseError.errors.cp.isNotEmpty
                           ? responseError.errors.cp
                           : '',
@@ -253,6 +334,17 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       dropdowntext4: 'Asymptomatic',
                     ),
                     CustomDropDownFourValue(
+                      onChanged: (value) {
+                        if (value == '0') {
+                          ca = 0;
+                        } else if (value == '1') {
+                          ca = 1;
+                        } else if (value == '2') {
+                          ca = 2;
+                        } else if (value == '3') {
+                          ca = 3;
+                        }
+                      },
                       texterror: responseError.errors.ca.isNotEmpty
                           ? responseError.errors.ca
                           : '',
@@ -268,6 +360,17 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       dropdowntext4: '3',
                     ),
                     CustomDropDownFourValue(
+                      onChanged: (value) {
+                        if (value == 'Normal') {
+                          thal = 1;
+                        } else if (value == 'Fixed Defect') {
+                          thal = 2;
+                        } else if (value == 'Reversable Defect') {
+                          thal = 3;
+                        } else if (value == 'Not Present') {
+                          thal = 4;
+                        }
+                      },
                       texterror: responseError.errors.thal.isNotEmpty
                           ? responseError.errors.thal
                           : '',
@@ -286,7 +389,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                     CustomButton(
                       onPressed: () {
                         if (key.currentState!.validate()) {
-                          _showSuccessDialog(context);
+                          key.currentState!.save();
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(

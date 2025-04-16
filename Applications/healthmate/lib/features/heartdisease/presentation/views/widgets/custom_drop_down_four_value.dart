@@ -17,7 +17,7 @@ class CustomDropDownFourValue extends StatelessWidget {
       required this.value3,
       required this.value4,
       required this.text,
-      required this.texterror});
+      required this.texterror, this.onChanged});
   final String hinttext,
       dropdowntext1,
       dropdowntext2,
@@ -29,7 +29,7 @@ class CustomDropDownFourValue extends StatelessWidget {
   final int value2;
   final int value3;
   final int value4;
-
+  final void Function(dynamic)? onChanged;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -43,6 +43,7 @@ class CustomDropDownFourValue extends StatelessWidget {
           ),
           2.verticalSpace,
           DropDownTextField(
+            onChanged: onChanged,
             validator: (value) {
               if (value!.isEmpty || value == null) {
                 return 'Please enter your $text';
