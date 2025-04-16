@@ -31,6 +31,25 @@ class HeartRequestModel {
     required this.modelType,
   });
 
+  factory HeartRequestModel.fromJson(Map<String, dynamic> json) {
+    return HeartRequestModel(
+      age: json['age'],
+      sex: json['sex'],
+      cp: json['cp'],
+      trestbps: json['trestbps'],
+      chol: json['chol'],
+      fbs: json['fbs'],
+      restecg: json['restecg'],
+      thalachh: json['thalachh'],
+      exang: json['exang'],
+      oldpeak: (json['oldpeak'] as num).toDouble(),
+      slope: json['slope'],
+      ca: json['ca'],
+      thal: json['thal'],
+      modelType: json['model_type'],
+    );
+  }
+
   Map<String, dynamic> toJson() {
     return {
       'age': age,

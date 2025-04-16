@@ -9,8 +9,8 @@ class CustomDropDown extends StatelessWidget {
       {super.key,
       required this.hinttext,
       required this.dropdowntext1,
-      required this.dropdowntext2});
-  final String hinttext, dropdowntext1, dropdowntext2;
+      required this.dropdowntext2, required this.text});
+  final String hinttext, dropdowntext1, dropdowntext2 , text;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,11 @@ class CustomDropDown extends StatelessWidget {
           ),
           2.verticalSpace,
           DropDownTextField(
-            
+            validator: (value) {
+              if (value!.isEmpty || value == null) {
+                return 'Please enter your $text';
+              }
+            },
             textFieldDecoration: InputDecoration(
               filled: true,
               fillColor: ColorSystem.kPrimaryColorHighLight,

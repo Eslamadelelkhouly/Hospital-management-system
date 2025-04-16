@@ -80,6 +80,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: SingleChildScrollView(
           child: Form(
+            key: key,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -98,6 +99,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                   hinttext: 'age',
                 ),
                 CustomDropDown(
+                  text: 'Gender',
                   hinttext: 'Gender',
                   dropdowntext1: 'Male',
                   dropdowntext2: 'Female',
@@ -126,11 +128,14 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                   hinttext: 'Exercise-induced angina',
                   dropdowntext1: 'Yes',
                   dropdowntext2: 'No',
+                  text: 'Exercise-induced angina',
+                
                 ),
                 CustomDropDown(
                   hinttext: 'Fasting blood sugar',
                   dropdowntext1: 'Yes',
                   dropdowntext2: 'No',
+                  text: 'Fasting blood sugar',
                 ),
                 CustomDropDownFourValue(
                   value1: 0,
@@ -138,6 +143,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                   value3: 2,
                   value4: 3,
                   hinttext: 'Chest pain type',
+                  text: 'Chest pain type',
                   dropdowntext1: 'Typical angina',
                   dropdowntext2: 'Atypical angina',
                   dropdowntext3: 'Non-anginal pain',
@@ -149,6 +155,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                   value3: 2,
                   value4: 3,
                   hinttext: 'Number of major vessels',
+                  text: 'Number of major vessels',
                   dropdowntext1: '0',
                   dropdowntext2: '1',
                   dropdowntext3: '2',
@@ -161,6 +168,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                   value4: 4,
                   hinttext: 'Thalassemia types',
                   dropdowntext1: 'Normal',
+                  text: 'Thalassemia types',
                   dropdowntext2: 'Fixed Defect',
                   dropdowntext3: 'Reversable Defect',
                   dropdowntext4: 'Not Present',
@@ -168,7 +176,15 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                 20.verticalSpace,
                 CustomButton(
                   onPressed: () {
-                    _showSuccessDialog(context);
+                    if(key.currentState!.validate()){
+                      _showSuccessDialog(context);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Please fill in all fields correctly.'),
+                        ),
+                      );
+                    }
                   },
                   text: 'Predict',
                   width: 320,

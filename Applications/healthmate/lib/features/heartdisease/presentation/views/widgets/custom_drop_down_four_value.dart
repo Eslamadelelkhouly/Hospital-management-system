@@ -15,12 +15,13 @@ class CustomDropDownFourValue extends StatelessWidget {
       required this.value1,
       required this.value2,
       required this.value3,
-      required this.value4});
+      required this.value4, required this.text});
   final String hinttext,
       dropdowntext1,
       dropdowntext2,
       dropdowntext3,
-      dropdowntext4;
+      dropdowntext4,
+      text;
   final int value1;
   final int value2;
   final int value3;
@@ -39,6 +40,11 @@ class CustomDropDownFourValue extends StatelessWidget {
           ),
           2.verticalSpace,
           DropDownTextField(
+            validator: (value) {
+              if (value!.isEmpty || value == null) {
+                return 'Please enter your $text';
+              }
+            },
             textFieldDecoration: InputDecoration(
               filled: true,
               fillColor: ColorSystem.kPrimaryColorHighLight,
@@ -46,7 +52,7 @@ class CustomDropDownFourValue extends StatelessWidget {
               hintStyle: const TextStyle(color: Colors.grey),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
-                borderSide: BorderSide.none, // Removes the black border
+                borderSide: BorderSide.none, 
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10)),

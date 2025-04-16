@@ -16,20 +16,20 @@ class HeartDiseaseResponseError {
 }
 
 class Errors {
-  final List<String> age;
-  final List<String> sex;
-  final List<String> cp;
-  final List<String> trestbps;
-  final List<String> chol;
-  final List<String> fbs;
-  final List<String> restecg;
-  final List<String> thalachh;
-  final List<String> exang;
-  final List<String> oldpeak;
-  final List<String> slope;
-  final List<String> ca;
-  final List<String> thal;
-  final List<String> modelType;
+  final String age;
+  final String sex;
+  final String cp;
+  final String trestbps;
+  final String chol;
+  final String fbs;
+  final String restecg;
+  final String thalachh;
+  final String exang;
+  final String oldpeak;
+  final String slope;
+  final String ca;
+  final String thal;
+  final String modelType;
 
   Errors({
     required this.age,
@@ -50,55 +50,55 @@ class Errors {
 
   factory Errors.fromJson(Map<String, dynamic> json) {
     return Errors(
-      age: List<String>.from(json['age'] ?? []),
-      sex: List<String>.from(json['sex'] ?? []),
-      cp: List<String>.from(json['cp'] ?? []),
-      trestbps: List<String>.from(json['trestbps'] ?? []),
-      chol: List<String>.from(json['chol'] ?? []),
-      fbs: List<String>.from(json['fbs'] ?? []),
-      restecg: List<String>.from(json['restecg'] ?? []),
-      thalachh: List<String>.from(json['thalachh'] ?? []),
-      exang: List<String>.from(json['exang'] ?? []),
-      oldpeak: List<String>.from(json['oldpeak'] ?? []),
-      slope: List<String>.from(json['slope'] ?? []),
-      ca: List<String>.from(json['ca'] ?? []),
-      thal: List<String>.from(json['thal'] ?? []),
-      modelType: List<String>.from(json['model_type'] ?? []),
+      age: json['age'] ?? '',
+      sex: json['sex'] ?? '',
+      cp: json['cp'] ?? '',
+      trestbps: json['trestbps'] ?? '',
+      chol: json['chol'] ?? '',
+      fbs: json['fbs'] ?? '',
+      restecg: json['restecg'] ?? '',
+      thalachh: json['thalachh'] ?? '',
+      exang: json['exang'] ?? '',
+      oldpeak: json['oldpeak'] ?? '',
+      slope: json['slope'] ?? '',
+      ca: json['ca'] ?? '',
+      thal: json['thal'] ?? '',
+      modelType: json['model_type'] ?? '',
     );
   }
 }
 
-// Factory function to return an empty Errors object
+// Factory function to return an empty Errors object with default messages
 Errors errors({
-  List<String>? age,
-  List<String>? sex,
-  List<String>? cp,
-  List<String>? trestbps,
-  List<String>? chol,
-  List<String>? fbs,
-  List<String>? restecg,
-  List<String>? thalachh,
-  List<String>? exang,
-  List<String>? oldpeak,
-  List<String>? slope,
-  List<String>? ca,
-  List<String>? thal,
-  List<String>? modelType,
+  String? age,
+  String? sex,
+  String? cp,
+  String? trestbps,
+  String? chol,
+  String? fbs,
+  String? restecg,
+  String? thalachh,
+  String? exang,
+  String? oldpeak,
+  String? slope,
+  String? ca,
+  String? thal,
+  String? modelType,
 }) {
   return Errors(
-    age: age ?? [],
-    sex: sex ?? [],
-    cp: cp ?? [],
-    trestbps: trestbps ?? [],
-    chol: chol ?? [],
-    fbs: fbs ?? [],
-    restecg: restecg ?? [],
-    thalachh: thalachh ?? [],
-    exang: exang ?? [],
-    oldpeak: oldpeak ?? [],
-    slope: slope ?? [],
-    ca: ca ?? [],
-    thal: thal ?? [],
-    modelType: modelType ?? [],
+    age: age ?? "the age is required",
+    sex: sex ?? "the sex is required",
+    cp: cp ?? "the cp is required",
+    trestbps: trestbps ?? "the trestbps is required",
+    chol: chol ?? "the chol is required",
+    fbs: fbs ?? "the fbs is required",
+    restecg: restecg ?? "the restecg is required",
+    thalachh: thalachh ?? "the thalachh is required",
+    exang: exang ?? "the exang is required",
+    oldpeak: oldpeak ?? "the oldpeak is required",
+    slope: slope ?? "the slope is required",
+    ca: ca ?? "the ca is required",
+    thal: thal ?? "the thal is required",
+    modelType: modelType ?? "the model_type is required",
   );
 }
