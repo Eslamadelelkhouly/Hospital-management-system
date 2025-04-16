@@ -24,7 +24,7 @@ class _ListTielNotificationState extends State<ListTielNotification> {
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 8,
         ),
-        leading: ImageIcon(
+        leading: const ImageIcon(
           AssetImage(notificationicon),
           color: Colors.black,
         ),

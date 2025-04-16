@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:healthmate/core/API/api_service.dart';
-import 'package:healthmate/core/API/api_serviceshttp.dart';
 import 'package:healthmate/core/API/backend_endpoint.dart';
 import 'package:healthmate/core/errors/failuers.dart';
 import 'package:healthmate/features/search/data/models/doctor_model.dart';

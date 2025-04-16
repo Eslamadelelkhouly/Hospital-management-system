@@ -10,10 +10,10 @@ class SignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => LoginCubit(),
-      child: Scaffold(
+      child: const Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: ColorSystem.kbtnColorWhite,
-        body: const SignInBlocConsumer(),
+        body:  SignInBlocConsumer(),
       ),
     );
   }

@@ -11,10 +11,10 @@ class RowContainerTime extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         25.horizontalSpace,
-        ContainerTime(),
-        ContainerTime(),
-        ContainerTime(),
-        ContainerTime(),
+        const ContainerTime(),
+        const ContainerTime(),
+        const ContainerTime(),
+        const ContainerTime(),
       ],
     );
   }

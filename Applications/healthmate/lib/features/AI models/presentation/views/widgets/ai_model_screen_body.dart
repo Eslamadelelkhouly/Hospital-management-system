@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/features/AI%20models/data/model/card_ai_model.dart';
-import 'package:healthmate/features/heartdisease/presentation/views/widgets/heart_disease_body.dart';
 import 'package:healthmate/features/home/presentation/views/widgets/card_categories.dart';
 
 class AiModelScreenBody extends StatelessWidget {
@@ -20,7 +18,7 @@ class AiModelScreenBody extends StatelessWidget {
         child: Column(
           children: [
             30.verticalSpace,
-            CustomAppBar(title: 'AI Models'),
+            const CustomAppBar(title: 'AI Models'),
             30.verticalSpace,
             Expanded(
               child: GridView.builder(

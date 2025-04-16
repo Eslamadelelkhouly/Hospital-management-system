@@ -5,10 +5,16 @@ import 'package:healthmate/core/utils/style.dart';
 
 class CustomTextFieldPredict extends StatelessWidget {
   const CustomTextFieldPredict(
-      {super.key, required this.text, required this.hinttext});
+      {super.key,
+      required this.text,
+      required this.hinttext,
+      required this.controller,
+      this.onSaved});
 
   final String text;
   final String hinttext;
+  final TextEditingController controller;
+  final String? Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +29,14 @@ class CustomTextFieldPredict extends StatelessWidget {
         Container(
           width: 362.r,
           height: 48.r,
-          child: TextField(
+          child: TextFormField(
+            controller: controller,
+            onSaved: onSaved,
+            validator: (value) {
+              if (value!.isEmpty || value == null) {
+                return 'Please enter your $text';
+              }
+            },
             cursorColor: ColorSystem.kPrimaryColor,
             decoration: InputDecoration(
               hintText: hinttext,
@@ -32,18 +45,18 @@ class CustomTextFieldPredict extends StatelessWidget {
               filled: true,
               fillColor: ColorSystem.kbtnColorblue,
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: ColorSystem.kbtnColorblue),
+                borderSide: const BorderSide(color: ColorSystem.kbtnColorblue),
                 borderRadius: BorderRadius.circular(10).r,
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10).r,
-                borderSide: BorderSide(color: ColorSystem.kbtnColorblue),
+                borderSide: const BorderSide(color: ColorSystem.kbtnColorblue),
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10).r,
               ),
               disabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: ColorSystem.kbtnColorblue,
                 ),
                 borderRadius: BorderRadius.circular(10).r,

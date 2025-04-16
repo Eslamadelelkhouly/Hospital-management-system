@@ -43,7 +43,7 @@ class _SplashScreenBodyDoctorState extends State<SplashScreenBodyDoctor> {
       child: Column(
         children: [
           50.verticalSpace,
-          TitleOnBoarding(),
+          const TitleOnBoarding(),
           CustomPageView(
             height: height,
             pageController: _pageController,

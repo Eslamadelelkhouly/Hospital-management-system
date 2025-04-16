@@ -10,7 +10,7 @@ class FavouritsScreen extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       height: double.infinity,
-      child: Column(
+      child: const Column(
         children: [
           SizedBox(
             height: 30,

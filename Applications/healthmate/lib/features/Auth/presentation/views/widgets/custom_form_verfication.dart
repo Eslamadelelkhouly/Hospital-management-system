@@ -14,8 +14,8 @@ class CustomFormVerfication extends StatelessWidget {
     return Form(
       child: Column(
         children: [
-          RowOtp(),
-          SizedBox(
+          const RowOtp(),
+          const SizedBox(
             height: 36,
           ),
           CustomButton(
@@ -28,7 +28,7 @@ class CustomFormVerfication extends StatelessWidget {
             textColor: Colors.white,
             backgrounColor: ColorSystem.kPrimaryColor,
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Row(

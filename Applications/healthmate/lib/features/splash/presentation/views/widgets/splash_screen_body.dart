@@ -3,6 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/style.dart';
+
 class SplashScreenBody extends StatelessWidget {
   const SplashScreenBody({super.key});
 
@@ -13,10 +14,10 @@ class SplashScreenBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Animate(
-            effects: [
-              const FadeEffect(),
-              const ScaleEffect(),
-              const SlideEffect(
+            effects: const [
+              FadeEffect(),
+              ScaleEffect(),
+              SlideEffect(
                 begin: Offset(0, -3),
                 end: Offset(0, 0),
                 duration: Duration(seconds: 1),
@@ -30,10 +31,10 @@ class SplashScreenBody extends StatelessWidget {
           ),
           10.verticalSpace,
           Animate(
-            effects: [
-              const FadeEffect(),
-              const ScaleEffect(),
-              const SlideEffect(
+            effects: const [
+              FadeEffect(),
+              ScaleEffect(),
+              SlideEffect(
                 begin: Offset(0, 10),
                 end: Offset(0, 0),
                 duration: Duration(seconds: 1),

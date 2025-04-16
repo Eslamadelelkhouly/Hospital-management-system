@@ -16,9 +16,9 @@ class ShowDoctorCubit extends Cubit<ShowDoctorState> {
   ApiService apiService = ApiService(
       dio: Dio(
     BaseOptions(
-      connectTimeout: Duration(seconds: 60),
-      receiveTimeout: Duration(seconds: 60),
-      sendTimeout: Duration(seconds: 60),
+      connectTimeout: const Duration(seconds: 30),
+      receiveTimeout: const Duration(seconds: 80),
+      sendTimeout: const Duration(seconds: 60),
     ),
   ));
 

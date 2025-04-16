@@ -41,12 +41,12 @@ class ForgetPasswordBody extends StatelessWidget {
           height: double.infinity,
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20).r,
+              padding: const EdgeInsets.symmetric(horizontal: 20).r,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   30.verticalSpace,
-                  CustomAppBar(
+                  const CustomAppBar(
                     title: 'Forget Password',
                   ),
                   15.verticalSpace,
@@ -76,13 +76,13 @@ class ForgetPasswordBody extends StatelessWidget {
                         text:
                             'Enter the email associated with your account and we’ll send an email with instructions to reset your password',
                         style: StylingSystem.textStyle16Medium.copyWith(
-                          color: Color(0xff4F4E59),
+                          color: const Color(0xff4F4E59),
                         ),
                       ),
                     ]),
                   ),
                   40.verticalSpace,
-                  CustomFormForgetPassword(),
+                  const CustomFormForgetPassword(),
                   120.verticalSpace,
                 ],
               ),

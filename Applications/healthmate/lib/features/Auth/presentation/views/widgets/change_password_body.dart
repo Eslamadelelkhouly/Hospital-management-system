@@ -45,16 +45,16 @@ class ChangePasswordBody extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CustomAppBar(title: ''),
-                  SizedBox(
+                  const CustomAppBar(title: ''),
+                  const SizedBox(
                     height: 48,
                   ),
-                  CustomLogoSignIn(),
+                  const CustomLogoSignIn(),
                   Text(
                     'Health Mate',
                     style: StylingSystem.textStyle24bold,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 32,
                   ),
                   Row(
@@ -72,14 +72,14 @@ class ChangePasswordBody extends StatelessWidget {
                       Text(
                         '''We've sent a code to hello@aiignui.com''',
                         style: StylingSystem.textStyle14Medium
-                            .copyWith(color: Color(0xff4F4E59)),
+                            .copyWith(color:const Color(0xff4F4E59)),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 36,
                   ),
-                  CustomFormChangePassword(),
+                  const CustomFormChangePassword(),
                 ],
               ),
             ),

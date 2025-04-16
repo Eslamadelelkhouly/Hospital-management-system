@@ -11,7 +11,7 @@ class ListViewCardLabTest extends StatelessWidget {
       width: double.infinity,
       height: 400.r,
       child: ListView.builder(
-        padding: EdgeInsets.all(0),
+        padding: const EdgeInsets.all(0),
         itemCount: 10,
         itemBuilder: (context, index) {
           return CustomListTielLabTest();

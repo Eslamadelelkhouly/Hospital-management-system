@@ -12,20 +12,20 @@ class CustomOrDivider extends StatelessWidget {
       width: 273,
       child: Row(
         children: [
-          Expanded(
+          const Expanded(
             child: Divider(),
           ),
-          SizedBox(
+          const SizedBox(
             width: 8,
           ),
           Text(
             'or',
             style: StylingSystem.textStyle14Medium,
           ),
-          SizedBox(
+          const SizedBox(
             width: 8,
           ),
-          Expanded(
+          const Expanded(
             child: Divider(),
           ),
         ],

@@ -36,7 +36,7 @@ class SplashSliderWidget extends StatelessWidget {
           style: StylingSystem.textStyle24bold,
         ),
         (ScreenUtil().screenHeight * 0.01).verticalSpace,
-        Container(
+         Container(
           width: 300.r,
           height: 79.r,
           child: Text(

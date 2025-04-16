@@ -18,7 +18,7 @@ class SettingScreenBody extends StatelessWidget {
       child: Column(
         children: [
           30.verticalSpace,
-          CustomAppBar(title: 'Settings'),
+          const CustomAppBar(title: 'Settings'),
           30.verticalSpace,
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -48,7 +48,7 @@ class SettingScreenBody extends StatelessWidget {
             onTap: () {},
           ),
           16.verticalSpace,
-          ListTielNotification(),
+          const ListTielNotification(),
           24.verticalSpace,
           Row(
             mainAxisAlignment: MainAxisAlignment.start,

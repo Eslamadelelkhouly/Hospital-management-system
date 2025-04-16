@@ -19,6 +19,7 @@ class HealthMate extends StatelessWidget {
       splitScreenMode: true,
       child: MaterialApp.router(
         routerConfig: Routing.router,
+        showPerformanceOverlay: true,
         title: 'Health Mate',
         debugShowCheckedModeBanner: false,
         theme: ThemeData.light(),

@@ -18,9 +18,9 @@ class SechduleScreenBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           30.verticalSpace,
-          CustomAppBar(title: 'Choose a date'),
+          const CustomAppBar(title: 'Choose a date'),
           30.verticalSpace,
-          CustomCelender(),
+          const CustomCelender(),
           24.verticalSpace,
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -33,9 +33,9 @@ class SechduleScreenBody extends StatelessWidget {
             ],
           ),
           8.verticalSpace,
-          RowContainerTime(),
+          const RowContainerTime(),
           8.verticalSpace,
-          RowContainerTime(),
+          const RowContainerTime(),
           35.verticalSpace,
           CustomButton(
             onPressed: () {},
@@ -45,7 +45,7 @@ class SechduleScreenBody extends StatelessWidget {
             textColor: ColorSystem.kbtnColorWhite,
             backgrounColor: ColorSystem.kPrimaryColor,
           ),
-          Spacer(),
+          const Spacer(),
         ],
       ),
     );

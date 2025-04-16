@@ -5,10 +5,45 @@ import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
 import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_drop_down.dart';
+import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_drop_down_four_value.dart';
 import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_text_field_predict.dart';
 
-class HeartDiseaseBody extends StatelessWidget {
+class HeartDiseaseBody extends StatefulWidget {
   const HeartDiseaseBody({super.key});
+
+  @override
+  State<HeartDiseaseBody> createState() => _HeartDiseaseBodyState();
+}
+
+class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
+  late TextEditingController ageController;
+  late TextEditingController bloodPressureController;
+  late TextEditingController cholesterolController;
+  late TextEditingController maxHeartRateController;
+  late TextEditingController oldpeakController;
+  final GlobalKey<FormState> key = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    ageController = TextEditingController();
+    bloodPressureController = TextEditingController();
+    cholesterolController = TextEditingController();
+    maxHeartRateController = TextEditingController();
+    oldpeakController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    ageController.dispose();
+    bloodPressureController.dispose();
+    cholesterolController.dispose();
+    maxHeartRateController.dispose();
+    oldpeakController.dispose();
+  }
 
   void _showSuccessDialog(BuildContext context) {
     showDialog(
@@ -44,47 +79,106 @@ class HeartDiseaseBody extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: 45.h),
-              CustomAppBar(title: 'Heart Disease Predict'),
-              SizedBox(height: 5.h),
-              Image.asset(
-                heartanimate,
-                scale: 0.6.h,
-              ),
-              CustomTextFieldPredict(text: 'Age', hinttext: 'age'),
-              CustomDropDown(
+          child: Form(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 45.h),
+                CustomAppBar(
+                  title: 'Heart Disease Predict',
+                ),
+                SizedBox(height: 5.h),
+                Image.asset(
+                  heartanimate,
+                  scale: 0.6.h,
+                ),
+                CustomTextFieldPredict(
+                  controller: ageController,
+                  text: 'Age',
+                  hinttext: 'age',
+                ),
+                CustomDropDown(
                   hinttext: 'Gender',
                   dropdowntext1: 'Male',
-                  dropdowntext2: 'Female'),
-              CustomTextFieldPredict(
+                  dropdowntext2: 'Female',
+                ),
+                CustomTextFieldPredict(
+                  controller: bloodPressureController,
                   text: 'Resting Blood Pressure',
-                  hinttext: 'Resting Blood Pressure'),
-              CustomTextFieldPredict(
-                  text: 'Cholesterol level', hinttext: 'Cholesterol level'),
-              CustomTextFieldPredict(
-                  text: 'Maximum heart rate', hinttext: 'Maximum heart rate'),
-              CustomTextFieldPredict(
-                  text: 'oldpeak', hinttext: 'ST depression'),
-              CustomDropDown(
+                  hinttext: 'Resting Blood Pressure',
+                ),
+                CustomTextFieldPredict(
+                  controller: cholesterolController,
+                  text: 'Cholesterol level',
+                  hinttext: 'Cholesterol level',
+                ),
+                CustomTextFieldPredict(
+                  controller: maxHeartRateController,
+                  text: 'Maximum heart rate',
+                  hinttext: 'Maximum heart rate',
+                ),
+                CustomTextFieldPredict(
+                  controller: oldpeakController,
+                  text: 'oldpeak',
+                  hinttext: 'ST depression',
+                ),
+                CustomDropDown(
                   hinttext: 'Exercise-induced angina',
                   dropdowntext1: 'Yes',
-                  dropdowntext2: 'No'),
-              20.verticalSpace,
-              CustomButton(
-                onPressed: () {
-                  _showSuccessDialog(context);
-                },
-                text: 'Predict',
-                width: 320,
-                height: 54,
-                textColor: ColorSystem.kbtnColorWhite,
-                backgrounColor: ColorSystem.kPrimaryColor,
-              ),
-              20.verticalSpace,
-            ],
+                  dropdowntext2: 'No',
+                ),
+                CustomDropDown(
+                  hinttext: 'Fasting blood sugar',
+                  dropdowntext1: 'Yes',
+                  dropdowntext2: 'No',
+                ),
+                CustomDropDownFourValue(
+                  value1: 0,
+                  value2: 1,
+                  value3: 2,
+                  value4: 3,
+                  hinttext: 'Chest pain type',
+                  dropdowntext1: 'Typical angina',
+                  dropdowntext2: 'Atypical angina',
+                  dropdowntext3: 'Non-anginal pain',
+                  dropdowntext4: 'Asymptomatic',
+                ),
+                CustomDropDownFourValue(
+                  value1: 0,
+                  value2: 1,
+                  value3: 2,
+                  value4: 3,
+                  hinttext: 'Number of major vessels',
+                  dropdowntext1: '0',
+                  dropdowntext2: '1',
+                  dropdowntext3: '2',
+                  dropdowntext4: '3',
+                ),
+                CustomDropDownFourValue(
+                  value1: 1,
+                  value2: 2,
+                  value3: 3,
+                  value4: 4,
+                  hinttext: 'Thalassemia types',
+                  dropdowntext1: 'Normal',
+                  dropdowntext2: 'Fixed Defect',
+                  dropdowntext3: 'Reversable Defect',
+                  dropdowntext4: 'Not Present',
+                ),
+                20.verticalSpace,
+                CustomButton(
+                  onPressed: () {
+                    _showSuccessDialog(context);
+                  },
+                  text: 'Predict',
+                  width: 320,
+                  height: 54,
+                  textColor: ColorSystem.kbtnColorWhite,
+                  backgrounColor: ColorSystem.kPrimaryColor,
+                ),
+                20.verticalSpace,
+              ],
+            ),
           ),
         ),
       ),

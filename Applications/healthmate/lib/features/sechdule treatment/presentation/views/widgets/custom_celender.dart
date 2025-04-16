@@ -5,7 +5,7 @@ import 'package:healthmate/core/utils/color_style.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class CustomCelender extends StatefulWidget {
-  CustomCelender({super.key});
+  const CustomCelender({super.key});
 
   @override
   State<CustomCelender> createState() => _CustomCelenderState();
@@ -40,9 +40,9 @@ class _CustomCelenderState extends State<CustomCelender> {
         locale: 'en_US',
         focusedDay: datatimenow,
         availableGestures: AvailableGestures.all,
-        calendarStyle: CalendarStyle(
-          tablePadding: EdgeInsets.all(0),
-          defaultDecoration: BoxDecoration(
+        calendarStyle:  CalendarStyle(
+          tablePadding: const EdgeInsets.all(0),
+          defaultDecoration: const BoxDecoration(
             color: Colors.transparent,
             shape: BoxShape.rectangle,
           ),

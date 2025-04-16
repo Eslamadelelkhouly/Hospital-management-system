@@ -11,10 +11,10 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => RegisterCubit(),
-      child: Scaffold(
+      child: const Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: ColorSystem.kbtnColorWhite,
-        body: const CustomSignUpBlocConsumer(),
+        body:  CustomSignUpBlocConsumer(),
       ),
     );
   }

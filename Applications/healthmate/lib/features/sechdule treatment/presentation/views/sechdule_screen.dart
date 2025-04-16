@@ -7,7 +7,7 @@ class SechduleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: ColorSystem.kbtnColorWhite,
       body: SechduleScreenBody(),
     );

@@ -16,7 +16,7 @@ class CustomFormChangePassword extends StatelessWidget {
             controller: TextEditingController(),
             text: 'Password',
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           CustomPasswordTextField(
@@ -24,7 +24,7 @@ class CustomFormChangePassword extends StatelessWidget {
             controller: TextEditingController(),
             text: 'Confirm Password',
           ),
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
           CustomButton(

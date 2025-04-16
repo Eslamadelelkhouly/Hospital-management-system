@@ -23,7 +23,7 @@ class CustomAppBar extends StatelessWidget {
             size: 24.r,
           ),
         ),
-        Spacer(),
+        const Spacer(),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -34,7 +34,7 @@ class CustomAppBar extends StatelessWidget {
             ),
           ],
         ),
-        Spacer(),
+        const Spacer(),
       ],
     );
   }

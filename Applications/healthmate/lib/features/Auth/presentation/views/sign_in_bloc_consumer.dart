@@ -23,7 +23,7 @@ class SignInBlocConsumer extends StatelessWidget {
       builder: (context, state) {
         return ModalProgressHUD(
           inAsyncCall: state is LoginCubitLoading ? true : false,
-          child: SignInBody(),
+          child: const SignInBody(),
         );
       },
     );

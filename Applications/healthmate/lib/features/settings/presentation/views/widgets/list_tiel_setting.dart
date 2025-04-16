@@ -29,12 +29,12 @@ class ListTielSetting extends StatelessWidget {
         title: Text(
           title,
           style: StylingSystem.textStyle16Medium.copyWith(
-            color: Color(0xff83818E),
+            color: const Color(0xff83818E),
           ),
         ),
         trailing: IconButton(
           onPressed: onTap,
-          icon: Icon(Icons.arrow_forward_ios),
+          icon: const Icon(Icons.arrow_forward_ios),
         ),
       ),
     );

@@ -4,13 +4,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 
-class CustomDropDown extends StatelessWidget {
-  const CustomDropDown(
-      {super.key,
-      required this.hinttext,
-      required this.dropdowntext1,
-      required this.dropdowntext2});
-  final String hinttext, dropdowntext1, dropdowntext2;
+class CustomDropDownThreeValue extends StatelessWidget {
+  const CustomDropDownThreeValue({
+    super.key,
+    required this.hinttext,
+    required this.dropdowntext1,
+    required this.dropdowntext2,
+    required this.dropdowntext3,
+    required this.value1,
+    required this.value2,
+    required this.value3,
+  });
+  final String hinttext, dropdowntext1, dropdowntext2, dropdowntext3;
+  final int value1;
+  final int value2;
+  final int value3;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +33,6 @@ class CustomDropDown extends StatelessWidget {
           ),
           2.verticalSpace,
           DropDownTextField(
-            
             textFieldDecoration: InputDecoration(
               filled: true,
               fillColor: ColorSystem.kPrimaryColorHighLight,
@@ -45,8 +52,9 @@ class CustomDropDown extends StatelessWidget {
               ),
             ),
             dropDownList: [
-              DropDownValueModel(name: dropdowntext1, value: 1.0),
-              DropDownValueModel(name: dropdowntext2, value: 0.0),
+              DropDownValueModel(name: dropdowntext1, value: value1),
+              DropDownValueModel(name: dropdowntext2, value: value2),
+              DropDownValueModel(name: dropdowntext3, value: value3),
             ],
           ),
         ],

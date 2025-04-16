@@ -12,7 +12,7 @@ class DiabatesScreenBody extends StatelessWidget {
           Container(
             height: 200,
             color: Colors.blue,
-            child: Center(child: Text('Header')),
+            child: const Center(child: Text('Header')),
           ),
           Container(
             height: 600,

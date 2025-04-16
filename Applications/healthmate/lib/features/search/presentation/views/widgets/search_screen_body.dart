@@ -31,9 +31,9 @@ class _SearchScreenBodyState extends State<SearchScreenBody> {
         child: Column(
           children: [
             30.verticalSpace,
-            CustomAppBar(title: 'All doctors'),
+            const CustomAppBar(title: 'All doctors'),
             24.verticalSpace,
-            CustomSearchTextField(),
+            const CustomSearchTextField(),
             24.verticalSpace,
             Expanded(child: CustomGridViewCardSearch())
           ],

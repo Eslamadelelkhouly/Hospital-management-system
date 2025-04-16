@@ -14,14 +14,14 @@ class _SplashInitScreenState extends State<SplashInitScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 40), () async {
+    Future.delayed(const Duration(milliseconds: 50), () async {
       await GoRouter.of(context).pushReplacement(Routing.KsplashScreen);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: ColorSystem.kPrimaryColor,
     );
   }
