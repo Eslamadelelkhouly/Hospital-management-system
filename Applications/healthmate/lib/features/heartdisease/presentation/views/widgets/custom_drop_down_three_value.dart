@@ -13,13 +13,13 @@ class CustomDropDownThreeValue extends StatelessWidget {
     required this.dropdowntext3,
     required this.value1,
     required this.value2,
-    required this.value3,
+    required this.value3, required this.texterror,
   });
-  final String hinttext, dropdowntext1, dropdowntext2, dropdowntext3;
+  final String hinttext, dropdowntext1, dropdowntext2, dropdowntext3 ,  texterror;
   final int value1;
   final int value2;
   final int value3;
-
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -56,6 +56,12 @@ class CustomDropDownThreeValue extends StatelessWidget {
               DropDownValueModel(name: dropdowntext2, value: value2),
               DropDownValueModel(name: dropdowntext3, value: value3),
             ],
+          ),
+          Text(
+            texterror,
+            style: StylingSystem.textStyleSign12.copyWith(
+              color: Colors.red,
+            ),
           ),
         ],
       ),

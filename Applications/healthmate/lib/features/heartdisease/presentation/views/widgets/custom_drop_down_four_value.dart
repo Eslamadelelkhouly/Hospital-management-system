@@ -15,13 +15,16 @@ class CustomDropDownFourValue extends StatelessWidget {
       required this.value1,
       required this.value2,
       required this.value3,
-      required this.value4, required this.text});
+      required this.value4,
+      required this.text,
+      required this.texterror});
   final String hinttext,
       dropdowntext1,
       dropdowntext2,
       dropdowntext3,
       dropdowntext4,
-      text;
+      text,
+      texterror;
   final int value1;
   final int value2;
   final int value3;
@@ -52,7 +55,7 @@ class CustomDropDownFourValue extends StatelessWidget {
               hintStyle: const TextStyle(color: Colors.grey),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
-                borderSide: BorderSide.none, 
+                borderSide: BorderSide.none,
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -69,6 +72,12 @@ class CustomDropDownFourValue extends StatelessWidget {
               DropDownValueModel(name: dropdowntext3, value: value3),
               DropDownValueModel(name: dropdowntext4, value: value4),
             ],
+          ),
+          Text(
+            texterror,
+            style: StylingSystem.textStyleSign12.copyWith(
+              color: Colors.red,
+            ),
           ),
         ],
       ),

@@ -153,14 +153,14 @@ class _CustomFormSignInState extends State<CustomFormSignIn> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
-            CustomOrDivider(),
+            const CustomOrDivider(),
             SizedBox(
               height: 24,
             ),
-            CustomSocialMediaIcons()
+            const CustomSocialMediaIcons()
           ],
         ),
       ),

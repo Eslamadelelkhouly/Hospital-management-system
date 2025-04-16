@@ -1,11 +1,11 @@
-class PredictionModel {
+class HeartDiseasePredictionModel {
   final String prediction;
   final String modelUsed;
   final String probabilityPercentage;
   final String confidenceLevel;
   final double rawProbability;
 
-  PredictionModel({
+  HeartDiseasePredictionModel({
     required this.prediction,
     required this.modelUsed,
     required this.probabilityPercentage,
@@ -13,8 +13,8 @@ class PredictionModel {
     required this.rawProbability,
   });
 
-  factory PredictionModel.fromJson(Map<String, dynamic> json) {
-    return PredictionModel(
+  factory HeartDiseasePredictionModel.fromJson(Map<String, dynamic> json) {
+    return HeartDiseasePredictionModel(
       prediction: json['prediction'] ?? '',
       modelUsed: json['model_used'] ?? '',
       probabilityPercentage: json['probability_percentage'] ?? '',

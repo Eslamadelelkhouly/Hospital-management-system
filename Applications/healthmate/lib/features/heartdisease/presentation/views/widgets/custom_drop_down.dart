@@ -9,8 +9,10 @@ class CustomDropDown extends StatelessWidget {
       {super.key,
       required this.hinttext,
       required this.dropdowntext1,
-      required this.dropdowntext2, required this.text});
-  final String hinttext, dropdowntext1, dropdowntext2 , text;
+      required this.dropdowntext2,
+      required this.text,
+      required this.texterror});
+  final String hinttext, dropdowntext1, dropdowntext2, text, texterror;
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +54,12 @@ class CustomDropDown extends StatelessWidget {
               DropDownValueModel(name: dropdowntext1, value: 1.0),
               DropDownValueModel(name: dropdowntext2, value: 0.0),
             ],
+          ),
+          Text(
+            texterror,
+            style: StylingSystem.textStyleSign12.copyWith(
+              color: Colors.red,
+            ),
           ),
         ],
       ),

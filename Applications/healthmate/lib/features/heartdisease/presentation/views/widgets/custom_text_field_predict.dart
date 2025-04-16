@@ -4,17 +4,20 @@ import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 
 class CustomTextFieldPredict extends StatelessWidget {
-  const CustomTextFieldPredict(
-      {super.key,
-      required this.text,
-      required this.hinttext,
-      required this.controller,
-      this.onSaved});
+  const CustomTextFieldPredict({
+    super.key,
+    required this.text,
+    required this.hinttext,
+    required this.controller,
+    this.onSaved,
+    required this.texterror,
+  });
 
   final String text;
   final String hinttext;
   final TextEditingController controller;
   final String? Function(String?)? onSaved;
+  final String texterror;
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +65,12 @@ class CustomTextFieldPredict extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10).r,
               ),
             ),
+          ),
+        ),
+        Text(
+          texterror,
+          style: StylingSystem.textStyleSign12.copyWith(
+            color: Colors.red,
           ),
         ),
       ],

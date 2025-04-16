@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:healthmate/features/heartdisease/data/manager/cubit/heart_disease_cubit.dart';
 import 'package:healthmate/features/heartdisease/presentation/views/widgets/heart_disease_body.dart';
 
 class HeartDiseaseScreen extends StatelessWidget {
@@ -6,9 +8,12 @@ class HeartDiseaseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.white,
-      body: HeartDiseaseBody(),
+    return BlocProvider(
+      create: (context) => HeartDiseaseCubit(),
+      child: const Scaffold(
+        backgroundColor: Colors.white,
+        body: HeartDiseaseBody(),
+      ),
     );
   }
 }
