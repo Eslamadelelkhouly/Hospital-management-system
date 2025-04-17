@@ -12,10 +12,10 @@ class CustomDropDown extends StatelessWidget {
       required this.dropdowntext2,
       required this.text,
       required this.texterror,
-      this.onChanged});
+      required this.controller});
   final String hinttext, dropdowntext1, dropdowntext2, text, texterror;
-  final void Function(dynamic)? onChanged;
 
+  final SingleValueDropDownController controller;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -29,12 +29,12 @@ class CustomDropDown extends StatelessWidget {
           ),
           2.verticalSpace,
           DropDownTextField(
+            controller: controller,
             validator: (value) {
               if (value!.isEmpty || value == null) {
                 return 'Please enter your $text';
               }
             },
-            onChanged: onChanged,
             textFieldDecoration: InputDecoration(
               filled: true,
               fillColor: ColorSystem.kPrimaryColorHighLight,
@@ -54,8 +54,8 @@ class CustomDropDown extends StatelessWidget {
               ),
             ),
             dropDownList: [
-              DropDownValueModel(name: dropdowntext1, value: 1.0),
-              DropDownValueModel(name: dropdowntext2, value: 0.0),
+              DropDownValueModel(name: dropdowntext1, value: 1),
+              DropDownValueModel(name: dropdowntext2, value: 0),
             ],
           ),
           Text(

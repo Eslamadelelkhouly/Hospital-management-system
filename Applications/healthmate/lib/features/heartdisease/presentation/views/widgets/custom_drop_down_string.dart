@@ -11,11 +11,10 @@ class CustomDropDownString extends StatelessWidget {
     required this.dropdowntext1,
     required this.dropdowntext2,
     required this.text,
-    required this.texterror,
-    this.onChanged,
+    required this.texterror, required this.controller,
   });
   final String hinttext, dropdowntext1, dropdowntext2, text, texterror;
-  final void Function(dynamic)? onChanged;
+  final SingleValueDropDownController controller;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -29,7 +28,7 @@ class CustomDropDownString extends StatelessWidget {
           ),
           2.verticalSpace,
           DropDownTextField(
-            onChanged: onChanged,
+            controller: controller,
             validator: (value) {
               if (value!.isEmpty || value == null) {
                 return 'Please enter your $text';

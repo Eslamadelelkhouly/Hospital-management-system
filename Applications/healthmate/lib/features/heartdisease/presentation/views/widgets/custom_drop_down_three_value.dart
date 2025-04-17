@@ -15,13 +15,13 @@ class CustomDropDownThreeValue extends StatelessWidget {
     required this.value2,
     required this.value3,
     required this.texterror,
-    this.onChanged,
+    required this.controller,
   });
   final String hinttext, dropdowntext1, dropdowntext2, dropdowntext3, texterror;
   final int value1;
   final int value2;
   final int value3;
-  final void Function(dynamic)? onChanged;
+  final SingleValueDropDownController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class CustomDropDownThreeValue extends StatelessWidget {
           ),
           2.verticalSpace,
           DropDownTextField(
-            onChanged: onChanged,
+            controller: controller,
             textFieldDecoration: InputDecoration(
               filled: true,
               fillColor: ColorSystem.kPrimaryColorHighLight,

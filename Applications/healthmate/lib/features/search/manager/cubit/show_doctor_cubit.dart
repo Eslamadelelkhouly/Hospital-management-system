@@ -1,10 +1,7 @@
-import 'dart:math';
-
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:healthmate/core/API/api_service.dart';
 import 'package:healthmate/core/errors/failuers.dart';
-import 'package:healthmate/features/Auth/data/repo/auth_repo.dart';
 import 'package:healthmate/features/search/data/models/doctor_model.dart';
 import 'package:healthmate/features/search/data/repos/get_doctor_repo_implementaion.dart';
 import 'package:meta/meta.dart';

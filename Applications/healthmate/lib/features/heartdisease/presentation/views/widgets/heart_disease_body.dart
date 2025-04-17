@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,7 +9,9 @@ import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
 import 'package:healthmate/features/heartdisease/data/manager/cubit/heart_disease_cubit.dart';
+import 'package:healthmate/features/heartdisease/data/models/heart_disease_response_model.dart';
 import 'package:healthmate/features/heartdisease/data/models/heart_disease_respose_error.dart';
+import 'package:healthmate/features/heartdisease/data/models/heart_request_model.dart';
 import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_drop_down.dart';
 import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_drop_down_four_value.dart';
 import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_drop_down_string.dart';
@@ -29,21 +32,29 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
   late TextEditingController maxHeartRateController;
   late TextEditingController oldpeakController;
   final GlobalKey<FormState> key = GlobalKey<FormState>();
+  late SingleValueDropDownController genderController;
+  late SingleValueDropDownController modelTypeController;
+  late SingleValueDropDownController slopeController;
+  late SingleValueDropDownController cpController;
+  late SingleValueDropDownController caController;
+  late SingleValueDropDownController thalController;
+  late SingleValueDropDownController restecgController;
+  late SingleValueDropDownController fbsController;
+  late SingleValueDropDownController exangController;
+  late SingleValueDropDownController chestPainTypeController;
   late HeartDiseaseResponseError responseError;
-  late int age,
-      sex,
-      cp,
-      trestbps,
-      chol,
-      fbs,
-      restecg,
-      thalachh,
-      exang,
-      slope,
-      ca,
-      thal;
-  late double oldpeak;
-  late String modelType;
+  int age = 0, trestbps = 0, chol = 0, thalachh = 0;
+  double oldpeak = 0.0;
+  String modelType = 'random_forest';
+
+  HeartDiseasePredictionModel heartDiseasePredictionModel =
+      HeartDiseasePredictionModel(
+    prediction: '',
+    modelUsed: '',
+    probabilityPercentage: '',
+    confidenceLevel: '',
+    rawProbability: 0.0,
+  );
 
   @override
   void initState() {
@@ -54,6 +65,16 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
     cholesterolController = TextEditingController();
     maxHeartRateController = TextEditingController();
     oldpeakController = TextEditingController();
+    genderController = SingleValueDropDownController();
+    modelTypeController = SingleValueDropDownController();
+    slopeController = SingleValueDropDownController();
+    cpController = SingleValueDropDownController();
+    caController = SingleValueDropDownController();
+    thalController = SingleValueDropDownController();
+    restecgController = SingleValueDropDownController();
+    fbsController = SingleValueDropDownController();
+    exangController = SingleValueDropDownController();
+    chestPainTypeController = SingleValueDropDownController();
     responseError = HeartDiseaseResponseError(
       message: '',
       errors: errors(
@@ -131,6 +152,17 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                     );
                   });
                   log(responseError.toString());
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(state.errors.toString()),
+                    ),
+                  );
+                } else if (state is HeartDiseaseSucess) {
+                  setState(() {
+                    heartDiseasePredictionModel =
+                        state.heartDiseasePredictionModel;
+                  });
+                  _showSuccessDialog(context);
                 }
               },
               builder: (context, state) {
@@ -158,13 +190,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       hinttext: 'age',
                     ),
                     CustomDropDown(
-                      onChanged: (value) {
-                        if (value == 'Male') {
-                          sex = 1;
-                        } else {
-                          sex = 0;
-                        }
-                      },
+                      controller: genderController,
                       texterror: responseError.errors.sex.isNotEmpty
                           ? responseError.errors.sex
                           : '',
@@ -174,13 +200,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       dropdowntext2: 'Female',
                     ),
                     CustomDropDownString(
-                      onChanged: (value) {
-                        if (value == 'Random Forest') {
-                          modelType = 'random_forest';
-                        } else {
-                          modelType = 'decision_tree';
-                        }
-                      },
+                      controller: modelTypeController,
                       hinttext: 'Model Type',
                       dropdowntext1: 'Random Forest',
                       dropdowntext2: 'Decision Tree',
@@ -234,15 +254,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       hinttext: 'ST depression',
                     ),
                     CustomDropDownThreeValue(
-                      onChanged: (value) {
-                        if (value == 'Normal') {
-                          restecg = 0;
-                        } else if (value == 'Abnormal') {
-                          restecg = 1;
-                        } else if (value == 'hypertrophy') {
-                          restecg = 3;
-                        }
-                      },
+                      controller: restecgController,
                       texterror: responseError.errors.restecg.isNotEmpty
                           ? responseError.errors.restecg
                           : '',
@@ -255,13 +267,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       value3: 2,
                     ),
                     CustomDropDown(
-                      onChanged: (value) {
-                        if (value == 'Yes') {
-                          fbs = 1;
-                        } else {
-                          fbs = 0;
-                        }
-                      },
+                      controller: fbsController,
                       texterror: responseError.errors.fbs.isNotEmpty
                           ? responseError.errors.fbs
                           : '',
@@ -271,13 +277,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       text: 'Fasting blood sugar',
                     ),
                     CustomDropDown(
-                      onChanged: (value) {
-                        if (value == 'Yes') {
-                          exang = 1;
-                        } else {
-                          exang = 0;
-                        }
-                      },
+                      controller: exangController,
                       hinttext: 'Exercise induced angina',
                       dropdowntext1: 'Yes',
                       dropdowntext2: 'No',
@@ -287,15 +287,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                           : '',
                     ),
                     CustomDropDownThreeValue(
-                      onChanged: (value) {
-                        if (value == 'Upsloping') {
-                          slope = 0;
-                        } else if (value == 'Flat') {
-                          slope = 1;
-                        } else if (value == 'Downsloping') {
-                          slope = 3;
-                        }
-                      },
+                      controller: slopeController,
                       hinttext: 'Slope of the peak exercise ST segment',
                       dropdowntext1: 'Upsloping',
                       dropdowntext2: 'Flat',
@@ -308,17 +300,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                           : '',
                     ),
                     CustomDropDownFourValue(
-                      onChanged: (value) {
-                        if (value == 'Typical angina') {
-                          cp = 0;
-                        } else if (value == 'Atypical angina') {
-                          cp = 1;
-                        } else if (value == 'Non-anginal pain') {
-                          cp = 2;
-                        } else if (value == 'Asymptomatic') {
-                          cp = 3;
-                        }
-                      },
+                      controller: cpController,
                       texterror: responseError.errors.cp.isNotEmpty
                           ? responseError.errors.cp
                           : '',
@@ -334,17 +316,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       dropdowntext4: 'Asymptomatic',
                     ),
                     CustomDropDownFourValue(
-                      onChanged: (value) {
-                        if (value == '0') {
-                          ca = 0;
-                        } else if (value == '1') {
-                          ca = 1;
-                        } else if (value == '2') {
-                          ca = 2;
-                        } else if (value == '3') {
-                          ca = 3;
-                        }
-                      },
+                      controller: caController,
                       texterror: responseError.errors.ca.isNotEmpty
                           ? responseError.errors.ca
                           : '',
@@ -360,17 +332,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       dropdowntext4: '3',
                     ),
                     CustomDropDownFourValue(
-                      onChanged: (value) {
-                        if (value == 'Normal') {
-                          thal = 1;
-                        } else if (value == 'Fixed Defect') {
-                          thal = 2;
-                        } else if (value == 'Reversable Defect') {
-                          thal = 3;
-                        } else if (value == 'Not Present') {
-                          thal = 4;
-                        }
-                      },
+                      controller: thalController,
                       texterror: responseError.errors.thal.isNotEmpty
                           ? responseError.errors.thal
                           : '',
@@ -390,6 +352,29 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                       onPressed: () {
                         if (key.currentState!.validate()) {
                           key.currentState!.save();
+                          log(thalController.dropDownValue!.value.toString());
+                          log(genderController.dropDownValue!.value.toString());
+                          log(cpController.dropDownValue!.value.toString());
+                          HeartRequestModel heartRequestModel =
+                              HeartRequestModel(
+                            age: age,
+                            sex: genderController.dropDownValue!.value,
+                            cp: cpController.dropDownValue!.value,
+                            trestbps: trestbps,
+                            chol: chol,
+                            fbs: fbsController.dropDownValue!.value,
+                            restecg: restecgController.dropDownValue!.value,
+                            thalachh: thalachh,
+                            exang: exangController.dropDownValue!.value,
+                            oldpeak: oldpeak,
+                            slope: slopeController.dropDownValue!.value,
+                            ca: caController.dropDownValue!.value,
+                            thal: thalController.dropDownValue!.value,
+                            modelType: modelType,
+                          );
+                          context.read<HeartDiseaseCubit>().predictHeartDisease(
+                                body: heartRequestModel,
+                              );
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(

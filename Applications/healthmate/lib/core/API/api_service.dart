@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:healthmate/constant.dart';
-import 'package:healthmate/core/API/backend_endpoint.dart';
 import 'package:healthmate/core/utils/shared_perfernce_singletone.dart';
+import 'package:healthmate/features/heartdisease/endpoints/endpoints_heart_disease.dart';
 
 class ApiService {
   final Dio dio;
@@ -12,7 +12,7 @@ class ApiService {
   Future<Map<String, dynamic>> Post(
       {required String endpoint, required dynamic data}) async {
     var response = await dio.post(
-      '${BackendEndpoint.baseUrl}$endpoint',
+      '${EndpointsHeartDisease.endpoint}',
       data: data,
       options: Options(
         headers: {

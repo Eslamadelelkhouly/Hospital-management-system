@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:healthmate/core/API/api_service.dart';
@@ -25,12 +27,14 @@ class PredictHeartDiseaseRepImplement implements PredictHeartDiseaseRepo {
       return right(heartDiseasePredictionModel);
     } catch (e) {
       if (e is DioException) {
+        log(e.toString());
         return left(ServerFailure.fromDioException(e));
       } else {
         return left(
           ServerFailure(
             {"message": "Connection timeout with ApiServer", "errors": {}},
           ),
+          
         );
       }
     }

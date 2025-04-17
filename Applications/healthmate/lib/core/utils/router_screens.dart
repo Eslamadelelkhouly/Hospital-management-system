@@ -37,7 +37,7 @@ abstract class Routing {
   static const ksetting = '/ksetting';
   static const kdiabates = '/kdiabates';
   static final router = GoRouter(
-    initialLocation: khomescreen,
+    initialLocation: kaimodels,
     routes: [
       GoRoute(
         path: KsplashinitScreen,
