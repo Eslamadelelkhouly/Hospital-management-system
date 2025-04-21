@@ -10,14 +10,14 @@ class ShowBookingAvilableRepoImpl implements ShowBookingAvailableRepo {
   @override
   final ApiService apiService;
 
-  ShowBookingAvilableRepoImpl({required this.apiService});
-  Future<Either<Failures, BookingAvaliabaleModel>> showBookingAvailable(
+  r({required this.apiService});
+  Future<Either<Failures, BookingAvaliabalTimeeModel>> showBookingAvailable(
       {required String doctorId}) async {
     try {
       var response = await apiService.GetWithKey(
           endpoint: BackendEndpoint.getavailbletimedoctor, key: doctorId);
-      BookingAvaliabaleModel bookingAvaliabaleModel =
-          BookingAvaliabaleModel.fromJson(response);
+      BookingAvaliabalTimeeModel bookingAvaliabaleModel =
+          BookingAvaliabalTimeeModel.fromJson(response);
       return right(bookingAvaliabaleModel);
     } catch (e) {
       if (e is DioException) {
