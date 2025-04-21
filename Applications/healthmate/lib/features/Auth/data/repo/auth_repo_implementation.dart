@@ -50,6 +50,7 @@ class AuthRepoImplementation implements AuthRepo {
         endpoint: BackendEndpoint.endpointlogin,
         data: userLoginModel.toMap(),
         );
+        
         return right(response);
     }catch (e) {
       if (e is DioException) {

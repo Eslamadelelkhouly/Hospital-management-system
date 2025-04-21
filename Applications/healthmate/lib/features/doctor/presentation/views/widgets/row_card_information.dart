@@ -3,12 +3,16 @@ import 'package:healthmate/constant.dart';
 import 'package:healthmate/features/doctor/presentation/views/widgets/card_information.dart';
 
 class RowCardInformation extends StatelessWidget {
-  const RowCardInformation({super.key, required this.patient, required this.experience, required this.rating});
-  final String patient , experience , rating;
+  const RowCardInformation(
+      {super.key,
+      required this.patient,
+      required this.experience,
+      required this.rating});
+  final String patient, experience, rating;
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CardInformation(
           text: 'Patients',
@@ -16,7 +20,7 @@ class RowCardInformation extends StatelessWidget {
           subtext: patient,
         ),
         SizedBox(
-          width: 5,
+          width: 3,
         ),
         CardInformation(
           text: 'Experience',
@@ -24,7 +28,7 @@ class RowCardInformation extends StatelessWidget {
           subtext: experience,
         ),
         SizedBox(
-          width: 5,
+          width: 3,
         ),
         CardInformation(
           text: 'Rating',

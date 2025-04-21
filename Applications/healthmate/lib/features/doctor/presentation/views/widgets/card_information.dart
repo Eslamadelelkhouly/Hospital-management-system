@@ -13,7 +13,7 @@ class CardInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 110.r,
+      width: MediaQuery.of(context).size.width * 0.27,
       height: 110.r,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16).r,

@@ -15,7 +15,7 @@ class GetDoctorRepoImplementaion extends GetDoctorRepo {
   Future<Either<Failures, DoctorsResponse>> getDoctors() async {
     try {
       String url =
-          '${BackendEndpoint.baseUrl}${BackendEndpoint.endpointShowDoctor}';
+          '${BackendEndpoint.endpointShowDoctor}';
       var response = await apiService.Get(
         endpoint: url,
       

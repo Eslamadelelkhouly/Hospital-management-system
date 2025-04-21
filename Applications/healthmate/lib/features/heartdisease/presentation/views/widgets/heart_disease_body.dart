@@ -6,12 +6,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
+import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
 import 'package:healthmate/features/heartdisease/data/manager/cubit/heart_disease_cubit.dart';
 import 'package:healthmate/features/heartdisease/data/models/heart_disease_response_model.dart';
 import 'package:healthmate/features/heartdisease/data/models/heart_disease_respose_error.dart';
 import 'package:healthmate/features/heartdisease/data/models/heart_request_model.dart';
+import 'package:healthmate/features/heartdisease/presentation/views/widgets/container_state_predict.dart';
+import 'package:healthmate/features/heartdisease/presentation/views/widgets/content_alart_dialogue.dart';
+import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_bar_progress.dart';
 import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_drop_down.dart';
 import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_drop_down_four_value.dart';
 import 'package:healthmate/features/heartdisease/presentation/views/widgets/custom_drop_down_string.dart';
@@ -107,18 +111,17 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
     oldpeakController.dispose();
   }
 
-  void _showSuccessDialog(BuildContext context) {
+  void _showSuccessDialog(
+      BuildContext context, HeartDiseasePredictionModel model) {
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(16),
           ),
-          title: const Text('Success', textAlign: TextAlign.center),
-          content: const Text(
-            'Prediction completed successfully!',
-            textAlign: TextAlign.center,
+          content: ContentAlartDialog(
+            heartDiseasePredictionModel: model,
           ),
           actions: [
             TextButton(
@@ -162,7 +165,10 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                     heartDiseasePredictionModel =
                         state.heartDiseasePredictionModel;
                   });
-                  _showSuccessDialog(context);
+                  _showSuccessDialog(
+                    context,
+                    heartDiseasePredictionModel,
+                  );
                 }
               },
               builder: (context, state) {
