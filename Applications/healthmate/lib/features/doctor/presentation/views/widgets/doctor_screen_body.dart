@@ -152,7 +152,10 @@ class _DoctorScreenBodyState extends State<DoctorScreenBody> {
             30.verticalSpace,
             CustomButton(
               onPressed: () {
-                GoRouter.of(context).push(Routing.kschedulescreen);
+                GoRouter.of(context).push(
+                  Routing.kschedulescreen,
+                  extra: widget.doctor,
+                );
               },
               text: 'Make Appointment',
               width: 362.r,

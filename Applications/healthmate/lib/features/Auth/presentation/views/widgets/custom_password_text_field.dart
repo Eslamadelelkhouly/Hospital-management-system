@@ -36,7 +36,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
           height: 2,
         ),
         Container(
-          width: 362,
+          width: 340,
           height: 70,
           child: TextFormField(
             controller: widget.controller,

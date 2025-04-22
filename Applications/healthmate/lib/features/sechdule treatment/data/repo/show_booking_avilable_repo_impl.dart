@@ -3,14 +3,14 @@ import 'package:dio/dio.dart';
 import 'package:healthmate/core/API/api_service.dart';
 import 'package:healthmate/core/API/backend_endpoint.dart';
 import 'package:healthmate/core/errors/failuers.dart';
-import 'package:healthmate/features/doctor/data/models/booking_avaliabale_model.dart';
-import 'package:healthmate/features/doctor/data/repo/show_booking_avilable_repo.dart';
+import 'package:healthmate/features/sechdule%20treatment/data/models/booking_avaliabale_model.dart';
+import 'package:healthmate/features/sechdule%20treatment/data/repo/show_booking_avilable_repo.dart';
 
 class ShowBookingAvilableRepoImpl implements ShowBookingAvailableRepo {
   @override
   final ApiService apiService;
 
-  r({required this.apiService});
+  ShowBookingAvilableRepoImpl({required this.apiService});
   Future<Either<Failures, BookingAvaliabalTimeeModel>> showBookingAvailable(
       {required String doctorId}) async {
     try {

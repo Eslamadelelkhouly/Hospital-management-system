@@ -33,7 +33,7 @@ class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
           height: 2,
         ),
         Container(
-          width: 362,
+          width: 350,
           height: 70,
           child: TextFormField(
             validator: (value) {

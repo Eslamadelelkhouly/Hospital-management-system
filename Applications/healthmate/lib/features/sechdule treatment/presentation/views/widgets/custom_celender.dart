@@ -25,22 +25,23 @@ class _CustomCelenderState extends State<CustomCelender> {
     return Container(
       width: ScreenUtil().screenWidth * 0.8,
       decoration: BoxDecoration(
-          color: ColorSystem.kbtnColorWhite,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: Colors.grey.shade200),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.shade200,
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: const Offset(0, 3),
-            ), // changes position of shadow
-          ]),
+        color: ColorSystem.kbtnColorWhite,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.grey.shade200),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.shade200,
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
       child: TableCalendar(
         locale: 'en_US',
         focusedDay: datatimenow,
         availableGestures: AvailableGestures.all,
-        calendarStyle:  CalendarStyle(
+        calendarStyle: CalendarStyle(
           tablePadding: const EdgeInsets.all(0),
           defaultDecoration: const BoxDecoration(
             color: Colors.transparent,
@@ -48,8 +49,8 @@ class _CustomCelenderState extends State<CustomCelender> {
           ),
           selectedDecoration: BoxDecoration(
             color: ColorSystem.kPrimaryColor,
-            shape: BoxShape.rectangle, // Ensuring rectangle
-            borderRadius: BorderRadius.circular(8), // Safe with rectangle
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(8),
           ),
           selectedTextStyle: GoogleFonts.inter(
             fontSize: 15.sp,
@@ -57,8 +58,8 @@ class _CustomCelenderState extends State<CustomCelender> {
           ),
           todayDecoration: BoxDecoration(
             color: ColorSystem.kPrimaryColorLight,
-            shape: BoxShape.rectangle, // Ensuring rectangle
-            borderRadius: BorderRadius.circular(8), // Safe with rectangle
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(8),
           ),
           todayTextStyle: GoogleFonts.inter(
             fontSize: 15.sp,
@@ -77,6 +78,12 @@ class _CustomCelenderState extends State<CustomCelender> {
         lastDay: DateTime.utc(2030, 3, 14),
         calendarFormat: CalendarFormat.month,
         onDaySelected: _onSelectedDat,
+
+        // ❗️منع الأيام اللي قبل النهاردة
+        enabledDayPredicate: (day) {
+          final now = DateTime.now();
+          return !day.isBefore(DateTime(now.year, now.month, now.day));
+        },
       ),
     );
   }

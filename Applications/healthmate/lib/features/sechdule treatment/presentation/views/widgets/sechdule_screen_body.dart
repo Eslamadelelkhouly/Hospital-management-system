@@ -1,14 +1,34 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
+import 'package:healthmate/features/search/data/models/doctor_model.dart';
+import 'package:healthmate/features/sechdule%20treatment/data/manager/cubit/showavailabletime_cubit.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/custom_celender.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/row_container_time.dart';
 
-class SechduleScreenBody extends StatelessWidget {
-  const SechduleScreenBody({super.key});
+class SechduleScreenBody extends StatefulWidget {
+  const SechduleScreenBody({super.key, required this.doctor});
+  final Doctor doctor;
+
+  @override
+  State<SechduleScreenBody> createState() => _SechduleScreenBodyState();
+}
+
+class _SechduleScreenBodyState extends State<SechduleScreenBody> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    context
+        .read<ShowavailabletimeCubit>()
+        .showAvailableTime(doctorId: widget.doctor.id.toString());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +53,18 @@ class SechduleScreenBody extends StatelessWidget {
             ],
           ),
           8.verticalSpace,
-          const RowContainerTime(),
-          8.verticalSpace,
-          const RowContainerTime(),
+          BlocConsumer<ShowavailabletimeCubit, ShowavailabletimeState>(
+            listener: (context, state) {
+              if (state is showavailabletimeError) {}
+            },
+            builder: (context, state) {
+              return RowContainerTime(
+                onChanged: (int index) {
+                  log('Selected time index: $index');
+                },
+              );
+            },
+          ),
           35.verticalSpace,
           CustomButton(
             onPressed: () {},

@@ -1,21 +1,66 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:healthmate/features/sechdule%20treatment/data/manager/cubit/showavailabletime_cubit.dart';
+import 'package:healthmate/features/sechdule%20treatment/data/models/booking_avaliabale_model.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/container_time.dart';
 
-class RowContainerTime extends StatelessWidget {
-  const RowContainerTime({super.key});
+class RowContainerTime extends StatefulWidget {
+  const RowContainerTime({super.key, required this.onChanged});
+  final ValueChanged<int> onChanged;
 
   @override
+  State<RowContainerTime> createState() => _RowContainerTimeState();
+}
+
+class _RowContainerTimeState extends State<RowContainerTime> {
+  int? selectedIndex;
+  late BookingAvaliabalTimeeModel bookingAvaliabalTimeeModel =
+      BookingAvaliabalTimeeModel(
+    availableAppointments: [],
+    date: '',
+    message: '',
+    status: 0,
+  );
+  @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        25.horizontalSpace,
-        const ContainerTime(),
-        const ContainerTime(),
-        const ContainerTime(),
-        const ContainerTime(),
-      ],
+    return Container(
+      height: 35.h,
+      child: BlocConsumer<ShowavailabletimeCubit, ShowavailabletimeState>(
+        listener: (context, state) {
+          if (state is showavailabletimeSucess) {
+            bookingAvaliabalTimeeModel = state.bookingAvaliabalTimeeModel;
+          }
+        },
+        builder: (context, state) {
+          return ListView.builder(
+            itemCount: bookingAvaliabalTimeeModel.availableAppointments.length,
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 3),
+                child: ContainerTime(
+                  time: bookingAvaliabalTimeeModel.availableAppointments[index],
+                  isSelected: selectedIndex == index,
+                  
+                  onTap: () {
+                    setState(() {
+                      if (selectedIndex == index) {
+                        selectedIndex = null;
+                      } else {
+                        selectedIndex = index;
+                        widget.onChanged(selectedIndex!);
+                      }
+                    });
+                  },
+                ),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

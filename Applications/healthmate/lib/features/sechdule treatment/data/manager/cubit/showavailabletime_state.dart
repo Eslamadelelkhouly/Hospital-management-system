@@ -14,6 +14,6 @@ final class showavailabletimeSucess extends ShowavailabletimeState {
 }
 
 final class showavailabletimeError extends ShowavailabletimeState {
-  final Failures error;
+  final Map<String,dynamic> error;
   showavailabletimeError({required this.error});
 }

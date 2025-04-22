@@ -4,34 +4,44 @@ import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 
 class ContainerTime extends StatefulWidget {
-  const ContainerTime({super.key});
+  final bool isSelected; // لتحديد إذا كان العنصر مختار
+  final VoidCallback onTap;
+  final String time; // لتحديد ما يحدث عند الضغط
+
+  const ContainerTime({
+    super.key,
+    required this.isSelected,
+    required this.onTap,
+    required this.time,
+  });
 
   @override
   State<ContainerTime> createState() => _ContainerTimeState();
 }
 
-Color backgroundcolor = ColorSystem.kPrimaryColorLight;
-Color textColor = Colors.black;
-
 class _ContainerTimeState extends State<ContainerTime> {
+  Color backgroundcolor = ColorSystem.kPrimaryColorLight;
+  Color textColor = Colors.black;
+
+  @override
+  void didUpdateWidget(covariant ContainerTime oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.isSelected) {
+      backgroundcolor = ColorSystem.kPrimaryColor;
+      textColor = Colors.white;
+    } else {
+      backgroundcolor = ColorSystem.kPrimaryColorLight;
+      textColor = Colors.black;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 3),
       child: GestureDetector(
-        onTap: () {
-          if (backgroundcolor == ColorSystem.kPrimaryColorLight) {
-            setState(() {
-              backgroundcolor = ColorSystem.kPrimaryColor;
-              textColor = Colors.white;
-            });
-          } else {
-            setState(() {
-              backgroundcolor = ColorSystem.kPrimaryColorLight;
-              textColor = Colors.black;
-            });
-          }
-        },
+        onTap:
+            widget.onTap, // عند الضغط، يتم تنفيذ الـ onTap الذي مررته من خارج
         child: Container(
           width: 78.r,
           height: 31.r,
@@ -41,7 +51,7 @@ class _ContainerTimeState extends State<ContainerTime> {
           ),
           child: Center(
             child: Text(
-              '08:00',
+              widget.time,
               style: StylingSystem.textStyle14Medium.copyWith(
                 fontWeight: FontWeight.w600,
                 color: textColor,

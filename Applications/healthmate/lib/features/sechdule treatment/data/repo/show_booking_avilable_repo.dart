@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:healthmate/core/errors/failuers.dart';
-import 'package:healthmate/features/doctor/data/models/booking_avaliabale_model.dart';
+import 'package:healthmate/features/sechdule%20treatment/data/models/booking_avaliabale_model.dart';
 
 abstract class ShowBookingAvailableRepo {
   Future<Either<Failures, BookingAvaliabalTimeeModel>> showBookingAvailable(
