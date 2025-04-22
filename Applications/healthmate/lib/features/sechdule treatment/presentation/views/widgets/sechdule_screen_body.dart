@@ -8,7 +8,7 @@ import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
 import 'package:healthmate/features/search/data/models/doctor_model.dart';
-import 'package:healthmate/features/sechdule%20treatment/data/manager/cubit/showavailabletime_cubit.dart';
+import 'package:healthmate/features/sechdule%20treatment/data/manager/show_avliable_time/showavailabletime_cubit.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/custom_celender.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/row_container_time.dart';
 

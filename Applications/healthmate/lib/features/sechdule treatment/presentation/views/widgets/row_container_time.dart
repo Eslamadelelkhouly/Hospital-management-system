@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:healthmate/features/sechdule%20treatment/data/manager/cubit/showavailabletime_cubit.dart';
+import 'package:healthmate/features/sechdule%20treatment/data/manager/show_avliable_time/showavailabletime_cubit.dart';
 import 'package:healthmate/features/sechdule%20treatment/data/models/booking_avaliabale_model.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/container_time.dart';
 

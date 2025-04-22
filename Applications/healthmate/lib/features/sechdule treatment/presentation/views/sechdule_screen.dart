@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/features/search/data/models/doctor_model.dart';
-import 'package:healthmate/features/sechdule%20treatment/data/manager/cubit/showavailabletime_cubit.dart';
+import 'package:healthmate/features/sechdule%20treatment/data/manager/show_avliable_time/showavailabletime_cubit.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/sechdule_screen_body.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/shecdule_screen_body_consumer.dart';
 
