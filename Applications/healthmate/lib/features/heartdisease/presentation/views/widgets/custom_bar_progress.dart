@@ -23,7 +23,7 @@ class CustomBarProgress extends StatelessWidget {
         ),
       ),
       barRadius: const Radius.circular(20),
-      progressColor: statepatient ? Colors.red : ColorSystem.kPrimaryColor,
+      progressColor: statepatient ? Colors.redAccent : Colors.greenAccent,
     );
   }
 }

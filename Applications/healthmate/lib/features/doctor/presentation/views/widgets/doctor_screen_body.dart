@@ -50,7 +50,10 @@ class _DoctorScreenBodyState extends State<DoctorScreenBody> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             30.verticalSpace,
-            const CustomAppBar(title: ''),
+            const CustomAppBar(
+              title: '',
+              stateicon: true,
+            ),
             5.verticalSpace,
             CustomCardDoctor(
               doctor: widget.doctor,

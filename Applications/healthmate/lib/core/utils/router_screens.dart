@@ -37,7 +37,6 @@ abstract class Routing {
   static const ksetting = '/ksetting';
   static const kdiabates = '/kdiabates';
   static final router = GoRouter(
-    initialLocation: KsplashinitScreen,
     routes: [
       GoRoute(
         path: KsplashinitScreen,

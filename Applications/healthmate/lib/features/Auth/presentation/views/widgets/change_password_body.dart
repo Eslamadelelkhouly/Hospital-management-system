@@ -45,7 +45,10 @@ class ChangePasswordBody extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const CustomAppBar(title: ''),
+                  const CustomAppBar(
+                    title: '',
+                    stateicon: true,
+                  ),
                   const SizedBox(
                     height: 48,
                   ),
@@ -72,7 +75,7 @@ class ChangePasswordBody extends StatelessWidget {
                       Text(
                         '''We've sent a code to hello@aiignui.com''',
                         style: StylingSystem.textStyle14Medium
-                            .copyWith(color:const Color(0xff4F4E59)),
+                            .copyWith(color: const Color(0xff4F4E59)),
                       ),
                     ],
                   ),

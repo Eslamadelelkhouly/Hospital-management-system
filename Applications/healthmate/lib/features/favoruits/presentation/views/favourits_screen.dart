@@ -17,7 +17,10 @@ class FavouritsScreen extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
-            child: CustomAppBar(title: 'My favorite list'),
+            child: CustomAppBar(
+              title: 'My favorite list',
+              stateicon: false,
+            ),
           ),
           SizedBox(
             height: 32,

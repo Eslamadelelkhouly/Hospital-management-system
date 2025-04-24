@@ -17,7 +17,7 @@ class PersonalScreen extends StatelessWidget {
       width: double.infinity,
       height: double.infinity,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 15).r,
         child: Column(
           children: [
             30.verticalSpace,

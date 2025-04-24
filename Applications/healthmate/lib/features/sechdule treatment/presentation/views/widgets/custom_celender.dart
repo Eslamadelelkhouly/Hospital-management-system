@@ -1,12 +1,15 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:healthmate/core/utils/color_style.dart';
+import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class CustomCelender extends StatefulWidget {
-  const CustomCelender({super.key});
-
+  const CustomCelender({super.key, required this.onChanged});
+  final ValueChanged<String> onChanged;
   @override
   State<CustomCelender> createState() => _CustomCelenderState();
 }
@@ -20,6 +23,11 @@ class _CustomCelenderState extends State<CustomCelender> {
       setState(() {
         datatimenow = day;
       });
+      final formattedDate = DateFormat('yyyy-MM-dd').format(day);
+      setState(() {
+        widget.onChanged(formattedDate);
+      });
+      log(formattedDate);
     }
 
     return Container(
@@ -78,8 +86,6 @@ class _CustomCelenderState extends State<CustomCelender> {
         lastDay: DateTime.utc(2030, 3, 14),
         calendarFormat: CalendarFormat.month,
         onDaySelected: _onSelectedDat,
-
-        // ❗️منع الأيام اللي قبل النهاردة
         enabledDayPredicate: (day) {
           final now = DateTime.now();
           return !day.isBefore(DateTime(now.year, now.month, now.day));

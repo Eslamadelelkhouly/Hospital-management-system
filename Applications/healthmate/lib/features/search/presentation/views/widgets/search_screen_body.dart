@@ -31,7 +31,10 @@ class _SearchScreenBodyState extends State<SearchScreenBody> {
         child: Column(
           children: [
             30.verticalSpace,
-            const CustomAppBar(title: 'All doctors'),
+            const CustomAppBar(
+              title: 'All doctors',
+              stateicon: true,
+            ),
             24.verticalSpace,
             const CustomSearchTextField(),
             24.verticalSpace,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/features/personal/presentation/views/widgets/container_personal_info.dart';
 
 class RowContainerInfoPersonal extends StatelessWidget {

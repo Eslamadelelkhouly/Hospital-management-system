@@ -17,21 +17,18 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int index = 0;
+  int selectedTab = 0;
+
   final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
+
   final List<Widget> _pages = [
     HomeScreenBody(),
     FavouritsScreen(),
-    MessageScreen(),
     PersonalScreen(),
   ];
 
   final List<String> _labels = ["Home", "Favorite", "Messages", "Profile"];
-  final List<String> _icons = [
-    homeicon,
-    hearticon,
-    messageicon,
-    profileicon,
-  ];
+  final List<String> _icons = [homeicon, hearticon, messageicon, profileicon];
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +39,12 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           CurvedNavigationBar(
             key: _bottomNavigationKey,
-            index: index,
+            index: selectedTab > 2 ? selectedTab - 1 : selectedTab,
             height: 75,
             items: List.generate(_icons.length, (i) {
               return ImageIcon(
                 AssetImage(_icons[i]),
-                color: Colors.white, // Icons inside bar
+                color: Colors.white,
               );
             }),
             color: ColorSystem.kPrimaryColor,
@@ -55,15 +52,30 @@ class _HomeScreenState extends State<HomeScreen> {
             buttonBackgroundColor: ColorSystem.kPrimaryColor,
             animationCurve: Curves.easeInOut,
             animationDuration: const Duration(milliseconds: 600),
-            onTap: (selectedIndex) {
-              setState(() {
-                index = selectedIndex;
-              });
+            onTap: (selectedIndex) async {
+              if (selectedIndex == 2) {
+                // Message screen doesn't change the current index
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MessageScreen(),
+                  ),
+                );
+                // After popping, keep the previous tab highlighted
+                setState(() {
+                  selectedTab = index;
+                });
+              } else {
+                setState(() {
+                  index = selectedIndex > 2 ? selectedIndex - 1 : selectedIndex;
+                  selectedTab = selectedIndex;
+                });
+              }
             },
-            letIndexChange: (index) => true,
+            letIndexChange: (i) => true,
           ),
           Positioned(
-            bottom: 5, // Adjust text position
+            bottom: 5,
             left: 0,
             right: 0,
             child: Row(
@@ -71,10 +83,11 @@ class _HomeScreenState extends State<HomeScreen> {
               children: List.generate(_labels.length, (i) {
                 return Center(
                   child: Text(
-                    textAlign: TextAlign.center,
                     _labels[i],
+                    textAlign: TextAlign.center,
                     style: StylingSystem.textStyle16Medium.copyWith(
-                      color: index == i ? Colors.white : Colors.transparent,
+                      color:
+                          selectedTab == i ? Colors.white : Colors.transparent,
                     ),
                   ),
                 );

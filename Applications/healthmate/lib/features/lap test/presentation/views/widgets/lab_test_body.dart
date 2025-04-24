@@ -21,7 +21,10 @@ class LabTestBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             30.verticalSpace,
-            CustomAppBar(title: 'Lab Test'),
+            CustomAppBar(
+              title: 'Lab Test',
+              stateicon: true,
+            ),
             30.verticalSpace,
             CustomSearchTextField(),
             16.verticalSpace,

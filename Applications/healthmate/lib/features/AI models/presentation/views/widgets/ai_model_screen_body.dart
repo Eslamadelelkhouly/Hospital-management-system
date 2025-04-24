@@ -18,7 +18,10 @@ class AiModelScreenBody extends StatelessWidget {
         child: Column(
           children: [
             30.verticalSpace,
-            const CustomAppBar(title: 'AI Models'),
+            const CustomAppBar(
+              title: 'AI Models',
+              stateicon: true,
+            ),
             30.verticalSpace,
             Expanded(
               child: GridView.builder(
@@ -30,7 +33,7 @@ class AiModelScreenBody extends StatelessWidget {
                 ),
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       GoRouter.of(context).push(cardAiModelList[index].route);
                     },
                     child: CardCategories(

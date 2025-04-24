@@ -14,7 +14,7 @@ class BookRepoImplement implements BookingRepo {
   Future<Either<Failures, Map<String, dynamic>>> bookTreatment(
       {required AppointmentModelRequest appointmentModelRequest}) async {
     try {
-      var response = await apiService.Post(
+      var response = await apiService.PostToken(
         endpoint: BackendEndpoint.bookappointment,
         data: appointmentModelRequest.toJson(),
       );

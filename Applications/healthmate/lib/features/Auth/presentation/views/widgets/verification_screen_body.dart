@@ -48,6 +48,7 @@ class VerificationScreenBody extends StatelessWidget {
                   30.verticalSpace,
                   CustomAppBar(
                     title: ' ',
+                    stateicon: true,
                   ),
                   SizedBox(
                     height: 8,

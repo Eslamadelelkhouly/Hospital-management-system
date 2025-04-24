@@ -10,7 +10,7 @@ part 'appointment_state.dart';
 class AppointmentCubit extends Cubit<AppointmentState> {
   AppointmentCubit() : super(AppointmentInitial());
   ApiService apiService = ApiService(dio: Dio());
-  void bookTreatment(
+  Future<void> bookTreatment(
       {required AppointmentModelRequest appointmentModelRequest}) async {
     emit(AppointmentLoading());
     var response = await BookRepoImplement(apiService: apiService)

@@ -10,8 +10,8 @@ class ContainerPersonalInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: ScreenUtil.defaultSize.width * 0.3,
-      height: 70.r,
+      width: ScreenUtil.defaultSize.width * 0.25,
+      height: 80.r,
       decoration: BoxDecoration(
         color: ColorSystem.kPrimaryColorLight,
         borderRadius: BorderRadius.circular(8).r,

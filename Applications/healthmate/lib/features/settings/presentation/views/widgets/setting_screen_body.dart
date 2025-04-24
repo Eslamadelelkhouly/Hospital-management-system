@@ -18,7 +18,10 @@ class SettingScreenBody extends StatelessWidget {
       child: Column(
         children: [
           30.verticalSpace,
-          const CustomAppBar(title: 'Settings'),
+          const CustomAppBar(
+            title: 'Settings',
+            stateicon: true,
+          ),
           30.verticalSpace,
           Row(
             mainAxisAlignment: MainAxisAlignment.start,

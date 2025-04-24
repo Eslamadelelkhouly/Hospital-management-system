@@ -4,9 +4,9 @@ import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 
 class ContainerTime extends StatefulWidget {
-  final bool isSelected; // لتحديد إذا كان العنصر مختار
+  final bool isSelected; 
   final VoidCallback onTap;
-  final String time; // لتحديد ما يحدث عند الضغط
+  final String time; 
 
   const ContainerTime({
     super.key,

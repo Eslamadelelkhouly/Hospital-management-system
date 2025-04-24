@@ -48,6 +48,7 @@ class ForgetPasswordBody extends StatelessWidget {
                   30.verticalSpace,
                   const CustomAppBar(
                     title: 'Forget Password',
+                    stateicon: true,
                   ),
                   15.verticalSpace,
                   Padding(

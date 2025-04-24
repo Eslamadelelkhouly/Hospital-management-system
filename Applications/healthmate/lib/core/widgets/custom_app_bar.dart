@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -7,20 +9,25 @@ class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
     required this.title,
+    required this.stateicon,
   });
   final String title;
+  final bool stateicon;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        IconButton(
-          onPressed: () {
-            GoRouter.of(context).pop(context);
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            size: 24.r,
+        Visibility(
+          visible: stateicon,
+          child: IconButton(
+            onPressed: () {
+              GoRouter.of(context).pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios,
+              size: 24.r,
+            ),
           ),
         ),
         const Spacer(),

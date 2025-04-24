@@ -178,6 +178,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
                     SizedBox(height: 45.h),
                     CustomAppBar(
                       title: 'Heart Disease Predict',
+                      stateicon: true,
                     ),
                     SizedBox(height: 5.h),
                     Image.asset(
