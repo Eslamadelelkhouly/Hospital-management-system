@@ -40,6 +40,7 @@ const heartanimate = 'assets/images/heart_animation.gif';
 const sucessimage = 'assets/images/Success.gif';
 const failureimage = 'assets/images/fail.gif';
 const token = 'token';
+const sendicon = 'assets/images/send.png';
 
 class onBoarding {
   final String title;

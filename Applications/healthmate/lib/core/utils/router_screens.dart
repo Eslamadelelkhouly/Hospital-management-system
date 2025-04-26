@@ -10,6 +10,7 @@ import 'package:healthmate/features/doctor/presentation/views/doctor_screen.dart
 import 'package:healthmate/features/heartdisease/presentation/views/heart_disease_screen.dart';
 import 'package:healthmate/features/home/presentation/views/home_screen.dart';
 import 'package:healthmate/features/lap%20test/presentation/views/lab_test_screen.dart';
+import 'package:healthmate/features/message/presentation/views/message_screen.dart';
 import 'package:healthmate/features/search/presentation/views/search_screen.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/sechdule_screen.dart';
 import 'package:healthmate/features/settings/presentation/views/setting_screen.dart';
@@ -36,6 +37,7 @@ abstract class Routing {
   static const kaimodels = '/kaimodels';
   static const ksetting = '/ksetting';
   static const kdiabates = '/kdiabates';
+  static const kchat = '/kchat';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -92,7 +94,7 @@ abstract class Routing {
       ),
       GoRoute(
         path: kaimodels,
-        builder: (context, state) => const AiModels(),
+        builder: (context, state) => const AiModelsScreen(),
       ),
       GoRoute(
         path: ksetting,
@@ -105,6 +107,10 @@ abstract class Routing {
       GoRoute(
         path: kheartdiseasescreen,
         builder: (context, state) => const HeartDiseaseScreen(),
+      ),
+      GoRoute(
+        path: kchat,
+        builder: (context, state) => const MessageScreen(),
       ),
     ],
   );

@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _timer = Timer(const Duration(seconds: 5), () async {
+      _timer = Timer(const Duration(seconds: 2), () async {
         if (mounted) {
           bool statescreen =
               SharedPreferenceSingleton.getBool(Ksplashscreendoctor);
@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: ColorSystem.kPrimaryColor,
-      body:  SplashScreenBody(),
+      body: SplashScreenBody(),
     );
   }
 }

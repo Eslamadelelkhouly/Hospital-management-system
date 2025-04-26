@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
+import 'package:healthmate/features/AI%20models/presentation/views/ai_model_screen.dart';
 import 'package:healthmate/features/favoruits/presentation/views/favourits_screen.dart';
 import 'package:healthmate/features/home/presentation/views/widgets/home_screen_body.dart';
 import 'package:healthmate/features/message/presentation/views/message_screen.dart';
@@ -17,18 +18,21 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int index = 0;
-  int selectedTab = 0;
-
   final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
-
   final List<Widget> _pages = [
     HomeScreenBody(),
     FavouritsScreen(),
+    AiModelsScreen(),
     PersonalScreen(),
   ];
 
-  final List<String> _labels = ["Home", "Favorite", "Messages", "Profile"];
-  final List<String> _icons = [homeicon, hearticon, messageicon, profileicon];
+  final List<String> _labels = ["Home", "Favorite", "AI Assistant", "Profile"];
+  final List<String> _icons = [
+    homeicon,
+    hearticon,
+    aimodelicon,
+    profileicon,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           CurvedNavigationBar(
             key: _bottomNavigationKey,
-            index: selectedTab > 2 ? selectedTab - 1 : selectedTab,
+            index: index,
             height: 75,
             items: List.generate(_icons.length, (i) {
               return ImageIcon(
                 AssetImage(_icons[i]),
-                color: Colors.white,
+                color: Colors.white, // Icons inside bar
               );
             }),
             color: ColorSystem.kPrimaryColor,
@@ -52,30 +56,15 @@ class _HomeScreenState extends State<HomeScreen> {
             buttonBackgroundColor: ColorSystem.kPrimaryColor,
             animationCurve: Curves.easeInOut,
             animationDuration: const Duration(milliseconds: 600),
-            onTap: (selectedIndex) async {
-              if (selectedIndex == 2) {
-                // Message screen doesn't change the current index
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const MessageScreen(),
-                  ),
-                );
-                // After popping, keep the previous tab highlighted
-                setState(() {
-                  selectedTab = index;
-                });
-              } else {
-                setState(() {
-                  index = selectedIndex > 2 ? selectedIndex - 1 : selectedIndex;
-                  selectedTab = selectedIndex;
-                });
-              }
+            onTap: (selectedIndex) {
+              setState(() {
+                index = selectedIndex;
+              });
             },
-            letIndexChange: (i) => true,
+            letIndexChange: (index) => true,
           ),
           Positioned(
-            bottom: 5,
+            bottom: 5, // Adjust text position
             left: 0,
             right: 0,
             child: Row(
@@ -83,11 +72,10 @@ class _HomeScreenState extends State<HomeScreen> {
               children: List.generate(_labels.length, (i) {
                 return Center(
                   child: Text(
-                    _labels[i],
                     textAlign: TextAlign.center,
+                    _labels[i],
                     style: StylingSystem.textStyle16Medium.copyWith(
-                      color:
-                          selectedTab == i ? Colors.white : Colors.transparent,
+                      color: index == i ? Colors.white : Colors.transparent,
                     ),
                   ),
                 );

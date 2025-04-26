@@ -30,7 +30,7 @@ class CustomTextField extends StatelessWidget {
         ),
         2.verticalSpace,
         Container(
-          width: 362.r,
+          width: MediaQuery.of(context).size.width * 0.9,
           height: 70.r,
           child: TextFormField(
             controller: controller,

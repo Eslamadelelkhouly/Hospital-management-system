@@ -31,6 +31,7 @@ class CardCategories extends StatelessWidget {
             ),
             Image.asset(
               image,
+              color: Colors.black,
             ),
             SizedBox(
               height: 10,

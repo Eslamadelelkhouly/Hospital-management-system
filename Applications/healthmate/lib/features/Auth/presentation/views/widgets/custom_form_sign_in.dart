@@ -55,7 +55,9 @@ class _CustomFormSignInState extends State<CustomFormSignIn> {
     return Form(
       key: key,
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 10,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -84,9 +86,9 @@ class _CustomFormSignInState extends State<CustomFormSignIn> {
               onSaved: (value) {
                 password = value!;
               },
-              texterror:errorResponse.errors.password!.isNotEmpty
-                      ? errorResponse.errors.password![0]
-                      : '',
+              texterror: errorResponse.errors.password!.isNotEmpty
+                  ? errorResponse.errors.password![0]
+                  : '',
               controller: passwordController,
               text: 'Password',
             ),

@@ -80,6 +80,7 @@ class _SechduleScreenBodyState extends State<SechduleScreenBody> {
             );
           }
           if (state is AppointmentError) {
+            log('Error: in schdule ${state.errorMessage['message']}');
             _showSuccessDialog(
               context,
               state.errorMessage['message'],
@@ -99,8 +100,6 @@ class _SechduleScreenBodyState extends State<SechduleScreenBody> {
                   stateicon: true,
                 ),
                 30.verticalSpace,
-
-                /// التقويم
                 CustomCelender(
                   onChanged: (value) {
                     log('Selected date: $value');
