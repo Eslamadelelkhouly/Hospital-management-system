@@ -1,24 +1,18 @@
 part of 'chatbot_cubit.dart';
 
 @immutable
-sealed class ChatbotState {}
+abstract class ChatbotState {}
 
-final class ChatbotInitial extends ChatbotState {}
+class ChatbotInitial extends ChatbotState {}
 
-final class ChatbotLoading extends ChatbotState {}
+class ChatbotLoading extends ChatbotState {}
 
-final class ChatbotSucess extends ChatbotState {
+class ChatbotSuccess extends ChatbotState {
   final String message;
-
-  ChatbotSucess({required this.message});
-
+  ChatbotSuccess({required this.message});
 }
 
-final class ChatbotFailed extends ChatbotState {
+class ChatbotFailed extends ChatbotState {
   final String errormessage;
-
   ChatbotFailed({required this.errormessage});
-
-
 }
-
