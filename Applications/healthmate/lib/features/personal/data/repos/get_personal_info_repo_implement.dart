@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:healthmate/core/API/api_service.dart';
@@ -16,9 +18,12 @@ class GetPersonalInfoRepoImplement implements GetPersonalInfoRepo {
     try {
       String url = '${BackendEndpoint.getpatientinfo}';
       var response = await apiService.Get(endpoint: url);
-      return right(PersonalInfoModel.fromJson(response));
+      log(response.toString());
+      return right(PersonalInfoModel.fromJson(response['patient']));
     } catch (e) {
+      log(e.toString());
       if (e is DioException) {
+        log(e.response.toString());
         return left(ServerFailure.fromDioException(e));
       } else {
         return left(ServerFailure(

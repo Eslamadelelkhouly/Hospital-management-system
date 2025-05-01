@@ -16,7 +16,7 @@ class AppointmentCubit extends Cubit<AppointmentState> {
     var response = await BookRepoImplement(apiService: apiService)
         .bookTreatment(appointmentModelRequest: appointmentModelRequest);
     response.fold(
-      (failure) => emit(AppointmentError(errorMessage: failure.errorData)),
+      (failure) => emit(AppointmentError(errorMessage: failure)),
       (appointmentResponse) =>
           emit(appointmentSuccess(appointmentResponse: appointmentResponse)),
     );
