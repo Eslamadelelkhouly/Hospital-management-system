@@ -4,16 +4,25 @@ import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 
 class ContainerDoctor extends StatefulWidget {
-  const ContainerDoctor({super.key});
+  final double rating;
+  final String doctorName;
+  final String specialty;
+
+  const ContainerDoctor({
+    super.key,
+    required this.rating,
+    this.doctorName = 'Dr. Ali Hassan',
+    this.specialty = 'Dermato-Endocrinology',
+  });
 
   @override
   State<ContainerDoctor> createState() => _ContainerDoctorState();
 }
 
 class _ContainerDoctorState extends State<ContainerDoctor> {
-  bool heartlogic = false;
-  int rating = 0; // Default rating
-  final int maxRating = 5; // Maximum number of stars
+  bool isFavorite = false;
+
+  final int maxRating = 5;
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +43,13 @@ class _ContainerDoctorState extends State<ContainerDoctor> {
                   backgroundImage: AssetImage(doctorphoto1),
                 ),
                 title: Text(
-                  'Dr.Ali hassan',
+                  widget.doctorName,
                   style: StylingSystem.textStyle16Medium.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 subtitle: Text(
-                  'Dermato-Endocrinology',
+                  widget.specialty,
                   style: StylingSystem.textStyleSign12,
                 ),
               ),
@@ -48,21 +57,12 @@ class _ContainerDoctorState extends State<ContainerDoctor> {
                 children: [
                   const SizedBox(width: 80),
                   for (int i = 1; i <= maxRating; i++)
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          rating = i; // Update rating based on selected star
-                        });
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 2),
-                        child: Image.asset(
-                          i <= rating
-                              ? stargoldicon
-                              : staricon, // Change image based on rating
-                          width: 24, // Set appropriate size
-                          height: 24,
-                        ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2),
+                      child: Image.asset(
+                        i <= widget.rating ? stargoldicon : staricon,
+                        width: 24,
+                        height: 24,
                       ),
                     ),
                 ],
@@ -75,12 +75,19 @@ class _ContainerDoctorState extends State<ContainerDoctor> {
             child: Row(
               children: [
                 GestureDetector(
+                  child: Image.asset(
+                      isFavorite == true ? hearticonred : hearticon),
                   onTap: () {
-                    setState(() {
-                      heartlogic = !heartlogic;
-                    });
+                    if (isFavorite) {
+                      // Remove from favorites
+                      isFavorite = false;
+                      setState(() {});
+                    } else {
+                      // Add to favorites
+                      isFavorite = true;
+                      setState(() {});
+                    }
                   },
-                  child: Image.asset(heartlogic ? hearticonred : hearticon),
                 ),
                 const SizedBox(width: 6),
                 Image.asset(infoicon),

@@ -25,11 +25,12 @@ class FavouritsScreen extends StatelessWidget {
           SizedBox(
             height: 32,
           ),
-          Expanded(
-              child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: CustomListViewContainerDoctor(),
-          )),
+          // Expanded(
+          //   child: Padding(
+          //     padding: const EdgeInsets.symmetric(horizontal: 20),
+          //     child: CustomListViewContainerDoctor(),
+          //   ),
+          // ),
         ],
       ),
     );

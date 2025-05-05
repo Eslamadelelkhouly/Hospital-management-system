@@ -16,14 +16,6 @@ class TopDoctorsResponse {
       status: json['status'],
     );
   }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'doctors': doctors.map((x) => x.toJson()).toList(),
-      'message': message,
-      'status': status,
-    };
-  }
 }
 
 class Doctor {
@@ -35,12 +27,15 @@ class Doctor {
   final String gender;
   final String phoneNumber;
   final String rating;
-  final int specId;
-  final int userId;
-  final int cityId;
-  final DateTime createdAt;
-  final DateTime updatedAt;
+  final String createdAt;
+  final String updatedAt;
+  final String specializationName;
+  final String cityName;
+  final String userRole;
   final DoctorImage image;
+  final Specialization specialization;
+  final City city;
+  final DoctorUser user;
 
   Doctor({
     required this.id,
@@ -51,12 +46,15 @@ class Doctor {
     required this.gender,
     required this.phoneNumber,
     required this.rating,
-    required this.specId,
-    required this.userId,
-    required this.cityId,
     required this.createdAt,
     required this.updatedAt,
+    required this.specializationName,
+    required this.cityName,
+    required this.userRole,
     required this.image,
+    required this.specialization,
+    required this.city,
+    required this.user,
   });
 
   factory Doctor.fromJson(Map<String, dynamic> json) {
@@ -69,32 +67,16 @@ class Doctor {
       gender: json['gender'],
       phoneNumber: json['phoneNumber'],
       rating: json['rating'],
-      specId: json['spec_id'],
-      userId: json['user_id'],
-      cityId: json['city_id'],
-      createdAt: DateTime.parse(json['created_at']),
-      updatedAt: DateTime.parse(json['updated_at']),
+      createdAt: json['created_at'],
+      updatedAt: json['updated_at'],
+      specializationName: json['specialization_name'],
+      cityName: json['city_name'],
+      userRole: json['user_role'],
       image: DoctorImage.fromJson(json['image']),
+      specialization: Specialization.fromJson(json['specialization']),
+      city: City.fromJson(json['city']),
+      user: DoctorUser.fromJson(json['user']),
     );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'firstName': firstName,
-      'lastName': lastName,
-      'username': username,
-      'email': email,
-      'gender': gender,
-      'phoneNumber': phoneNumber,
-      'rating': rating,
-      'spec_id': specId,
-      'user_id': userId,
-      'city_id': cityId,
-      'created_at': createdAt.toIso8601String(),
-      'updated_at': updatedAt.toIso8601String(),
-      'image': image.toJson(),
-    };
   }
 }
 
@@ -102,8 +84,8 @@ class DoctorImage {
   final int id;
   final String imageName;
   final int doctorId;
-  final DateTime createdAt;
-  final DateTime updatedAt;
+  final String createdAt;
+  final String updatedAt;
 
   DoctorImage({
     required this.id,
@@ -118,18 +100,86 @@ class DoctorImage {
       id: json['id'],
       imageName: json['image_name'],
       doctorId: json['doctor_id'],
-      createdAt: DateTime.parse(json['created_at']),
-      updatedAt: DateTime.parse(json['updated_at']),
+      createdAt: json['created_at'],
+      updatedAt: json['updated_at'],
     );
   }
+}
 
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'image_name': imageName,
-      'doctor_id': doctorId,
-      'created_at': createdAt.toIso8601String(),
-      'updated_at': updatedAt.toIso8601String(),
-    };
+class Specialization {
+  final int id;
+  final String name;
+  final String createdAt;
+  final String updatedAt;
+
+  Specialization({
+    required this.id,
+    required this.name,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+
+  factory Specialization.fromJson(Map<String, dynamic> json) {
+    return Specialization(
+      id: json['id'],
+      name: json['name'],
+      createdAt: json['created_at'],
+      updatedAt: json['updated_at'],
+    );
+  }
+}
+
+class City {
+  final int id;
+  final String name;
+  final String createdAt;
+  final String updatedAt;
+
+  City({
+    required this.id,
+    required this.name,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+
+  factory City.fromJson(Map<String, dynamic> json) {
+    return City(
+      id: json['id'],
+      name: json['name'],
+      createdAt: json['created_at'],
+      updatedAt: json['updated_at'],
+    );
+  }
+}
+
+class DoctorUser {
+  final int id;
+  final String name;
+  final String email;
+  final String emailVerifiedAt;
+  final String role;
+  final String createdAt;
+  final String updatedAt;
+
+  DoctorUser({
+    required this.id,
+    required this.name,
+    required this.email,
+    required this.emailVerifiedAt,
+    required this.role,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+
+  factory DoctorUser.fromJson(Map<String, dynamic> json) {
+    return DoctorUser(
+      id: json['id'],
+      name: json['name'],
+      email: json['email'],
+      emailVerifiedAt: json['email_verified_at'],
+      role: json['role'],
+      createdAt: json['created_at'],
+      updatedAt: json['updated_at'],
+    );
   }
 }
