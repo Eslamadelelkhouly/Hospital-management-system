@@ -7,12 +7,13 @@ class ContainerDoctor extends StatefulWidget {
   final double rating;
   final String doctorName;
   final String specialty;
-
+  final int id;
   const ContainerDoctor({
     super.key,
     required this.rating,
     this.doctorName = 'Dr. Ali Hassan',
     this.specialty = 'Dermato-Endocrinology',
+    required this.id,
   });
 
   @override

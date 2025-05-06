@@ -14,4 +14,7 @@ class BackendEndpoint {
 
   static const gettopdoctor =
       'http://10.0.2.2:8000/api/doctors-group/top-doctors/';
+
+  static const addfavourite =
+      'http://10.0.2.2:8000/api/patient-group/favorite/toggle';
 }

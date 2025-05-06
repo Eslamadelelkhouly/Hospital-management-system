@@ -22,7 +22,7 @@ class ShowavailabletimeCubit extends Cubit<ShowavailabletimeState> {
     var response = await ShowBookingAvilableRepoImpl(apiService: apiService)
         .showBookingAvailable(doctorId: doctorId);
     response.fold(
-      (failure) => emit(showavailabletimeError(error: failure.errorData)),
+      (failure) => emit(showavailabletimeError(error: failure)),
       (availableTime) => emit(
           showavailabletimeSucess(bookingAvaliabalTimeeModel: availableTime)),
     );

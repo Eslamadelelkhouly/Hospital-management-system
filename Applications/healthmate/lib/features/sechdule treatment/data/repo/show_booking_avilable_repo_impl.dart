@@ -11,20 +11,34 @@ class ShowBookingAvilableRepoImpl implements ShowBookingAvailableRepo {
   final ApiService apiService;
 
   ShowBookingAvilableRepoImpl({required this.apiService});
-  Future<Either<Failures, BookingAvaliabalTimeeModel>> showBookingAvailable(
-      {required String doctorId}) async {
+  Future<Either<Map<String, dynamic>, BookingAvaliabalTimeeModel>>
+      showBookingAvailable({required String doctorId}) async {
     try {
-      var response = await apiService.GetWithKey(
-          endpoint: BackendEndpoint.getavailbletimedoctor, key: doctorId);
-      BookingAvaliabalTimeeModel bookingAvaliabaleModel =
-          BookingAvaliabalTimeeModel.fromJson(response);
-      return right(bookingAvaliabaleModel);
+      final response = await apiService.GetWithKey(
+        endpoint: BackendEndpoint.getavailbletimedoctor,
+        key: doctorId,
+      );
+
+      if (response['available_appointments'] == null ||
+          (response['available_appointments'] as List).isEmpty) {
+        return left({
+          "message": response['message'] ?? "No appointments found",
+          "status": response['status'] ?? 200,
+        });
+      }
+
+      final bookingModel = BookingAvaliabalTimeeModel.fromJson(response);
+      return right(bookingModel);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDioException(e));
+        if (e.response != null && e.response?.data != null) {
+          return left(Map<String, dynamic>.from(e.response!.data));
+        } else {
+          return left(
+              {"message": "Connection timeout with ApiServer", "errors": {}});
+        }
       } else {
-        return left(ServerFailure(
-            {"message": "Connection timeout with ApiServer", "errors": {}}));
+        return left({"message": "Unexpected Error", "errors": {}});
       }
     }
   }
