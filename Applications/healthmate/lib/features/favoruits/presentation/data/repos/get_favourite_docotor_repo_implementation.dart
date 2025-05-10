@@ -16,6 +16,7 @@ class GetFavouriteDocotorRepoImplementation implements GetFavouriteDoctorRepo {
     try {
       var response =
           await apiService.Get(endpoint: BackendEndpoint.getfavourite);
+      log(response.toString());
       return Right(FavoriteDoctorsResponse.fromJson(response));
     } catch (e) {
       if (e is DioException) {

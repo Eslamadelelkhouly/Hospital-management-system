@@ -42,7 +42,9 @@ class SettingScreenBody extends StatelessWidget {
           ListTielSetting(
             title: 'My Appointments',
             img: celendericoncheck,
-            onTap: () {},
+            onTap: () {
+              GoRouter.of(context).push(Routing.kconfirmappointment);
+            },
           ),
           16.verticalSpace,
           ListTielSetting(
