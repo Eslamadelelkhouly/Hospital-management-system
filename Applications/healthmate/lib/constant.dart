@@ -41,6 +41,7 @@ const sucessimage = 'assets/images/Success.gif';
 const failureimage = 'assets/images/fail.gif';
 const token = 'token';
 const sendicon = 'assets/images/send.png';
+const clock = 'assets/images/clock.png';
 
 class onBoarding {
   final String title;

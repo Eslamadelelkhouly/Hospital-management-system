@@ -9,7 +9,8 @@ import 'package:healthmate/features/confirm%20appointment/presentation/views/wid
 import 'package:healthmate/features/home/presentation/views/widgets/custom_list_tiel.dart';
 
 class CardConfirm extends StatelessWidget {
-  const CardConfirm({super.key});
+  const CardConfirm({super.key, required this.showbutton});
+  final bool showbutton;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,9 @@ class CardConfirm extends StatelessWidget {
           ),
           Stack(
             children: [
-              BodyCardConfirmation(),
+              BodyCardConfirmation(
+                showbutton: showbutton,
+              ),
               Positioned(
                 right: 12,
                 top: 16,
