@@ -17,6 +17,7 @@ class CustomListViewContainerDoctor extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: ContainerDoctor(
+            image: topDoctorsResponse.doctors[index].image.imageName,
             id: topDoctorsResponse.doctors[index].id,
             rating: double.parse(topDoctorsResponse.doctors[index].rating),
             doctorName: topDoctorsResponse.doctors[index].firstName,

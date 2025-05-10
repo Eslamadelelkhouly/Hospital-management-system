@@ -13,7 +13,7 @@ class AddFavouriteRepoImplementation implements AddFavouriteRepo {
   AddFavouriteRepoImplementation({required this.apiService});
   @override
   Future<Either<Map<String, dynamic>, Map<String, dynamic>>> addFavourite(
-      {required String doctorId}) async {
+      {required int doctorId}) async {
     try {
       var response = await apiService.PostToken(
         endpoint: BackendEndpoint.addfavourite,
@@ -25,6 +25,7 @@ class AddFavouriteRepoImplementation implements AddFavouriteRepo {
       return right(response);
     } catch (e) {
       if (e is DioException) {
+        log(e.toString());
         if (e.response != null && e.response?.data != null) {
           return left(Map<String, dynamic>.from(e.response!.data));
         } else {

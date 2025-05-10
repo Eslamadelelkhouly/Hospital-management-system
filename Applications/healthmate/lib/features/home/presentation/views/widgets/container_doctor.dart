@@ -1,19 +1,24 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
+import 'package:healthmate/features/home/presentation/manager/addfavourite/cubit/add_favourite_cubit.dart';
 
 class ContainerDoctor extends StatefulWidget {
   final double rating;
   final String doctorName;
   final String specialty;
   final int id;
+  final String image;
   const ContainerDoctor({
     super.key,
     required this.rating,
     this.doctorName = 'Dr. Ali Hassan',
     this.specialty = 'Dermato-Endocrinology',
     required this.id,
+    required this.image,
   });
 
   @override
@@ -39,9 +44,15 @@ class _ContainerDoctorState extends State<ContainerDoctor> {
           Column(
             children: [
               ListTile(
-                leading: CircleAvatar(
-                  radius: 30,
-                  backgroundImage: AssetImage(doctorphoto1),
+                leading: ClipOval(
+                  child: CachedNetworkImage(
+                    imageUrl: widget.image,
+                    width: 60,
+                    height: 60,
+                    fit: BoxFit.cover,
+                    placeholder: (context, url) => CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                  ),
                 ),
                 title: Text(
                   widget.doctorName,
@@ -87,6 +98,9 @@ class _ContainerDoctorState extends State<ContainerDoctor> {
                       // Add to favorites
                       isFavorite = true;
                       setState(() {});
+                      context
+                          .read<AddFavouriteCubit>()
+                          .addFavourite(doctorId: widget.id);
                     }
                   },
                 ),

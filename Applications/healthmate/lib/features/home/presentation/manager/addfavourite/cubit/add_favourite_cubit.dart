@@ -12,7 +12,7 @@ class AddFavouriteCubit extends Cubit<AddFavouriteState> {
     dio: Dio(),
   );
 
-  Future<void> addFavourite({required String doctorId}) async {
+  Future<void> addFavourite({required int doctorId}) async {
     emit(AddFavouriteInitial());
     var result = await AddFavouriteRepoImplementation(apiService: apiService)
         .addFavourite(doctorId: doctorId);

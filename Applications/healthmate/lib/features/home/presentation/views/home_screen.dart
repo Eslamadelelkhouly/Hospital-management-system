@@ -6,6 +6,7 @@ import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/features/AI%20models/presentation/views/ai_model_screen.dart';
 import 'package:healthmate/features/favoruits/presentation/views/favourits_screen.dart';
+import 'package:healthmate/features/home/presentation/manager/addfavourite/cubit/add_favourite_cubit.dart';
 import 'package:healthmate/features/home/presentation/manager/get_doctor_cubit/gettopdoctor_cubit.dart';
 import 'package:healthmate/features/home/presentation/views/widgets/home_screen_bloc_consumer.dart';
 import 'package:healthmate/features/home/presentation/views/widgets/home_screen_body.dart';
@@ -39,8 +40,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => GettopdoctorCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => GettopdoctorCubit(),
+        ),
+        BlocProvider(
+          create: (context) => AddFavouriteCubit(),
+        ),
+      ],
       child: Scaffold(
         body: _pages[index],
         bottomNavigationBar: Stack(
