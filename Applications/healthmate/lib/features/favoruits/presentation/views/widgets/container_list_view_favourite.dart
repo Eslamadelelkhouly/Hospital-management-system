@@ -39,25 +39,31 @@ class _ContainerListViewFavouriteState
         }
       },
       builder: (context, state) {
-        return ListView.builder(
-          padding: const EdgeInsets.all(0),
-          scrollDirection: Axis.vertical,
-          itemCount: favoriteDoctorsResponse.favoriteDoctors.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: ContainerDoctor(
-                doctorName:
-                    favoriteDoctorsResponse.favoriteDoctors[index].firstName,
-                id: favoriteDoctorsResponse.favoriteDoctors[index].id,
-                image: favoriteDoctorsResponse
-                    .favoriteDoctors[index].image.imageName,
-                rating: double.parse(
-                    favoriteDoctorsResponse.favoriteDoctors[index].rating),
-              ),
-            );
-          },
-        );
+        return state is GetfavouritedoctorSuccess
+            ? ListView.builder(
+                padding: const EdgeInsets.all(0),
+                scrollDirection: Axis.vertical,
+                itemCount: favoriteDoctorsResponse.favoriteDoctors.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: ContainerDoctor(
+                      doctorName: favoriteDoctorsResponse
+                          .favoriteDoctors[index].firstName,
+                      id: favoriteDoctorsResponse.favoriteDoctors[index].id,
+                      image: favoriteDoctorsResponse
+                          .favoriteDoctors[index].image.imageName,
+                      rating: double.parse(favoriteDoctorsResponse
+                          .favoriteDoctors[index].rating),
+                    ),
+                  );
+                },
+              )
+            : state is GetfavouritedoctorError
+                ? Center(
+                    child: Text(state.error['message']),
+                  )
+                : SizedBox();
       },
     );
   }

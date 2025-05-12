@@ -11,24 +11,33 @@ class GetFavouriteDocotorRepoImplementation implements GetFavouriteDoctorRepo {
   final ApiService apiService;
 
   GetFavouriteDocotorRepoImplementation({required this.apiService});
+
   Future<Either<Map<String, dynamic>, FavoriteDoctorsResponse>>
       getFavouritedoctor() async {
     try {
       var response =
           await apiService.Get(endpoint: BackendEndpoint.getfavourite);
       log(response.toString());
+
+      if (response['status'] == 200 &&
+          response.containsKey('message') &&
+          response['message'] == 'No favorite doctors found') {
+        return Left(
+            {"message": response['message'], "status": response['status']});
+      }
+
       return Right(FavoriteDoctorsResponse.fromJson(response));
     } catch (e) {
       if (e is DioException) {
         log(e.toString());
         if (e.response != null && e.response?.data != null) {
-          return left(Map<String, dynamic>.from(e.response!.data));
+          return Left(Map<String, dynamic>.from(e.response!.data));
         } else {
-          return left(
+          return Left(
               {"message": "Connection timeout with ApiServer", "errors": {}});
         }
       } else {
-        return left({"message": "Unexpected Error", "errors": {}});
+        return Left({"message": "Unexpected Error", "errors": {}});
       }
     }
   }
