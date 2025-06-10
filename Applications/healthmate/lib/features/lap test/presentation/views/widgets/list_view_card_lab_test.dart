@@ -35,7 +35,7 @@ class _ListViewCardLabTestState extends State<ListViewCardLabTest> {
         },
         builder: (context, state) {
           return ListView.builder(
-            padding: const EdgeInsets.all(0),
+            padding: EdgeInsets.zero,
             itemCount: medicalTestsResponse.data.length,
             itemBuilder: (context, index) {
               return GestureDetector(
