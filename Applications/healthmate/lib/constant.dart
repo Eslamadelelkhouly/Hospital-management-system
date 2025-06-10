@@ -14,6 +14,7 @@ const fotter = 'assets/images/fotter.png';
 const header = 'assets/images/header.png';
 const Ksplashscreendoctor = 'onboardingscreen';
 const googleicon2 = 'assets/images/googleicon2.png';
+const medicalinfo = 'assets/images/medical_info.png';
 const appleicon2 = 'assets/images/appleicon2.png';
 const homeicon = 'assets/images/home-2.png';
 const hearticon = 'assets/images/heart.png';

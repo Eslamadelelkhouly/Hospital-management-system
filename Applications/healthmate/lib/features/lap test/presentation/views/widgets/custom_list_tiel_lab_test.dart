@@ -4,7 +4,12 @@ import 'package:healthmate/core/utils/style.dart';
 class CustomListTielLabTest extends StatelessWidget {
   const CustomListTielLabTest({
     super.key,
+    required this.text,
+    required this.price,
   });
+
+  final String text;
+  final String price;
 
   @override
   Widget build(BuildContext context) {
@@ -12,11 +17,11 @@ class CustomListTielLabTest extends StatelessWidget {
       children: [
         ListTile(
           leading: Text(
-            'Complete Blood Count (CBC)',
+            '${text}',
             style: StylingSystem.textStyleSign12,
           ),
           trailing: Text(
-            '200EG',
+            '${price}',
             style: StylingSystem.textStyleSign12,
           ),
         ),

@@ -11,6 +11,7 @@ import 'package:healthmate/features/doctor/presentation/views/doctor_screen.dart
 import 'package:healthmate/features/heartdisease/presentation/views/heart_disease_screen.dart';
 import 'package:healthmate/features/home/presentation/views/home_screen.dart';
 import 'package:healthmate/features/lap%20test/presentation/views/lab_test_screen.dart';
+import 'package:healthmate/features/medical%20test%20information/presentation/views/medical_test_information.dart';
 import 'package:healthmate/features/message/presentation/views/message_screen.dart';
 import 'package:healthmate/features/search/presentation/views/search_screen.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/sechdule_screen.dart';
@@ -40,12 +41,18 @@ abstract class Routing {
   static const kdiabates = '/kdiabates';
   static const kchat = '/kchat';
   static const kconfirmappointment = '/confirmappointment';
+  static const kmedicaltestinformation = '/kmedicaltestinformation';
   static final router = GoRouter(
     routes: [
       GoRoute(
         path: KsplashinitScreen,
         builder: (context, state) => const SplashInitScreen(),
       ),
+      GoRoute(
+          path: kmedicaltestinformation,
+          builder: (context, state) {
+            return const MedicalTestInformationView();
+          }),
       GoRoute(
         path: KsplashScreen,
         builder: (context, state) => const SplashScreen(),
