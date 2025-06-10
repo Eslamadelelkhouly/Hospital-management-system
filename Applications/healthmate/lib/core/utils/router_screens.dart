@@ -8,6 +8,7 @@ import 'package:healthmate/features/Auth/presentation/views/verification_screen.
 import 'package:healthmate/features/confirm%20appointment/presentation/views/confirm_appointment_screen.dart';
 import 'package:healthmate/features/diabates/presentation/views/diabates_screen.dart';
 import 'package:healthmate/features/doctor/presentation/views/doctor_screen.dart';
+import 'package:healthmate/features/emergency/presentation/views/emergency_view.dart';
 import 'package:healthmate/features/heartdisease/presentation/views/heart_disease_screen.dart';
 import 'package:healthmate/features/home/presentation/views/home_screen.dart';
 import 'package:healthmate/features/lap%20test/presentation/views/lab_test_screen.dart';
@@ -42,6 +43,7 @@ abstract class Routing {
   static const kchat = '/kchat';
   static const kconfirmappointment = '/confirmappointment';
   static const kmedicaltestinformation = '/kmedicaltestinformation';
+  static const kemergency  = '/kemergency';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -72,6 +74,10 @@ abstract class Routing {
       GoRoute(
         path: kforgetpassword,
         builder: (context, state) => const ForgetPasswordScreen(),
+      ),
+      GoRoute(
+        path: kemergency,
+        builder: (context, state) => const EmergencyView(),
       ),
       GoRoute(
         path: kverificationemail,

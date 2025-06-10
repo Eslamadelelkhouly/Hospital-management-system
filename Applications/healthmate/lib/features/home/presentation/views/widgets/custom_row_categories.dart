@@ -23,7 +23,9 @@ class CustomRowCategories extends StatelessWidget {
             image: labtesticon,
           ),
           CardCategories(
-            onTap: () {},
+            onTap: () {
+              GoRouter.of(context).push(Routing.kemergency);
+            },
             text: 'Emergency',
             image: emergencyicon,
           ),
