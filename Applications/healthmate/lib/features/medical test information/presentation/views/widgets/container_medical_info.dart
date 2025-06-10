@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
@@ -7,7 +6,11 @@ import 'package:healthmate/core/widgets/custom_button.dart';
 class ContainerMedicalInfo extends StatelessWidget {
   const ContainerMedicalInfo({
     super.key,
+    required this.nameTest,
+    required this.descrption,
+    required this.cost,
   });
+  final String nameTest, descrption, cost;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class ContainerMedicalInfo extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'Blood test',
+            nameTest,
             style: StylingSystem.textStyle30semibold,
           ),
           SizedBox(
@@ -25,7 +28,7 @@ class ContainerMedicalInfo extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 0.8,
             child: Text(
               textAlign: TextAlign.center,
-              'A comprehensive test to analyze blood components',
+              descrption,
               style: StylingSystem.textStyle14Medium.copyWith(
                 fontWeight: FontWeight.w700,
                 color: Color(0xff83818E),
@@ -46,7 +49,7 @@ class ContainerMedicalInfo extends StatelessWidget {
                 ),
               ),
               Text(
-                ' 100.00EG',
+                ' ${cost}EG',
                 style: StylingSystem.textStyle16Medium.copyWith(
                   fontWeight: FontWeight.w500,
                   color: Color(0xff83818E),
