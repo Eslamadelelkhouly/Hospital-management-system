@@ -10,6 +10,7 @@ import 'package:healthmate/features/home/presentation/manager/addfavourite/cubit
 import 'package:healthmate/features/home/presentation/manager/get_doctor_cubit/gettopdoctor_cubit.dart';
 import 'package:healthmate/features/home/presentation/views/widgets/home_screen_bloc_consumer.dart';
 import 'package:healthmate/features/home/presentation/views/widgets/home_screen_body.dart';
+import 'package:healthmate/features/medical%20test%20information/presentation/manager/cubit/get_medical_info_cubit.dart';
 import 'package:healthmate/features/message/presentation/views/message_screen.dart';
 import 'package:healthmate/features/personal/presentation/views/personal_screen.dart';
 

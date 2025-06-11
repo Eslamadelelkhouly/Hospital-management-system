@@ -18,12 +18,9 @@ class _MedicalTestInformationViewState
   Widget build(BuildContext context) {
     final int id = GoRouterState.of(context).extra as int;
 
-    return BlocProvider(
-      create: (context) => GetMedicalInfoCubit(),
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: MedicalTestInofrmationBody(id: id),
-      ),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: MedicalTestInofrmationBody(id: id),
     );
   }
 }

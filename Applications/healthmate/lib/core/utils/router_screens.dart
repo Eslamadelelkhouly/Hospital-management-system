@@ -5,6 +5,8 @@ import 'package:healthmate/features/Auth/presentation/views/forget_password_scre
 import 'package:healthmate/features/Auth/presentation/views/sign_in_screen.dart';
 import 'package:healthmate/features/Auth/presentation/views/sign_up_screen.dart';
 import 'package:healthmate/features/Auth/presentation/views/verification_screen.dart';
+import 'package:healthmate/features/choose%20Data%20and%20time%20medical%20test/presentation/views/choose_data_time_medical_test_view.dart';
+import 'package:healthmate/features/confirm%20appointment%20medical%20test/presentation/views/confrirm_medical_test_view.dart';
 import 'package:healthmate/features/confirm%20appointment/presentation/views/confirm_appointment_screen.dart';
 import 'package:healthmate/features/diabates/presentation/views/diabates_screen.dart';
 import 'package:healthmate/features/doctor/presentation/views/doctor_screen.dart';
@@ -41,9 +43,11 @@ abstract class Routing {
   static const ksetting = '/ksetting';
   static const kdiabates = '/kdiabates';
   static const kchat = '/kchat';
+  static const kconfirmMedicalTest = '/confirmMedicalTest';
   static const kconfirmappointment = '/confirmappointment';
   static const kmedicaltestinformation = '/kmedicaltestinformation';
-  static const kemergency  = '/kemergency';
+  static const kemergency = '/kemergency';
+  static const kchooseMedicalTest = '/kchooseMedicalTest';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -58,6 +62,16 @@ abstract class Routing {
       GoRoute(
         path: KsplashScreen,
         builder: (context, state) => const SplashScreen(),
+      ),
+      GoRoute(
+        path: kchooseMedicalTest,
+        builder: (context, state) {
+          return const ChooseDataTimeMedicalTestView();
+        },
+      ),
+      GoRoute(
+        path: kconfirmMedicalTest,
+        builder: (context, state) => const ConfrirmMedicalTestView(),
       ),
       GoRoute(
         path: Ksplashscreendoctor,

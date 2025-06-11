@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:healthmate/core/utils/color_style.dart';
+import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
 
@@ -9,8 +11,9 @@ class ContainerMedicalInfo extends StatelessWidget {
     required this.nameTest,
     required this.descrption,
     required this.cost,
+    required this.id,
   });
-  final String nameTest, descrption, cost;
+  final String nameTest, descrption, cost, id;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +64,9 @@ class ContainerMedicalInfo extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.03,
           ),
           CustomButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(Routing.kchooseMedicalTest, extra: id);
+            },
             text: 'Make Appointment',
             width: MediaQuery.of(context).size.width * 0.9,
             height: 45,

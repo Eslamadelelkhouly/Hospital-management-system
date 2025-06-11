@@ -75,6 +75,7 @@ class _MedicalTestInofrmationBodyState
               }
               if (state is GetMedicalInfoSuccess) {
                 medicalInfoModel = state.medicalInfo;
+
                 log('Medical test information fetched successfully: ${medicalInfoModel.data.testName}');
               }
             },
@@ -96,6 +97,7 @@ class _MedicalTestInofrmationBodyState
                         SizedBox(
                             height: MediaQuery.of(context).size.height * 0.05),
                         ContainerMedicalInfo(
+                          id: medicalInfoModel.data.id.toString(),
                           nameTest: medicalInfoModel.data.testName,
                           descrption: medicalInfoModel.data.description,
                           cost: medicalInfoModel.data.cost,
