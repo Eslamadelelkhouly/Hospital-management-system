@@ -25,4 +25,6 @@ class BackendEndpoint {
 
   static const getmedicalinfo =
       'http://10.0.2.2:8000/api/medical-test/medical-test/view/';
+
+  static const getmedicaltestavailable = 'http://10.0.2.2:8000/api/medical-test-appointments/tests/available/';
 }

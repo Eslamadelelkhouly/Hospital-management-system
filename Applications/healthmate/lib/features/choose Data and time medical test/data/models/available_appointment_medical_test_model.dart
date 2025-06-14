@@ -1,0 +1,31 @@
+class AvailableAppointmentsMedicalTest {
+  final List<String> availableAppointments;
+  final String date;
+  final String message;
+  final int status;
+
+  AvailableAppointmentsMedicalTest({
+    required this.availableAppointments,
+    required this.date,
+    required this.message,
+    required this.status,
+  });
+
+  factory AvailableAppointmentsMedicalTest.fromJson(Map<String, dynamic> json) {
+    return AvailableAppointmentsMedicalTest(
+      availableAppointments: List<String>.from(json['available_appointments']),
+      date: json['date'],
+      message: json['message'],
+      status: json['status'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'available_appointments': availableAppointments,
+      'date': date,
+      'message': message,
+      'status': status,
+    };
+  }
+}

@@ -106,6 +106,8 @@ class _SechduleScreenBodyState extends State<SechduleScreenBody> {
                     setState(() {
                       date = value;
                     });
+                    context.read<ShowavailabletimeCubit>().showAvailableTime(
+                        doctorId: widget.doctor.id.toString());
                   },
                 ),
 

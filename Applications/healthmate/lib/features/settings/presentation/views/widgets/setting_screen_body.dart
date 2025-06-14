@@ -76,7 +76,9 @@ class SettingScreenBody extends StatelessWidget {
           ListTielSetting(
             title: 'Emergency',
             img: emergencyicon,
-            onTap: () {},
+            onTap: () {
+              GoRouter.of(context).push(Routing.kemergency);
+            },
           ),
           16.verticalSpace,
           ListTielSetting(

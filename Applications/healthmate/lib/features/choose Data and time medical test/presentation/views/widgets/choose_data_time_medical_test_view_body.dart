@@ -1,15 +1,16 @@
 import 'package:dropdown_textfield/dropdown_textfield.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:healthmate/core/helper_function/convert_model_doctor_to_dropdown.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
-import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
 import 'package:healthmate/features/choose%20Data%20and%20time%20medical%20test/presentation/views/widgets/custom_drop_down_doctor.dart';
 import 'package:healthmate/features/medical%20test%20information/presentation/manager/cubit/get_medical_info_cubit.dart';
+import 'package:healthmate/features/search/data/models/doctor_model.dart';
+import 'package:healthmate/features/search/manager/cubit/show_doctor_cubit.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/container_time.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/custom_celender.dart';
 
@@ -31,10 +32,16 @@ class _ChooseDataTimeMedicalTestViewBodyState
     DropDownValueModel(name: 'Item 3', value: '3'),
   ];
   int selectedIndex = -1;
+  DoctorsResponse doctorsResponse = DoctorsResponse(
+    doctors: [],
+    message: 'message',
+    status: 1,
+  );
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    context.read<ShowDoctorCubit>().getDoctors();
     controllerdropdown = SingleValueDropDownController();
   }
 
@@ -110,11 +117,21 @@ class _ChooseDataTimeMedicalTestViewBodyState
             ),
           ),
           SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-          CustomDropDownDoctor(
-            hinttext: 'Select Doctor',
-            texterror: 'Please select a doctor',
-            controller: controllerdropdown,
-            dropDownList: itemsdropdown,
+          BlocConsumer<ShowDoctorCubit, ShowDoctorState>(
+            listener: (context, state) {
+              if (state is ShowDoctorSuccess) {
+                doctorsResponse = state.doctorsResponseModel;
+                itemsdropdown = convertDoctorsToDropdown(doctorsResponse.doctors);
+              }
+            },
+            builder: (context, state) {
+              return CustomDropDownDoctor(
+                hinttext: 'Select Doctor',
+                texterror: 'Please select a doctor',
+                controller: controllerdropdown,
+                dropDownList: itemsdropdown,
+              );
+            },
           ),
           SizedBox(height: MediaQuery.of(context).size.height * 0.02),
           CustomButton(
