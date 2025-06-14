@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:healthmate/features/choose%20Data%20and%20time%20medical%20test/data/models/available_appointment_medical_test_model.dart';
+import 'package:healthmate/features/choose%20Data%20and%20time%20medical%20test/presentation/manager/cubit/avaliable_time_medical_test_cubit.dart';
 import 'package:healthmate/features/choose%20Data%20and%20time%20medical%20test/presentation/views/widgets/choose_data_time_medical_test_view_body.dart';
 import 'package:healthmate/features/search/manager/cubit/show_doctor_cubit.dart';
 
@@ -12,8 +14,15 @@ class ChooseDataTimeMedicalTestView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String testid = GoRouterState.of(context).extra as String;
-    return BlocProvider(
-      create: (context) => ShowDoctorCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ShowDoctorCubit(),
+        ),
+        BlocProvider(
+          create: (context) => AvaliableTimeMedicalTestCubit(),
+        ),
+      ],
       child: Scaffold(
         backgroundColor: Colors.white,
         body: ChooseDataTimeMedicalTestViewBody(
