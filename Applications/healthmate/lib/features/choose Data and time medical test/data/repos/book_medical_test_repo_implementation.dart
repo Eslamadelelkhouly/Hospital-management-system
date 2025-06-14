@@ -8,13 +8,14 @@ class BookMedicalTestRepoImplementation extends BookMedicalTestRepo {
   final ApiService apiService;
   BookMedicalTestRepoImplementation({required this.apiService});
   @override
-  Future<Either<Map<String, dynamic>, Map<String, dynamic>>> bookMedicalTest(
-      {required String medicalTestId,
-      required String doctorId,
-      required String date,
-      required String time,}) async {
+  Future<Either<Map<String, dynamic>, Map<String, dynamic>>> bookMedicalTest({
+    required String medicalTestId,
+    required String doctorId,
+    required String date,
+    required String time,
+  }) async {
     try {
-      var response = await apiService.Post(
+      var response = await apiService.PostToken(
           endpoint: BackendEndpoint.bookmedicaltest,
           data: {
             'test_id': medicalTestId,
