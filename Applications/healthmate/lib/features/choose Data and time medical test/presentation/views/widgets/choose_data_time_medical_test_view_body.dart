@@ -7,7 +7,7 @@ import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
 import 'package:healthmate/features/choose%20Data%20and%20time%20medical%20test/data/models/available_appointment_medical_test_model.dart';
-import 'package:healthmate/features/choose%20Data%20and%20time%20medical%20test/presentation/manager/cubit/avaliable_time_medical_test_cubit.dart';
+import 'package:healthmate/features/choose%20Data%20and%20time%20medical%20test/presentation/manager/Available%20time%20medical%20test%20cubit/avaliable_time_medical_test_cubit.dart';
 import 'package:healthmate/features/choose%20Data%20and%20time%20medical%20test/presentation/views/widgets/custom_drop_down_doctor.dart';
 import 'package:healthmate/features/medical%20test%20information/presentation/manager/cubit/get_medical_info_cubit.dart';
 import 'package:healthmate/features/search/data/models/doctor_model.dart';
