@@ -2,11 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
+import 'package:intl/intl.dart';
 
-class DateAndTimeRowCardConfirm extends StatelessWidget {
+class DateAndTimeRowCardConfirm extends StatefulWidget {
   const DateAndTimeRowCardConfirm({
     super.key,
+    required this.date,
+    required this.time,
   });
+  final String date, time;
+
+  @override
+  State<DateAndTimeRowCardConfirm> createState() =>
+      _DateAndTimeRowCardConfirmState();
+}
+
+class _DateAndTimeRowCardConfirmState extends State<DateAndTimeRowCardConfirm> {
+  String get formattedTime {
+    DateTime dateTime = DateFormat("HH:mm:ss").parse(widget.time);
+    String formattedTime = DateFormat("hh:mm a").format(dateTime);
+    return formattedTime;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +34,7 @@ class DateAndTimeRowCardConfirm extends StatelessWidget {
         ),
         const SizedBox(width: 8),
         Text(
-          'Mon, 12 Apr 2025',
+          '${widget.date}',
           style: StylingSystem.textStyle14Medium.copyWith(
             color: ColorSystem.kPrimaryColor,
           ),
@@ -36,7 +52,7 @@ class DateAndTimeRowCardConfirm extends StatelessWidget {
         ),
         const SizedBox(width: 8),
         Text(
-          '10:00 AM',
+          '${formattedTime}',
           style: StylingSystem.textStyle14Medium.copyWith(
             color: ColorSystem.kPrimaryColor,
           ),
