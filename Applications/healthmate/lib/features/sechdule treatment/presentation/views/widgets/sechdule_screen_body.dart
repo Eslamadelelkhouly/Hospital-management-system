@@ -14,6 +14,7 @@ import 'package:healthmate/features/sechdule%20treatment/data/manager/show_avlia
 import 'package:healthmate/features/sechdule%20treatment/data/models/booking_model_request.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/custom_celender.dart';
 import 'package:healthmate/features/sechdule%20treatment/presentation/views/widgets/row_container_time.dart';
+import 'package:intl/intl.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class SechduleScreenBody extends StatefulWidget {
@@ -30,10 +31,14 @@ class _SechduleScreenBodyState extends State<SechduleScreenBody> {
 
   @override
   void initState() {
+    DateTime now = DateTime.now();
+    String formattedDate = DateFormat('yyyy-MM-dd').format(now);
+    log(formattedDate);
     super.initState();
-    context
-        .read<ShowavailabletimeCubit>()
-        .showAvailableTime(doctorId: widget.doctor.id.toString());
+    context.read<ShowavailabletimeCubit>().showAvailableTime(
+          doctorId: widget.doctor.id.toString(),
+          date: formattedDate,
+        );
   }
 
   void _showSuccessDialog(BuildContext context, String text, bool isError) {
@@ -107,7 +112,7 @@ class _SechduleScreenBodyState extends State<SechduleScreenBody> {
                       date = value;
                     });
                     context.read<ShowavailabletimeCubit>().showAvailableTime(
-                        doctorId: widget.doctor.id.toString());
+                        doctorId: widget.doctor.id.toString(), date: date);
                   },
                 ),
 

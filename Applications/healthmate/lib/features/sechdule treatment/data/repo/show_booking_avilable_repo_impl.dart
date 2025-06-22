@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:healthmate/core/API/api_service.dart';
@@ -12,11 +14,14 @@ class ShowBookingAvilableRepoImpl implements ShowBookingAvailableRepo {
 
   ShowBookingAvilableRepoImpl({required this.apiService});
   Future<Either<Map<String, dynamic>, BookingAvaliabalTimeeModel>>
-      showBookingAvailable({required String doctorId}) async {
+      showBookingAvailable(
+          {required String doctorId, required String date}) async {
     try {
+      String endpoint = '${doctorId}?date=$date';
+      log('Endpoint: $endpoint');
       final response = await apiService.GetWithKey(
         endpoint: BackendEndpoint.getavailbletimedoctor,
-        key: doctorId,
+        key: endpoint,
       );
 
       if (response['available_appointments'] == null ||

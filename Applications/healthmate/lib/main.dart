@@ -20,7 +20,7 @@ class HealthMate extends StatelessWidget {
       providers: [
         BlocProvider<GetMedicalInfoCubit>(
           create: (_) => GetMedicalInfoCubit(),
-        ),
+        ), 
       ],
       child: ScreenUtilInit(
         designSize: const Size(375, 812),

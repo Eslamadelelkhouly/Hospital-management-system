@@ -55,21 +55,22 @@ class _ContainerSearchState extends State<ContainerSearch> {
                     width: 58.r,
                     height: 58.r,
                     child: ClipRRect(
-                        borderRadius: BorderRadius.circular(50).r,
-                        child: CachedNetworkImage(
-                            imageUrl: widget.doctor.image.imageName,
-                            httpHeaders: {
-                              'Authorization': 'Bearer ${widget.tokeng}'
-                            },
-                            scale: 2.5,
-                            fit: BoxFit.cover,
-                            placeholder: (context, url) =>
-                                const CircularProgressIndicator(),
-                            errorWidget: (context, url, error) =>
-                                Icon(Icons.error),
-                            memCacheHeight: 300, // تقليل حجم الذاكرة المؤقتة
-                            maxHeightDiskCache: 300,
-                            fadeInDuration: Duration(seconds: 1))),
+                      borderRadius: BorderRadius.circular(50).r,
+                      child: CachedNetworkImage(
+                        imageUrl: widget.doctor.image.imageName,
+                        httpHeaders: {
+                          'Authorization': 'Bearer ${widget.tokeng}'
+                        },
+                        scale: 2.5,
+                        fit: BoxFit.cover,
+                        placeholder: (context, url) =>
+                            const CircularProgressIndicator(),
+                        errorWidget: (context, url, error) => Icon(Icons.error),
+                        memCacheHeight: 300,
+                        maxHeightDiskCache: 300,
+                        fadeInDuration: Duration(seconds: 1),
+                      ),
+                    ),
                   ),
                   8.verticalSpace,
                   Text(

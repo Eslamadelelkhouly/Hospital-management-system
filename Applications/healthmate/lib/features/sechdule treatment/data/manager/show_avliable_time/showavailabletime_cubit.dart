@@ -17,10 +17,11 @@ class ShowavailabletimeCubit extends Cubit<ShowavailabletimeState> {
 
   Future<void> showAvailableTime({
     required String doctorId,
+    required String date,
   }) async {
     emit(ShowavailabletimeLoading());
     var response = await ShowBookingAvilableRepoImpl(apiService: apiService)
-        .showBookingAvailable(doctorId: doctorId);
+        .showBookingAvailable(doctorId: doctorId, date: date);
     response.fold(
       (failure) => emit(showavailabletimeError(error: failure)),
       (availableTime) => emit(
