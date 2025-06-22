@@ -30,5 +30,8 @@ class BackendEndpoint {
       'http://10.0.2.2:8000/api/medical-test-appointments/tests/available/';
   static const bookmedicaltest =
       'http://10.0.2.2:8000/api/medical-test-appointments/appoint';
-  static const getupcomingappointment = 'http://10.0.2.2:8000/api/appointments/upcoming';
+  static const getupcomingappointment =
+      'http://10.0.2.2:8000/api/appointments/upcoming';
+
+  static const deleteAppointment = 'http://10.0.2.2:8000/api/appointments/cancel/';
 }

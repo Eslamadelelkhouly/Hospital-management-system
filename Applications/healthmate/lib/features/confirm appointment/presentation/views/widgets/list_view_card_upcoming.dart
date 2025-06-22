@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthmate/features/Auth/presentation/views/sign_in_screen.dart';
 import 'package:healthmate/features/confirm%20appointment/data/model/upcoming_model.dart';
-import 'package:healthmate/features/confirm%20appointment/presentation/manager/cubit/upcoming_cubit.dart';
+import 'package:healthmate/features/confirm%20appointment/presentation/manager/UpcomingCubit/upcoming_cubit.dart';
 import 'package:healthmate/features/confirm%20appointment/presentation/views/widgets/card_confirm.dart';
 
 class ListViewUpComing extends StatefulWidget {
@@ -33,31 +33,36 @@ class _ListViewUpComingState extends State<ListViewUpComing> {
     message: '',
     status: 0,
   );
+  String error = '';
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: BlocConsumer<UpcomingCubit, UpcomingState>(
         listener: (context, state) {
           if (state is UpcomingError) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(state.error)),
-            );
+            error = state.error;
           } else if (state is UpcomingSuccess) {
             upcomingAppointment = state.upcomingAppointment;
           }
         },
         builder: (context, state) {
-          return ListView.separated(
-            separatorBuilder: (context, index) => SizedBox(
-              height: 32,
-            ),
-            padding: const EdgeInsets.all(0),
-            itemCount: upcomingAppointment.appointmentDetails.length,
-            itemBuilder: (context, index) => CardConfirm(
-              appointmentDetails: upcomingAppointment.appointmentDetails[index],
-              showbutton: true,
-            ),
-          );
+          return state is UpcomingError
+              ? Text(
+                  error,
+                  style: TextStyle(color: Colors.red),
+                )
+              : ListView.separated(
+                  separatorBuilder: (context, index) => SizedBox(
+                    height: 32,
+                  ),
+                  padding: const EdgeInsets.all(0),
+                  itemCount: upcomingAppointment.appointmentDetails.length,
+                  itemBuilder: (context, index) => CardConfirm(
+                    appointmentDetails:
+                        upcomingAppointment.appointmentDetails[index],
+                    showbutton: true,
+                  ),
+                );
         },
       ),
     );
