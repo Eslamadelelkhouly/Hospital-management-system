@@ -13,12 +13,13 @@ class GetDocotrWithIdImplementaion extends GetDoctorById {
 
   GetDocotrWithIdImplementaion({required this.apiService});
   @override
-  Future<Either<String, DoctorsResponse>> getDoctorwithID(
-      {required String id}) async {
+  Future<Either<String, Doctor>> getDoctorwithID({required String id}) async {
     try {
       var endpoint = '${BackendEndpoint.getdoctorwithid}$id';
+      log(endpoint);
       var response = await apiService.Get(endpoint: endpoint);
-      DoctorsResponse doctorsResponse = DoctorsResponse.fromJson(response);
+      log(response.toString());
+      Doctor doctorsResponse = Doctor.fromJson(response['doctor']);
       return Right(doctorsResponse);
     } catch (e) {
       if (e is DioException) {

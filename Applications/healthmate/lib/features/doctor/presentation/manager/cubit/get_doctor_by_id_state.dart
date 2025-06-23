@@ -8,7 +8,8 @@ final class GetDoctorByIdInitial extends GetDoctorByIdState {}
 final class GetDoctorByIdLoading extends GetDoctorByIdState {}
 
 final class GetDoctorByIdSuccess extends GetDoctorByIdState {
-  final DoctorsResponse doctorModel;
+  final Doctor doctorModel;
+
   GetDoctorByIdSuccess({required this.doctorModel});
 }
 

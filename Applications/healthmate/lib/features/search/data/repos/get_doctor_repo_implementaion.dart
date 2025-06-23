@@ -49,6 +49,7 @@ class GetDoctorRepoImplementaion extends GetDoctorRepo {
       var response = await apiService.Get(
         endpoint: url,
       );
+      log(response.toString());
 
       try {
         DoctorsResponse doctorsResponse = DoctorsResponse.fromJson(response);

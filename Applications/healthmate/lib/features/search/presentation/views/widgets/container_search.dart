@@ -35,7 +35,7 @@ class _ContainerSearchState extends State<ContainerSearch> {
       onTap: () {
         GoRouter.of(context).push(
           Routing.kdoctorscreen,
-          extra: widget.doctor,
+          extra: widget.doctor.id.toString(),
         );
       },
       child: Container(
