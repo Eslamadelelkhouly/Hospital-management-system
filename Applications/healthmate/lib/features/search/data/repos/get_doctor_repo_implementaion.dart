@@ -14,11 +14,40 @@ class GetDoctorRepoImplementaion extends GetDoctorRepo {
   @override
   Future<Either<Failures, DoctorsResponse>> getDoctors() async {
     try {
-      String url =
-          '${BackendEndpoint.endpointShowDoctor}';
+      String url = '${BackendEndpoint.endpointShowDoctor}';
       var response = await apiService.Get(
         endpoint: url,
-      
+      );
+
+      try {
+        DoctorsResponse doctorsResponse = DoctorsResponse.fromJson(response);
+        return Right(doctorsResponse);
+      } catch (e) {
+        log('Parsing error: $e');
+        return left(ServerFailure({
+          "message": "Failed to parse doctor data",
+          "errors": {"parsing": e.toString()}
+        }));
+      }
+    } on DioException catch (e) {
+      log('Dio error: ${e.message}');
+      return left(ServerFailure.fromDioException(e));
+    } catch (e) {
+      log('Unexpected error: $e');
+      return left(ServerFailure({
+        "message": "Unexpected error occurred",
+        "errors": {"unexpected": e.toString()}
+      }));
+    }
+  }
+
+  @override
+  Future<Either<Failures, DoctorsResponse>> getDoctorSearch(
+      {required String name}) async {
+    try {
+      String url = '${BackendEndpoint.endpointShowDoctor}';
+      var response = await apiService.Get(
+        endpoint: url,
       );
 
       try {

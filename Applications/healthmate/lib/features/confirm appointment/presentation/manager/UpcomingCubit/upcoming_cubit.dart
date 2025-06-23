@@ -12,6 +12,7 @@ class UpcomingCubit extends Cubit<UpcomingState> {
   UpcomingCubit() : super(UpcomingInitial());
 
   Future<void> getUpcomingappointment() async {
+    emit(UpcomingLoading());
     var result = await UpcomingRepoImplementation(apiService: apiService)
         .getUpcomingAppointments();
     result.fold(

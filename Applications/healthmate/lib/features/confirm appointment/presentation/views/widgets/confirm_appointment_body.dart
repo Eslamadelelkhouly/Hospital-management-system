@@ -31,7 +31,10 @@ class _ConfirmAppointmentBodyState extends State<ConfirmAppointmentBody> {
             stateicon: true,
           ),
           const SizedBox(height: 32),
-          const CustomSearchTextField(),
+          CustomSearchTextField(
+            onTap: () {},
+            controller: TextEditingController(),
+          ),
           const SizedBox(height: 18),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -66,7 +69,7 @@ class _ConfirmAppointmentBodyState extends State<ConfirmAppointmentBody> {
           ),
           const SizedBox(height: 24),
           if (selectedIndex == 0) const ListViewUpComing(),
-          if (selectedIndex == 1) const ListViewCompleted(),
+          if (selectedIndex == 1) ListViewCompleted(),
           if (selectedIndex == 2) const ListViewCancel(),
         ],
       ),

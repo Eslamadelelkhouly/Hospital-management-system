@@ -59,7 +59,10 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                 SizedBox(
                   height: 16,
                 ),
-                CustomSearchTextField(),
+                CustomSearchTextField(
+                  onTap: () {},
+                  controller: TextEditingController(),
+                ),
                 SizedBox(
                   height: 16,
                 ),

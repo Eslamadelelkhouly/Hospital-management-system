@@ -5,8 +5,11 @@ import 'package:healthmate/core/utils/style.dart';
 
 class CustomSearchTextField extends StatelessWidget {
   const CustomSearchTextField({
-    super.key,
+    super.key, required this.controller,
+    this.onTap
   });
+  final TextEditingController controller;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +17,8 @@ class CustomSearchTextField extends StatelessWidget {
       width: 350,
       height: 48,
       child: TextField(
+        onTap: onTap,
+        controller: controller,
         decoration: InputDecoration(
           hintText: 'Search Doctor',
           hintStyle: StylingSystem.textStyle14Medium.copyWith(

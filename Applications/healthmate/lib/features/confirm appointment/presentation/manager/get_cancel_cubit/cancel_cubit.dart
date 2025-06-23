@@ -12,7 +12,7 @@ class CancelCubit extends Cubit<CancelState> {
   ApiService apiService = ApiService(dio: Dio());
   CancelCubit() : super(CancelInitial());
 
-  Future<void> getCancelAppointment({required String appointmentId}) async {
+  Future<void> getCancelAppointment() async {
     emit(CancelLoading());
     var result = await UpcomingRepoImplementation(apiService: apiService)
         .cancelAppointment();

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthmate/features/confirm%20appointment/data/model/upcoming_model.dart';
 import 'package:healthmate/features/confirm%20appointment/presentation/manager/DeleteAppointmentCubit/delete_appointment_cubit.dart';
 import 'package:healthmate/features/confirm%20appointment/presentation/manager/UpcomingCubit/upcoming_cubit.dart';
+import 'package:healthmate/features/confirm%20appointment/presentation/manager/get_cancel_cubit/cancel_cubit.dart';
 import 'package:healthmate/features/confirm%20appointment/presentation/views/widgets/confirm_appointment_body.dart';
 
 class ConfirmAppointmentScreen extends StatelessWidget {
@@ -16,6 +17,9 @@ class ConfirmAppointmentScreen extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => DeleteAppointmentCubit(),
+        ),
+        BlocProvider(
+          create: (context) => CancelCubit(),
         ),
       ],
       child: const Scaffold(

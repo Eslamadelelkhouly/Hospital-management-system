@@ -14,11 +14,21 @@ class SearchScreenBody extends StatefulWidget {
 }
 
 class _SearchScreenBodyState extends State<SearchScreenBody> {
+
   @override
+  TextEditingController controllerSearch = TextEditingController();
+
   void initState() {
     // TODO: implement initState
     super.initState();
     context.read<ShowDoctorCubit>().getDoctors();
+    controllerSearch = TextEditingController();
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    controllerSearch.dispose();
   }
 
   @override
@@ -36,7 +46,10 @@ class _SearchScreenBodyState extends State<SearchScreenBody> {
               stateicon: true,
             ),
             24.verticalSpace,
-            const CustomSearchTextField(),
+            CustomSearchTextField(
+              onTap: () {},
+              controller: TextEditingController(),
+            ),
             24.verticalSpace,
             Expanded(child: CustomGridViewCardSearch())
           ],

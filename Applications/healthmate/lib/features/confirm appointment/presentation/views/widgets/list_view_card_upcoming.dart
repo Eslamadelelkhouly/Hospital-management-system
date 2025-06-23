@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:healthmate/features/Auth/presentation/views/sign_in_screen.dart';
+import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/features/confirm%20appointment/data/model/upcoming_model.dart';
 import 'package:healthmate/features/confirm%20appointment/presentation/manager/UpcomingCubit/upcoming_cubit.dart';
 import 'package:healthmate/features/confirm%20appointment/presentation/views/widgets/card_confirm.dart';
@@ -15,7 +15,6 @@ class ListViewUpComing extends StatefulWidget {
 class _ListViewUpComingState extends State<ListViewUpComing> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     context.read<UpcomingCubit>().getUpcomingappointment();
   }
@@ -28,12 +27,15 @@ class _ListViewUpComingState extends State<ListViewUpComing> {
     specialization: '',
     doctorImage: '',
   );
+
   UpcomingAppointment upcomingAppointment = UpcomingAppointment(
     appointmentDetails: [],
     message: '',
     status: 0,
   );
+
   String error = '';
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -46,29 +48,39 @@ class _ListViewUpComingState extends State<ListViewUpComing> {
           }
         },
         builder: (context, state) {
-          return state is UpcomingError
-              ? Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      error,
-                      style: TextStyle(color: Colors.red),
-                    ),
-                  ],
-                )
-              : ListView.separated(
-                  separatorBuilder: (context, index) => SizedBox(
-                    height: 32,
-                  ),
-                  padding: const EdgeInsets.all(0),
-                  itemCount: upcomingAppointment.appointmentDetails.length,
-                  itemBuilder: (context, index) => CardConfirm(
-                    statecontainer: 'Upcoming',
-                    appointmentDetails:
-                        upcomingAppointment.appointmentDetails[index],
-                    showbutton: true,
-                  ),
-                );
+          if (state is UpcomingLoading) {
+            return const Center(
+              child: CircularProgressIndicator(
+                color: ColorSystem.kPrimaryColor,
+              ),
+            );
+          } else if (state is UpcomingError) {
+            return Center(
+              child: Text(
+                error,
+                style: const TextStyle(color: Colors.red),
+              ),
+            );
+          } else if (upcomingAppointment.appointmentDetails.isEmpty) {
+            return const Center(
+              child: Text(
+                'No upcoming appointments found.',
+                style: TextStyle(fontSize: 16),
+              ),
+            );
+          } else {
+            return ListView.separated(
+              separatorBuilder: (context, index) => const SizedBox(height: 32),
+              padding: const EdgeInsets.all(0),
+              itemCount: upcomingAppointment.appointmentDetails.length,
+              itemBuilder: (context, index) => CardConfirm(
+                statecontainer: 'Upcoming',
+                appointmentDetails:
+                    upcomingAppointment.appointmentDetails[index],
+                showbutton: true,
+              ),
+            );
+          }
         },
       ),
     );
