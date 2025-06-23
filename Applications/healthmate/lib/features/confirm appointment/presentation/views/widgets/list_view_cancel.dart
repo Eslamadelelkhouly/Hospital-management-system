@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:healthmate/features/confirm%20appointment/data/model/upcoming_model.dart';
 import 'package:healthmate/features/confirm%20appointment/presentation/views/widgets/card_confirm.dart';
 
-class ListViewCompleted extends StatelessWidget {
-  const ListViewCompleted({super.key});
+class ListViewCancel extends StatelessWidget {
+  const ListViewCancel({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class ListViewCompleted extends StatelessWidget {
         padding: const EdgeInsets.all(0),
         itemCount: 10,
         itemBuilder: (context, index) => CardConfirm(
-          statecontainer: 'Completed',
+          statecontainer: 'Canceled',
           appointmentDetails: AppointmentDetails(
             appointmentId: 1,
             doctorName: 'Dr. ahmed',

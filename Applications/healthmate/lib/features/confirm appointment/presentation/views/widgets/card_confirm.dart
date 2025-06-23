@@ -10,9 +10,11 @@ import 'package:healthmate/features/confirm%20appointment/presentation/views/wid
 import 'package:healthmate/features/home/presentation/views/widgets/custom_list_tiel.dart';
 
 class CardConfirm extends StatelessWidget {
-  const CardConfirm({super.key, required this.showbutton, required this.appointmentDetails});
+  const CardConfirm(
+      {super.key, required this.showbutton, required this.appointmentDetails, required this.statecontainer});
   final bool showbutton;
   final AppointmentDetails appointmentDetails;
+  final String statecontainer;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,7 +36,9 @@ class CardConfirm extends StatelessWidget {
               Positioned(
                 right: 12,
                 top: 16,
-                child: Containerstatebooking(),
+                child: Containerstatebooking(
+                  textstatecontainer: statecontainer,
+                ),
               ),
             ],
           ),

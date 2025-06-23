@@ -37,4 +37,28 @@ class UpcomingRepoImplementation extends UpcomingRepo {
       }
     }
   }
+
+  @override
+  Future<Either<String, UpcomingAppointment>> cancelAppointment() async {
+    try {
+      var response = await apiService.Get(
+        endpoint: BackendEndpoint.getcancelappointment,
+      );
+      log('Response: $response');
+      UpcomingAppointment upcomingAppointment =
+          UpcomingAppointment.fromJson(response);
+      return right(upcomingAppointment);
+    } catch (e) {
+      log('Error: $e');
+      if (e is DioException) {
+        if (e.response != null && e.response?.data != null) {
+          return left(e.response!.data['message'] ?? 'An error occurred');
+        } else {
+          return left('Connection timeout with ApiServer');
+        }
+      } else {
+        return left('Unexpected Error: $e');
+      }
+    }
+  }
 }

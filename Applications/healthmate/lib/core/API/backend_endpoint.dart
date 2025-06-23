@@ -33,5 +33,9 @@ class BackendEndpoint {
   static const getupcomingappointment =
       'http://10.0.2.2:8000/api/appointments/upcoming';
 
-  static const deleteAppointment = 'http://10.0.2.2:8000/api/appointments/cancel/';
+  static const deleteAppointment =
+      'http://10.0.2.2:8000/api/appointments/cancel/';
+
+  static const getcancelappointment =
+      'http://10.0.2.2:8000/api/appointments/canceled';
 }

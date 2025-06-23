@@ -3,4 +3,6 @@ import 'package:healthmate/features/confirm%20appointment/data/model/upcoming_mo
 
 abstract class UpcomingRepo {
   Future<Either<String , UpcomingAppointment>> getUpcomingAppointments();
+
+  Future<Either<String, UpcomingAppointment>> cancelAppointment();
 }

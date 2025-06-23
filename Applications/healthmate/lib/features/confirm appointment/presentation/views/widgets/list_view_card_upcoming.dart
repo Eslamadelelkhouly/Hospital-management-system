@@ -47,9 +47,14 @@ class _ListViewUpComingState extends State<ListViewUpComing> {
         },
         builder: (context, state) {
           return state is UpcomingError
-              ? Text(
-                  error,
-                  style: TextStyle(color: Colors.red),
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      error,
+                      style: TextStyle(color: Colors.red),
+                    ),
+                  ],
                 )
               : ListView.separated(
                   separatorBuilder: (context, index) => SizedBox(
@@ -58,6 +63,7 @@ class _ListViewUpComingState extends State<ListViewUpComing> {
                   padding: const EdgeInsets.all(0),
                   itemCount: upcomingAppointment.appointmentDetails.length,
                   itemBuilder: (context, index) => CardConfirm(
+                    statecontainer: 'Upcoming',
                     appointmentDetails:
                         upcomingAppointment.appointmentDetails[index],
                     showbutton: true,
