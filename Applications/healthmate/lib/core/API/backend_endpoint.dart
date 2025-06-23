@@ -40,4 +40,7 @@ class BackendEndpoint {
 
   static const getcancelappointment =
       'http://10.0.2.2:8000/api/appointments/canceled';
+
+  static const getdoctorbyName =
+      'http://10.0.2.2:8000/api/search/doctors/search?query=';
 }

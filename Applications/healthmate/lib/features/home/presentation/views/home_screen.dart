@@ -13,6 +13,7 @@ import 'package:healthmate/features/home/presentation/views/widgets/home_screen_
 import 'package:healthmate/features/medical%20test%20information/presentation/manager/cubit/get_medical_info_cubit.dart';
 import 'package:healthmate/features/message/presentation/views/message_screen.dart';
 import 'package:healthmate/features/personal/presentation/views/personal_screen.dart';
+import 'package:healthmate/features/search/manager/cubit/get_doctor_by_name_cubit.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -48,6 +49,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         BlocProvider(
           create: (context) => AddFavouriteCubit(),
+        ),
+        BlocProvider(
+          create: (context) => GetDoctorByNameCubit(),
         ),
       ],
       child: Scaffold(

@@ -30,13 +30,6 @@ class _ContainerListViewFavouriteState
           favoriteDoctorsResponse = state.favouriteDoctorsResponse;
           setState(() {});
         }
-        if (state is GetfavouritedoctorError) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.error.toString()),
-            ),
-          );
-        }
       },
       builder: (context, state) {
         return state is GetfavouritedoctorSuccess
@@ -61,7 +54,10 @@ class _ContainerListViewFavouriteState
               )
             : state is GetfavouritedoctorError
                 ? Center(
-                    child: Text(state.error['message']),
+                    child: Text(
+                      state.error['message'],
+                      style: const TextStyle(color: Colors.red),
+                    ),
                   )
                 : SizedBox();
       },

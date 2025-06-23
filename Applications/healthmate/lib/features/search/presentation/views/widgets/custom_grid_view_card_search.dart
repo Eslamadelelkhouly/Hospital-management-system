@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthmate/core/errors/failuers.dart';
 import 'package:healthmate/features/search/data/models/doctor_model.dart';
-import 'package:healthmate/features/search/manager/cubit/show_doctor_cubit.dart';
+import 'package:healthmate/features/search/manager/Show%20Doctor%20Cubit/show_doctor_cubit.dart';
 import 'package:healthmate/features/search/presentation/views/widgets/container_search.dart';
 
 class CustomGridViewCardSearch extends StatelessWidget {

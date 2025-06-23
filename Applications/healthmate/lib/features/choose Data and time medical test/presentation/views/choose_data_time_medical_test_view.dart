@@ -7,7 +7,7 @@ import 'package:healthmate/features/choose%20Data%20and%20time%20medical%20test/
 import 'package:healthmate/features/choose%20Data%20and%20time%20medical%20test/presentation/manager/Available%20time%20medical%20test%20cubit/avaliable_time_medical_test_cubit.dart';
 import 'package:healthmate/features/choose%20Data%20and%20time%20medical%20test/presentation/manager/Book%20Medical%20Test%20Cubit/book_medical_test_cubit.dart';
 import 'package:healthmate/features/choose%20Data%20and%20time%20medical%20test/presentation/views/widgets/choose_data_time_medical_test_view_body.dart';
-import 'package:healthmate/features/search/manager/cubit/show_doctor_cubit.dart';
+import 'package:healthmate/features/search/manager/Show%20Doctor%20Cubit/show_doctor_cubit.dart';
 
 class ChooseDataTimeMedicalTestView extends StatelessWidget {
   const ChooseDataTimeMedicalTestView({super.key});

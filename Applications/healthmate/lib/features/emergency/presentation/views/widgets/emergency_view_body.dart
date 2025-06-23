@@ -67,7 +67,7 @@ class EmergencyViewBody extends StatelessWidget {
               SizedBox(height: MediaQuery.of(context).size.height * 0.05),
               CustomButtonEmergency(
                 onPressed: () {
-                  makePhoneCall('0124');
+                  makePhoneCall('111');
                 },
                 text: 'Call',
                 width: MediaQuery.of(context).size.width * 0.8,

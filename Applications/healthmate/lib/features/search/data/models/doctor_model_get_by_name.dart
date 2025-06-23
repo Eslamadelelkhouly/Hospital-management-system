@@ -13,9 +13,9 @@ class DoctorSearch {
 
   factory DoctorSearch.fromJson(Map<String, dynamic> json) {
     return DoctorSearch(
-      doctors: List<Doctor>.from(
-        json['doctors'].map((x) => Doctor.fromJson(x)),
-      ),
+      doctors: (json['doctors'] as List)
+          .map((doctor) => Doctor.fromJson(doctor))
+          .toList(),
       message: json['message'],
       status: json['status'],
     );
@@ -29,6 +29,7 @@ class Doctor {
   final String fullName;
   final String specialization;
   final int experience;
+  final String rating;
   final String about;
   final String salary;
   final Map<String, List<String>> schedule;
@@ -41,6 +42,7 @@ class Doctor {
     required this.fullName,
     required this.specialization,
     required this.experience,
+    required this.rating,
     required this.about,
     required this.salary,
     required this.schedule,
@@ -55,6 +57,7 @@ class Doctor {
       fullName: json['full_name'],
       specialization: json['specialization'],
       experience: json['experience'],
+      rating: json['rating'],
       about: json['about'],
       salary: json['salary'],
       schedule: Map<String, List<String>>.from(

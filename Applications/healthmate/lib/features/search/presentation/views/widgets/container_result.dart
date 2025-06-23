@@ -7,23 +7,19 @@ import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/shared_perfernce_singletone.dart';
 import 'package:healthmate/core/utils/style.dart';
-import 'package:healthmate/features/search/data/models/doctor_model.dart';
+import 'package:healthmate/features/search/data/models/doctor_model_get_by_name.dart';
 
-class ContainerSearch extends StatefulWidget {
-  ContainerSearch({
-    super.key,
-    required this.doctor,
-  });
-  final Doctor doctor;
-  
+class ContainerResult extends StatefulWidget {
+  const ContainerResult({super.key, required this.doctorSearch});
+  final Doctor doctorSearch;
 
   @override
-  State<ContainerSearch> createState() => _ContainerSearchState();
+  State<ContainerResult> createState() => _ContainerResultState();
 }
 
-class _ContainerSearchState extends State<ContainerSearch> {
+class _ContainerResultState extends State<ContainerResult> {
   String tokeng = '';
-  @override
+
   @override
   void initState() {
     // TODO: implement initState
@@ -31,12 +27,13 @@ class _ContainerSearchState extends State<ContainerSearch> {
     tokeng = SharedPreferenceSingleton.getString(token);
   }
 
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(
           Routing.kdoctorscreen,
-          extra: widget.doctor.id.toString(),
+          extra: widget.doctorSearch.id.toString(),
         );
       },
       child: Container(
@@ -58,7 +55,8 @@ class _ContainerSearchState extends State<ContainerSearch> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(50).r,
                       child: CachedNetworkImage(
-                        imageUrl: widget.doctor.image.imageName,
+                        imageUrl:
+                            'http://10.0.2.2:8000/storage/${widget.doctorSearch.imageName}',
                         httpHeaders: {'Authorization': 'Bearer ${tokeng}'},
                         scale: 2.5,
                         fit: BoxFit.cover,
@@ -74,7 +72,7 @@ class _ContainerSearchState extends State<ContainerSearch> {
                   8.verticalSpace,
                   Text(
                     textAlign: TextAlign.center,
-                    'Dr. ${widget.doctor.firstName}',
+                    'Dr. ${widget.doctorSearch.firstName}',
                     style: StylingSystem.textStyle16Medium.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
@@ -87,7 +85,7 @@ class _ContainerSearchState extends State<ContainerSearch> {
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
-                      widget.doctor.information.about,
+                      widget.doctorSearch.about,
                       style: StylingSystem.textStyle11.copyWith(
                         color: ColorSystem.kGrayColor2,
                       ),
@@ -104,7 +102,7 @@ class _ContainerSearchState extends State<ContainerSearch> {
                   Image.asset(stargoldicon),
                   2.horizontalSpace,
                   Text(
-                    widget.doctor.rating,
+                    widget.doctorSearch.rating,
                     style: StylingSystem.textStyleSign12.copyWith(
                       fontWeight: FontWeight.w700,
                       color: ColorSystem.kPrimaryColor,
