@@ -39,25 +39,27 @@ class _CustomListViewContainerDoctorState
       },
       builder: (context, state) {
         return state is GettopdoctorSuccess
-            ? ListView.builder(
-                padding: const EdgeInsets.all(0),
-                scrollDirection: Axis.vertical,
-                itemCount: topDoctorsResponse.doctors.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: ContainerDoctor(
-                      image: topDoctorsResponse.doctors[index].image.imageName,
-                      id: topDoctorsResponse.doctors[index].id,
-                      rating: double.parse(
-                          topDoctorsResponse.doctors[index].rating),
-                      doctorName: topDoctorsResponse.doctors[index].firstName,
-                      specialty:
-                          topDoctorsResponse.doctors[index].specializationName,
-                    ),
-                  );
-                },
-              )
+            ? Expanded(
+              child: ListView.builder(
+                  padding: const EdgeInsets.all(0),
+                  scrollDirection: Axis.vertical,
+                  itemCount: topDoctorsResponse.doctors.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: ContainerDoctor(
+                        image: topDoctorsResponse.doctors[index].image.imageName,
+                        id: topDoctorsResponse.doctors[index].id,
+                        rating: double.parse(
+                            topDoctorsResponse.doctors[index].rating),
+                        doctorName: topDoctorsResponse.doctors[index].firstName,
+                        specialty:
+                            topDoctorsResponse.doctors[index].specializationName,
+                      ),
+                    );
+                  },
+                ),
+            )
             : state is GettopdoctorError
                 ? Center(
                     child: Text(
