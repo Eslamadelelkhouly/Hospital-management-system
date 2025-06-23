@@ -9,11 +9,11 @@ class DoctorScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Doctor doctor = GoRouterState.of(context).extra as Doctor;
+    final String idDoctor = GoRouterState.of(context).extra as String;
     return Scaffold(
       backgroundColor: ColorSystem.kbtnColorWhite,
       body: DoctorScreenBody(
-        doctor: doctor,
+        id: idDoctor,
       ),
     );
   }

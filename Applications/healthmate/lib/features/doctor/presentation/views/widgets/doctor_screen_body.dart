@@ -13,8 +13,8 @@ import 'package:healthmate/features/doctor/presentation/views/widgets/row_card_i
 import 'package:healthmate/features/search/data/models/doctor_model.dart';
 
 class DoctorScreenBody extends StatefulWidget {
-  const DoctorScreenBody({super.key, required this.doctor});
-  final Doctor doctor;
+  const DoctorScreenBody({super.key, required this.id});
+  final String id;
 
   @override
   State<DoctorScreenBody> createState() => _DoctorScreenBodyState();
@@ -24,22 +24,22 @@ class _DoctorScreenBodyState extends State<DoctorScreenBody> {
   List<Map<String, dynamic>> scheduleList = [];
 
   @override
-  void initState() {
-    super.initState();
-    try {
-      final scheduleMap = jsonDecode(widget.doctor.information.schedule)
-          as Map<String, dynamic>;
+  // void initState() {
+  //   super.initState();
+  //   try {
+  //     final scheduleMap = jsonDecode(widget.doctor.information.schedule)
+  //         as Map<String, dynamic>;
 
-      scheduleList = scheduleMap.entries.map((entry) {
-        return {
-          'day': entry.key,
-          'times': List<String>.from(entry.value),
-        };
-      }).toList();
-    } catch (e) {
-      scheduleList = [];
-    }
-  }
+  //     scheduleList = scheduleMap.entries.map((entry) {
+  //       return {
+  //         'day': entry.key,
+  //         'times': List<String>.from(entry.value),
+  //       };
+  //     }).toList();
+  //   } catch (e) {
+  //     scheduleList = [];
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
