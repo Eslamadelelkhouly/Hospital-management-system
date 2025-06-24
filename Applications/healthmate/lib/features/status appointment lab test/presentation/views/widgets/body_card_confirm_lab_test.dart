@@ -5,9 +5,17 @@ import 'package:healthmate/features/confirm%20appointment/presentation/views/wid
 import 'package:healthmate/features/status%20appointment%20lab%20test/presentation/views/widgets/custom_lis_tiel_confirm_card_lab_test.dart';
 
 class BodyCardConfirmLabTest extends StatefulWidget {
-  const BodyCardConfirmLabTest({super.key, required this.showbutton});
+  const BodyCardConfirmLabTest(
+      {super.key,
+      required this.showbutton,
+      required this.title,
+      required this.time,
+      required this.date});
 
   final bool showbutton;
+  final String title;
+  final String time;
+  final String date;
   @override
   State<BodyCardConfirmLabTest> createState() => _BodyCardConfirmLabTestState();
 }
@@ -26,7 +34,7 @@ class _BodyCardConfirmLabTestState extends State<BodyCardConfirmLabTest> {
         mainAxisSize: MainAxisSize.min,
         children: [
           CustomLisTielConfirmCardLabTest(
-            name: 'eslam',
+            name: '${widget.title}',
           ),
           const SizedBox(height: 8),
           Container(
@@ -39,8 +47,8 @@ class _BodyCardConfirmLabTestState extends State<BodyCardConfirmLabTest> {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: DateAndTimeRowCardConfirm(
-                date: 'date',
-                time: '13:00:00',
+                date: '${widget.date}',
+                time: '${widget.time}',
               ),
             ),
           ),
@@ -60,7 +68,7 @@ class _BodyCardConfirmLabTestState extends State<BodyCardConfirmLabTest> {
                   ),
                   CustomButtonConfirmation(
                     onPressed: () {},
-                    text: 'Payement',
+                    text: 'Checkout',
                     background: ColorSystem.kPrimaryColor,
                     textColor: Colors.white,
                     borderColor: ColorSystem.kPrimaryColor,

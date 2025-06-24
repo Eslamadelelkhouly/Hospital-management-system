@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:healthmate/features/confirm%20appointment/presentation/views/widgets/container_state_booking.dart';
 import 'package:healthmate/features/confirm%20appointment/presentation/views/widgets/title_card_confirm.dart';
+import 'package:healthmate/features/status%20appointment%20lab%20test/data/models/medical_test_state.dart';
 import 'package:healthmate/features/status%20appointment%20lab%20test/presentation/views/widgets/body_card_confirm_lab_test.dart';
 
 class CardConfirmLabTest extends StatelessWidget {
-  const CardConfirmLabTest({super.key});
-
+  const CardConfirmLabTest(
+      {super.key, required this.statebutton, required this.appointmentDetail});
+  final bool statebutton;
+  final AppointmentDetail appointmentDetail;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,7 +16,7 @@ class CardConfirmLabTest extends StatelessWidget {
       child: Column(
         children: [
           TitleCardConfirm(
-            date: '2025-06-26',
+            date: '${appointmentDetail.appointmentDate}',
           ),
           SizedBox(
             height: 16,
@@ -21,7 +24,10 @@ class CardConfirmLabTest extends StatelessWidget {
           Stack(
             children: [
               BodyCardConfirmLabTest(
-                showbutton: false,
+                date: '${appointmentDetail.appointmentDate}',
+                time: '${appointmentDetail.appointmentTime}',
+                title: '${appointmentDetail.testName}',
+                showbutton: statebutton,
               ),
               Positioned(
                 right: 12,

@@ -130,7 +130,6 @@ class _BodyCardConfirmationState extends State<BodyCardConfirmation> {
                             context
                                 .read<UpcomingCubit>()
                                 .getUpcomingappointment();
-                            
                           },
                           text: 'Cancel',
                           background: ColorSystem.kPrimaryColorHighLight,
@@ -139,7 +138,7 @@ class _BodyCardConfirmationState extends State<BodyCardConfirmation> {
                         ),
                         CustomButtonConfirmation(
                           onPressed: () {},
-                          text: 'Payement',
+                          text: 'Checkout',
                           background: ColorSystem.kPrimaryColor,
                           textColor: Colors.white,
                           borderColor: ColorSystem.kPrimaryColor,
