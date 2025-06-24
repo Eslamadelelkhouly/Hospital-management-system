@@ -6,6 +6,7 @@ import 'package:healthmate/features/confirm%20appointment/presentation/views/wid
 import 'package:healthmate/features/confirm%20appointment/presentation/views/widgets/list_view_card_upcoming.dart';
 import 'package:healthmate/features/confirm%20appointment/presentation/views/widgets/list_view_completed.dart';
 import 'package:healthmate/features/home/presentation/views/widgets/custom_search_text_field.dart';
+import 'package:healthmate/features/status%20appointment%20lab%20test/presentation/views/widgets/list_view_upcoming_lab_test.dart';
 
 class StatusAppointmentLabTestViewBody extends StatefulWidget {
   const StatusAppointmentLabTestViewBody({super.key});
@@ -67,7 +68,7 @@ class _StatusAppointmentLabTestViewBodyState extends State<StatusAppointmentLabT
             ),
           ),
           const SizedBox(height: 24),
-          if (selectedIndex == 0) const ListViewUpComing(),
+          if (selectedIndex == 0) const ListViewUpcomingLabTest(),
           if (selectedIndex == 1) ListViewCompleted(),
           if (selectedIndex == 2) const ListViewCancel(),
         ],
