@@ -69,7 +69,7 @@ class SettingScreenBody extends StatelessWidget {
             title: 'Lab Test',
             img: labtesticon,
             onTap: () {
-              GoRouter.of(context).push(Routing.klabtestscreen);
+              GoRouter.of(context).push(Routing.kconfirmlabtest);
             },
           ),
           16.verticalSpace,

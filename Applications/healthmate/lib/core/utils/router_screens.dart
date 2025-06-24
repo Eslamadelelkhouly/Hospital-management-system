@@ -22,6 +22,7 @@ import 'package:healthmate/features/settings/presentation/views/setting_screen.d
 import 'package:healthmate/features/splash/presentation/views/splash_init_screen.dart';
 import 'package:healthmate/features/splash/presentation/views/splash_screen.dart';
 import 'package:healthmate/features/splash/presentation/views/splash_screen_doctor.dart';
+import 'package:healthmate/features/status%20appointment%20lab%20test/presentation/views/status_appointment_lab_test_view.dart';
 
 abstract class Routing {
   static const KsplashinitScreen = '/';
@@ -48,6 +49,7 @@ abstract class Routing {
   static const kmedicaltestinformation = '/kmedicaltestinformation';
   static const kemergency = '/kemergency';
   static const kchooseMedicalTest = '/kchooseMedicalTest';
+  static const kconfirmlabtest = '/kconfirmlabtest';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -144,6 +146,11 @@ abstract class Routing {
       GoRoute(
         path: kconfirmappointment,
         builder: (context, state) => const ConfirmAppointmentScreen(),
+      ),
+
+      GoRoute(
+        path: kconfirmlabtest,
+        builder: (context, state) => const StatusAppointmentLabTestView(),
       ),
     ],
   );

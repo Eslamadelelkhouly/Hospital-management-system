@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,6 +9,7 @@ import 'package:table_calendar/table_calendar.dart';
 class CustomCelender extends StatefulWidget {
   const CustomCelender({super.key, required this.onChanged});
   final ValueChanged<String> onChanged;
+
   @override
   State<CustomCelender> createState() => _CustomCelenderState();
 }
@@ -24,14 +24,12 @@ class _CustomCelenderState extends State<CustomCelender> {
         datatimenow = day;
       });
       final formattedDate = DateFormat('yyyy-MM-dd').format(day);
-      setState(() {
-        widget.onChanged(formattedDate);
-      });
+      widget.onChanged(formattedDate);
       log(formattedDate);
     }
 
     return Container(
-      width: ScreenUtil().screenWidth * 0.8,
+      width: ScreenUtil().screenWidth * 0.9,
       decoration: BoxDecoration(
         color: ColorSystem.kbtnColorWhite,
         borderRadius: BorderRadius.circular(16),
@@ -48,12 +46,35 @@ class _CustomCelenderState extends State<CustomCelender> {
       child: TableCalendar(
         locale: 'en_US',
         focusedDay: datatimenow,
+        firstDay: DateTime.utc(2010, 10, 16),
+        lastDay: DateTime.utc(2030, 3, 14),
+        calendarFormat: CalendarFormat.month,
         availableGestures: AvailableGestures.all,
+        onDaySelected: _onSelectedDat,
+        selectedDayPredicate: (day) => isSameDay(day, datatimenow),
+        enabledDayPredicate: (day) {
+          final now = DateTime.now();
+          return !day.isBefore(DateTime(now.year, now.month, now.day));
+        },
+        headerStyle: HeaderStyle(
+          titleCentered: true,
+          formatButtonVisible: false,
+          titleTextStyle: GoogleFonts.inter(
+            fontSize: 15.sp,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         calendarStyle: CalendarStyle(
           tablePadding: const EdgeInsets.all(0),
-          defaultDecoration: const BoxDecoration(
+          defaultDecoration: BoxDecoration(
             color: Colors.transparent,
             shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          weekendDecoration: BoxDecoration(
+            color: Colors.transparent,
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(8),
           ),
           selectedDecoration: BoxDecoration(
             color: ColorSystem.kPrimaryColor,
@@ -74,22 +95,6 @@ class _CustomCelenderState extends State<CustomCelender> {
             color: ColorSystem.kbtnColorWhite,
           ),
         ),
-        selectedDayPredicate: (day) => isSameDay(day, datatimenow),
-        headerStyle: HeaderStyle(
-          titleCentered: true,
-          formatButtonVisible: false,
-          titleTextStyle: GoogleFonts.inter(
-            fontSize: 15.sp,
-          ),
-        ),
-        firstDay: DateTime.utc(2010, 10, 16),
-        lastDay: DateTime.utc(2030, 3, 14),
-        calendarFormat: CalendarFormat.month,
-        onDaySelected: _onSelectedDat,
-        enabledDayPredicate: (day) {
-          final now = DateTime.now();
-          return !day.isBefore(DateTime(now.year, now.month, now.day));
-        },
       ),
     );
   }
