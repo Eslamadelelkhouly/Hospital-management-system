@@ -67,7 +67,7 @@ class _LabTestBodyState extends State<LabTestBody> {
                 ),
                 30.verticalSpace,
                 CustomSearchTextField(
-                  onTap: (){},
+                  onTap: () {},
                   controller: TextEditingController(),
                 ),
                 16.verticalSpace,

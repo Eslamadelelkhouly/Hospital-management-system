@@ -43,4 +43,7 @@ class BackendEndpoint {
 
   static const getdoctorbyName =
       'http://10.0.2.2:8000/api/search/doctors/search?query=';
+
+  static const getUpcomingMedicalTest =
+      'http://10.0.2.2:8000/api/medical-test-appointments/upcoming';
 }

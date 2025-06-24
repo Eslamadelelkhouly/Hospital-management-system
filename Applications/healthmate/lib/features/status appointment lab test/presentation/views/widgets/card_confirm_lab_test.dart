@@ -27,7 +27,7 @@ class CardConfirmLabTest extends StatelessWidget {
                 right: 12,
                 top: 16,
                 child: Containerstatebooking(
-                  textstatecontainer: 'Cancelled',
+                  textstatecontainer: 'Upcoming',
                 ),
               ),
             ],
