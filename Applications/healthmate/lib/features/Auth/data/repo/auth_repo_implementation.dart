@@ -86,10 +86,59 @@ class AuthRepoImplementation implements AuthRepo {
       }
     }
   }
-  
+
   @override
-  Future<Either<String, String>> forgotPassword({required String email}) {
-    // TODO: implement forgotPassword
-    throw UnimplementedError();
+  Future<Either<String, String>> forgotPassword({required String email}) async {
+    try {
+      var response = await apiService.Post(
+        endpoint: BackendEndpoint.foretpassword,
+        data: {"email": email},
+      );
+      log(response['message']);
+      return right(response['message']);
+    } catch (e) {
+      if (e is DioException) {
+        log(e.toString());
+        if (e.response != null && e.response?.data != null) {
+          return left(e.response!.data['message'] ?? 'An error occurred');
+        } else {
+          return left('Connection timeout with ApiServer');
+        }
+      } else {
+        return left('Unexpected Error: $e');
+      }
+    }
+  }
+
+  @override
+  Future<Either<String, String>> verifyOtp(
+      {required String otp,
+      required String email,
+      required String password,
+      required String confirmpassword}) async {
+    try {
+      var response = await apiService.Post(
+        endpoint: BackendEndpoint.foretpassword,
+        data: {
+          "email": email,
+          "code":otp,
+          "password":password,
+          "password_confirmation":confirmpassword
+        },
+      );
+      log(response['message']);
+      return right(response['message']);
+    } catch (e) {
+      if (e is DioException) {
+        log(e.toString());
+        if (e.response != null && e.response?.data != null) {
+          return left(e.response!.data['message'] ?? 'An error occurred');
+        } else {
+          return left('Connection timeout with ApiServer');
+        }
+      } else {
+        return left('Unexpected Error: $e');
+      }
+    }
   }
 }

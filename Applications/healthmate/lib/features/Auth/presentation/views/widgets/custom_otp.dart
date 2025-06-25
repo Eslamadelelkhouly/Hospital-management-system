@@ -3,7 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 
 class CustomOtp extends StatefulWidget {
-  const CustomOtp({super.key});
+  const CustomOtp({super.key, this.onSaved});
+  final void Function(String?)? onSaved;
 
   @override
   State<CustomOtp> createState() => _CustomOtpState();
@@ -20,6 +21,10 @@ class _CustomOtpState extends State<CustomOtp> {
       width: 47,
       height: 50,
       child: TextFormField(
+        inputFormatters: [
+          FilteringTextInputFormatter.digitsOnly,
+        ],
+        onSaved: widget.onSaved,
         maxLength: 1,
         keyboardType: TextInputType.number,
         cursorColor: Colors.black,

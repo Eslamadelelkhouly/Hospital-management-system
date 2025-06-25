@@ -6,7 +6,8 @@ import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_form_verfication.dart';
 
 class VerificationScreenBody extends StatelessWidget {
-  const VerificationScreenBody({super.key});
+  const VerificationScreenBody({super.key, required this.email});
+  final String email;
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +73,8 @@ class VerificationScreenBody extends StatelessWidget {
                     children: [
                       Text(
                         'New Password',
-                        style: ResponsiveStylingSystem.textStyle18semibold(context),
+                        style: ResponsiveStylingSystem.textStyle18semibold(
+                            context),
                       ),
                     ],
                   ),
@@ -84,7 +86,9 @@ class VerificationScreenBody extends StatelessWidget {
                     children: [
                       Text(
                         '''Please write your new password''',
-                        style: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
+                        style:
+                            ResponsiveStylingSystem.textStyle14Medium(context)
+                                .copyWith(
                           color: const Color(0xff4F4E59),
                         ),
                       ),
@@ -93,7 +97,9 @@ class VerificationScreenBody extends StatelessWidget {
                   const SizedBox(
                     height: 36,
                   ),
-                  const CustomFormVerfication(),
+                  CustomFormVerfication(
+                    email: email,
+                  ),
                 ],
               ),
             ),

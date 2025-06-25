@@ -15,4 +15,11 @@ abstract class AuthRepo {
   Future<Either<String, String>> logOut();
 
   Future<Either<String, String>> forgotPassword({required String email});
+
+  Future<Either<String, String>> verifyOtp({
+    required String otp,
+    required String email,
+    required String password,
+    required String confirmpassword,
+  });
 }

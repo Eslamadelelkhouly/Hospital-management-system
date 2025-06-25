@@ -23,6 +23,41 @@ class ApiService {
     return response.data;
   }
 
+  Future<Map<String, dynamic>> PostRequire({
+    required String endpoint,
+    required dynamic data,
+    bool requiresToken = true, // افتراضيًا التوكن بيتبعت
+  }) async {
+    final response = await dio.post(
+      endpoint,
+      data: data,
+      options: Options(
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        extra: {
+          'requiresToken': requiresToken,
+        },
+      ),
+    );
+    return response.data;
+  }
+
+  Future<Map<String, dynamic>> PostNoTokenNoData(
+      {required String endpoint}) async {
+    var response = await dio.post(
+      '$endpoint',
+      options: Options(
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+      ),
+    );
+    return response.data;
+  }
+
   Future<Map<String, dynamic>> PostToken(
       {required String endpoint, required dynamic data}) async {
     try {
@@ -87,7 +122,7 @@ class ApiService {
     }
   }
 
- Future<Map<String, dynamic>> PostTokenNoData(
+  Future<Map<String, dynamic>> PostTokenNoData(
       {required String endpoint}) async {
     try {
       final String? barrertoken =
@@ -212,7 +247,7 @@ class ApiService {
     }
   }
 
-  Future<Map<String,dynamic>> Delete({required String endpoint}) async {
+  Future<Map<String, dynamic>> Delete({required String endpoint}) async {
     try {
       final String? barrertoken =
           await SharedPreferenceSingleton.getString(token);

@@ -6,7 +6,9 @@ import 'package:healthmate/features/Auth/presentation/views/widgets/custom_form_
 import 'package:healthmate/features/Auth/presentation/views/widgets/custom_logo_sign_in.dart';
 
 class ChangePasswordBody extends StatelessWidget {
-  const ChangePasswordBody({super.key});
+  const ChangePasswordBody({super.key, required this.otp, required this.email});
+  final String otp;
+  final String email;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +67,8 @@ class ChangePasswordBody extends StatelessWidget {
                     children: [
                       Text(
                         'Enter verification',
-                        style: ResponsiveStylingSystem.textStyle18semibold(context),
+                        style: ResponsiveStylingSystem.textStyle18semibold(
+                            context),
                       ),
                     ],
                   ),
@@ -74,15 +77,19 @@ class ChangePasswordBody extends StatelessWidget {
                     children: [
                       Text(
                         '''We've sent a code to hello@aiignui.com''',
-                        style: ResponsiveStylingSystem.textStyle14Medium(context)
-                            .copyWith(color: const Color(0xff4F4E59)),
+                        style:
+                            ResponsiveStylingSystem.textStyle14Medium(context)
+                                .copyWith(color: const Color(0xff4F4E59)),
                       ),
                     ],
                   ),
                   const SizedBox(
                     height: 36,
                   ),
-                  const CustomFormChangePassword(),
+                  CustomFormChangePassword(
+                    emial: email,
+                    OTP: otp,
+                  ),
                 ],
               ),
             ),

@@ -66,21 +66,26 @@ class ForgetPasswordBody extends StatelessWidget {
                     children: [
                       Text(
                         'Reset Password',
-                        style: ResponsiveStylingSystem.textStyle18semibold(context),
+                        style: ResponsiveStylingSystem.textStyle18semibold(
+                            context),
                       ),
                     ],
                   ),
                   8.verticalSpace,
                   Text.rich(
-                    TextSpan(children: [
-                      TextSpan(
-                        text:
-                            'Enter the email associated with your account and we’ll send an email with instructions to reset your password',
-                        style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
-                          color: const Color(0xff4F4E59),
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text:
+                              'Enter the email associated with your account and we’ll send an email with instructions to reset your password',
+                          style:
+                              ResponsiveStylingSystem.textStyle16Medium(context)
+                                  .copyWith(
+                            color: const Color(0xff4F4E59),
+                          ),
                         ),
-                      ),
-                    ]),
+                      ],
+                    ),
                   ),
                   40.verticalSpace,
                   const CustomFormForgetPassword(),
