@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:healthmate/core/API/api_service.dart';
@@ -43,16 +45,17 @@ class AuthRepoImplementation implements AuthRepo {
 
   @override
   Future<Either<Failures, Map<String, dynamic>>> logIn(
-      {required String email, required String password})async {
+      {required String email, required String password}) async {
     try {
-      UserLoginModel userLoginModel = UserLoginModel(email: email, password: password);
+      UserLoginModel userLoginModel =
+          UserLoginModel(email: email, password: password);
       var response = await apiService.Post(
         endpoint: BackendEndpoint.endpointlogin,
         data: userLoginModel.toMap(),
-        );
-        
-        return right(response);
-    }catch (e) {
+      );
+
+      return right(response);
+    } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
       } else {
@@ -61,10 +64,26 @@ class AuthRepoImplementation implements AuthRepo {
       }
     }
   }
-  
+
   @override
-  Future<Either<Failures, Map<String, dynamic>>> logOut() {
-    // TODO: implement logOut
-    throw UnimplementedError();
+  Future<Either<String, String>> logOut() async {
+    try {
+      var response = await apiService.Post(
+        endpoint: BackendEndpoint.logout,
+        data: {},
+      );
+      return right(response['message']);
+    } catch (e) {
+      if (e is DioException) {
+        log(e.toString());
+        if (e.response != null && e.response?.data != null) {
+          return left(e.response!.data['message'] ?? 'An error occurred');
+        } else {
+          return left('Connection timeout with ApiServer');
+        }
+      } else {
+        return left('Unexpected Error: $e');
+      }
+    }
   }
 }

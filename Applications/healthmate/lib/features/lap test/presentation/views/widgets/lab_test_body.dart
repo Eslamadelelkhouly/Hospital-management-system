@@ -6,8 +6,8 @@ import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/features/home/presentation/views/widgets/custom_search_text_field.dart';
+import 'package:healthmate/features/lap%20test/presentation/views/manager/cubit/get_medical_test_by_name_cubit.dart';
 import 'package:healthmate/features/lap%20test/presentation/views/manager/get_lab_test_cubit/get_lab_test_cubit.dart';
-import 'package:healthmate/features/lap%20test/presentation/views/manager/get_medical_test_by_name_vubit/get_medical_test_by_name_cubit.dart';
 import 'package:healthmate/features/lap%20test/presentation/views/widgets/list_view_card_lab_test.dart';
 import 'package:healthmate/features/lap%20test/presentation/views/widgets/list_view_lab_test_search.dart';
 

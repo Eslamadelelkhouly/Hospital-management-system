@@ -53,4 +53,5 @@ class BackendEndpoint {
       'http://10.0.2.2:8000/api/medical-test-appointments/canceled';
   static const getmedicaltestsearch =
       'http://10.0.2.2:8000/api/search/medical-tests/search?query=';
+  static const logout = 'http://10.0.2.2:8000/api/patient-group/patient/logout';
 }
