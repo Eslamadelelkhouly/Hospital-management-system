@@ -29,11 +29,11 @@ class CustomCardDoctor extends StatelessWidget {
               children: [
                 Text(
                   'Dr. ' + doctor.firstName + ' ' + doctor.lastName,
-                  style: StylingSystem.textStyle17semibold,
+                  style: ResponsiveStylingSystem.textStyle17semibold(context),
                 ),
                 Text(
                   doctor.specialization.name,
-                  style: StylingSystem.textStyle16Medium,
+                  style: ResponsiveStylingSystem.textStyle16Medium(context),
                 ),
                 8.verticalSpace,
                 RowSocialCardDoctorPersonal(

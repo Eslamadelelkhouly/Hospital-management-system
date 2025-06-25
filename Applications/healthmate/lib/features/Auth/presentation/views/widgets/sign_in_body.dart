@@ -54,7 +54,7 @@ class SignInBody extends StatelessWidget {
                 ),
                 Text(
                   MangementString.title,
-                  style: StylingSystem.textStyleTitle.copyWith(
+                  style: ResponsiveStylingSystem.textStyleTitle(context).copyWith(
                     color: ColorSystem.kColorBlack,
                   ),
                 ),

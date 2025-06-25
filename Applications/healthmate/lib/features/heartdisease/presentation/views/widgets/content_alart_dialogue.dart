@@ -31,7 +31,7 @@ class ContentAlartDialog extends StatelessWidget {
           ),
           Text(
             'Prediction : ${heartDiseasePredictionModel.prediction}',
-            style: StylingSystem.textStyle17semibold,
+            style: ResponsiveStylingSystem.textStyle17semibold(context),
           ),
           SizedBox(
             height: 20,

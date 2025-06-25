@@ -19,7 +19,7 @@ class Containerstatebooking extends StatelessWidget {
         padding: const EdgeInsets.all(3),
         child: Text(
           '$textstatecontainer',
-          style: StylingSystem.textStyle11.copyWith(
+          style: ResponsiveStylingSystem.textStyle11(context).copyWith(
             color: ColorSystem.kPrimaryColor,
           ),
         ),

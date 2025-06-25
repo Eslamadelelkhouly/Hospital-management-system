@@ -30,7 +30,7 @@ class _ListTielNotificationState extends State<ListTielNotification> {
         ),
         title: Text(
           'Notification',
-          style: StylingSystem.textStyle16Medium.copyWith(
+          style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
             color: Color(0xff83818E),
           ),
         ),

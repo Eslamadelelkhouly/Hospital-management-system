@@ -30,7 +30,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
       children: [
         Text(
           'Password',
-          style: StylingSystem.textStyle15bold,
+          style: ResponsiveStylingSystem.textStyle15bold(context),
         ),
         const SizedBox(
           height: 2,
@@ -51,7 +51,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
             obscureText: widget.eyepassword,
             decoration: InputDecoration(
               hintText: '**************',
-              hintStyle: StylingSystem.textStyle14Medium.copyWith(
+              hintStyle: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
                 color: Colors.grey,
               ),
               suffixIcon: IconButton(
@@ -94,7 +94,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
         ),
         Text(
           widget.texterror,
-          style: StylingSystem.textStyleSign12.copyWith(
+          style: ResponsiveStylingSystem.textStyleSign12(context).copyWith(
             color: Colors.red,
           ),
         ),

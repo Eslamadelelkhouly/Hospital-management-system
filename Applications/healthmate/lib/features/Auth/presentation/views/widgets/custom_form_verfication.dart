@@ -35,11 +35,11 @@ class CustomFormVerfication extends StatelessWidget {
             children: [
               Text(
                 '''Didn't receive code? ''',
-                style: StylingSystem.textStyle14Medium,
+                style: ResponsiveStylingSystem.textStyle14Medium(context),
               ),
               Text(
                 '''Resend Now''',
-                style: StylingSystem.textStyle14Medium.copyWith(
+                style: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
                   color: ColorSystem.kPrimaryColor,
                 ),
               ),

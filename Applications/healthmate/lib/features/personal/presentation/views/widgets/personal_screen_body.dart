@@ -73,11 +73,11 @@ class _PersonalScreenBodyState extends State<PersonalScreenBody> {
                   personalInfoModel.fullName.isNotEmpty
                       ? personalInfoModel.fullName
                       : 'Mohamed Ahmed',
-                  style: StylingSystem.textStyle18semibold,
+                  style: ResponsiveStylingSystem.textStyle18semibold(context),
                 ),
                 Text(
                   'Active since - Jan 2025',
-                  style: StylingSystem.textStyle14Medium.copyWith(
+                  style: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
                     color: ColorSystem.kGrayColor2,
                     fontWeight: FontWeight.w600,
                   ),
@@ -89,7 +89,7 @@ class _PersonalScreenBodyState extends State<PersonalScreenBody> {
                   children: [
                     Text(
                       'Personal Information',
-                      style: StylingSystem.textStyle20semibold,
+                      style:ResponsiveStylingSystem.textStyle20semibold(context),
                     ),
                   ],
                 ),

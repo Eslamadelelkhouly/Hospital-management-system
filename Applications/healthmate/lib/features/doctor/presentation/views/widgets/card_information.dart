@@ -25,7 +25,7 @@ class CardInformation extends StatelessWidget {
           8.verticalSpace,
           Text(
             text,
-            style: StylingSystem.textStyle16Medium.copyWith(
+            style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -34,7 +34,7 @@ class CardInformation extends StatelessWidget {
           6.verticalSpace,
           Text(
             subtext,
-            style: StylingSystem.textStyle16Medium.copyWith(
+            style:ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
               fontWeight: FontWeight.w600,
             ),
           ),

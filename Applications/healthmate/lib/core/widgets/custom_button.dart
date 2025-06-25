@@ -33,7 +33,7 @@ class CustomButton extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: StylingSystem.textStyleSubtitles2.copyWith(
+          style: ResponsiveStylingSystem.textStyleSubtitles2(context).copyWith(
             color: textColor,
           ),
         ),

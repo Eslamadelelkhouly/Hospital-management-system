@@ -27,7 +27,7 @@ class CustomSearchTextField extends StatelessWidget {
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
           hintText: 'Search Doctor',
-          hintStyle: StylingSystem.textStyle14Medium.copyWith(
+          hintStyle: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
             color: ColorSystem.kGrayColor2,
           ),
           prefixIcon: GestureDetector(

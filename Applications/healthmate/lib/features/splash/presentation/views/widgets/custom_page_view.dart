@@ -49,7 +49,7 @@ class CustomPageView extends StatelessWidget {
                     children: [
                       Text(
                         controller.onBoardingData[index].title,
-                        style: StylingSystem.textStyle24bold,
+                        style: ResponsiveStylingSystem.textStyle24bold(context),
                       ),
                     ],
                   ),
@@ -62,7 +62,7 @@ class CustomPageView extends StatelessWidget {
                     padding: const EdgeInsets.all(20).r,
                     child: Text(
                       controller.onBoardingData[index].description,
-                      style: StylingSystem.textStyleSubtitles2,
+                      style: ResponsiveStylingSystem.textStyleSubtitles2(context),
                       textAlign: TextAlign.center,
                     ),
                   ),

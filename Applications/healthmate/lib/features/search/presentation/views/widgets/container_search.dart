@@ -15,7 +15,6 @@ class ContainerSearch extends StatefulWidget {
     required this.doctor,
   });
   final Doctor doctor;
-  
 
   @override
   State<ContainerSearch> createState() => _ContainerSearchState();
@@ -58,7 +57,7 @@ class _ContainerSearchState extends State<ContainerSearch> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(50).r,
                       child: CachedNetworkImage(
-                        imageUrl: widget.doctor.image.imageName,
+                        imageUrl: '${widget.doctor.image.imageName}',
                         httpHeaders: {'Authorization': 'Bearer ${tokeng}'},
                         scale: 2.5,
                         fit: BoxFit.cover,
@@ -75,7 +74,8 @@ class _ContainerSearchState extends State<ContainerSearch> {
                   Text(
                     textAlign: TextAlign.center,
                     'Dr. ${widget.doctor.firstName}',
-                    style: StylingSystem.textStyle16Medium.copyWith(
+                    style: ResponsiveStylingSystem.textStyle16Medium(context)
+                        .copyWith(
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -88,7 +88,8 @@ class _ContainerSearchState extends State<ContainerSearch> {
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                       widget.doctor.information.about,
-                      style: StylingSystem.textStyle11.copyWith(
+                      style:
+                          ResponsiveStylingSystem.textStyle11(context).copyWith(
                         color: ColorSystem.kGrayColor2,
                       ),
                     ),
@@ -105,7 +106,8 @@ class _ContainerSearchState extends State<ContainerSearch> {
                   2.horizontalSpace,
                   Text(
                     widget.doctor.rating,
-                    style: StylingSystem.textStyleSign12.copyWith(
+                    style: ResponsiveStylingSystem.textStyleSign12(context)
+                        .copyWith(
                       fontWeight: FontWeight.w700,
                       color: ColorSystem.kPrimaryColor,
                     ),

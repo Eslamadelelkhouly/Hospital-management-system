@@ -20,7 +20,7 @@ class AiModelScreenBody extends StatelessWidget {
             30.verticalSpace,
             const CustomAppBar(
               title: 'AI Models',
-              stateicon: true,
+              stateicon: false,
             ),
             30.verticalSpace,
             Expanded(

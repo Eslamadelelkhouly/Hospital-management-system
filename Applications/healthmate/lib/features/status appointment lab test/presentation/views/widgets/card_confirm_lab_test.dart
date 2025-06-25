@@ -6,9 +6,13 @@ import 'package:healthmate/features/status%20appointment%20lab%20test/presentati
 
 class CardConfirmLabTest extends StatelessWidget {
   const CardConfirmLabTest(
-      {super.key, required this.statebutton, required this.appointmentDetail});
+      {super.key,
+      required this.statebutton,
+      required this.appointmentDetail,
+      required this.titleCard});
   final bool statebutton;
   final AppointmentDetail appointmentDetail;
+  final String titleCard;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,6 +28,7 @@ class CardConfirmLabTest extends StatelessWidget {
           Stack(
             children: [
               BodyCardConfirmLabTest(
+                id: '${appointmentDetail.appointmentId}',
                 date: '${appointmentDetail.appointmentDate}',
                 time: '${appointmentDetail.appointmentTime}',
                 title: '${appointmentDetail.testName}',
@@ -33,7 +38,7 @@ class CardConfirmLabTest extends StatelessWidget {
                 right: 12,
                 top: 16,
                 child: Containerstatebooking(
-                  textstatecontainer: 'Upcoming',
+                  textstatecontainer: '${titleCard}',
                 ),
               ),
             ],

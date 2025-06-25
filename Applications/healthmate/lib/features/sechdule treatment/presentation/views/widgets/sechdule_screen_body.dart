@@ -55,7 +55,7 @@ class _SechduleScreenBodyState extends State<SechduleScreenBody> {
               SizedBox(height: 16),
               Image.asset(isError ? failureimage : sucessimage, scale: 1.5),
               SizedBox(height: 16),
-              Text(text, style: StylingSystem.textStyle17semibold),
+              Text(text, style: ResponsiveStylingSystem.textStyle17semibold(context)),
             ],
           ),
           actions: [
@@ -122,7 +122,7 @@ class _SechduleScreenBodyState extends State<SechduleScreenBody> {
                   children: [
                     25.horizontalSpace,
                     Text('Available time',
-                        style: StylingSystem.textStyle20semibold),
+                        style: ResponsiveStylingSystem.textStyle20semibold(context)),
                   ],
                 ),
                 8.verticalSpace,

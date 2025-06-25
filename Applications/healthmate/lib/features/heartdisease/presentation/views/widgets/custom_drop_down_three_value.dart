@@ -32,7 +32,7 @@ class CustomDropDownThreeValue extends StatelessWidget {
         children: [
           Text(
             hinttext,
-            style: StylingSystem.textStyle15bold,
+            style: ResponsiveStylingSystem.textStyle15bold(context),
           ),
           2.verticalSpace,
           DropDownTextField(
@@ -63,7 +63,7 @@ class CustomDropDownThreeValue extends StatelessWidget {
           ),
           Text(
             texterror,
-            style: StylingSystem.textStyleSign12.copyWith(
+            style: ResponsiveStylingSystem.textStyleSign12(context).copyWith(
               color: Colors.red,
             ),
           ),

@@ -33,4 +33,28 @@ class GetStateMedicalTestRepoImplementaion extends GetStateMedicalTestRepo {
       }
     }
   }
+  
+  @override
+  Future<Either<String, MedicalTestState>> getCancel() async{
+    try {
+      var response = await apiService.Get(
+        endpoint: BackendEndpoint.getcancelmedicaltest,
+      );
+      log('Response: $response');
+      MedicalTestState upcomingAppointment =
+          MedicalTestState.fromJson(response);
+      return right(upcomingAppointment);
+    } catch (e) {
+      log('Error: $e');
+      if (e is DioException) {
+        if (e.response != null && e.response?.data != null) {
+          return left(e.response!.data['message'] ?? 'An error occurred');
+        } else {
+          return left('Connection timeout with ApiServer');
+        }
+      } else {
+        return left('Unexpected Error: $e');
+      }
+    }
+  }
 }

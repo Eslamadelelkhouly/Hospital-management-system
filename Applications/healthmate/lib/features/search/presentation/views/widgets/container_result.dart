@@ -73,7 +73,7 @@ class _ContainerResultState extends State<ContainerResult> {
                   Text(
                     textAlign: TextAlign.center,
                     'Dr. ${widget.doctorSearch.firstName}',
-                    style: StylingSystem.textStyle16Medium.copyWith(
+                    style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -86,7 +86,7 @@ class _ContainerResultState extends State<ContainerResult> {
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                       widget.doctorSearch.about,
-                      style: StylingSystem.textStyle11.copyWith(
+                      style: ResponsiveStylingSystem.textStyle11(context).copyWith(
                         color: ColorSystem.kGrayColor2,
                       ),
                     ),
@@ -103,7 +103,7 @@ class _ContainerResultState extends State<ContainerResult> {
                   2.horizontalSpace,
                   Text(
                     widget.doctorSearch.rating,
-                    style: StylingSystem.textStyleSign12.copyWith(
+                    style: ResponsiveStylingSystem.textStyleSign12(context).copyWith(
                       fontWeight: FontWeight.w700,
                       color: ColorSystem.kPrimaryColor,
                     ),

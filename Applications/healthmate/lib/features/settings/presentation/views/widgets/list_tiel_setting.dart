@@ -28,7 +28,7 @@ class ListTielSetting extends StatelessWidget {
         ),
         title: Text(
           title,
-          style: StylingSystem.textStyle16Medium.copyWith(
+          style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
             color: const Color(0xff83818E),
           ),
         ),

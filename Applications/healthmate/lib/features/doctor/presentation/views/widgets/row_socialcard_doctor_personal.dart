@@ -26,7 +26,7 @@ class RowSocialCardDoctorPersonal extends StatelessWidget {
         3.horizontalSpace,
         Text(
           text,
-          style: StylingSystem.textStyle16Medium,
+          style: ResponsiveStylingSystem.textStyle16Medium(context),
         ),
       ],
     );

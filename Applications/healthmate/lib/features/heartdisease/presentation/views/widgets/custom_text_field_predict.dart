@@ -26,7 +26,7 @@ class CustomTextFieldPredict extends StatelessWidget {
       children: [
         Text(
           text,
-          style: StylingSystem.textStyle15bold,
+          style: ResponsiveStylingSystem.textStyle15bold(context),
         ),
         2.verticalSpace,
         Container(
@@ -43,8 +43,8 @@ class CustomTextFieldPredict extends StatelessWidget {
             cursorColor: ColorSystem.kPrimaryColor,
             decoration: InputDecoration(
               hintText: hinttext,
-              hintStyle:
-                  StylingSystem.textStyle14Medium.copyWith(color: Colors.grey),
+              hintStyle: ResponsiveStylingSystem.textStyle14Medium(context)
+                  .copyWith(color: Colors.grey),
               filled: true,
               fillColor: ColorSystem.kbtnColorblue,
               focusedBorder: OutlineInputBorder(
@@ -69,7 +69,7 @@ class CustomTextFieldPredict extends StatelessWidget {
         ),
         Text(
           texterror,
-          style: StylingSystem.textStyleSign12.copyWith(
+          style: ResponsiveStylingSystem.textStyleSign12(context).copyWith(
             color: Colors.red,
           ),
         ),

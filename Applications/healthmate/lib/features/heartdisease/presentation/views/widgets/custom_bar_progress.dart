@@ -18,7 +18,7 @@ class CustomBarProgress extends StatelessWidget {
       backgroundColor: ColorSystem.kPrimaryColorLight,
       center: Text(
         '${value.toString()}',
-        style: StylingSystem.textStyle15bold.copyWith(
+        style: ResponsiveStylingSystem.textStyle15bold(context).copyWith(
           color: Colors.white,
         ),
       ),

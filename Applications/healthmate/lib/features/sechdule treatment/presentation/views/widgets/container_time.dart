@@ -52,7 +52,7 @@ class _ContainerTimeState extends State<ContainerTime> {
           child: Center(
             child: Text(
               widget.time,
-              style: StylingSystem.textStyle14Medium.copyWith(
+              style: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
                 fontWeight: FontWeight.w600,
                 color: textColor,
               ),

@@ -55,7 +55,7 @@ class ChangePasswordBody extends StatelessWidget {
                   const CustomLogoSignIn(),
                   Text(
                     'Health Mate',
-                    style: StylingSystem.textStyle24bold,
+                    style: ResponsiveStylingSystem.textStyle24bold(context),
                   ),
                   const SizedBox(
                     height: 32,
@@ -65,7 +65,7 @@ class ChangePasswordBody extends StatelessWidget {
                     children: [
                       Text(
                         'Enter verification',
-                        style: StylingSystem.textStyle18semibold,
+                        style: ResponsiveStylingSystem.textStyle18semibold(context),
                       ),
                     ],
                   ),
@@ -74,7 +74,7 @@ class ChangePasswordBody extends StatelessWidget {
                     children: [
                       Text(
                         '''We've sent a code to hello@aiignui.com''',
-                        style: StylingSystem.textStyle14Medium
+                        style: ResponsiveStylingSystem.textStyle14Medium(context)
                             .copyWith(color: const Color(0xff4F4E59)),
                       ),
                     ],

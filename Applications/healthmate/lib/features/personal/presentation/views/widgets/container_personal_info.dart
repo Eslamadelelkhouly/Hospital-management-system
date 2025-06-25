@@ -23,14 +23,14 @@ class ContainerPersonalInfo extends StatelessWidget {
           children: [
             Text(
               text1,
-              style: StylingSystem.textStyle16Medium.copyWith(
+              style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
                 fontWeight: FontWeight.w600,
               ),
             ),
             6.verticalSpace,
             Text(
               text2,
-              style: StylingSystem.textStyle16Medium.copyWith(
+              style:ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
                 fontWeight: FontWeight.w600,
               ),
             ),

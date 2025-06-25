@@ -50,7 +50,7 @@ class SignUpBody extends StatelessWidget {
                 const CustomLogoSignIn(),
                 Text(
                   MangementString.title,
-                  style: StylingSystem.textStyleTitle.copyWith(
+                  style: ResponsiveStylingSystem.textStyleTitle(context).copyWith(
                     color: ColorSystem.kColorBlack,
                   ),
                 ),

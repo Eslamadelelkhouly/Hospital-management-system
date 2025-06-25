@@ -18,7 +18,7 @@ class RowTextHome extends StatelessWidget {
         children: [
           Text(
             'Top doctors',
-            style: StylingSystem.textStyle20semibold,
+            style:ResponsiveStylingSystem.textStyle20semibold(context),
           ),
           TextButton(
             onPressed: () {
@@ -26,7 +26,7 @@ class RowTextHome extends StatelessWidget {
             },
             child: Text(
               'See more',
-              style: StylingSystem.textStyle14Medium.copyWith(
+              style:ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
                 color: ColorSystem.kPrimaryColor,
               ),
             ),

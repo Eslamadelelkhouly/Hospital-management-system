@@ -3,4 +3,5 @@ import 'package:healthmate/features/status%20appointment%20lab%20test/data/model
 
 abstract class GetStateMedicalTestRepo {
   Future<Either<String, MedicalTestState>> getUpcoming();
+  Future<Either<String, MedicalTestState>> getCancel();
 }

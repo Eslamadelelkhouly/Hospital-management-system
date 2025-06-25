@@ -35,7 +35,7 @@ class _DateAndTimeRowCardConfirmState extends State<DateAndTimeRowCardConfirm> {
         const SizedBox(width: 8),
         Text(
           '${widget.date}',
-          style: StylingSystem.textStyle14Medium.copyWith(
+          style: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
             color: ColorSystem.kPrimaryColor,
           ),
         ),
@@ -53,7 +53,7 @@ class _DateAndTimeRowCardConfirmState extends State<DateAndTimeRowCardConfirm> {
         const SizedBox(width: 8),
         Text(
           '${formattedTime}',
-          style: StylingSystem.textStyle14Medium.copyWith(
+          style: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
             color: ColorSystem.kPrimaryColor,
           ),
         ),

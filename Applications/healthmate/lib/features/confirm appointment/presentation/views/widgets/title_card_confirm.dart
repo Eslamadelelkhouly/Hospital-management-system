@@ -25,11 +25,11 @@ class _TitleCardConfirmState extends State<TitleCardConfirm> {
       children: [
         Text(
           'Today’s Appointments',
-          style: StylingSystem.textStyle18semibold,
+          style: ResponsiveStylingSystem.textStyle18semibold(context),
         ),
         Text(
           '$formattedDate',
-          style: StylingSystem.textStyleSign12
+          style: ResponsiveStylingSystem.textStyleSign12(context)
               .copyWith(color: ColorSystem.kPrimaryColor),
         ),
       ],

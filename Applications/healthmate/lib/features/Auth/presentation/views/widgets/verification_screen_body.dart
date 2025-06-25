@@ -62,7 +62,7 @@ class VerificationScreenBody extends StatelessWidget {
                   ),
                   Text(
                     'Health Mate',
-                    style: StylingSystem.textStyle24bold,
+                    style: ResponsiveStylingSystem.textStyle24bold(context),
                   ),
                   const SizedBox(
                     height: 32,
@@ -72,7 +72,7 @@ class VerificationScreenBody extends StatelessWidget {
                     children: [
                       Text(
                         'New Password',
-                        style: StylingSystem.textStyle18semibold,
+                        style: ResponsiveStylingSystem.textStyle18semibold(context),
                       ),
                     ],
                   ),
@@ -84,7 +84,7 @@ class VerificationScreenBody extends StatelessWidget {
                     children: [
                       Text(
                         '''Please write your new password''',
-                        style: StylingSystem.textStyle14Medium.copyWith(
+                        style: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
                           color: const Color(0xff4F4E59),
                         ),
                       ),

@@ -33,7 +33,7 @@ class SplashSliderWidget extends StatelessWidget {
         Text(
           title,
           textAlign: TextAlign.center,
-          style: StylingSystem.textStyle24bold,
+          style:ResponsiveStylingSystem.textStyle24bold(context),
         ),
         (ScreenUtil().screenHeight * 0.01).verticalSpace,
          Container(
@@ -42,7 +42,7 @@ class SplashSliderWidget extends StatelessWidget {
           child: Text(
             textAlign: TextAlign.start,
             description,
-            style: StylingSystem.textStyleSubtitles2,
+            style: ResponsiveStylingSystem.textStyleSubtitles2(context),
             maxLines: 3,
           ),
         ),

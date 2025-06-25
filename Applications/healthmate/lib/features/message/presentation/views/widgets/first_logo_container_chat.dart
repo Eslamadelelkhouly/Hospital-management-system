@@ -27,11 +27,11 @@ class FirstLogoContainerChat extends StatelessWidget {
               ),
               Text(
                 'Hi, I’m ChatMate',
-                style: StylingSystem.textStyle18semibold,
+                style: ResponsiveStylingSystem.textStyle18semibold(context),
               ),
               Text(
                 'How can i help you today?',
-                style: StylingSystem.textStyle14Medium.copyWith(
+                style:ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
                   fontWeight: FontWeight.w600,
                 ),
               ),

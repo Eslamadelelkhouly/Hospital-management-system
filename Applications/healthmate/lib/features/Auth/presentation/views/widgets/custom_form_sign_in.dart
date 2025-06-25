@@ -103,7 +103,7 @@ class _CustomFormSignInState extends State<CustomFormSignIn> {
                     },
                     child: Text(
                       'Forget password?',
-                      style: StylingSystem.textStyle16Medium.copyWith(
+                      style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
                         color: Color(0xff83818E),
                       ),
                     ),
@@ -140,7 +140,7 @@ class _CustomFormSignInState extends State<CustomFormSignIn> {
               children: [
                 Text(
                   'don’t have an account?  ',
-                  style: StylingSystem.textStyle14Medium,
+                  style: ResponsiveStylingSystem.textStyle14Medium(context),
                 ),
                 GestureDetector(
                   onTap: () {
@@ -148,7 +148,7 @@ class _CustomFormSignInState extends State<CustomFormSignIn> {
                   },
                   child: Text(
                     'Create Account',
-                    style: StylingSystem.textStyle14Medium.copyWith(
+                    style: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
                       color: ColorSystem.kPrimaryColor,
                     ),
                   ),

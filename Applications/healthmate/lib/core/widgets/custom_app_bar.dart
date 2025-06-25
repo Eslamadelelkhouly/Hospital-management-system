@@ -35,7 +35,7 @@ class CustomAppBar extends StatelessWidget {
             Text(
               textAlign: TextAlign.center,
               title,
-              style: StylingSystem.textStyle24bold,
+              style: ResponsiveStylingSystem.textStyle24bold(context),
             ),
           ],
         ),

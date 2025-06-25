@@ -13,7 +13,7 @@ class CustomSubtitleListTiel extends StatelessWidget {
       children: [
         Text(
           'Good Morning ',
-          style: StylingSystem.textStyle14Medium,
+          style: ResponsiveStylingSystem.textStyle14Medium(context),
         ),
         SizedBox(
           width: 6,

@@ -61,4 +61,10 @@ class AuthRepoImplementation implements AuthRepo {
       }
     }
   }
+  
+  @override
+  Future<Either<Failures, Map<String, dynamic>>> logOut() {
+    // TODO: implement logOut
+    throw UnimplementedError();
+  }
 }

@@ -13,7 +13,7 @@ class CustomTextBottomSignUp extends StatelessWidget {
       children: [
         Text(
           'By continuing , you agree to',
-          style: StylingSystem.textStyleSign12.copyWith(
+          style: ResponsiveStylingSystem.textStyleSign12(context).copyWith(
             color: ColorSystem.kGrayColor2,
           ),
         ),
@@ -22,19 +22,21 @@ class CustomTextBottomSignUp extends StatelessWidget {
             children: <TextSpan>[
               TextSpan(
                 text: 'Terms of Use',
-                style: StylingSystem.textStyleSign12.copyWith(
+                style:
+                    ResponsiveStylingSystem.textStyleSign12(context).copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
               TextSpan(
                 text: ' and ',
-                style: StylingSystem.textStyleSign12.copyWith(
+                style:
+                    ResponsiveStylingSystem.textStyleSign12(context).copyWith(
                   color: ColorSystem.kGrayColor2,
                 ),
               ),
               TextSpan(
                 text: 'Privacy Policy',
-                style: StylingSystem.textStyleSign12.copyWith(
+                style: ResponsiveStylingSystem.textStyleSign12(context).copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),

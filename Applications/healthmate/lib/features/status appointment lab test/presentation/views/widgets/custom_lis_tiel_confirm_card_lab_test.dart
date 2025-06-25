@@ -10,7 +10,7 @@ class CustomLisTielConfirmCardLabTest extends StatelessWidget {
     return ListTile(
       title: Text(
         '$name',
-        style: StylingSystem.textStyle16Medium.copyWith(
+        style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
           fontWeight: FontWeight.w600,
         ),
       ),

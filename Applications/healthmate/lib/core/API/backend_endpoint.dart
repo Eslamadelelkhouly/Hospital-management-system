@@ -48,4 +48,7 @@ class BackendEndpoint {
       'http://10.0.2.2:8000/api/medical-test-appointments/upcoming';
   static const deletemdicaltest =
       'http://10.0.2.2:8000/api/medical-test-appointments/cancel/';
+
+  static const getcancelmedicaltest =
+      'http://10.0.2.2:8000/api/medical-test-appointments/canceled';
 }

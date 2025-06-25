@@ -46,9 +46,8 @@ class _ConfirmAppointmentBodyState extends State<ConfirmAppointmentBody> {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   final isSelected = index == selectedIndex;
-                  final backgroundColor = isSelected
-                      ? ColorSystem.kPrimaryColor
-                      : ColorSystem.kPrimaryColorHighLight;
+                  final backgroundColor =
+                      isSelected ? Color(0xff1E4FB5) : Color(0xffDEE8FB);
                   final textColor = isSelected ? Colors.white : Colors.black;
 
                   return GestureDetector(

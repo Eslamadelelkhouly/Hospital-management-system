@@ -27,7 +27,7 @@ class PersonalField extends StatelessWidget {
             8.horizontalSpace,
             Text(
               label,
-              style: StylingSystem.textStyle14Medium.copyWith(
+              style: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
                 color: ColorSystem.kGrayColor2,
               ),
             ),
@@ -35,7 +35,7 @@ class PersonalField extends StatelessWidget {
         ),
         trailing: Text(
           input,
-          style: StylingSystem.textStyle14Medium.copyWith(
+          style: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
             color: ColorSystem.kGrayColor2,
           ),
         ),

@@ -20,7 +20,7 @@ class CustomOrDivider extends StatelessWidget {
           ),
           Text(
             'or',
-            style: StylingSystem.textStyle14Medium,
+            style: ResponsiveStylingSystem.textStyle14bold(context),
           ),
           const SizedBox(
             width: 8,

@@ -43,7 +43,7 @@ class SplashScreenBody extends StatelessWidget {
             ],
             child: Text(
               'Health Mate',
-              style: StylingSystem.textStyleTitle,
+              style: ResponsiveStylingSystem.textStyleTitle(context),
             ),
           ),
         ],

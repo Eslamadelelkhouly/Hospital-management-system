@@ -18,7 +18,7 @@ class TitleOnBoarding extends StatelessWidget {
         },
         child: Text(
           'Skip',
-          style: StylingSystem.textStylehintext,
+          style: ResponsiveStylingSystem.textStylehintext(context),
         ),
       ),
     );

@@ -27,7 +27,7 @@ class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
       children: [
         Text(
           'Date of Birth',
-          style: StylingSystem.textStyle15bold,
+          style: ResponsiveStylingSystem.textStyle14bold(context),
         ),
         const SizedBox(
           height: 2,
@@ -46,7 +46,7 @@ class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
             readOnly: true, // Make the field read-only
             decoration: InputDecoration(
               hintText: '07 November, 1986',
-              hintStyle: StylingSystem.textStyle14Medium.copyWith(
+              hintStyle: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
                 color: Colors.grey,
               ),
               prefixIcon: ImageIcon(AssetImage(celendericon)),
@@ -102,7 +102,7 @@ class _CustomTextFieldCelenderState extends State<CustomTextFieldCelender> {
         ),
         Text(
           widget.texterror,
-          style: StylingSystem.textStyleSign12.copyWith(
+          style: ResponsiveStylingSystem.textStyleSign12(context).copyWith(
             color: Colors.red,
           ),
         ),

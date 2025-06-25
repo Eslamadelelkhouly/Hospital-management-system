@@ -23,7 +23,7 @@ class AppBarSetting extends StatelessWidget {
         ),
         Text(
           'My profile',
-          style: StylingSystem.textStyle24bold,
+          style: ResponsiveStylingSystem.textStyle24bold(context),
         ),
         IconButton(
           onPressed: () {

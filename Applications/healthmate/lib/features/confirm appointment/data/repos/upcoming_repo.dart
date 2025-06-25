@@ -5,4 +5,5 @@ abstract class UpcomingRepo {
   Future<Either<String , UpcomingAppointment>> getUpcomingAppointments();
 
   Future<Either<String, UpcomingAppointment>> cancelAppointment();
+  
 }

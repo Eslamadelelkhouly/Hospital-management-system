@@ -22,7 +22,7 @@ class ContainerMedicalInfo extends StatelessWidget {
         children: [
           Text(
             nameTest,
-            style: StylingSystem.textStyle30semibold,
+            style: ResponsiveStylingSystem.textStyle30semibold(context),
           ),
           SizedBox(
             height: 8,
@@ -32,7 +32,7 @@ class ContainerMedicalInfo extends StatelessWidget {
             child: Text(
               textAlign: TextAlign.center,
               descrption,
-              style: StylingSystem.textStyle14Medium.copyWith(
+              style: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
                 fontWeight: FontWeight.w700,
                 color: Color(0xff83818E),
               ),
@@ -46,14 +46,14 @@ class ContainerMedicalInfo extends StatelessWidget {
             children: [
               Text(
                 'Cost:',
-                style: StylingSystem.textStyle16Medium.copyWith(
+                style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
                   fontWeight: FontWeight.w500,
                   color: Color(0xff2259CB),
                 ),
               ),
               Text(
                 ' ${cost}EG',
-                style: StylingSystem.textStyle16Medium.copyWith(
+                style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
                   fontWeight: FontWeight.w500,
                   color: Color(0xff83818E),
                 ),

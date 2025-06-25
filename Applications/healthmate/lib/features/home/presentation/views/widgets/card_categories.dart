@@ -38,7 +38,7 @@ class CardCategories extends StatelessWidget {
             ),
             Text(
               text,
-              style: StylingSystem.textStyle14Medium.copyWith(
+              style: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
                 fontWeight: FontWeight.w600,
               ),
             ),

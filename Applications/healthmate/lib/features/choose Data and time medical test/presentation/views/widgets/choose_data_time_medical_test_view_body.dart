@@ -94,7 +94,10 @@ class _ChooseDataTimeMedicalTestViewBodyState
               SizedBox(height: 16),
               Image.asset(isError ? failureimage : sucessimage, scale: 1.5),
               SizedBox(height: 16),
-              Text(text, style: StylingSystem.textStyle17semibold),
+              Text(
+                text,
+                style: ResponsiveStylingSystem.textStyle17semibold(context),
+              ),
             ],
           ),
           actions: [
@@ -149,7 +152,7 @@ class _ChooseDataTimeMedicalTestViewBodyState
                     const Spacer(),
                     Text(
                       'Choose Date and Time',
-                      style: StylingSystem.textStyle24bold,
+                      style: ResponsiveStylingSystem.textStyle24bold(context),
                     ),
                     const Spacer(),
                   ],
@@ -173,7 +176,8 @@ class _ChooseDataTimeMedicalTestViewBodyState
                   children: [
                     SizedBox(width: MediaQuery.of(context).size.width * 0.08),
                     Text('Available Time',
-                        style: StylingSystem.textStyle20semibold),
+                        style: ResponsiveStylingSystem.textStyle20semibold(
+                            context)),
                   ],
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
@@ -226,7 +230,8 @@ class _ChooseDataTimeMedicalTestViewBodyState
                                   child: Text(
                                     errorMessageAvalibletime['message'] ??
                                         'Error occurred',
-                                    style: StylingSystem.textStyle14Medium
+                                    style: ResponsiveStylingSystem
+                                            .textStyle14Medium(context)
                                         .copyWith(
                                       color: Colors.red,
                                     ),

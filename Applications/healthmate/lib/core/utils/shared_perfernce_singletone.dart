@@ -17,6 +17,9 @@ class SharedPreferenceSingleton {
   static setString(String key, String value) {
     _instance.setString(key, value);
   }
+  static delete(String key) {
+    _instance.remove(key);
+  }
 
   static getString(String key) {
     return _instance.getString(key) ?? '';

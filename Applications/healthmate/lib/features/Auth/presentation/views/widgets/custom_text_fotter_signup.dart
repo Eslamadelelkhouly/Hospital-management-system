@@ -16,7 +16,7 @@ class CustomTextFotterSignUP extends StatelessWidget {
       children: [
         Text(
           'Already have an account? ',
-          style: StylingSystem.textStyleSign12,
+          style: ResponsiveStylingSystem.textStyleSign12(context),
         ),
         GestureDetector(
           onTap: () {
@@ -24,7 +24,7 @@ class CustomTextFotterSignUP extends StatelessWidget {
           },
           child: Text(
             'Log In',
-            style: StylingSystem.textStyleSign12.copyWith(
+            style: ResponsiveStylingSystem.textStyleSign12(context).copyWith(
               color: ColorSystem.kPrimaryColor,
             ),
           ),

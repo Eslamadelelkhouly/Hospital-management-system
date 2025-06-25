@@ -33,13 +33,13 @@ class CustomListTielConfirmCard extends StatelessWidget {
       ),
       title: Text(
         '$name',
-        style: StylingSystem.textStyle16Medium.copyWith(
+        style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
           fontWeight: FontWeight.w600,
         ),
       ),
       subtitle: Text(
         '$special',
-        style: StylingSystem.textStyleSign12,
+        style: ResponsiveStylingSystem.textStyleSign12(context),
       ),
     );
   }

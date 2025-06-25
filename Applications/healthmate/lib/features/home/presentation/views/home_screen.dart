@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Text(
                       textAlign: TextAlign.center,
                       _labels[i],
-                      style: StylingSystem.textStyle16Medium.copyWith(
+                      style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
                         color: index == i ? Colors.white : Colors.transparent,
                       ),
                     ),

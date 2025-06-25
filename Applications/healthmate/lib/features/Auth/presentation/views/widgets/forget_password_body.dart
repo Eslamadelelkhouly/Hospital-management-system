@@ -58,7 +58,7 @@ class ForgetPasswordBody extends StatelessWidget {
                   4.verticalSpace,
                   Text(
                     'Health Mate',
-                    style: StylingSystem.textStyle24bold,
+                    style: ResponsiveStylingSystem.textStyle24bold(context),
                   ),
                   32.verticalSpace,
                   Row(
@@ -66,7 +66,7 @@ class ForgetPasswordBody extends StatelessWidget {
                     children: [
                       Text(
                         'Reset Password',
-                        style: StylingSystem.textStyle18semibold,
+                        style: ResponsiveStylingSystem.textStyle18semibold(context),
                       ),
                     ],
                   ),
@@ -76,7 +76,7 @@ class ForgetPasswordBody extends StatelessWidget {
                       TextSpan(
                         text:
                             'Enter the email associated with your account and we’ll send an email with instructions to reset your password',
-                        style: StylingSystem.textStyle16Medium.copyWith(
+                        style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
                           color: const Color(0xff4F4E59),
                         ),
                       ),

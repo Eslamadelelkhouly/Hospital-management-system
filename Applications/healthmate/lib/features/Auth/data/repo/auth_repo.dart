@@ -12,4 +12,5 @@ abstract class AuthRepo {
     required String email,
     required String password,
   });
+  Future<Either<Failures, Map<String, dynamic>>> logOut();
 }

@@ -48,7 +48,7 @@ class EmergencyViewBody extends StatelessWidget {
               SizedBox(height: MediaQuery.of(context).size.height * 0.05),
               Text(
                 'Ambulance department',
-                style: StylingSystem.textStyle30semibold,
+                style: ResponsiveStylingSystem.textStyle30semibold(context),
               ),
               SizedBox(
                 height: 6,
@@ -58,7 +58,7 @@ class EmergencyViewBody extends StatelessWidget {
                 child: Text(
                   textAlign: TextAlign.center,
                   'To request an ambulance, you must call the emergency number.',
-                  style: StylingSystem.textStyle14Medium.copyWith(
+                  style: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
                     fontWeight: FontWeight.w700,
                     color: const Color(0xff83818E),
                   ),

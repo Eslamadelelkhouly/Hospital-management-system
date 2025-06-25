@@ -6,16 +6,19 @@ import 'package:healthmate/features/confirm%20appointment/presentation/views/wid
 import 'package:healthmate/features/confirm%20appointment/presentation/views/widgets/list_view_card_upcoming.dart';
 import 'package:healthmate/features/confirm%20appointment/presentation/views/widgets/list_view_completed.dart';
 import 'package:healthmate/features/home/presentation/views/widgets/custom_search_text_field.dart';
+import 'package:healthmate/features/status%20appointment%20lab%20test/presentation/views/widgets/list_view_cancel.dart';
 import 'package:healthmate/features/status%20appointment%20lab%20test/presentation/views/widgets/list_view_upcoming_lab_test.dart';
 
 class StatusAppointmentLabTestViewBody extends StatefulWidget {
   const StatusAppointmentLabTestViewBody({super.key});
 
   @override
-  State<StatusAppointmentLabTestViewBody> createState() => _StatusAppointmentLabTestViewBodyState();
+  State<StatusAppointmentLabTestViewBody> createState() =>
+      _StatusAppointmentLabTestViewBodyState();
 }
 
-class _StatusAppointmentLabTestViewBodyState extends State<StatusAppointmentLabTestViewBody> {
+class _StatusAppointmentLabTestViewBodyState
+    extends State<StatusAppointmentLabTestViewBody> {
   List<String> listTitle = ['Upcoming', 'Completed', 'Canceled'];
   int selectedIndex = 0;
 
@@ -46,9 +49,8 @@ class _StatusAppointmentLabTestViewBodyState extends State<StatusAppointmentLabT
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   final isSelected = index == selectedIndex;
-                  final backgroundColor = isSelected
-                      ? ColorSystem.kPrimaryColor
-                      : ColorSystem.kPrimaryColorHighLight;
+                  final backgroundColor =
+                      isSelected ? Color(0xff1E4FB5) : Color(0xffDEE8FB);
                   final textColor = isSelected ? Colors.white : Colors.black;
 
                   return GestureDetector(
@@ -69,8 +71,8 @@ class _StatusAppointmentLabTestViewBodyState extends State<StatusAppointmentLabT
           ),
           const SizedBox(height: 24),
           if (selectedIndex == 0) const ListViewUpcomingLabTest(),
-          if (selectedIndex == 1) ListViewCompleted(),
-          if (selectedIndex == 2) const ListViewCancel(),
+          if (selectedIndex == 1) ListViewUpcomingLabTest(),
+          if (selectedIndex == 2) const ListViewCancelMedicalTest(),
         ],
       ),
     );

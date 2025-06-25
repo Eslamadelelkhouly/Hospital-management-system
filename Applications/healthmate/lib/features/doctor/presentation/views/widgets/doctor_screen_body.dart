@@ -121,7 +121,7 @@ class _DoctorScreenBodyState extends State<DoctorScreenBody> {
           21.verticalSpace,
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10).r,
-            child: Text('About', style: StylingSystem.textStyle20semibold),
+            child: Text('About', style: ResponsiveStylingSystem.textStyle20semibold(context)),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10).r,
@@ -132,7 +132,7 @@ class _DoctorScreenBodyState extends State<DoctorScreenBody> {
                 doctor.information.about,
                 maxLines: 4,
                 overflow: TextOverflow.ellipsis,
-                style: StylingSystem.textStyle16Medium.copyWith(
+                style:ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
                   color: ColorSystem.kGrayColor2,
                 ),
               ),
@@ -142,7 +142,7 @@ class _DoctorScreenBodyState extends State<DoctorScreenBody> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10).r,
             child:
-                Text('Working Hours', style: StylingSystem.textStyle20semibold),
+                Text('Working Hours', style:ResponsiveStylingSystem.textStyle20semibold(context)),
           ),
           10.verticalSpace,
           scheduleList.isEmpty
@@ -150,7 +150,7 @@ class _DoctorScreenBodyState extends State<DoctorScreenBody> {
                   padding: const EdgeInsets.symmetric(horizontal: 10).r,
                   child: Text(
                     'No schedule available',
-                    style: StylingSystem.textStyle16Medium.copyWith(
+                    style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
                       color: ColorSystem.kGrayColor2,
                     ),
                   ),
@@ -166,7 +166,7 @@ class _DoctorScreenBodyState extends State<DoctorScreenBody> {
                         children: [
                           Text(
                             item['day'],
-                            style: StylingSystem.textStyle16Medium.copyWith(
+                            style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
                               color: ColorSystem.kGrayColor2,
                             ),
                           ),
@@ -175,7 +175,7 @@ class _DoctorScreenBodyState extends State<DoctorScreenBody> {
                               (item['times'] as List<String>).join(', '),
                               textAlign: TextAlign.right,
                               overflow: TextOverflow.ellipsis,
-                              style: StylingSystem.textStyle16Medium.copyWith(
+                              style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
                                 color: ColorSystem.kGrayColor2,
                               ),
                             ),
@@ -189,13 +189,13 @@ class _DoctorScreenBodyState extends State<DoctorScreenBody> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10).r,
             child: Text('Consultation Fee',
-                style: StylingSystem.textStyle20semibold),
+                style: ResponsiveStylingSystem.textStyle20semibold(context)),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10).r,
             child: Text(
               '1500 EGP',
-              style: StylingSystem.textStyle16Medium.copyWith(
+              style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
                 color: ColorSystem.kGrayColor2,
               ),
             ),

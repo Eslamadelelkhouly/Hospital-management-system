@@ -25,7 +25,7 @@ class CustomDropDown extends StatelessWidget {
         children: [
           Text(
             hinttext,
-            style: StylingSystem.textStyle15bold,
+            style: ResponsiveStylingSystem.textStyleSign12(context),
           ),
           2.verticalSpace,
           DropDownTextField(
@@ -42,7 +42,7 @@ class CustomDropDown extends StatelessWidget {
               hintStyle: TextStyle(color: Colors.grey),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
-                borderSide: BorderSide.none, // Removes the black border
+                borderSide: BorderSide.none,
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -60,7 +60,7 @@ class CustomDropDown extends StatelessWidget {
           ),
           Text(
             texterror,
-            style: StylingSystem.textStyleSign12.copyWith(
+            style: ResponsiveStylingSystem.textStyleSign12(context).copyWith(
               color: Colors.red,
             ),
           ),

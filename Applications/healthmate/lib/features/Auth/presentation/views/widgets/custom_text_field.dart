@@ -26,7 +26,7 @@ class CustomTextField extends StatelessWidget {
       children: [
         Text(
           text,
-          style: StylingSystem.textStyle15bold,
+          style: ResponsiveStylingSystem.textStyle15bold(context),
         ),
         2.verticalSpace,
         Container(
@@ -44,7 +44,7 @@ class CustomTextField extends StatelessWidget {
             decoration: InputDecoration(
               hintText: hinttext,
               hintStyle:
-                  StylingSystem.textStyle14Medium.copyWith(color: Colors.grey),
+                  ResponsiveStylingSystem.textStyle14Medium(context).copyWith(color: Colors.grey),
               prefixIcon: ImageIcon(AssetImage(iconField)),
               filled: true,
               fillColor: ColorSystem.kbtnColorblue,
@@ -70,7 +70,7 @@ class CustomTextField extends StatelessWidget {
         ),
         Text(
           texterror,
-          style: StylingSystem.textStyleSign12.copyWith(
+          style: ResponsiveStylingSystem.textStyleSign12(context).copyWith(
             color: Colors.red,
           ),
         ),

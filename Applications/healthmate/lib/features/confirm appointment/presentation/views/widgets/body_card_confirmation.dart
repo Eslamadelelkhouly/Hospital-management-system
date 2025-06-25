@@ -49,7 +49,7 @@ class _BodyCardConfirmationState extends State<BodyCardConfirmation> {
               SizedBox(height: 16),
               Image.asset(isError ? failureimage : sucessimage, scale: 1.5),
               SizedBox(height: 16),
-              Text(text, style: StylingSystem.textStyle17semibold),
+              Text(text, style: ResponsiveStylingSystem.textStyle17semibold(context)),
             ],
           ),
           actions: [

@@ -25,7 +25,7 @@ class ContainerTitleList extends StatelessWidget {
       child: Center(
         child: Text(
           text,
-          style: StylingSystem.textStyle16Medium.copyWith(
+          style: ResponsiveStylingSystem.textStyle16Medium(context).copyWith(
             color: textColor,
           ),
         ),

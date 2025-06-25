@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/router_screens.dart';
+import 'package:healthmate/core/utils/shared_perfernce_singletone.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/features/settings/presentation/views/widgets/list_tiel_notification.dart';
@@ -28,7 +29,7 @@ class SettingScreenBody extends StatelessWidget {
             children: [
               Text(
                 'General',
-                style: StylingSystem.textStyle20semibold,
+                style: ResponsiveStylingSystem.textStyle20semibold(context),
               ),
             ],
           ),
@@ -60,7 +61,7 @@ class SettingScreenBody extends StatelessWidget {
             children: [
               Text(
                 'Others',
-                style: StylingSystem.textStyle20semibold,
+                style: ResponsiveStylingSystem.textStyle20semibold(context),
               ),
             ],
           ),
@@ -84,7 +85,10 @@ class SettingScreenBody extends StatelessWidget {
           ListTielSetting(
             title: 'Logout',
             img: logouticon,
-            onTap: () {},
+            onTap: () {
+              SharedPreferenceSingleton.delete(token);
+              GoRouter.of(context).push(Routing.KsplashinitScreen);
+            },
           ),
         ],
       ),

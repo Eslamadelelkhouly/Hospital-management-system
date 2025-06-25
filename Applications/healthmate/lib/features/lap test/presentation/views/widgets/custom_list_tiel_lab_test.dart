@@ -18,11 +18,11 @@ class CustomListTielLabTest extends StatelessWidget {
         ListTile(
           leading: Text(
             '${text}',
-            style: StylingSystem.textStyleSign12,
+            style: ResponsiveStylingSystem.textStyleSign12(context),
           ),
           trailing: Text(
             '${price}',
-            style: StylingSystem.textStyleSign12,
+            style: ResponsiveStylingSystem.textStyleSign12(context),
           ),
         ),
         Divider(

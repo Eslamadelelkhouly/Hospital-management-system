@@ -76,7 +76,7 @@ class _LabTestBodyState extends State<LabTestBody> {
                     13.horizontalSpace,
                     Text(
                       'Book Lab Tests',
-                      style: StylingSystem.textStyle20semibold,
+                      style:ResponsiveStylingSystem.textStyle20semibold(context),
                     ),
                   ],
                 ),

@@ -17,7 +17,7 @@ class CustomListTiel extends StatelessWidget {
           leading: Image.asset(personal),
           title: Text(
             'Mohamed ahmed',
-            style: StylingSystem.textStyle18semibold,
+            style: ResponsiveStylingSystem.textStyle18semibold(context),
           ),
           subtitle: CustomSubtitleListTiel(),
         ),
