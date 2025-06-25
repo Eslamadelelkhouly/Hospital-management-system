@@ -8,7 +8,7 @@ import 'package:healthmate/features/lap%20test/presentation/views/manager/get_la
 import 'package:healthmate/features/lap%20test/presentation/views/widgets/custom_list_tiel_lab_test.dart';
 
 class ListViewCardLabTest extends StatefulWidget {
-  const  ListViewCardLabTest({super.key});
+  const ListViewCardLabTest({super.key});
 
   @override
   State<ListViewCardLabTest> createState() => _ListViewCardLabTestState();
@@ -25,7 +25,6 @@ class _ListViewCardLabTestState extends State<ListViewCardLabTest> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 400.r,
       child: BlocConsumer<GetLabTestCubit, GetLabTestState>(
         listener: (context, state) {
           if (state is GetLabTestSucess) {
@@ -35,6 +34,8 @@ class _ListViewCardLabTestState extends State<ListViewCardLabTest> {
         },
         builder: (context, state) {
           return ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
             itemCount: medicalTestsResponse.data.length,
             itemBuilder: (context, index) {

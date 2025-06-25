@@ -40,7 +40,7 @@ class GetLabTestRepoImplementation implements GetLabTestRepo {
   Future<Either<String, MedicalTestSearch>> getLabtestSearch(
       {required String query}) async {
     try {
-      String url = '${BackendEndpoint.getdoctorbyName}$query';
+      String url = '${BackendEndpoint.getmedicaltestsearch}$query';
       log(url);
       var response = await apiService.Get(
         endpoint: url,
