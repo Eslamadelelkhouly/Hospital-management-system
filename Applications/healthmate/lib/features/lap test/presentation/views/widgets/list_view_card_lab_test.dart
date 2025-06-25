@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/features/lap%20test/presentation/data/models/lab_test_model.dart';
-import 'package:healthmate/features/lap%20test/presentation/views/manager/cubit/get_lab_test_cubit.dart';
+import 'package:healthmate/features/lap%20test/presentation/views/manager/get_lab_test_cubit/get_lab_test_cubit.dart';
 import 'package:healthmate/features/lap%20test/presentation/views/widgets/custom_list_tiel_lab_test.dart';
 
 class ListViewCardLabTest extends StatefulWidget {

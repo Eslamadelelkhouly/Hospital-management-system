@@ -8,7 +8,7 @@ import 'package:healthmate/core/widgets/custom_app_bar.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
 import 'package:healthmate/features/Auth/presentation/views/sign_in_screen.dart';
 import 'package:healthmate/features/home/presentation/views/widgets/custom_search_text_field.dart';
-import 'package:healthmate/features/lap%20test/presentation/views/manager/cubit/get_lab_test_cubit.dart';
+import 'package:healthmate/features/lap%20test/presentation/views/manager/get_lab_test_cubit/get_lab_test_cubit.dart';
 import 'package:healthmate/features/lap%20test/presentation/views/widgets/list_view_card_lab_test.dart';
 
 class LabTestBody extends StatefulWidget {

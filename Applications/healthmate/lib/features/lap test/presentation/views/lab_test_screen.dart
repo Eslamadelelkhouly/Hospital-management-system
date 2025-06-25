@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthmate/core/utils/color_style.dart';
-import 'package:healthmate/features/lap%20test/presentation/views/manager/cubit/get_lab_test_cubit.dart';
+import 'package:healthmate/features/lap%20test/presentation/views/manager/get_lab_test_cubit/get_lab_test_cubit.dart';
 import 'package:healthmate/features/lap%20test/presentation/views/widgets/lab_test_body.dart';
 import 'package:healthmate/features/lap%20test/presentation/views/widgets/lab_test_body_bloc_consumer.dart';
 

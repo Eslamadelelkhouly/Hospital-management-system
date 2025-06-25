@@ -35,9 +35,10 @@ class GetLabTestRepoImplementation implements GetLabTestRepo {
       }
     }
   }
-  
+
   @override
-  Future<Either<String, MedicalTestSearch>> getLabtestSearch({required String query})async {
+  Future<Either<String, MedicalTestSearch>> getLabtestSearch(
+      {required String query}) async {
     try {
       String url = '${BackendEndpoint.getdoctorbyName}$query';
       log(url);
@@ -45,7 +46,7 @@ class GetLabTestRepoImplementation implements GetLabTestRepo {
         endpoint: url,
       );
       log(response.toString());
-      
+
       return Right(MedicalTestSearch.fromJson(response));
     } catch (e) {
       if (e is DioException) {
