@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:healthmate/core/API/api_service.dart';
+import 'package:healthmate/features/Auth/data/model/verify_model.dart';
 import 'package:healthmate/features/Auth/data/repo/auth_repo_implementation.dart';
 import 'package:meta/meta.dart';
 

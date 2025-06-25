@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/core/utils/color_style.dart';
+import 'package:healthmate/features/Auth/manager/verify_cubit/verification_cubit.dart';
 import 'package:healthmate/features/Auth/presentation/views/widgets/verification_screen_body.dart';
 
 class VerificationScreen extends StatelessWidget {
@@ -9,11 +11,14 @@ class VerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String email = GoRouterState.of(context).extra as String;
-    return  Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: ColorSystem.kbtnColorWhite,
-      body: VerificationScreenBody(
-        email: email,
+    return BlocProvider(
+      create: (context) => VerificationCubit(),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: ColorSystem.kbtnColorWhite,
+        body: VerificationScreenBody(
+          email: email,
+        ),
       ),
     );
   }

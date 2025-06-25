@@ -7,6 +7,7 @@ import 'package:healthmate/core/API/backend_endpoint.dart';
 import 'package:healthmate/core/errors/failuers.dart';
 import 'package:healthmate/features/Auth/data/model/patient_model.dart';
 import 'package:healthmate/features/Auth/data/model/user_login_model.dart';
+import 'package:healthmate/features/Auth/data/model/verify_model.dart';
 import 'package:healthmate/features/Auth/data/repo/auth_repo.dart';
 
 class AuthRepoImplementation implements AuthRepo {
@@ -111,19 +112,20 @@ class AuthRepoImplementation implements AuthRepo {
   }
 
   @override
-  Future<Either<String, String>> verifyOtp(
-      {required String otp,
-      required String email,
-      required String password,
-      required String confirmpassword}) async {
+  Future<Either<VerificationErrorModel, String>> verifyOtp({
+    required String otp,
+    required String email,
+    required String password,
+    required String confirmpassword,
+  }) async {
     try {
-      var response = await apiService.Post(
+      final response = await apiService.Post(
         endpoint: BackendEndpoint.foretpassword,
         data: {
           "email": email,
-          "code":otp,
-          "password":password,
-          "password_confirmation":confirmpassword
+          "code": otp,
+          "password": password,
+          "password_confirmation": confirmpassword,
         },
       );
       log(response['message']);
@@ -131,13 +133,28 @@ class AuthRepoImplementation implements AuthRepo {
     } catch (e) {
       if (e is DioException) {
         log(e.toString());
-        if (e.response != null && e.response?.data != null) {
-          return left(e.response!.data['message'] ?? 'An error occurred');
+
+        final errorData = e.response?.data;
+        if (errorData != null && errorData is Map<String, dynamic>) {
+          final errorModel = VerificationErrorModel.fromJson(errorData);
+          return left(errorModel);
         } else {
-          return left('Connection timeout with ApiServer');
+          return left(
+            VerificationErrorModel(
+              message: 'Connection timeout with ApiServer',
+              status: 500,
+              errors: {},
+            ),
+          );
         }
       } else {
-        return left('Unexpected Error: $e');
+        return left(
+          VerificationErrorModel(
+            message: 'Unexpected Error: $e',
+            status: 500,
+            errors: {},
+          ),
+        );
       }
     }
   }

@@ -8,7 +8,7 @@ final class VerificationInitial extends VerificationState {}
 final class VerificationLoading extends VerificationState {}
 
 final class VerificationFailure extends VerificationState {
-  final String errorMessage;
+  final VerificationErrorModel errorMessage;
   VerificationFailure({required this.errorMessage});
 }
 

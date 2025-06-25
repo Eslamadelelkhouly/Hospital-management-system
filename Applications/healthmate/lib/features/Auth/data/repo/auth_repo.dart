@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:healthmate/core/errors/failuers.dart';
+import 'package:healthmate/features/Auth/data/model/verify_model.dart';
 
 abstract class AuthRepo {
   Future<Either<Failures, Map<String, dynamic>>> signUp({
@@ -16,7 +17,7 @@ abstract class AuthRepo {
 
   Future<Either<String, String>> forgotPassword({required String email});
 
-  Future<Either<String, String>> verifyOtp({
+  Future<Either<VerificationErrorModel, String>> verifyOtp({
     required String otp,
     required String email,
     required String password,
