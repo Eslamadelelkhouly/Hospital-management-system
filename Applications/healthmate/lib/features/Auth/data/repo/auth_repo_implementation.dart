@@ -68,10 +68,10 @@ class AuthRepoImplementation implements AuthRepo {
   @override
   Future<Either<String, String>> logOut() async {
     try {
-      var response = await apiService.Post(
+      var response = await apiService.PostTokenNoData(
         endpoint: BackendEndpoint.logout,
-        data: {},
       );
+      log(response['message']);
       return right(response['message']);
     } catch (e) {
       if (e is DioException) {
@@ -85,5 +85,11 @@ class AuthRepoImplementation implements AuthRepo {
         return left('Unexpected Error: $e');
       }
     }
+  }
+  
+  @override
+  Future<Either<String, String>> forgotPassword({required String email}) {
+    // TODO: implement forgotPassword
+    throw UnimplementedError();
   }
 }

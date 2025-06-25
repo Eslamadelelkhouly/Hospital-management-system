@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
@@ -6,6 +7,9 @@ import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/shared_perfernce_singletone.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_app_bar.dart';
+import 'package:healthmate/features/Auth/manager/login_cubit/login_cubit_cubit.dart';
+import 'package:healthmate/features/lap%20test/presentation/views/widgets/list_view_card_lab_test.dart';
+import 'package:healthmate/features/settings/presentation/manager/Logout%20cubit/logout_cubit.dart';
 import 'package:healthmate/features/settings/presentation/views/widgets/list_tiel_notification.dart';
 import 'package:healthmate/features/settings/presentation/views/widgets/list_tiel_setting.dart';
 
@@ -86,6 +90,7 @@ class SettingScreenBody extends StatelessWidget {
             title: 'Logout',
             img: logouticon,
             onTap: () {
+              context.read<LogoutCubit>().logOut();
               SharedPreferenceSingleton.delete(token);
               GoRouter.of(context).push(Routing.KsplashinitScreen);
             },
