@@ -10,6 +10,7 @@ import 'package:healthmate/features/confirm%20appointment%20medical%20test/prese
 import 'package:healthmate/features/confirm%20appointment/presentation/views/confirm_appointment_screen.dart';
 import 'package:healthmate/features/diabates/presentation/views/diabates_screen.dart';
 import 'package:healthmate/features/doctor/presentation/views/doctor_screen.dart';
+import 'package:healthmate/features/edit%20profile/presentation/views/edit_profile_view.dart';
 import 'package:healthmate/features/emergency/presentation/views/emergency_view.dart';
 import 'package:healthmate/features/heartdisease/presentation/views/heart_disease_screen.dart';
 import 'package:healthmate/features/home/presentation/views/home_screen.dart';
@@ -50,6 +51,7 @@ abstract class Routing {
   static const kemergency = '/kemergency';
   static const kchooseMedicalTest = '/kchooseMedicalTest';
   static const kconfirmlabtest = '/kconfirmlabtest';
+  static const keditprofile = '/keditprofile';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -147,10 +149,13 @@ abstract class Routing {
         path: kconfirmappointment,
         builder: (context, state) => const ConfirmAppointmentScreen(),
       ),
-
       GoRoute(
         path: kconfirmlabtest,
         builder: (context, state) => const StatusAppointmentLabTestView(),
+      ),
+      GoRoute(
+        path: keditprofile,
+        builder: (context, state) => const EditProfileView(),
       ),
     ],
   );

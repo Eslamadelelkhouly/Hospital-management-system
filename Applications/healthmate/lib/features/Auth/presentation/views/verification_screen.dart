@@ -11,14 +11,11 @@ class VerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String email = GoRouterState.of(context).extra as String;
-    return BlocProvider(
-      create: (context) => VerificationCubit(),
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: ColorSystem.kbtnColorWhite,
-        body: VerificationScreenBody(
-          email: email,
-        ),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: ColorSystem.kbtnColorWhite,
+      body: VerificationScreenBody(
+        email: email,
       ),
     );
   }

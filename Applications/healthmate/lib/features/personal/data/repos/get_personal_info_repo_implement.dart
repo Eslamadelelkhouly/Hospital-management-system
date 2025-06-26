@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:cross_file/src/types/interface.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:healthmate/core/API/api_service.dart';
@@ -28,6 +29,42 @@ class GetPersonalInfoRepoImplement implements GetPersonalInfoRepo {
       } else {
         return left(ServerFailure(
             {"message": "Connection timeout with ApiServer", "errors": {}}));
+      }
+    }
+  }
+
+  @override
+  Future<Either<String, Map<String, dynamic>>> updatePersonalInfo({
+    required String name,
+    required String address,
+    required String gender,
+    required String phoneNumber,
+    required XFile image,
+    required String id,
+  }) async {
+    try {
+      String url = '${BackendEndpoint.editprofile}$id';
+      FormData data = FormData.fromMap({
+        "fullName": name,
+        "address": address,
+        "gender": gender,
+        "phoneNumber": phoneNumber,
+        "image": await MultipartFile.fromFile(image.path, filename: image.name),
+      });
+      var response = await apiService.PostToken(endpoint: url, data: data);
+      log(response.toString());
+      return right(response);
+    } catch (e) {
+      log(e.toString());
+      if (e is DioException) {
+        log(e.toString());
+        if (e.response != null && e.response?.data != null) {
+          return left(e.response!.data['message'] ?? 'An error occurred');
+        } else {
+          return left('Connection timeout with ApiServer');
+        }
+      } else {
+        return left('Unexpected Error: $e');
       }
     }
   }

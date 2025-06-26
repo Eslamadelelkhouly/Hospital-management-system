@@ -44,6 +44,8 @@ const failureimage = 'assets/images/fail.gif';
 const token = 'token';
 const sendicon = 'assets/images/send.png';
 const clock = 'assets/images/clock.png';
+const edit = 'assets/images/edit.png';
+const gender = 'assets/images/gender.png';
 
 class onBoarding {
   final String title;

@@ -41,7 +41,9 @@ class SettingScreenBody extends StatelessWidget {
           ListTielSetting(
             title: 'Edit info',
             img: usericon,
-            onTap: () {},
+            onTap: () {
+              GoRouter.of(context).push(Routing.keditprofile);
+            },
           ),
           16.verticalSpace,
           ListTielSetting(
