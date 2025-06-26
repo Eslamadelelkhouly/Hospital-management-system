@@ -14,7 +14,8 @@ import 'package:healthmate/features/settings/presentation/views/widgets/list_tie
 import 'package:healthmate/features/settings/presentation/views/widgets/list_tiel_setting.dart';
 
 class SettingScreenBody extends StatelessWidget {
-  const SettingScreenBody({super.key});
+  const SettingScreenBody({super.key, required this.id});
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,10 @@ class SettingScreenBody extends StatelessWidget {
             title: 'Edit info',
             img: usericon,
             onTap: () {
-              GoRouter.of(context).push(Routing.keditprofile);
+              GoRouter.of(context).push(
+                Routing.keditprofile,
+                extra: id,
+              );
             },
           ),
           16.verticalSpace,

@@ -22,16 +22,27 @@ class PersonalScreenBody extends StatefulWidget {
 
 class _PersonalScreenBodyState extends State<PersonalScreenBody> {
   late PersonalInfoModel personalInfoModel = PersonalInfoModel(
-    id: 0,
-    email: '',
-    fullName: '',
-    phoneNumber: '',
-    dateOfBirth: '',
-    deletedAt: '',
-    address: '',
-    gender: '',
-    createdAt: '',
-    updatedAt: '',
+    patient: Patient(
+      id: 0,
+      fullName: '',
+      email: '',
+      dateOfBirth: '',
+      gender: '',
+      phoneNumber: '',
+      address: '',
+      createdAt: '',
+      updatedAt: '',
+      deletedAt: '',
+      image: ImageModel(
+        id: 0,
+        imageName: '',
+        patientId: 0,
+        createdAt: '',
+        updatedAt: '',
+      ),
+    ),
+    message: '',
+    status: 0,
   );
   @override
   void initState() {
@@ -65,19 +76,28 @@ class _PersonalScreenBodyState extends State<PersonalScreenBody> {
             return Column(
               children: [
                 30.verticalSpace,
-                AppBarSetting(),
+                AppBarSetting(
+                  id: personalInfoModel.patient.id.toString(),
+                ),
                 30.verticalSpace,
-                CirculePersonalPhoto(),
+                CirculePersonalPhoto(
+                  image: personalInfoModel
+                              .patient.image?.imageName.isNotEmpty ==
+                          true
+                      ? personalInfoModel.patient.image!.imageName
+                      : 'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+                ),
                 16.verticalSpace,
                 Text(
-                  personalInfoModel.fullName.isNotEmpty
-                      ? personalInfoModel.fullName
+                  personalInfoModel.patient.fullName.isNotEmpty
+                      ? personalInfoModel.patient.fullName
                       : 'Mohamed Ahmed',
                   style: ResponsiveStylingSystem.textStyle18semibold(context),
                 ),
                 Text(
                   'Active since - Jan 2025',
-                  style: ResponsiveStylingSystem.textStyle14Medium(context).copyWith(
+                  style: ResponsiveStylingSystem.textStyle14Medium(context)
+                      .copyWith(
                     color: ColorSystem.kGrayColor2,
                     fontWeight: FontWeight.w600,
                   ),
@@ -89,7 +109,8 @@ class _PersonalScreenBodyState extends State<PersonalScreenBody> {
                   children: [
                     Text(
                       'Personal Information',
-                      style:ResponsiveStylingSystem.textStyle20semibold(context),
+                      style:
+                          ResponsiveStylingSystem.textStyle20semibold(context),
                     ),
                   ],
                 ),
@@ -97,23 +118,23 @@ class _PersonalScreenBodyState extends State<PersonalScreenBody> {
                 PersonalField(
                   imgUrl: smsicon,
                   label: 'Email',
-                  input: personalInfoModel.email.isNotEmpty
-                      ? personalInfoModel.email
+                  input: personalInfoModel.patient.email.isNotEmpty
+                      ? personalInfoModel.patient.email
                       : 'don\'t have any email',
                 ),
                 16.verticalSpace,
                 PersonalField(
                   imgUrl: mobileicon,
                   label: 'Phone Number',
-                  input:
-                      personalInfoModel.phoneNumber ?? 'don\'t have any phone',
+                  input: personalInfoModel.patient.phoneNumber ??
+                      'don\'t have any phone',
                 ),
                 16.verticalSpace,
                 PersonalField(
                   imgUrl: celendericon,
                   label: 'Date Of Birth',
-                  input: personalInfoModel.dateOfBirth.isNotEmpty
-                      ? personalInfoModel.dateOfBirth
+                  input: personalInfoModel.patient.dateOfBirth.isNotEmpty
+                      ? personalInfoModel.patient.dateOfBirth
                       : 'don\'t have any date',
                 ),
               ],

@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:cross_file/src/types/interface.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:healthmate/core/API/api_service.dart';
@@ -8,6 +7,7 @@ import 'package:healthmate/core/API/backend_endpoint.dart';
 import 'package:healthmate/core/errors/failuers.dart';
 import 'package:healthmate/features/personal/data/models/personal_info_model.dart';
 import 'package:healthmate/features/personal/data/repos/get_personal_info_repo.dart';
+import 'package:image_picker/image_picker.dart';
 
 class GetPersonalInfoRepoImplement implements GetPersonalInfoRepo {
   final ApiService apiService;
@@ -20,7 +20,7 @@ class GetPersonalInfoRepoImplement implements GetPersonalInfoRepo {
       String url = '${BackendEndpoint.getpatientinfo}';
       var response = await apiService.Get(endpoint: url);
       log(response.toString());
-      return right(PersonalInfoModel.fromJson(response['patient']));
+      return right(PersonalInfoModel.fromJson(response));
     } catch (e) {
       log(e.toString());
       if (e is DioException) {

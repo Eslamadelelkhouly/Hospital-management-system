@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:healthmate/constant.dart';
-import 'package:healthmate/features/edit%20profile/presentation/views/body_edit_body.dart';
+import 'package:healthmate/features/edit%20profile/presentation/views/widgets/body_edit_body.dart';
 
 class EditProfileViewBody extends StatelessWidget {
-  const EditProfileViewBody({super.key});
-
+  const EditProfileViewBody({super.key, required this.id});
+  final String id;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -34,7 +34,9 @@ class EditProfileViewBody extends StatelessWidget {
         SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          child: const BodyEditBody(),
+          child:  BodyEditBody(
+            id: id,
+          ),
         ),
       ],
     );

@@ -1,6 +1,7 @@
 import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 
@@ -38,7 +39,7 @@ class DropDownAddGender extends StatelessWidget {
             },
             textFieldDecoration: InputDecoration(
               prefixIcon: const ImageIcon(
-                AssetImage('assets/images/gender.png'),
+                AssetImage(gender),
               ),
               filled: true,
               fillColor: ColorSystem.kPrimaryColorHighLight,

@@ -8,8 +8,9 @@ import 'package:healthmate/core/utils/style.dart';
 class AppBarSetting extends StatelessWidget {
   const AppBarSetting({
     super.key,
+    required this.id,
   });
-
+  final String id;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -27,7 +28,10 @@ class AppBarSetting extends StatelessWidget {
         ),
         IconButton(
           onPressed: () {
-            GoRouter.of(context).push(Routing.ksetting);
+            GoRouter.of(context).push(
+              Routing.ksetting,
+              extra: id,
+            );
           },
           icon: ImageIcon(
             AssetImage(settingicon),

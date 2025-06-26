@@ -14,7 +14,9 @@ class SettingBlocConsumer extends StatelessWidget {
       builder: (context, state) {
         return ModalProgressHUD(
           inAsyncCall: state is LogoutLoading,
-          child: SettingScreenBody(),
+          child: SettingScreenBody(
+            id: '2',
+          ),
         );
       },
     );
