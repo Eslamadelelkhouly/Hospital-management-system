@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
+import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/core/widgets/custom_button.dart';
 import 'package:healthmate/features/confirm%20appointment/data/model/upcoming_model.dart';
@@ -49,7 +51,8 @@ class _BodyCardConfirmationState extends State<BodyCardConfirmation> {
               SizedBox(height: 16),
               Image.asset(isError ? failureimage : sucessimage, scale: 1.5),
               SizedBox(height: 16),
-              Text(text, style: ResponsiveStylingSystem.textStyle17semibold(context)),
+              Text(text,
+                  style: ResponsiveStylingSystem.textStyle17semibold(context)),
             ],
           ),
           actions: [
@@ -137,7 +140,15 @@ class _BodyCardConfirmationState extends State<BodyCardConfirmation> {
                           borderColor: ColorSystem.kPrimaryColor,
                         ),
                         CustomButtonConfirmation(
-                          onPressed: () {},
+                          onPressed: () {
+                            GoRouter.of(context).push(
+                              Routing.kpayment,
+                              extra: {
+                                "doctor_name": widget.appointmentDetails.doctorName,
+                                "salary": "300",
+                              }
+                            );
+                          },
                           text: 'Checkout',
                           background: ColorSystem.kPrimaryColor,
                           textColor: Colors.white,

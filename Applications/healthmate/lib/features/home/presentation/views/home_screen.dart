@@ -9,9 +9,7 @@ import 'package:healthmate/features/favoruits/presentation/views/favourits_scree
 import 'package:healthmate/features/home/presentation/manager/addfavourite/cubit/add_favourite_cubit.dart';
 import 'package:healthmate/features/home/presentation/manager/get_doctor_cubit/gettopdoctor_cubit.dart';
 import 'package:healthmate/features/home/presentation/views/widgets/home_screen_bloc_consumer.dart';
-import 'package:healthmate/features/home/presentation/views/widgets/home_screen_body.dart';
-import 'package:healthmate/features/medical%20test%20information/presentation/manager/cubit/get_medical_info_cubit.dart';
-import 'package:healthmate/features/message/presentation/views/message_screen.dart';
+import 'package:healthmate/features/personal/presentation/manager/get_presonal_info_cubit/getpersonalinfo_cubit.dart';
 import 'package:healthmate/features/personal/presentation/views/personal_screen.dart';
 import 'package:healthmate/features/search/manager/cubit/get_doctor_by_name_cubit.dart';
 
@@ -52,6 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         BlocProvider(
           create: (context) => GetDoctorByNameCubit(),
+        ),
+        BlocProvider(
+          create: (context) => GetpersonalinfoCubit(),
         ),
       ],
       child: Scaffold(

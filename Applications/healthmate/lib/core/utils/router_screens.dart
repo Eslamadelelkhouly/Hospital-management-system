@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:healthmate/core/paypal/presentation/views/paypal_view.dart';
 import 'package:healthmate/features/AI%20models/presentation/views/ai_model_screen.dart';
 import 'package:healthmate/features/Auth/presentation/views/change_password_screen.dart';
 import 'package:healthmate/features/Auth/presentation/views/forget_password_screen.dart';
@@ -52,6 +53,7 @@ abstract class Routing {
   static const kchooseMedicalTest = '/kchooseMedicalTest';
   static const kconfirmlabtest = '/kconfirmlabtest';
   static const keditprofile = '/keditprofile';
+  static const kpayment = '/kpayment';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -157,6 +159,11 @@ abstract class Routing {
         path: keditprofile,
         builder: (context, state) => const EditProfileView(),
       ),
+      GoRoute(
+        path: kpayment,
+        builder: (context, state) => const PaymentView(),
+      ),
+      
     ],
   );
 }
