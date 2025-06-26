@@ -5,7 +5,7 @@ import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/style.dart';
 import 'package:healthmate/features/personal/data/models/personal_info_model.dart';
-import 'package:healthmate/features/personal/presentation/manager/cubit/getpersonalinfo_cubit.dart';
+import 'package:healthmate/features/personal/presentation/manager/get_presonal_info_cubit/getpersonalinfo_cubit.dart';
 import 'package:healthmate/features/personal/presentation/views/widgets/circule_perosnal_photo.dart';
 import 'package:healthmate/features/personal/presentation/views/widgets/custom_app_bar_settings.dart';
 import 'package:healthmate/features/personal/presentation/views/widgets/personal_field.dart';
