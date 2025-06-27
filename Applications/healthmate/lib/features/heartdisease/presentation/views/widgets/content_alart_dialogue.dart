@@ -15,37 +15,25 @@ class ContentAlartDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDiagnosed = heartDiseasePredictionModel.isDiagnosed;
+
     return Container(
       height: MediaQuery.of(context).size.height * 0.5,
       width: MediaQuery.of(context).size.width * 0.8,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ContainerStatePredict(
-            predict: heartDiseasePredictionModel.prediction == 'Patient'
-                ? true
-                : false,
-          ),
-          SizedBox(
-            height: 5.h,
-          ),
+          ContainerStatePredict(predict: isDiagnosed),
+          SizedBox(height: 5.h),
           Text(
-            'Prediction : ${heartDiseasePredictionModel.prediction}',
+            heartDiseasePredictionModel.prediction,
             style: ResponsiveStylingSystem.textStyle17semibold(context),
           ),
-          SizedBox(
-            height: 20,
-          ),
-          Divider(
-            thickness: 1,
-          ),
-          SizedBox(
-            height: 20,
-          ),
+          SizedBox(height: 20),
+          Divider(thickness: 1),
+          SizedBox(height: 20),
           CustomBarProgress(
-            statepatient: heartDiseasePredictionModel.prediction == 'Patient'
-                ? true
-                : false,
+            statepatient: isDiagnosed,
             value: double.tryParse(heartDiseasePredictionModel
                     .probabilityPercentage
                     .replaceAll('%', '')) ??

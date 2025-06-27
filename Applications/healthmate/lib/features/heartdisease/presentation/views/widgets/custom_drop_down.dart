@@ -25,7 +25,7 @@ class CustomDropDown extends StatelessWidget {
         children: [
           Text(
             hinttext,
-            style: ResponsiveStylingSystem.textStyleSign12(context),
+            style: ResponsiveStylingSystem.textStyle15bold(context),
           ),
           2.verticalSpace,
           DropDownTextField(

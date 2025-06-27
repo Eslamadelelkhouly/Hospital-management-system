@@ -22,6 +22,7 @@ class CirculePersonalPhoto extends StatelessWidget {
           placeholder: (context, url) => const CircularProgressIndicator(
             color: ColorSystem.kPrimaryColor,
           ),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
           imageUrl: image,
         ),
       ),

@@ -19,7 +19,8 @@ class ListViewResultSearch extends StatelessWidget {
               image:
                   'http://10.0.2.2:8000/storage/${doctorSearch.doctors[index].imageName}',
               id: doctorSearch.doctors[index].id,
-              rating: double.parse(doctorSearch.doctors[index].rating),
+              rating:
+                  double.parse(doctorSearch.doctors[index].rating.toString()),
               doctorName: doctorSearch.doctors[index].firstName,
               specialty: doctorSearch.doctors[index].specialization,
             ),

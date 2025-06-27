@@ -58,6 +58,7 @@ class _HeartDiseaseBodyState extends State<HeartDiseaseBody> {
     probabilityPercentage: '',
     confidenceLevel: '',
     rawProbability: 0.0,
+    isDiagnosed: false,
   );
 
   @override

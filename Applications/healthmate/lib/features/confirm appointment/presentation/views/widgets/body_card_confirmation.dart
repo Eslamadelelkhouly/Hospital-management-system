@@ -5,7 +5,6 @@ import 'package:healthmate/constant.dart';
 import 'package:healthmate/core/utils/color_style.dart';
 import 'package:healthmate/core/utils/router_screens.dart';
 import 'package:healthmate/core/utils/style.dart';
-import 'package:healthmate/core/widgets/custom_button.dart';
 import 'package:healthmate/features/confirm%20appointment/data/model/upcoming_model.dart';
 import 'package:healthmate/features/confirm%20appointment/presentation/manager/DeleteAppointmentCubit/delete_appointment_cubit.dart';
 import 'package:healthmate/features/confirm%20appointment/presentation/manager/UpcomingCubit/upcoming_cubit.dart';
@@ -30,11 +29,12 @@ class BodyCardConfirmation extends StatefulWidget {
 }
 
 class _BodyCardConfirmationState extends State<BodyCardConfirmation> {
+  late BuildContext dialogContext;
+
   String get formattedDate {
     DateTime dateTime =
         DateTime.parse(widget.appointmentDetails.appointmentDate);
-    String formated = DateFormat('dd MMM, yyyy').format(dateTime);
-    return formated;
+    return DateFormat('dd MMM, yyyy').format(dateTime);
   }
 
   void _showSuccessDialog(BuildContext context, String text, bool isError) {
@@ -68,6 +68,8 @@ class _BodyCardConfirmationState extends State<BodyCardConfirmation> {
 
   @override
   Widget build(BuildContext context) {
+    dialogContext = context;
+
     return Container(
       width: MediaQuery.of(context).size.width * 0.9,
       padding: const EdgeInsets.symmetric(vertical: 16),
@@ -79,7 +81,7 @@ class _BodyCardConfirmationState extends State<BodyCardConfirmation> {
         listener: (context, state) {
           if (state is DeleteAppointmentSuccess) {
             _showSuccessDialog(context, state.message, false);
-            Navigator.pop(context);
+            context.read<UpcomingCubit>().getUpcomingappointment();
           } else if (state is DeleteAppointmentFailure) {
             _showSuccessDialog(context, state.error, true);
           }
@@ -107,7 +109,7 @@ class _BodyCardConfirmationState extends State<BodyCardConfirmation> {
                     borderRadius: BorderRadius.circular(6),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: DateAndTimeRowCardConfirm(
                       date: formattedDate,
                       time: widget.appointmentDetails.appointmentTime,
@@ -130,9 +132,6 @@ class _BodyCardConfirmationState extends State<BodyCardConfirmation> {
                                       .appointmentDetails.appointmentId
                                       .toString(),
                                 );
-                            context
-                                .read<UpcomingCubit>()
-                                .getUpcomingappointment();
                           },
                           text: 'Cancel',
                           background: ColorSystem.kPrimaryColorHighLight,
@@ -141,13 +140,11 @@ class _BodyCardConfirmationState extends State<BodyCardConfirmation> {
                         ),
                         CustomButtonConfirmation(
                           onPressed: () {
-                            GoRouter.of(context).push(
-                              Routing.kpayment,
-                              extra: {
-                                "doctor_name": widget.appointmentDetails.doctorName,
-                                "salary": "300",
-                              }
-                            );
+                            GoRouter.of(context).push(Routing.kpayment, extra: {
+                              "doctor_name":
+                                  widget.appointmentDetails.doctorName,
+                              "salary": "300",
+                            });
                           },
                           text: 'Checkout',
                           background: ColorSystem.kPrimaryColor,

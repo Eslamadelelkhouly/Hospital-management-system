@@ -12,12 +12,25 @@ class GeminiServices {
   Future<Either<String, String>> getResponse(String message) async {
     try {
       log('Message: $message');
-      final content = [Content.text('$message')];
+
+      // ✅ Prompt احترافي باللغة العربية بدون أقواس أو Markdown
+      String prompt = '''
+أنا أعاني من الأعراض التالية:
+$message
+
+يرجى تزويدي بتشخيص طبي مبدئي بناءً على هذه الأعراض، مع اقتراح خطة علاجية مناسبة، وأسماء الأدوية المحتملة والجرعات المقترحة إن وُجدت. 
+
+من فضلك قدّم الإجابة بطريقة طبية منظمة وسهلة الفهم بدون استخدام أي رموز أو علامات مثل * أو - أو أقواس. لا تستخدم تنسيق Markdown.
+    ''';
+
+      final content = [Content.text(prompt)];
       final response = await _geminiModel.generateContent(content);
       log('Response: ${response.text}');
+
       if (response.text == null || response.text!.isEmpty) {
         return Left('No response from Gemini');
       }
+
       return Right(response.text!);
     } catch (e) {
       log(e.toString());
